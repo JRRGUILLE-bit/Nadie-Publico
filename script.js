@@ -1,6 +1,5 @@
 const video = document.querySelector('.background-video');
 const plates = document.querySelector('#plates');
-const activePlate = document.querySelector('#active-plate');
 
 if (video) {
   video.playbackRate = 0.8;
@@ -33,8 +32,7 @@ const timing = {
   betweenPlatesPause: 1900,
   typingDelay: 82,
   linePause: 360,
-  holdAfterTyping: 2600,
-  fadeOut: 900,
+  holdAfterTyping: 1200,
 };
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
@@ -53,18 +51,17 @@ const typeLine = async (line, text) => {
   }
 };
 
-const showPlate = async (plate) => {
-  activePlate.className = `plate ${plate.className}`;
-  activePlate.textContent = '';
-  activePlate.setAttribute('aria-hidden', 'false');
+const showPersistentPlate = async (plate) => {
+  const plateElement = document.createElement('div');
+  plateElement.className = `plate ${plate.className}`;
+  plateElement.setAttribute('aria-hidden', 'false');
 
   const lines = plate.lines.map(createLine);
-  lines.forEach((line) => activePlate.appendChild(line));
-
-  plates.classList.add('plates--visible');
-  activePlate.classList.add('plate--visible');
+  lines.forEach((line) => plateElement.appendChild(line));
+  plates.appendChild(plateElement);
 
   await wait(180);
+  plateElement.classList.add('plate--visible');
 
   for (const [index, line] of lines.entries()) {
     line.classList.add('plate__line--typing');
@@ -77,26 +74,19 @@ const showPlate = async (plate) => {
     }
   }
 
-  activePlate.classList.add('plate--complete');
+  plateElement.classList.add('plate--complete');
   await wait(timing.holdAfterTyping);
-  activePlate.classList.remove('plate--visible', 'plate--complete');
-  activePlate.classList.add('plate--leaving');
-  await wait(timing.fadeOut);
-  activePlate.className = 'plate';
-  activePlate.textContent = '';
-  activePlate.setAttribute('aria-hidden', 'true');
-  plates.classList.remove('plates--visible');
 };
 
 const runPlates = async () => {
-  if (!plates || !activePlate) {
+  if (!plates) {
     return;
   }
 
   await wait(timing.initialPause);
 
   for (const [index, plate] of plateSequence.entries()) {
-    await showPlate(plate);
+    await showPersistentPlate(plate);
 
     if (index < plateSequence.length - 1) {
       await wait(timing.betweenPlatesPause);
