@@ -1,0 +1,47 @@
+.legal-line {
+  position: absolute;
+  left: 50%;
+  bottom: 0.35rem;
+  transform: translateX(-50%);
+  z-index: 6;
+  width: min(92vw, 980px);
+  margin: 0;
+  color: #eadbb9;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.46rem, 0.82vw, 0.62rem);
+  line-height: 1.25;
+  letter-spacing: 0.025em;
+  text-align: center;
+  opacity: 0;
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.78);
+  pointer-events: none;
+  transition: opacity 900ms ease;
+}
+
+body.contacts-visible .legal-line {
+  opacity: 0.42;
+}
+
+body.about-open .legal-line {
+  opacity: 0.16;
+  filter: blur(1px);
+}
+
+@media (max-width: 720px) {
+  .legal-line {
+    bottom: max(0.22rem, env(safe-area-inset-bottom));
+    width: 94vw;
+    font-size: 0.48rem;
+    line-height: 1.18;
+  }
+
+  body.contacts-visible .legal-line {
+    opacity: 0.38;
+  }
+}
+
+@media (max-height: 640px) and (max-width: 720px) {
+  .legal-line {
+    font-size: 0.42rem;
+  }
+}
