@@ -55,15 +55,6 @@ const typeLine = async (line, text) => {
   }
 };
 
-const applySmokeAccent = (line, text) => {
-  if (text !== 'que iba a ser así.') {
-    return;
-  }
-
-  line.setAttribute('aria-label', text);
-  line.innerHTML = 'que iba a ser as<span class="smoke-i" aria-hidden="true"><span class="smoke-letter">i</span><span class="smoke-accent">´</span></span>.';
-};
-
 const showPersistentPlate = async (plate) => {
   const plateElement = document.createElement('div');
   plateElement.className = `plate ${plate.className}`;
@@ -79,7 +70,6 @@ const showPersistentPlate = async (plate) => {
   for (const [index, line] of lines.entries()) {
     line.classList.add('plate__line--typing');
     await typeLine(line, plate.lines[index]);
-    applySmokeAccent(line, plate.lines[index]);
     line.classList.remove('plate__line--typing');
     line.classList.add('plate__line--typed');
 
