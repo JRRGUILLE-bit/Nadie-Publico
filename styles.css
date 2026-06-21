@@ -273,6 +273,62 @@ body.about-open .plates {
   font-size: clamp(1.12rem, 2.35vw, 2.35rem);
 }
 
+
+.project-recognition-strip {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(5.6rem, 12vh, 8rem);
+  z-index: 5;
+  width: min(90vw, 760px);
+  margin: 0;
+  padding: 0.46rem 0.82rem;
+  color: #eadbb9;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.68rem, 1.15vw, 0.86rem);
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.74);
+  background: rgba(5, 5, 4, 0.22);
+  border-block: 1px solid rgba(234, 219, 185, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.55rem);
+  transition:
+    opacity 900ms ease,
+    transform 900ms ease;
+}
+
+body.contacts-visible .project-recognition-strip {
+  opacity: 0.84;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+body.about-open .project-recognition-strip {
+  opacity: 0.26;
+  filter: blur(1px);
+}
+
+.project-recognition-strip a {
+  color: inherit;
+  text-decoration-color: rgba(212, 178, 113, 0.78);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.project-recognition-strip a:hover,
+.project-recognition-strip a:focus-visible {
+  color: #f3e3bf;
+  outline: none;
+}
+
+.project-recognition-strip span {
+  display: inline-block;
+  margin: 0 0.32rem;
+  color: rgba(212, 178, 113, 0.72);
+}
+
 .contact-links {
   position: absolute;
   left: 50%;
@@ -728,6 +784,18 @@ body.about-open .about-modal__panel {
     max-width: 86vw;
     font-size: clamp(0.9rem, 4.2vw, 1.28rem);
     line-height: 1.22;
+  }
+
+  .project-recognition-strip {
+    bottom: calc(max(4.75rem, env(safe-area-inset-bottom) + 4.2rem));
+    width: min(92vw, 430px);
+    padding: 0.4rem 0.55rem;
+    font-size: clamp(0.58rem, 2.45vw, 0.68rem);
+    line-height: 1.42;
+  }
+
+  .project-recognition-strip span {
+    margin: 0 0.22rem;
   }
 
   .contact-links {
