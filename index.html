@@ -8,6 +8,12 @@
       name="description"
       content="Portada pública de la serie Nadie te dijo que iba a ser así."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -28,8 +34,9 @@
       <div class="siren-overlay" aria-hidden="true"></div>
       <div class="grain-overlay" aria-hidden="true"></div>
 
-      <!-- Espacio reservado para futuras placas; no renderiza contenido visible. -->
-      <section class="plates" id="plates" aria-label="Placas de portada"></section>
+      <section class="plates" id="plates" aria-label="Placas de portada" aria-live="polite">
+        <div class="plate" id="active-plate" aria-hidden="true"></div>
+      </section>
     </main>
 
     <script src="script.js"></script>
