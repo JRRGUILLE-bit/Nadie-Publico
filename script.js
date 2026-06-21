@@ -31,6 +31,21 @@ const plateSequence = [
     lines: ['Creado por', 'Maite Piñeyrúa Segura y Guillermo Barbeito'],
   },
   {
+    className: 'plate--recognition',
+    lines: [
+      'Apoyado por',
+      {
+        text: 'Fondo de Incentivo Cultural',
+        href: 'https://www.fondosdeincentivocultural.gub.uy/innovaportal/v/6546/2/web/nadie-te-dijo-que-iba-a-ser-asi.html',
+      },
+      {
+        text: 'DETOUR Series Lab',
+        href: 'https://www.uruguayxxi.gub.uy/es/eventos/articulo/detour-2025/',
+      },
+      'Premio Teaser DETOUR',
+    ],
+  },
+  {
     className: 'plate--coproduction',
     lines: ['Una co-producción con SKA Films'],
   },
@@ -47,16 +62,28 @@ const timing = {
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
 
-const createLine = (text, index) => {
+const getLineText = (line) => (typeof line === 'string' ? line : line.text);
+
+const createLine = (lineContent, index) => {
   const line = document.createElement('p');
   line.className = `plate__line plate__line--${index + 1}`;
-  line.dataset.fullText = text;
+  line.dataset.fullText = getLineText(lineContent);
   return line;
 };
 
-const typeLine = async (line, text) => {
+const typeLine = async (line, lineContent) => {
+  const text = getLineText(lineContent);
+  const target = lineContent.href ? document.createElement('a') : line;
+
+  if (lineContent.href) {
+    target.href = lineContent.href;
+    target.target = '_blank';
+    target.rel = 'noopener noreferrer';
+    line.appendChild(target);
+  }
+
   for (const character of text) {
-    line.textContent += character;
+    target.textContent += character;
     await wait(timing.typingDelay);
   }
 };
