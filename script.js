@@ -31,12 +31,12 @@ const plateSequence = [
 ];
 
 const timing = {
-  initialPause: 1800,
-  betweenPlatesPause: 1900,
-  typingDelay: 82,
-  linePause: 360,
-  holdAfterTyping: 1200,
-  contactRevealPause: 900,
+  initialPause: 900,
+  betweenPlatesPause: 700,
+  typingDelay: 46,
+  linePause: 180,
+  holdAfterTyping: 450,
+  contactRevealPause: 350,
 };
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
