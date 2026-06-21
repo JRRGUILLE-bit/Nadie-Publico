@@ -5,7 +5,7 @@ const aboutCarousel = document.querySelector('#about-carousel');
 const aboutClose = document.querySelector('#about-close');
 const aboutPrev = document.querySelector('#about-prev');
 const aboutNext = document.querySelector('#about-next');
-const aboutPause = document.querySelector('#about-pause');
+let aboutPause = document.querySelector('#about-pause');
 const aboutSlides = Array.from(document.querySelectorAll('[data-about-slide]'));
 const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -211,6 +211,16 @@ const toggleAboutPause = () => {
 
   startAboutAutoplay();
 };
+
+if (!aboutPause && aboutClose) {
+  aboutPause = document.createElement('button');
+  aboutPause.className = 'about-carousel__back';
+  aboutPause.id = 'about-pause';
+  aboutPause.type = 'button';
+  aboutPause.setAttribute('aria-pressed', 'false');
+  aboutClose.insertAdjacentElement('beforebegin', aboutPause);
+  updateAboutPauseButton();
+}
 
 aboutTrigger?.addEventListener('click', openAbout);
 aboutClose?.addEventListener('click', closeAbout);
