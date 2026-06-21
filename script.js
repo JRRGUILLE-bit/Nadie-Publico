@@ -1,5 +1,8 @@
 const video = document.querySelector('.background-video');
 const plates = document.querySelector('#plates');
+const aboutTrigger = document.querySelector('#about-trigger');
+const aboutModal = document.querySelector('#about-modal');
+const aboutClose = document.querySelector('#about-close');
 
 if (video) {
   video.playbackRate = 0.8;
@@ -33,6 +36,7 @@ const timing = {
   typingDelay: 82,
   linePause: 360,
   holdAfterTyping: 1200,
+  contactRevealPause: 900,
 };
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
@@ -92,6 +96,44 @@ const runPlates = async () => {
       await wait(timing.betweenPlatesPause);
     }
   }
+
+  await wait(timing.contactRevealPause);
+  document.body.classList.add('contacts-visible');
 };
+
+const openAbout = () => {
+  if (!aboutModal) {
+    return;
+  }
+
+  document.body.classList.add('about-open');
+  aboutModal.setAttribute('aria-hidden', 'false');
+  aboutClose?.focus({ preventScroll: true });
+};
+
+const closeAbout = () => {
+  if (!aboutModal) {
+    return;
+  }
+
+  document.body.classList.remove('about-open');
+  aboutModal.setAttribute('aria-hidden', 'true');
+  aboutTrigger?.focus({ preventScroll: true });
+};
+
+aboutTrigger?.addEventListener('click', openAbout);
+aboutClose?.addEventListener('click', closeAbout);
+
+aboutModal?.addEventListener('click', (event) => {
+  if (event.target === aboutModal) {
+    closeAbout();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && document.body.classList.contains('about-open')) {
+    closeAbout();
+  }
+});
 
 runPlates();
