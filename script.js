@@ -26,7 +26,7 @@ const plateSequence = [
   },
   {
     className: 'plate--coproduction',
-    lines: ['Una coproducción de SKA Films'],
+    lines: ['Una co-producción con SKA Films'],
   },
 ];
 
