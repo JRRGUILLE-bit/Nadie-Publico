@@ -127,7 +127,7 @@ body {
 }
 
 .plate__line--typing::after,
-.plate--complete .plate__line--typed:last-child::after {
+.plate--coproduction.plate--complete .plate__line--typed:last-child::after {
   content: '';
   display: inline-block;
   width: 0.08em;
@@ -272,7 +272,7 @@ body {
   }
 
   .plate__line--typing::after,
-  .plate--complete .plate__line--typed:last-child::after {
+  .plate--coproduction.plate--complete .plate__line--typed:last-child::after {
     animation-duration: 0.001ms !important;
   }
 }
