@@ -1,8 +1,13 @@
 const video = document.querySelector('.background-video');
 const plates = document.querySelector('#plates');
 const aboutTrigger = document.querySelector('#about-trigger');
-const aboutModal = document.querySelector('#about-modal');
+const aboutCarousel = document.querySelector('#about-carousel');
 const aboutClose = document.querySelector('#about-close');
+const aboutPrev = document.querySelector('#about-prev');
+const aboutNext = document.querySelector('#about-next');
+const aboutSlides = Array.from(document.querySelectorAll('[data-about-slide]'));
+const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (video) {
   video.playbackRate = 0.8;
@@ -101,39 +106,112 @@ const runPlates = async () => {
   document.body.classList.add('contacts-visible');
 };
 
+let activeAboutSlide = 0;
+let aboutAutoplay;
+const aboutAutoplayDelay = 6500;
+
+const setAboutSlide = (index) => {
+  if (!aboutSlides.length) {
+    return;
+  }
+
+  activeAboutSlide = (index + aboutSlides.length) % aboutSlides.length;
+
+  aboutSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === activeAboutSlide;
+    slide.classList.toggle('is-active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+
+  aboutDots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === activeAboutSlide;
+    dot.classList.toggle('is-active', isActive);
+    dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+  });
+};
+
+const stopAboutAutoplay = () => {
+  window.clearInterval(aboutAutoplay);
+  aboutAutoplay = undefined;
+};
+
+const startAboutAutoplay = () => {
+  stopAboutAutoplay();
+
+  if (prefersReducedMotion.matches || !document.body.classList.contains('about-open')) {
+    return;
+  }
+
+  aboutAutoplay = window.setInterval(() => {
+    setAboutSlide(activeAboutSlide + 1);
+  }, aboutAutoplayDelay);
+};
+
+const restartAboutAutoplay = () => {
+  stopAboutAutoplay();
+  startAboutAutoplay();
+};
+
 const openAbout = () => {
-  if (!aboutModal) {
+  if (!aboutCarousel) {
     return;
   }
 
   document.body.classList.add('about-open');
-  aboutModal.setAttribute('aria-hidden', 'false');
+  aboutCarousel.setAttribute('aria-hidden', 'false');
+  setAboutSlide(activeAboutSlide);
+  startAboutAutoplay();
   aboutClose?.focus({ preventScroll: true });
 };
 
 const closeAbout = () => {
-  if (!aboutModal) {
+  if (!aboutCarousel) {
     return;
   }
 
   document.body.classList.remove('about-open');
-  aboutModal.setAttribute('aria-hidden', 'true');
+  aboutCarousel.setAttribute('aria-hidden', 'true');
+  stopAboutAutoplay();
   aboutTrigger?.focus({ preventScroll: true });
+};
+
+const moveAboutSlide = (direction) => {
+  setAboutSlide(activeAboutSlide + direction);
+  restartAboutAutoplay();
 };
 
 aboutTrigger?.addEventListener('click', openAbout);
 aboutClose?.addEventListener('click', closeAbout);
+aboutPrev?.addEventListener('click', () => moveAboutSlide(-1));
+aboutNext?.addEventListener('click', () => moveAboutSlide(1));
+aboutDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    setAboutSlide(index);
+    restartAboutAutoplay();
+  });
+});
 
-aboutModal?.addEventListener('click', (event) => {
-  if (event.target === aboutModal) {
-    closeAbout();
-  }
+prefersReducedMotion.addEventListener('change', () => {
+  restartAboutAutoplay();
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && document.body.classList.contains('about-open')) {
+  if (!document.body.classList.contains('about-open')) {
+    return;
+  }
+
+  if (event.key === 'Escape') {
     closeAbout();
+  }
+
+  if (event.key === 'ArrowLeft') {
+    moveAboutSlide(-1);
+  }
+
+  if (event.key === 'ArrowRight') {
+    moveAboutSlide(1);
   }
 });
 
+setAboutSlide(0);
 runPlates();
