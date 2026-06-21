@@ -32,7 +32,7 @@ const plateSequence = [
   },
   {
     className: 'plate--recognition',
-    lines: ['Apoyado por', 'Con el apoyo del FIC', 'DETOUR Series Lab: Premio Teaser'],
+    lines: ['Con el apoyo del FIC', 'DETOUR Series Lab: Premio Teaser'],
   },
   {
     className: 'plate--coproduction',

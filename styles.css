@@ -268,7 +268,7 @@ body.about-open .plates {
 }
 
 .plate--recognition {
-  top: 61%;
+  top: 64%;
   max-width: min(86vw, 820px);
   font-size: clamp(1.02rem, 2.08vw, 2.08rem);
 }
@@ -278,12 +278,12 @@ body.about-open .plates {
   letter-spacing: 0.09em;
 }
 
-.plate--recognition .plate__line--3 {
+.plate--recognition .plate__line--2 {
   white-space: nowrap;
 }
 
 .plate--coproduction {
-  bottom: clamp(6.9rem, 14vh, 9.5rem);
+  bottom: clamp(5.6rem, 11vh, 8rem);
   max-width: min(86vw, 820px);
   font-size: clamp(1.12rem, 2.35vw, 2.35rem);
 }
@@ -739,7 +739,7 @@ body.about-open .about-modal__panel {
   }
 
   .plate--recognition {
-    top: 54svh;
+    top: 56svh;
     max-width: 90vw;
     font-size: clamp(0.82rem, 3.55vw, 1.08rem);
     line-height: 1.16;
@@ -750,12 +750,13 @@ body.about-open .about-modal__panel {
     letter-spacing: 0.08em;
   }
 
-  .plate--recognition .plate__line--3 {
+  .plate--recognition .plate__line--2 {
     font-size: clamp(0.72rem, 3.25vw, 1rem);
+    white-space: nowrap;
   }
 
   .plate--coproduction {
-    bottom: 18svh;
+    bottom: 15svh;
     max-width: 86vw;
     font-size: clamp(0.9rem, 4.2vw, 1.28rem);
     line-height: 1.22;
