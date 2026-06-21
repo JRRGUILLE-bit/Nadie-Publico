@@ -32,18 +32,7 @@ const plateSequence = [
   },
   {
     className: 'plate--recognition',
-    lines: [
-      'Apoyado por',
-      {
-        text: 'Fondo de Incentivo Cultural',
-        href: 'https://www.fondosdeincentivocultural.gub.uy/innovaportal/v/6546/2/web/nadie-te-dijo-que-iba-a-ser-asi.html',
-      },
-      {
-        text: 'DETOUR Series Lab',
-        href: 'https://www.uruguayxxi.gub.uy/es/eventos/articulo/detour-2025/',
-      },
-      'Premio Teaser DETOUR',
-    ],
+    lines: ['Apoyado por', 'Con el apoyo del FIC', 'DETOUR Series Lab: Premio Teaser'],
   },
   {
     className: 'plate--coproduction',
