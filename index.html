@@ -15,6 +15,75 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css?v=12" />
+    <style>
+      .smoke-i {
+        position: relative;
+        display: inline-block;
+        padding-right: 0.02em;
+      }
+
+      .smoke-letter {
+        display: inline-block;
+      }
+
+      .smoke-accent {
+        position: absolute;
+        left: 50%;
+        top: -0.47em;
+        display: inline-block;
+        color: #f0dfbe;
+        opacity: 0.84;
+        text-shadow:
+          0 0 0.08em rgba(238, 224, 194, 0.7),
+          0 0 0.32em rgba(95, 75, 42, 0.35),
+          0 2px 8px rgba(0, 0, 0, 0.7);
+        transform: translateX(-50%) rotate(-12deg);
+        transform-origin: 50% 100%;
+        filter: blur(0.01em);
+        animation: smoke-accent 5.8s ease-in-out 0.8s infinite;
+        will-change: transform, opacity, filter;
+      }
+
+      @keyframes smoke-accent {
+        0%,
+        100% {
+          opacity: 0.86;
+          filter: blur(0.01em);
+          transform: translate(-50%, 0) rotate(-12deg) scale(1);
+        }
+
+        26% {
+          opacity: 0.68;
+          filter: blur(0.045em);
+          transform: translate(-44%, -0.08em) rotate(-18deg) scaleX(1.12) scaleY(0.95);
+        }
+
+        52% {
+          opacity: 0.78;
+          filter: blur(0.025em);
+          transform: translate(-57%, -0.03em) rotate(-7deg) scaleX(0.94) scaleY(1.04);
+        }
+
+        76% {
+          opacity: 0.58;
+          filter: blur(0.055em);
+          transform: translate(-47%, -0.13em) rotate(-21deg) scaleX(1.18) scaleY(0.9);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .smoke-accent {
+          top: -0.44em;
+          animation-duration: 6.4s;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .smoke-accent {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <main class="splash" aria-label="Portada">
@@ -72,6 +141,6 @@
       </aside>
     </main>
 
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=10"></script>
   </body>
 </html>
