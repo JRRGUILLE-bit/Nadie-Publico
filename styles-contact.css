@@ -1,0 +1,18 @@
+.about-contact-card {
+  margin-top: 1.15rem;
+}
+
+.about-contact-card a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  opacity: 0.86;
+}
+
+.about-contact-card a:hover,
+.about-contact-card a:focus-visible {
+  opacity: 1;
+  outline: none;
+}
