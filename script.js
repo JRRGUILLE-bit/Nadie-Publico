@@ -110,7 +110,27 @@ const runPlates = async () => {
 let activeAboutSlide = 0;
 let aboutAutoplay;
 let aboutIsPaused = false;
-const aboutAutoplayDelay = 30000;
+const aboutReadingMsPer100Words = 20000;
+const aboutMinimumReadingDelay = 45000;
+
+const getAboutSlideWordCount = (slide) => {
+  if (!slide) {
+    return 0;
+  }
+
+  return slide.textContent
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+};
+
+const getAboutAutoplayDelay = () => {
+  const activeSlide = aboutSlides[activeAboutSlide];
+  const wordCount = getAboutSlideWordCount(activeSlide);
+  const readingDelay = Math.ceil((wordCount / 100) * aboutReadingMsPer100Words);
+
+  return Math.max(readingDelay, aboutMinimumReadingDelay);
+};
 
 const updateAboutPauseButton = () => {
   if (!aboutPause) {
@@ -146,7 +166,7 @@ const setAboutSlide = (index) => {
 };
 
 const stopAboutAutoplay = () => {
-  window.clearInterval(aboutAutoplay);
+  window.clearTimeout(aboutAutoplay);
   aboutAutoplay = undefined;
 };
 
@@ -161,9 +181,10 @@ const startAboutAutoplay = () => {
     return;
   }
 
-  aboutAutoplay = window.setInterval(() => {
+  aboutAutoplay = window.setTimeout(() => {
     setAboutSlide(activeAboutSlide + 1);
-  }, aboutAutoplayDelay);
+    startAboutAutoplay();
+  }, getAboutAutoplayDelay());
 };
 
 const restartAboutAutoplay = () => {
