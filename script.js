@@ -255,9 +255,11 @@ aboutDots.forEach((dot, index) => {
   });
 });
 
-prefersReducedMotion.addEventListener('change', () => {
-  restartAboutAutoplay();
-});
+if (typeof prefersReducedMotion.addEventListener === 'function') {
+  prefersReducedMotion.addEventListener('change', restartAboutAutoplay);
+} else if (typeof prefersReducedMotion.addListener === 'function') {
+  prefersReducedMotion.addListener(restartAboutAutoplay);
+}
 
 document.addEventListener('keydown', (event) => {
   if (!document.body.classList.contains('about-open')) {
