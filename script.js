@@ -1,6 +1,7 @@
 const video = document.querySelector('.background-video');
 
 if (video) {
+  video.playbackRate = 0.8;
   video.addEventListener('canplay', () => {
     document.body.classList.add('video-ready');
   });
