@@ -733,22 +733,20 @@ body.about-open .about-modal__panel {
     align-items: start;
     gap: 0.45rem;
     width: min(94vw, 430px);
-    padding: 0.72rem 0.58rem 0.58rem;
-    border: 1px solid rgba(238, 224, 194, 0.13);
-    border-radius: 0.18rem;
-    background:
-      linear-gradient(180deg, rgba(14, 11, 7, 0.36), rgba(5, 5, 4, 0.18));
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.34),
-      inset 0 0 0 1px rgba(238, 224, 194, 0.035);
-    backdrop-filter: blur(2px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
   .contact-link {
     min-width: 0;
     width: 100%;
     gap: 0.26rem;
-    padding: 0;
+    padding: 0.18rem 0.1rem;
     opacity: 0.82;
   }
 
@@ -835,7 +833,7 @@ body.about-open .about-modal__panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(88vw, 300px);
     gap: 0.55rem 0.8rem;
-    padding: 0.72rem 0.68rem 0.62rem;
+    padding: 0;
   }
 
   .contact-link img {
@@ -860,7 +858,7 @@ body.about-open .about-modal__panel {
 
   .contact-links {
     bottom: max(0.55rem, env(safe-area-inset-bottom));
-    padding: 0.46rem 0.52rem 0.42rem;
+    padding: 0;
   }
 
   .contact-link img {
