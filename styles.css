@@ -1032,6 +1032,20 @@ body.about-open .about-carousel__frame {
   margin-top: 0.88rem;
 }
 
+.about-card a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 178, 113, 0.8);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  opacity: 0.9;
+}
+
+.about-card a:hover,
+.about-card a:focus-visible {
+  opacity: 1;
+}
+
 .about-carousel__controls {
   display: grid;
   grid-template-columns: auto 1fr auto;
