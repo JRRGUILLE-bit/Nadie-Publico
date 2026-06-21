@@ -1,1 +1,153 @@
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#050504;color:#eee4cf}body{overflow:hidden}.splash{position:relative;width:100vw;height:100vh;min-height:620px;overflow:hidden;background:#050504}.background-video,.image-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;transform:scale(1.02)}.image-fallback{background:url('assets/images/ntdqiasa_fire_smoke_ash_poster.jpg') center/cover no-repeat;z-index:-1}.dark-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.2) 52%,rgba(0,0,0,.44)),linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.08) 45%,rgba(0,0,0,.66))}.siren-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:.22;background:linear-gradient(100deg,transparent 0 14%,rgba(40,80,180,.12) 21%,transparent 36%),linear-gradient(92deg,transparent 0 18%,rgba(190,26,22,.1) 26%,transparent 42%);animation:siren 7s infinite steps(1,end)}.grain-overlay{position:absolute;inset:-20%;z-index:3;opacity:.12;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.25) 0 .7px,transparent .9px),radial-gradient(circle,rgba(0,0,0,.35) 0 .8px,transparent 1px);background-size:7px 7px,11px 11px;animation:grain .7s steps(2,end) infinite}.plates{position:relative;z-index:4;min-height:100%;pointer-events:none}@keyframes grain{0%{transform:translate(-2%,-1%)}50%{transform:translate(1%,2%)}100%{transform:translate(3%,-2%)}}@keyframes siren{0%,100%{opacity:.06}18%{opacity:.26}26%{opacity:.09}42%{opacity:.28}53%{opacity:.08}66%{opacity:.31}80%{opacity:.09}}@media(max-width:720px){.splash{min-height:100svh}.background-video,.image-fallback{object-position:62% center}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}.background-video{display:none}}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #050504;
+  color: #eee4cf;
+}
+
+body {
+  overflow: hidden;
+}
+
+.splash {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  background: #050504;
+}
+
+.background-video,
+.image-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transform: scale(1.02);
+}
+
+.image-fallback {
+  background: url('assets/images/ntdqiasa_fire_smoke_ash_poster.jpg') center/cover no-repeat;
+  z-index: -1;
+}
+
+.dark-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.26) 48%, rgba(0, 0, 0, 0.5)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.1) 44%, rgba(0, 0, 0, 0.58));
+}
+
+.siren-overlay {
+  position: absolute;
+  inset: -8% -4% -8% -12%;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  background:
+    radial-gradient(ellipse 90% 66% at -18% 36%, rgba(46, 95, 190, 0.2) 0%, rgba(46, 95, 190, 0.11) 22%, transparent 58%),
+    radial-gradient(ellipse 82% 58% at -15% 52%, rgba(184, 32, 24, 0.17) 0%, rgba(184, 32, 24, 0.09) 24%, transparent 60%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 42%);
+  filter: blur(18px);
+  animation: siren 9.5s ease-in-out infinite;
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: -20%;
+  z-index: 3;
+  opacity: 0.09;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.2) 0 0.6px, transparent 0.85px),
+    radial-gradient(circle, rgba(0, 0, 0, 0.3) 0 0.75px, transparent 1px);
+  background-size: 8px 8px, 13px 13px;
+  animation: grain 0.9s steps(2, end) infinite;
+}
+
+.plates {
+  position: relative;
+  z-index: 4;
+  min-height: 100%;
+  pointer-events: none;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(-2%, -1%);
+  }
+
+  50% {
+    transform: translate(1%, 2%);
+  }
+
+  100% {
+    transform: translate(3%, -2%);
+  }
+}
+
+@keyframes siren {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: translateX(-1.5%) scale(1);
+  }
+
+  16% {
+    opacity: 0.28;
+  }
+
+  28% {
+    opacity: 0.16;
+  }
+
+  44% {
+    opacity: 0.33;
+    transform: translateX(1.8%) scale(1.02);
+  }
+
+  61% {
+    opacity: 0.14;
+  }
+
+  76% {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 720px) {
+  .splash {
+    min-height: 100svh;
+  }
+
+  .background-video,
+  .image-fallback {
+    object-position: 62% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .background-video {
+    display: none;
+  }
+}
