@@ -46,8 +46,9 @@ body {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.2) 52%, rgba(0, 0, 0, 0.44)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.08) 45%, rgba(0, 0, 0, 0.66));
+    radial-gradient(circle at 28% 42%, rgba(64, 45, 28, 0.16), transparent 44%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.5)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.12) 44%, rgba(0, 0, 0, 0.68));
 }
 
 .siren-overlay {
@@ -56,66 +57,31 @@ body {
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.22;
+  opacity: 0.18;
   background:
-    linear-gradient(100deg, transparent 0 14%, rgba(40, 80, 180, 0.12) 21%, transparent 36%),
-    linear-gradient(92deg, transparent 0 18%, rgba(190, 26, 22, 0.1) 26%, transparent 42%);
-  animation: siren 7s infinite steps(1, end);
+    linear-gradient(88deg, rgba(41, 85, 180, 0.2) 0%, rgba(41, 85, 180, 0.1) 8%, transparent 34%),
+    linear-gradient(93deg, rgba(190, 32, 24, 0.18) 0%, rgba(190, 32, 24, 0.08) 12%, transparent 39%),
+    linear-gradient(82deg, rgba(255, 255, 255, 0.05) 0%, transparent 24%);
+  filter: blur(18px);
+  transform-origin: left center;
+  animation: siren 8.6s infinite ease-in-out;
 }
 
 .grain-overlay {
   position: absolute;
   inset: -20%;
   z-index: 3;
-  opacity: 0.12;
+  opacity: 0.08;
   pointer-events: none;
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.25) 0 0.7px, transparent 0.9px),
-    radial-gradient(circle, rgba(0, 0, 0, 0.35) 0 0.8px, transparent 1px);
-  background-size: 7px 7px, 11px 11px;
-  animation: grain 0.7s steps(2, end) infinite;
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0 0.55px, transparent 0.8px),
+    radial-gradient(circle, rgba(0, 0, 0, 0.24) 0 0.65px, transparent 0.95px);
+  background-size: 8px 8px, 13px 13px;
+  animation: grain 0.9s steps(2, end) infinite;
 }
 
 .plates {
-  position: relative;
-  z-index: 4;
-  min-height: 100%;
-  pointer-events: none;
-}
-
-.plate {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-}
-
-.plate--ska {
-  animation: plateFade 4.8s ease-in-out forwards;
-}
-
-.plate__logo {
-  display: block;
-  width: min(260px, 46vw);
-  height: auto;
-  opacity: 0.93;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.34));
-}
-
-@keyframes plateFade {
-  0% {
-    opacity: 0;
-  }
-
-  32%,
-  62% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  display: none;
 }
 
 @keyframes grain {
@@ -135,31 +101,33 @@ body {
 @keyframes siren {
   0%,
   100% {
-    opacity: 0.06;
-  }
-
-  18% {
-    opacity: 0.26;
-  }
-
-  26% {
-    opacity: 0.09;
-  }
-
-  42% {
-    opacity: 0.28;
-  }
-
-  53% {
     opacity: 0.08;
+    transform: translateX(-1.5%) scaleX(1.02);
   }
 
-  66% {
-    opacity: 0.31;
+  17% {
+    opacity: 0.19;
+    transform: translateX(0) scaleX(1.04);
   }
 
-  80% {
-    opacity: 0.09;
+  29% {
+    opacity: 0.11;
+    transform: translateX(-0.8%) scaleX(1.01);
+  }
+
+  46% {
+    opacity: 0.16;
+    transform: translateX(0.4%) scaleX(1.03);
+  }
+
+  61% {
+    opacity: 0.07;
+    transform: translateX(-1.2%) scaleX(1.02);
+  }
+
+  78% {
+    opacity: 0.21;
+    transform: translateX(0.2%) scaleX(1.05);
   }
 }
 
@@ -171,10 +139,6 @@ body {
   .background-video,
   .image-fallback {
     object-position: 62% center;
-  }
-
-  .plate__logo {
-    width: min(205px, 58vw);
   }
 }
 
