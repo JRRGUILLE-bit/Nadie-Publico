@@ -110,8 +110,8 @@ const runPlates = async () => {
 let activeAboutSlide = 0;
 let aboutAutoplay;
 let aboutIsPaused = false;
-const aboutReadingMsPer100Words = 20000;
-const aboutMinimumReadingDelay = 45000;
+const aboutReadingMsPer100Words = 30000;
+const aboutMinimumReadingDelay = 70000;
 
 const getAboutSlideWordCount = (slide) => {
   if (!slide) {
