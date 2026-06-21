@@ -32,11 +32,11 @@ const plateSequence = [
 
 const timing = {
   initialPause: 900,
-  betweenPlatesPause: 700,
-  typingDelay: 46,
-  linePause: 180,
-  holdAfterTyping: 450,
-  contactRevealPause: 350,
+  betweenPlatesPause: 350,
+  typingDelay: 51,
+  linePause: 160,
+  holdAfterTyping: 300,
+  contactRevealPause: 300,
 };
 
 const wait = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
