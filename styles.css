@@ -1065,6 +1065,7 @@ body.about-open .about-carousel__frame {
   padding: clamp(1.25rem, 3.2vw, 2.45rem);
   border: 1px solid rgba(220, 218, 197, 0.26);
   color: #e9e3d3;
+  text-shadow: none;
   background:
     linear-gradient(180deg, rgba(24, 35, 31, 0.32), rgba(10, 15, 14, 0.5)),
     radial-gradient(circle at 16% 10%, rgba(234, 228, 203, 0.12), transparent 32%),
@@ -1138,14 +1139,14 @@ body.about-open .about-carousel__frame {
   line-height: 1.12;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.42);
+  text-shadow: none;
 }
 
 .about-card p {
   margin: 0;
   color: rgba(233, 227, 211, 0.94);
   font-size: clamp(0.86rem, 1.45vw, 1rem);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.26);
+  text-shadow: none;
 }
 
 .about-card p + p {
@@ -1159,6 +1160,7 @@ body.about-open .about-carousel__frame {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   opacity: 0.9;
+  text-shadow: none;
 }
 
 .about-card a:hover,
