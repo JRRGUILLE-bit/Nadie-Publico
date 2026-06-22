@@ -2,6 +2,7 @@ const video = document.querySelector('.background-video');
 const plates = document.querySelector('#plates');
 const aboutTrigger = document.querySelector('#about-trigger');
 const aboutCarousel = document.querySelector('#about-carousel');
+const aboutFrame = aboutCarousel?.querySelector('.about-carousel__frame');
 const aboutClose = document.querySelector('#about-close');
 const aboutPrev = document.querySelector('#about-prev');
 const aboutNext = document.querySelector('#about-next');
@@ -302,6 +303,17 @@ if (!aboutPause && aboutClose) {
 
 aboutTrigger?.addEventListener('click', openAbout);
 aboutClose?.addEventListener('click', closeAbout);
+aboutCarousel?.addEventListener('click', (event) => {
+  if (
+    !document.body.classList.contains('about-open') ||
+    aboutFrame?.contains(event.target)
+  ) {
+    return;
+  }
+
+  closeAbout();
+});
+
 aboutPrev?.addEventListener('click', () => moveAboutSlide(-1));
 aboutNext?.addEventListener('click', () => moveAboutSlide(1));
 aboutPause?.addEventListener('click', toggleAboutPause);
