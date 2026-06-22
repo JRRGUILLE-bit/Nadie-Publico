@@ -62,11 +62,11 @@ const plateSequence = [
 
 const timing = {
   initialPause: 650,
-  betweenPlatesPause: 120,
+  betweenPlatesPause: 102,
   plateRevealPause: 100,
-  typingDelay: 46,
-  linePause: 160,
-  holdAfterTyping: 180,
+  typingDelay: 39,
+  linePause: 136,
+  holdAfterTyping: 153,
   contactRevealPause: 300,
 };
 
