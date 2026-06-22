@@ -11,7 +11,7 @@ const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (video) {
-  video.playbackRate = 0.8;
+  video.playbackRate = 1;
   video.addEventListener('canplay', () => {
     document.body.classList.add('video-ready');
   });
@@ -43,7 +43,7 @@ const plateSequence = [
 const timing = {
   initialPause: 900,
   betweenPlatesPause: 350,
-  typingDelay: 51,
+  typingDelay: 46,
   linePause: 160,
   holdAfterTyping: 300,
   contactRevealPause: 300,
