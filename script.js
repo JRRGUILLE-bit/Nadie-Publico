@@ -28,7 +28,17 @@ const plateSequence = [
   },
   {
     className: 'plate--credits plate--secondary',
-    lines: ['Creado por', 'Maite Piñeyrúa Segura y Guillermo Barbeito'],
+    lines: [
+      'Creado por',
+      {
+        text: 'Maite Piñeyrúa Segura y Guillermo Barbeito',
+        parts: [
+          { text: 'Maite Piñeyrúa Segura', className: 'plate__name' },
+          { text: ' y ' },
+          { text: 'Guillermo Barbeito', className: 'plate__name' },
+        ],
+      },
+    ],
   },
   {
     className: 'plate--recognition plate--secondary',
@@ -36,7 +46,15 @@ const plateSequence = [
   },
   {
     className: 'plate--coproduction plate--secondary',
-    lines: ['Una co-producción con SKA Films'],
+    lines: [
+      {
+        text: 'Una co-producción con SKA Films',
+        parts: [
+          { text: 'Una co-producción con ' },
+          { text: 'SKA Films', className: 'plate__name' },
+        ],
+      },
+    ],
   },
 ];
 
@@ -61,6 +79,13 @@ const createLine = (lineContent, index) => {
   return line;
 };
 
+const typeCharacters = async (target, text) => {
+  for (const character of text) {
+    target.textContent += character;
+    await wait(timing.typingDelay);
+  }
+};
+
 const typeLine = async (line, lineContent) => {
   const text = getLineText(lineContent);
   const target = lineContent.href ? document.createElement('a') : line;
@@ -72,10 +97,22 @@ const typeLine = async (line, lineContent) => {
     line.appendChild(target);
   }
 
-  for (const character of text) {
-    target.textContent += character;
-    await wait(timing.typingDelay);
+  if (lineContent.parts?.length) {
+    for (const part of lineContent.parts) {
+      const partTarget = part.className ? document.createElement('span') : target;
+
+      if (part.className) {
+        partTarget.className = part.className;
+        target.appendChild(partTarget);
+      }
+
+      await typeCharacters(partTarget, part.text);
+    }
+
+    return;
   }
+
+  await typeCharacters(target, text);
 };
 
 const showPersistentPlate = async (plate) => {
