@@ -1136,6 +1136,8 @@ body.about-open .about-carousel__frame {
 
 .about-card--project {
   overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(226, 210, 168, 0.62) rgba(16, 29, 25, 0.34);
   border-color: rgba(220, 218, 197, 0.26);
   color: #e9e3d3;
   background:
@@ -1169,9 +1171,29 @@ body.about-open .about-carousel__frame {
   pointer-events: none;
   z-index: 2;
   background: url('assets/images/sobre-proyecto-coffee-stain.png') center / contain no-repeat;
-  opacity: 0.42;
+  opacity: 0.65;
   mix-blend-mode: multiply;
   filter: sepia(0.28) saturate(0.82) contrast(0.95);
+}
+
+.about-card--project::-webkit-scrollbar {
+  width: 0.48rem;
+}
+
+.about-card--project::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(16, 29, 25, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(233, 227, 211, 0.08);
+}
+
+.about-card--project::-webkit-scrollbar-thumb {
+  border: 1px solid rgba(18, 29, 25, 0.36);
+  border-radius: 999px;
+  background: rgba(226, 210, 168, 0.62);
+}
+
+.about-card--project::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 226, 197, 0.76);
 }
 
 .about-card--project > * {
@@ -1195,6 +1217,14 @@ body.about-open .about-carousel__frame {
 .about-card--project a {
   color: #f2ead2;
   text-decoration-color: rgba(226, 210, 168, 0.72);
+}
+
+@media (max-height: 760px) {
+  .about-card--project {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
 }
 
 .about-carousel__controls {
