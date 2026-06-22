@@ -9,6 +9,7 @@ let aboutPause = document.querySelector('#about-pause');
 const aboutSlides = Array.from(document.querySelectorAll('[data-about-slide]'));
 const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const plateNameClass = 'plate__name';
 
 if (video) {
   video.playbackRate = 1;
@@ -33,9 +34,9 @@ const plateSequence = [
       {
         text: 'Maite Piñeyrúa Segura y Guillermo Barbeito',
         parts: [
-          { text: 'Maite Piñeyrúa Segura', className: 'plate__name' },
+          { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
           { text: ' y ' },
-          { text: 'Guillermo Barbeito', className: 'plate__name' },
+          { text: 'Guillermo Barbeito', className: plateNameClass },
         ],
       },
     ],
@@ -51,7 +52,7 @@ const plateSequence = [
         text: 'Una co-producción con SKA Films',
         parts: [
           { text: 'Una co-producción con ' },
-          { text: 'SKA Films', className: 'plate__name' },
+          { text: 'SKA Films', className: plateNameClass },
         ],
       },
     ],
