@@ -219,7 +219,7 @@ body.about-open .plates {
 }
 
 .plate--secondary {
-  --secondary-plate-offset: -2.2vh;
+  --secondary-plate-offset: -3vh;
   --plate-y: var(--secondary-plate-offset);
 
   color: #dcc99d;
@@ -739,7 +739,7 @@ body.about-open .about-modal__panel {
   }
 
   .plate--secondary {
-    --secondary-plate-offset: -1.5svh;
+    --secondary-plate-offset: -2.1svh;
 
     letter-spacing: 0.014em;
     text-shadow:
