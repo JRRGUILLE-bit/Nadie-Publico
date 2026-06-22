@@ -100,13 +100,15 @@ const typeLine = async (line, lineContent) => {
 
   if (lineContent.parts?.length) {
     for (const part of lineContent.parts) {
-      const partTarget = part.className ? document.createElement('span') : target;
+      const partTarget = part.className
+        ? document.createElement('span')
+        : document.createTextNode('');
 
       if (part.className) {
         partTarget.className = part.className;
-        target.appendChild(partTarget);
       }
 
+      target.appendChild(partTarget);
       await typeCharacters(partTarget, part.text);
     }
 
