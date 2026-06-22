@@ -1131,7 +1131,11 @@ body.about-open .about-carousel__frame {
 }
 
 .about-card h2 {
+  position: relative;
+  align-self: flex-start;
+  max-width: 100%;
   margin: 0 0 1rem;
+  padding: 0.12em 0.32em 0.18em;
   color: #f0ead9;
   font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
   font-size: clamp(1.22rem, 3vw, 2.05rem);
@@ -1140,6 +1144,22 @@ body.about-open .about-carousel__frame {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-shadow: none;
+  isolation: isolate;
+}
+
+.about-card h2::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -0.18em;
+  right: -0.18em;
+  bottom: -0.04em;
+  height: 0.86em;
+  pointer-events: none;
+  background: url('assets/images/about-card-ripped-notebook-paper.png') center / 100% 100% no-repeat;
+  filter: sepia(0.12) saturate(0.86);
+  opacity: 0.58;
+  transform: rotate(-0.35deg);
 }
 
 .about-card p {
