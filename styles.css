@@ -219,6 +219,9 @@ body.about-open .plates {
 }
 
 .plate--secondary {
+  --secondary-plate-offset: -2.2vh;
+  --plate-y: var(--secondary-plate-offset);
+
   color: #dcc99d;
   font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
   font-weight: 400;
@@ -231,6 +234,16 @@ body.about-open .plates {
 .plate--visible {
   opacity: 1;
   transform: translate(var(--plate-x), var(--plate-y));
+}
+
+.plate__name {
+  color: #eadbb9;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: 0.94em;
+  letter-spacing: 0.026em;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.74),
+    0 0 1px rgba(238, 224, 194, 0.28);
 }
 
 .plate__line {
@@ -280,6 +293,7 @@ body.about-open .plates {
 
 .plate--credits .plate__line--2 {
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .plate--recognition {
@@ -725,6 +739,8 @@ body.about-open .about-modal__panel {
   }
 
   .plate--secondary {
+    --secondary-plate-offset: -1.5svh;
+
     letter-spacing: 0.014em;
     text-shadow:
       0 3px 10px rgba(0, 0, 0, 0.82),
@@ -733,6 +749,11 @@ body.about-open .about-modal__panel {
 
   .plate__line + .plate__line {
     margin-top: 0.28em;
+  }
+
+  .plate__name {
+    font-size: 0.96em;
+    letter-spacing: 0.018em;
   }
 
   .plate--title {
@@ -755,7 +776,7 @@ body.about-open .about-modal__panel {
   }
 
   .plate--credits .plate__line--2 {
-    max-width: 18rem;
+    max-width: min(92vw, 24rem);
     margin-left: auto;
     margin-right: auto;
   }
