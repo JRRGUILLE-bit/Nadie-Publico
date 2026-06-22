@@ -280,6 +280,10 @@ body.about-open .plates {
   letter-spacing: 0.018em;
 }
 
+.plate--title .plate__line + .plate__line {
+  margin-top: 0.285em;
+}
+
 .plate--credits {
   top: 48%;
   max-width: min(88vw, 920px);
@@ -762,6 +766,10 @@ body.about-open .about-modal__panel {
     font-size: clamp(2.05rem, 11.4vw, 3.55rem);
     line-height: 1.05;
     letter-spacing: 0.01em;
+  }
+
+  .plate--title .plate__line + .plate__line {
+    margin-top: 0.21em;
   }
 
   .plate--credits {
