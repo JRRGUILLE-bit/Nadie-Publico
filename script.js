@@ -27,15 +27,15 @@ const plateSequence = [
     lines: ['Nadie te dijo', 'que iba a ser así.'],
   },
   {
-    className: 'plate--credits',
+    className: 'plate--credits plate--secondary',
     lines: ['Creado por', 'Maite Piñeyrúa Segura y Guillermo Barbeito'],
   },
   {
-    className: 'plate--recognition',
+    className: 'plate--recognition plate--secondary',
     lines: ['Con el apoyo del FIC', 'DETOUR Series Lab: Premio Teaser'],
   },
   {
-    className: 'plate--coproduction',
+    className: 'plate--coproduction plate--secondary',
     lines: ['Una co-producción con SKA Films'],
   },
 ];
