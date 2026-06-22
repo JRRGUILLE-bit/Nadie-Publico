@@ -41,11 +41,12 @@ const plateSequence = [
 ];
 
 const timing = {
-  initialPause: 900,
-  betweenPlatesPause: 350,
+  initialPause: 650,
+  betweenPlatesPause: 120,
+  plateRevealPause: 100,
   typingDelay: 46,
   linePause: 160,
-  holdAfterTyping: 300,
+  holdAfterTyping: 180,
   contactRevealPause: 300,
 };
 
@@ -86,7 +87,7 @@ const showPersistentPlate = async (plate) => {
   lines.forEach((line) => plateElement.appendChild(line));
   plates.appendChild(plateElement);
 
-  await wait(180);
+  await wait(timing.plateRevealPause);
   plateElement.classList.add('plate--visible');
 
   for (const [index, line] of lines.entries()) {
