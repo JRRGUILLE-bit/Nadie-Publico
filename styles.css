@@ -1060,16 +1060,22 @@ body.about-open .about-carousel__frame {
   display: flex;
   flex-direction: column;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(226, 210, 168, 0.62) rgba(16, 29, 25, 0.34);
   padding: clamp(1.25rem, 3.2vw, 2.45rem);
-  border: 1px solid rgba(218, 195, 144, 0.32);
-  color: #24180b;
+  border: 1px solid rgba(220, 218, 197, 0.26);
+  color: #e9e3d3;
   background:
-    linear-gradient(180deg, rgba(239, 224, 188, 0.95), rgba(197, 169, 112, 0.91)),
-    radial-gradient(circle at 18% 8%, rgba(255, 247, 220, 0.48), transparent 34%);
+    linear-gradient(180deg, rgba(24, 35, 31, 0.32), rgba(10, 15, 14, 0.5)),
+    radial-gradient(circle at 16% 10%, rgba(234, 228, 203, 0.12), transparent 32%),
+    url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') center / cover no-repeat;
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(96, 65, 28, 0.18);
+    0 24px 70px rgba(0, 0, 0, 0.72),
+    inset 0 0 0 1px rgba(233, 227, 211, 0.12),
+    inset 0 0 58px rgba(0, 0, 0, 0.22);
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
   line-height: 1.55;
+  isolation: isolate;
   opacity: 0;
   visibility: hidden;
   transform: translateX(0.7rem) rotate(-0.25deg);
@@ -1084,12 +1090,12 @@ body.about-open .about-carousel__frame {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 0.2;
   background-image:
-    radial-gradient(circle, rgba(85, 57, 24, 0.32) 0 0.45px, transparent 0.75px),
-    linear-gradient(90deg, rgba(64, 41, 18, 0.14), transparent 18%, transparent 82%, rgba(64, 41, 18, 0.12));
-  background-size: 9px 9px, 100% 100%;
-  mix-blend-mode: multiply;
+    linear-gradient(180deg, rgba(255, 250, 230, 0.08), transparent 34%, rgba(0, 0, 0, 0.16)),
+    radial-gradient(circle, rgba(232, 226, 203, 0.2) 0 0.4px, transparent 0.8px);
+  background-size: 100% 100%, 10px 10px;
+  mix-blend-mode: screen;
 }
 
 .about-card.is-active {
@@ -1098,22 +1104,48 @@ body.about-open .about-carousel__frame {
   transform: translateX(0) rotate(-0.25deg);
 }
 
-.about-card h2,
-.about-card p {
+.about-card::-webkit-scrollbar {
+  width: 0.48rem;
+}
+
+.about-card::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(16, 29, 25, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(233, 227, 211, 0.08);
+}
+
+.about-card::-webkit-scrollbar-thumb {
+  border: 1px solid rgba(18, 29, 25, 0.36);
+  border-radius: 999px;
+  background: rgba(226, 210, 168, 0.62);
+}
+
+.about-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 226, 197, 0.76);
+}
+
+.about-card > * {
   position: relative;
+  z-index: 1;
 }
 
 .about-card h2 {
   margin: 0 0 1rem;
+  color: #f0ead9;
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
   font-size: clamp(1.22rem, 3vw, 2.05rem);
+  font-weight: 700;
   line-height: 1.12;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.42);
 }
 
 .about-card p {
   margin: 0;
+  color: rgba(233, 227, 211, 0.94);
   font-size: clamp(0.86rem, 1.45vw, 1rem);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.26);
 }
 
 .about-card p + p {
@@ -1121,9 +1153,9 @@ body.about-open .about-carousel__frame {
 }
 
 .about-card a {
-  color: inherit;
+  color: #f2ead2;
   text-decoration: underline;
-  text-decoration-color: rgba(212, 178, 113, 0.8);
+  text-decoration-color: rgba(226, 210, 168, 0.72);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   opacity: 0.9;
@@ -1136,29 +1168,6 @@ body.about-open .about-carousel__frame {
 
 .about-card--project {
   overflow: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(226, 210, 168, 0.62) rgba(16, 29, 25, 0.34);
-  border-color: rgba(220, 218, 197, 0.26);
-  color: #e9e3d3;
-  background:
-    linear-gradient(180deg, rgba(24, 35, 31, 0.32), rgba(10, 15, 14, 0.5)),
-    radial-gradient(circle at 16% 10%, rgba(234, 228, 203, 0.12), transparent 32%),
-    url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') center / cover no-repeat;
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.72),
-    inset 0 0 0 1px rgba(233, 227, 211, 0.12),
-    inset 0 0 58px rgba(0, 0, 0, 0.22);
-  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-  isolation: isolate;
-}
-
-.about-card--project::before {
-  opacity: 0.2;
-  background-image:
-    linear-gradient(180deg, rgba(255, 250, 230, 0.08), transparent 34%, rgba(0, 0, 0, 0.16)),
-    radial-gradient(circle, rgba(232, 226, 203, 0.2) 0 0.4px, transparent 0.8px);
-  background-size: 100% 100%, 10px 10px;
-  mix-blend-mode: screen;
 }
 
 .about-card--project::after {
@@ -1176,51 +1185,8 @@ body.about-open .about-carousel__frame {
   filter: sepia(0.28) saturate(0.82) contrast(0.95);
 }
 
-.about-card--project::-webkit-scrollbar {
-  width: 0.48rem;
-}
-
-.about-card--project::-webkit-scrollbar-track {
-  border-radius: 999px;
-  background: rgba(16, 29, 25, 0.34);
-  box-shadow: inset 0 0 0 1px rgba(233, 227, 211, 0.08);
-}
-
-.about-card--project::-webkit-scrollbar-thumb {
-  border: 1px solid rgba(18, 29, 25, 0.36);
-  border-radius: 999px;
-  background: rgba(226, 210, 168, 0.62);
-}
-
-.about-card--project::-webkit-scrollbar-thumb:hover {
-  background: rgba(236, 226, 197, 0.76);
-}
-
-.about-card--project > * {
-  position: relative;
-  z-index: 1;
-}
-
-.about-card--project h2 {
-  color: #f0ead9;
-  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.42);
-}
-
-.about-card--project p {
-  color: rgba(233, 227, 211, 0.94);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.26);
-}
-
-.about-card--project a {
-  color: #f2ead2;
-  text-decoration-color: rgba(226, 210, 168, 0.72);
-}
-
 @media (max-height: 760px) {
-  .about-card--project {
+  .about-card {
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-gutter: stable;
