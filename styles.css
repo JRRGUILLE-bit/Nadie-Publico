@@ -1134,6 +1134,67 @@ body.about-open .about-carousel__frame {
   opacity: 1;
 }
 
+.about-card--project {
+  overflow: hidden;
+  border-color: rgba(220, 218, 197, 0.26);
+  color: #e9e3d3;
+  background:
+    linear-gradient(180deg, rgba(24, 35, 31, 0.32), rgba(10, 15, 14, 0.5)),
+    radial-gradient(circle at 16% 10%, rgba(234, 228, 203, 0.12), transparent 32%),
+    url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') center / cover no-repeat;
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.72),
+    inset 0 0 0 1px rgba(233, 227, 211, 0.12),
+    inset 0 0 58px rgba(0, 0, 0, 0.22);
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
+.about-card--project::before {
+  opacity: 0.2;
+  background-image:
+    linear-gradient(180deg, rgba(255, 250, 230, 0.08), transparent 34%, rgba(0, 0, 0, 0.16)),
+    radial-gradient(circle, rgba(232, 226, 203, 0.2) 0 0.4px, transparent 0.8px);
+  background-size: 100% 100%, 10px 10px;
+  mix-blend-mode: screen;
+}
+
+.about-card--project::after {
+  content: '';
+  position: absolute;
+  right: clamp(-2.9rem, -4vw, -1.05rem);
+  bottom: clamp(-3.4rem, -5vw, -1.35rem);
+  width: clamp(9.5rem, 25vw, 15.5rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background: url('assets/images/sobre-proyecto-coffee-stain.png') center / contain no-repeat;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
+  filter: sepia(0.28) saturate(0.82) contrast(0.95);
+}
+
+.about-card--project > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-card--project h2 {
+  color: #f0ead9;
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.42);
+}
+
+.about-card--project p {
+  color: rgba(233, 227, 211, 0.94);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.26);
+}
+
+.about-card--project a {
+  color: #f2ead2;
+  text-decoration-color: rgba(226, 210, 168, 0.72);
+}
+
 .about-carousel__controls {
   display: grid;
   grid-template-columns: auto 1fr auto;
