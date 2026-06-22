@@ -1147,6 +1147,7 @@ body.about-open .about-carousel__frame {
     inset 0 0 0 1px rgba(233, 227, 211, 0.12),
     inset 0 0 58px rgba(0, 0, 0, 0.22);
   font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+  isolation: isolate;
 }
 
 .about-card--project::before {
@@ -1166,8 +1167,9 @@ body.about-open .about-carousel__frame {
   width: clamp(9.5rem, 25vw, 15.5rem);
   aspect-ratio: 1;
   pointer-events: none;
+  z-index: 2;
   background: url('assets/images/sobre-proyecto-coffee-stain.png') center / contain no-repeat;
-  opacity: 0.2;
+  opacity: 0.42;
   mix-blend-mode: multiply;
   filter: sepia(0.28) saturate(0.82) contrast(0.95);
 }
