@@ -37,7 +37,9 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se explican las consecuencias sobre la convivencia y las decisiones de los protagonistas.
   - Implementado como bloque “La historia” en la primera placa del proyecto.
 
-- [ ] 6. Agregar una logline clara y breve.
+- [x] 6. Agregar una logline clara y breve.
+  - Implementada antes del bloque “La historia”.
+  - Resume protagonistas, oro, dictadura y escalada del conflicto en una sola frase.
 
 - [ ] 7. Reordenar la página de proyecto y equipo.
   1. Logline.
