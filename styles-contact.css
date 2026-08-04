@@ -16,3 +16,69 @@
   opacity: 1;
   outline: none;
 }
+
+/* Llamada a la acción principal para visitantes de industria. */
+.contact-links .contact-link[href^='mailto:'] {
+  flex: 0 1 13.5rem;
+  min-width: 10.5rem;
+  max-width: 13.5rem;
+  padding: 0.62rem 0.82rem 0.55rem;
+  border: 1px solid rgba(226, 190, 116, 0.72);
+  border-radius: 2px;
+  background:
+    linear-gradient(145deg, rgba(180, 126, 46, 0.28), transparent 62%),
+    rgba(12, 10, 7, 0.72);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 239, 198, 0.14);
+  opacity: 1;
+}
+
+.contact-links .contact-link[href^='mailto:'] img {
+  width: clamp(2rem, 4.2vw, 3rem);
+  height: clamp(2rem, 4.2vw, 3rem);
+}
+
+.contact-links .contact-link[href^='mailto:'] span {
+  max-width: 11rem;
+  font-size: 0;
+  line-height: 1.16;
+}
+
+.contact-links .contact-link[href^='mailto:'] span::after {
+  content: 'Solicitar dossier\A y materiales';
+  display: block;
+  color: #f0dfb8;
+  font-size: clamp(0.61rem, 1.18vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1.18;
+  white-space: pre-line;
+  text-transform: uppercase;
+}
+
+.contact-links .contact-link[href^='mailto:']:hover,
+.contact-links .contact-link[href^='mailto:']:focus-visible {
+  border-color: rgba(255, 220, 145, 0.96);
+  background:
+    linear-gradient(145deg, rgba(203, 146, 55, 0.38), transparent 64%),
+    rgba(18, 13, 8, 0.86);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 225, 157, 0.12),
+    inset 0 1px 0 rgba(255, 241, 204, 0.18);
+}
+
+@media (max-width: 620px) {
+  .contact-links .contact-link[href^='mailto:'] {
+    flex-basis: 7.8rem;
+    min-width: 7.8rem;
+    max-width: 7.8rem;
+    padding-inline: 0.4rem;
+  }
+
+  .contact-links .contact-link[href^='mailto:'] span::after {
+    font-size: 0.56rem;
+    letter-spacing: 0.035em;
+  }
+}
