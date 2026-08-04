@@ -51,3 +51,30 @@ body.about-open .dark-overlay {
     filter: blur(3px) brightness(0.74) saturate(0.94);
   }
 }
+
+/* Bloqueo mínimo de identidad visual: las mejoras de interfaz no deben sustituir la portada audiovisual. */
+.background-video,
+.image-fallback {
+  object-fit: cover;
+  object-position: center;
+}
+
+.dark-overlay,
+.siren-overlay,
+.grain-overlay,
+.film-texture-overlay,
+.heat-shimmer-overlay {
+  pointer-events: none;
+}
+
+.plate,
+.about-carousel__eyebrow,
+.about-card h2 {
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
+.plate--secondary,
+.about-card,
+.contact-link {
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+}
