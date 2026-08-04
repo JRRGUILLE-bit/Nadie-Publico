@@ -271,21 +271,43 @@ body .contact-link--coproduction span {
   white-space: normal;
 }
 
+body .contact-link--materials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.1rem;
+}
+
 body .contact-link--materials span {
+  order: 1;
+  display: block;
   color: #f0dfb8;
   font-size: clamp(0.59rem, 0.98vw, 0.74rem);
   font-weight: 700;
+  line-height: 1.08;
+}
+
+body .contact-link--materials img {
+  order: 2;
+  margin: 0.02rem 0 0.03rem;
 }
 
 body .contact-link--materials span::after {
+  content: none;
+}
+
+body .contact-link--materials::after {
   content: 'Contacto de producción';
+  order: 3;
   display: block;
-  margin-top: 0.18rem;
   color: rgba(238, 224, 194, 0.7);
-  font-size: 0.68em;
+  font-size: clamp(0.36rem, 0.6vw, 0.48rem);
   font-weight: 400;
   letter-spacing: 0.055em;
   line-height: 1.06;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 body .contact-link--coproduction span {
@@ -519,11 +541,12 @@ body.about-open .skip-intro-button {
 
   body .contact-link--materials span {
     font-size: 0.47rem;
+    line-height: 1.05;
   }
 
-  body .contact-link--materials span::after {
-    margin-top: 0.13rem;
-    font-size: 0.66em;
+  body .contact-link--materials::after {
+    font-size: 0.31rem;
+    margin-top: 0.01rem;
   }
 }
 
