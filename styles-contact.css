@@ -37,6 +37,20 @@
   white-space: pre-line;
 }
 
+/* Materiales profesionales visibles sin publicar archivos. */
+.project-status::after {
+  content: 'MATERIALES DISPONIBLES BAJO SOLICITUD\A\A— Guion del episodio piloto\A— Dossier del proyecto\A— Biblia de serie y arco de temporada\A— Teaser\A— Presupuesto\A— Plan de desarrollo\A\AEstos materiales no se publican de forma abierta. Se comparten con profesionales, instituciones y posibles socios mediante el contacto de producción.';
+  display: block;
+  margin-top: 0.95rem;
+  padding: 0.9rem 0 0.05rem;
+  border-top: 1px solid rgba(226, 190, 116, 0.3);
+  color: rgba(238, 228, 207, 0.92);
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.8rem, 1.42vw, 0.92rem);
+  line-height: 1.43;
+  white-space: pre-line;
+}
+
 /* Navegación profesional de la portada. */
 .contact-links {
   width: min(97vw, 1040px);
@@ -174,6 +188,11 @@
     padding: 0.82rem 0.86rem 0.78rem;
     font-size: 0.82rem;
     line-height: 1.42;
+  }
+
+  .project-status::after {
+    font-size: 0.78rem;
+    line-height: 1.4;
   }
 
   .contact-links {
