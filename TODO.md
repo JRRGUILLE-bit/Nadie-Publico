@@ -107,11 +107,14 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Usa una grilla compacta de cuatro columnas en escritorio, dos en tablet y una en celular.
   - La ficha comparte estilos mediante `industrial-sheet.css` para mantener ambas versiones sincronizadas.
 
-- [ ] 16. Mantener la identidad visual de la portada.
-  - No eliminar la cafetera.
-  - No eliminar el video, el grano ni la máquina de escribir.
-  - No convertir la página en una plantilla institucional genérica.
-  - Priorizar claridad industrial y conversión profesional sin perder atmósfera.
+- [x] 16. Mantener la identidad visual de la portada.
+  - La cafetera continúa como imagen central mediante video a pantalla completa y póster de respaldo.
+  - Se conservaron el oscurecimiento, las sirenas, el grano, la textura de película y la distorsión de calor.
+  - Las placas mantienen la máquina de escribir, el tipeo y el cursor animado.
+  - Los accesos profesionales permanecen visualmente secundarios y sin paneles institucionales dominantes.
+  - Se agregó un bloqueo CSS mínimo para proteger video, texturas y familias tipográficas frente a futuras capas de interfaz.
+  - Se documentaron los elementos no negociables y las reglas para futuras modificaciones en `VISUAL_IDENTITY.md`.
+  - La auditoría confirmó que la mejora industrial no convirtió la portada en una plantilla corporativa genérica.
 
 ## Método de implementación
 
