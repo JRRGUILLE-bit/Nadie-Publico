@@ -20,7 +20,9 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Distribución o ventas, cuando corresponda.
   - Implementado debajo del estado del proyecto, dentro de la primera placa.
 
-- [ ] 3. Incorporar una llamada a la acción principal: **Solicitar dossier y materiales**.
+- [x] 3. Incorporar una llamada a la acción principal: **Solicitar dossier y materiales**.
+  - Implementada sobre el acceso de contacto por correo.
+  - Destacada visualmente como acción principal sin alterar la identidad de la portada.
 
 - [ ] 4. Mejorar los nombres de los accesos profesionales.
   - “Email” → “Contacto de producción”.
