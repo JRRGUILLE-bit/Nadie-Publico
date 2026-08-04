@@ -87,7 +87,11 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - No se utiliza la categoría “mercado” para instancias que no estén confirmadas como tales.
   - Las nuevas cuatro líneas fueron ajustadas para escritorio y celular.
 
-- [ ] 13. Agregar una línea clara sobre público objetivo y posicionamiento.
+- [x] 13. Agregar una línea clara sobre público objetivo y posicionamiento.
+  - Se agregó una sección específica después de Formato y género.
+  - Define un público joven adulto y adulto interesado en ficción serial de autor, comedia negra y thriller político.
+  - Posiciona la serie como una propuesta rioplatense de identidad local, conflicto universal y potencial de circulación regional e internacional.
+  - Se incorporó un acceso directo “Público” en la navegación interna.
 
 - [ ] 14. Crear una versión en inglés.
 
