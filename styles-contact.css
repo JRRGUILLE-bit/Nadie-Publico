@@ -446,3 +446,69 @@ body .skip-intro-button:focus-visible {
     background: rgba(255, 224, 150, 0.58);
   }
 }
+
+/* La luz recorre un anillo enmascarado con la forma exacta del botón. */
+@property --skip-border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+body .skip-intro-button {
+  position: absolute;
+  background: transparent !important;
+}
+
+body .skip-intro-button > span {
+  position: relative;
+  z-index: 3;
+}
+
+body .skip-intro-button::before {
+  --skip-border-angle: 0deg;
+  inset: 0;
+  z-index: 2;
+  padding: 1.6px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--skip-border-angle),
+    rgba(226, 190, 116, 0.18) 0deg,
+    rgba(226, 190, 116, 0.18) 286deg,
+    rgba(255, 230, 166, 0.55) 307deg,
+    #fff1c9 326deg,
+    #e2be74 342deg,
+    rgba(226, 190, 116, 0.18) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: skip-intro-border-lap 2.35s linear infinite !important;
+  transform: none !important;
+}
+
+body .skip-intro-button::after {
+  inset: 1.6px;
+  z-index: 1;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(15, 12, 9, 0.97), rgba(8, 7, 5, 0.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 244, 216, 0.09),
+    inset 0 0 0 1px rgba(255, 224, 149, 0.07);
+}
+
+@keyframes skip-intro-border-lap {
+  to { --skip-border-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .skip-intro-button::before {
+    --skip-border-angle: 326deg;
+    animation: none !important;
+  }
+}
