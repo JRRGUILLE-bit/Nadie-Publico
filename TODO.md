@@ -74,7 +74,12 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Durante la presentación mantienen una opacidad discreta y alcanzan su presencia final al terminar las placas.
   - Se ocultan y desactivan correctamente cuando se abre el expediente de Proyecto y equipo.
 
-- [ ] 11. Agregar una opción discreta de **Saltar presentación**.
+- [x] 11. Agregar una opción discreta de **Saltar presentación**.
+  - Implementada como control flotante al estilo de una plataforma de streaming.
+  - Al activarla se interrumpe el tipeo y se reconstruyen todas las placas en su estado final.
+  - La navegación profesional alcanza inmediatamente su estado completo.
+  - El botón desaparece después de usarlo o cuando la presentación termina normalmente.
+  - Tiene posición y tamaño adaptados para escritorio, celular y pantallas bajas.
 
 - [ ] 12. Diferenciar apoyos, premios, laboratorios, mercados y selecciones.
 
