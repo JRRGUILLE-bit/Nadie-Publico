@@ -41,7 +41,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Implementada antes del bloque “La historia”.
   - Resume protagonistas, oro, dictadura y escalada del conflicto en una sola frase.
 
-- [ ] 7. Reordenar la página de proyecto y equipo.
+- [x] 7. Reordenar la página de proyecto y equipo.
   1. Logline.
   2. Sinopsis.
   3. Formato y género.
@@ -51,6 +51,8 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   7. Búsqueda de socios.
   8. Equipo.
   9. Contacto.
+  - Se agregó navegación interna para acceder directamente a cada sección.
+  - La página completa conserva la estética de expediente y prioriza la lectura de industria.
 
 - [ ] 8. Reducir repeticiones en las biografías y concentrarlas en trayectoria y función.
 
