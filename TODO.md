@@ -69,7 +69,10 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - La lista aparece en la página completa y en la primera placa de la portada.
   - Se aclara que los materiales no son públicos y se comparten bajo solicitud profesional.
 
-- [ ] 10. Permitir acceder al contacto desde el inicio, sin esperar a que termine la secuencia animada.
+- [x] 10. Permitir acceder al contacto desde el inicio, sin esperar a que termine la secuencia animada.
+  - Los accesos profesionales son visibles y clickeables desde que carga la portada.
+  - Durante la presentación mantienen una opacidad discreta y alcanzan su presencia final al terminar las placas.
+  - Se ocultan y desactivan correctamente cuando se abre el expediente de Proyecto y equipo.
 
 - [ ] 11. Agregar una opción discreta de **Saltar presentación**.
 
