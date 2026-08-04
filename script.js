@@ -486,6 +486,55 @@ const addProjectPartnerSearchBlock = () => {
   }
 };
 
+const condenseTeamBios = () => {
+  const bios = [
+    {
+      index: 1,
+      title: 'Maite Piñeyrúa Segura',
+      paragraphs: [
+        'Cocreadora y coguionista. Trabaja en la construcción del tono, los personajes y la relación entre intimidad, absurdo y conflicto político.',
+        'Dirigió el documental Tumbero, reconocido y seleccionado en festivales nacionales. Fue seleccionada por ACAU para participar del Campus Málaga Talent 2025 con este proyecto.',
+      ],
+    },
+    {
+      index: 2,
+      title: 'Guillermo Barbeito Rodríguez',
+      paragraphs: [
+        'Cocreador y coguionista. Participa en la arquitectura narrativa, el desarrollo del universo y la articulación entre comedia negra y thriller político.',
+        'Su trabajo en la serie se concentra en una ficción rioplatense donde el humor surge de la precariedad cotidiana y de las consecuencias crecientes de cada decisión.',
+      ],
+    },
+    {
+      index: 3,
+      title: 'Ignacio “Nacho” Jaunsolo / SKA Films',
+      paragraphs: [
+        'Coproductor ejecutivo, fundador y director ejecutivo de SKA Films. Su trayectoria abarca producción, dirección, fotografía y desarrollo de contenidos audiovisuales.',
+        'En la serie aporta estructura de producción, experiencia industrial y estrategia para su desarrollo y circulación.',
+      ],
+    },
+    {
+      index: 4,
+      title: 'Malena Benavides',
+      paragraphs: [
+        'Productora ejecutiva. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios de circulación.',
+        'También produjo el documental Tumbero. En este proyecto ordena prioridades y sostiene las condiciones concretas para avanzar hacia la producción.',
+      ],
+    },
+  ];
+
+  bios.forEach(({ index, title, paragraphs }) => {
+    const slide = aboutSlides[index];
+    if (!slide) {
+      return;
+    }
+
+    slide.innerHTML = `
+      <h2>${title}</h2>
+      ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+    `;
+  });
+};
+
 const createMailto = (subject, body) =>
   `mailto:malenabh1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
@@ -544,6 +593,7 @@ const upgradeProfessionalNavigation = () => {
 injectIndustryStyles();
 addProjectStatusBlock();
 addProjectPartnerSearchBlock();
+condenseTeamBios();
 upgradeProfessionalNavigation();
 setAboutSlide(0);
 updateAboutPauseButton();
