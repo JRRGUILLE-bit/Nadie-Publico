@@ -109,4 +109,4 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 
 ## Método de implementación
 
-Cada cambio se realizará y verificará por separado, con un commit específico. Al terminar cada punto se marcarará como completado en este archivo.
+Cada cambio se realizará y verificará por separado, con un commit específico. Al terminar cada punto se marcará como completado en este archivo.
