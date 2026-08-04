@@ -30,12 +30,12 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se agregó “Conversar sobre coproducción” como acceso independiente.
   - Ambos correos abren con asunto y cuerpo prearmados según la intención del visitante.
 
-- [ ] 5. Hacer más concreta la presentación de la historia.
-  - Protagonistas.
-  - Conflicto principal.
-  - Robo del oro.
-  - Pasado político de 1980.
-  - Consecuencias narrativas.
+- [x] 5. Hacer más concreta la presentación de la historia.
+  - Se identifican Gonzalo, Luis y María con sus edades.
+  - Se introduce el robo de oro como detonante.
+  - Se establece su vínculo con un episodio político de 1980, durante la dictadura.
+  - Se explican las consecuencias sobre la convivencia y las decisiones de los protagonistas.
+  - Implementado como bloque “La historia” en la primera placa del proyecto.
 
 - [ ] 6. Agregar una logline clara y breve.
 
