@@ -475,3 +475,61 @@ if (prefersReducedMotion.matches) {
   addSkipIntroControl();
   runPlates();
 }
+
+const buildGmailComposeUrl = (mailtoHref) => {
+  try {
+    const mailtoUrl = new URL(mailtoHref);
+    const parameters = new URLSearchParams({
+      view: 'cm',
+      fs: '1',
+      to: decodeURIComponent(mailtoUrl.pathname),
+      su: mailtoUrl.searchParams.get('subject') ?? '',
+      body: mailtoUrl.searchParams.get('body') ?? '',
+    });
+
+    return `https://mail.google.com/mail/?${parameters.toString()}`;
+  } catch {
+    return null;
+  }
+};
+
+const professionalMailLinks = Array.from(
+  document.querySelectorAll('a[href^="mailto:malenabh1@gmail.com"]')
+);
+
+professionalMailLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const mailtoHref = link.getAttribute('href');
+    if (!mailtoHref) {
+      return;
+    }
+
+    const gmailUrl = buildGmailComposeUrl(mailtoHref);
+    if (!gmailUrl) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const useGmail = window.confirm(
+      '¿Cómo querés enviar el correo?\n\nAceptar: abrir Gmail en el navegador.\nCancelar: usar tu aplicación de correo predeterminada.'
+    );
+
+    if (useGmail) {
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = mailtoHref;
+    }
+  });
+});
