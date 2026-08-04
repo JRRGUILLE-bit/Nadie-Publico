@@ -41,7 +41,12 @@ const plateSequence = [
   },
   {
     className: 'plate--recognition plate--secondary',
-    lines: ['Con el apoyo del FIC', 'DETOUR Series Lab: Premio Teaser'],
+    lines: [
+      'APOYO · Fondo de Incentivo Cultural',
+      'LABORATORIO · DETOUR Series Lab',
+      'PREMIO · Premio Teaser DETOUR',
+      'SELECCIÓN · Campus Málaga Talent 2025',
+    ],
   },
   {
     className: 'plate--coproduction plate--secondary',
@@ -630,6 +635,32 @@ const injectIndustryStyles = () => {
       color: rgba(238, 228, 207, 0.9);
       font-size: clamp(0.82rem, 1.5vw, 0.96rem);
       line-height: 1.42;
+    }
+
+    .plate--recognition {
+      top: 59%;
+      font-size: clamp(0.72rem, 1.34vw, 1.18rem);
+      line-height: 1.16;
+    }
+
+    .plate--recognition .plate__line {
+      letter-spacing: 0.045em;
+    }
+
+    .plate--recognition .plate__line + .plate__line {
+      margin-top: 0.32em;
+    }
+
+    @media (max-width: 720px) {
+      .plate--recognition {
+        top: 51svh;
+        max-width: 92vw;
+        font-size: clamp(0.59rem, 2.75vw, 0.8rem);
+      }
+
+      .plate--recognition .plate__line + .plate__line {
+        margin-top: 0.26em;
+      }
     }
   `;
   document.head.appendChild(styles);
