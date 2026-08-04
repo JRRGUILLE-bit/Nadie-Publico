@@ -247,3 +247,21 @@
     letter-spacing: 0.018em;
   }
 }
+
+/* Los contactos están disponibles desde el inicio; al terminar las placas alcanzan su opacidad final. */
+.contact-links {
+  pointer-events: auto;
+  opacity: 0.68;
+  transform: translate(-50%, 0);
+}
+
+body.contacts-visible .contact-links {
+  opacity: 1;
+}
+
+body.about-open .contact-links {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0);
+  filter: blur(2px);
+}
