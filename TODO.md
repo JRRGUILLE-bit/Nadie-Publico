@@ -10,7 +10,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Guion piloto disponible.
   - Dossier, biblia y arco de temporada disponibles.
   - Teaser realizado.
-  - Implementado en la primera placa de “Sobre nosotros”.
+  - Implementado en la primera placa de Proyecto y equipo.
 
 - [x] 2. Agregar un bloque de **Qué estamos buscando**.
   - Coproductores.
@@ -35,10 +35,10 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se introduce el robo de oro como detonante.
   - Se establece su vínculo con un episodio político de 1980, durante la dictadura.
   - Se explican las consecuencias sobre la convivencia y las decisiones de los protagonistas.
-  - Implementado como bloque “La historia” en la primera placa del proyecto.
+  - La síntesis narrativa quedó concentrada en la logline y la sinopsis profesional.
 
 - [x] 6. Agregar una logline clara y breve.
-  - Implementada antes del bloque “La historia”.
+  - Implementada al inicio de la primera placa y de las páginas de proyecto.
   - Resume protagonistas, oro, dictadura y escalada del conflicto en una sola frase.
 
 - [x] 7. Reordenar la página de proyecto y equipo.
@@ -55,7 +55,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - La página completa conserva la estética de expediente y prioriza la lectura de industria.
 
 - [x] 8. Reducir repeticiones en las biografías y concentrarlas en trayectoria y función.
-  - Las fichas de la página completa ya quedaron concentradas durante la reorganización.
+  - Las fichas de la página completa quedaron concentradas durante la reorganización.
   - Las cuatro placas biográficas del carrusel fueron reducidas a función, trayectoria y aporte concreto al proyecto.
   - Se eliminaron repeticiones del género, la sinopsis y la identidad general de la serie.
 
@@ -66,7 +66,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Teaser.
   - Presupuesto.
   - Plan de desarrollo.
-  - La lista aparece en la página completa y en la primera placa de la portada.
+  - La lista aparece en la página completa y como síntesis compacta en la primera placa de la portada.
   - Se aclara que los materiales no son públicos y se comparten bajo solicitud profesional.
 
 - [x] 10. Permitir acceder al contacto desde el inicio, sin esperar a que termine la secuencia animada.
@@ -83,9 +83,9 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 
 - [x] 12. Diferenciar apoyos, premios, laboratorios, mercados y selecciones.
   - La página completa presenta cada antecedente con una categoría independiente.
-  - La placa animada ahora separa: apoyo, laboratorio, premio y selección.
+  - La placa animada separa: apoyo, laboratorio, premio y selección.
   - No se utiliza la categoría “mercado” para instancias que no estén confirmadas como tales.
-  - Las nuevas cuatro líneas fueron ajustadas para escritorio y celular.
+  - Las cuatro líneas fueron ajustadas para escritorio y celular.
 
 - [x] 13. Agregar una línea clara sobre público objetivo y posicionamiento.
   - Se agregó una sección específica después de Formato y género.
@@ -115,6 +115,19 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se agregó un bloqueo CSS mínimo para proteger video, texturas y familias tipográficas frente a futuras capas de interfaz.
   - Se documentaron los elementos no negociables y las reglas para futuras modificaciones en `VISUAL_IDENTITY.md`.
   - La auditoría confirmó que la mejora industrial no convirtió la portada en una plantilla corporativa genérica.
+
+## Consolidación posterior a la revisión pública
+
+- [x] Los accesos profesionales principales quedaron escritos directamente en `index.html`; ya no dependen de JavaScript para tener nombres, enlaces y mensajes correctos.
+- [x] Se agregó un selector **English** visible desde el primer render de la portada.
+- [x] Maite Piñeyrúa Segura quedó acreditada como **cocreadora, coguionista y directora** en la portada, las placas, el carrusel, las páginas española e inglesa, los metadatos y los datos estructurados.
+- [x] La duración se unificó como **6 episodios de 20–25 minutos**.
+- [x] Los datos estructurados separan apoyo, laboratorio, premio y selección; solo Premio Teaser DETOUR figura como premio.
+- [x] La primera placa de Proyecto y equipo fue reducida a logline, estado, búsqueda, materiales y llamadas a la acción.
+- [x] El CSS de “Saltar presentación” quedó consolidado en `styles-contact.css`; JavaScript solo controla su creación y funcionamiento.
+- [x] Se eliminaron las inyecciones de estilos y contenido profesional desde JavaScript.
+- [x] Se actualizaron las versiones de CSS y JavaScript en las URLs para evitar que el navegador conserve archivos anteriores.
+- [x] `prefers-reduced-motion` muestra directamente la portada completa y evita la secuencia de tipeo.
 
 ## Método de implementación
 
