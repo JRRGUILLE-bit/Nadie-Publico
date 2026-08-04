@@ -93,7 +93,12 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Posiciona la serie como una propuesta rioplatense de identidad local, conflicto universal y potencial de circulación regional e internacional.
   - Se incorporó un acceso directo “Público” en la navegación interna.
 
-- [ ] 14. Crear una versión en inglés.
+- [x] 14. Crear una versión en inglés.
+  - Se creó `about.html` con logline, sinopsis, formato, público, estado, materiales, recorrido, búsqueda de socios, equipo y contacto profesional en inglés.
+  - Las versiones española e inglesa incluyen selectores visibles para cambiar de idioma.
+  - Se agregaron metadatos, URL canónica, `hreflang`, Open Graph y datos estructurados propios para cada idioma.
+  - Ambas páginas comparten `project-page.css` para mantener la misma identidad visual y evitar divergencias futuras.
+  - Los correos de la versión inglesa abren con asunto y cuerpo prearmados en inglés.
 
 - [ ] 15. Agregar una ficha industrial resumida.
   - País.
