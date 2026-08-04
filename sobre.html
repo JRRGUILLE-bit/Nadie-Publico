@@ -6,7 +6,7 @@
     <title>Proyecto y equipo | Nadie te dijo que iba a ser así</title>
     <meta
       name="description"
-      content="Proyecto, estado de desarrollo, materiales, recorrido y equipo de Nadie te dijo que iba a ser así, serie uruguaya de comedia negra y thriller político."
+      content="Proyecto, estado de desarrollo, materiales, recorrido y equipo de Nadie te dijo que iba a ser así, serie uruguaya creada por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez, y dirigida por Maite Piñeyrúa Segura."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#050504" />
@@ -17,15 +17,15 @@
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/favicon.ico" sizes="any" />
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/ntdqiasa-flame-favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/ntdqiasa-flame-favicon-assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="project-page.css" />
-    <link rel="stylesheet" href="industrial-sheet.css" />
+    <link rel="stylesheet" href="project-page.css?v=2" />
+    <link rel="stylesheet" href="industrial-sheet.css?v=2" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nadie te dijo que iba a ser así" />
     <meta property="og:title" content="Proyecto y equipo | Nadie te dijo que iba a ser así" />
     <meta
       property="og:description"
-      content="Una serie uruguaya de comedia negra y thriller político en desarrollo. Historia, formato, materiales, recorrido, equipo y contacto profesional."
+      content="Serie uruguaya de comedia negra y thriller político en desarrollo, dirigida por Maite Piñeyrúa Segura. Historia, formato, materiales, recorrido, equipo y contacto profesional."
     />
     <meta property="og:url" content="https://jrrguille-bit.github.io/Nadie-Publico/sobre.html" />
     <meta property="og:image" content="https://jrrguille-bit.github.io/Nadie-Publico/assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg" />
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="Proyecto y equipo | Nadie te dijo que iba a ser así" />
     <meta
       name="twitter:description"
-      content="Historia, formato, estado de desarrollo, materiales, recorrido y equipo de la serie uruguaya Nadie te dijo que iba a ser así."
+      content="Historia, formato, estado de desarrollo, materiales, recorrido y equipo de la serie uruguaya dirigida por Maite Piñeyrúa Segura."
     />
     <meta name="twitter:image" content="https://jrrguille-bit.github.io/Nadie-Publico/assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg" />
 
@@ -67,11 +67,24 @@
             "timeRequired": "PT25M",
             "genre": ["Comedia negra", "Thriller político", "Ficción audiovisual"],
             "creator": [
-              { "@type": "Person", "name": "Maite Piñeyrúa Segura" },
-              { "@type": "Person", "name": "Guillermo Barbeito Rodríguez" }
+              { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#maite-pineyrua-segura" },
+              { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#guillermo-barbeito-rodriguez" }
             ],
+            "director": { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#maite-pineyrua-segura" },
             "producer": { "@type": "Person", "name": "Malena Benavides" },
             "productionCompany": { "@type": "Organization", "name": "SKA Films" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#maite-pineyrua-segura",
+            "name": "Maite Piñeyrúa Segura",
+            "jobTitle": "Cocreadora, coguionista y directora"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#guillermo-barbeito-rodriguez",
+            "name": "Guillermo Barbeito Rodríguez",
+            "jobTitle": "Cocreador y coguionista"
           }
         ]
       }
@@ -87,7 +100,7 @@
 
         <h1 id="proyecto">Proyecto y equipo</h1>
         <p class="subtitle">
-          Nadie te dijo que iba a ser así es una serie uruguaya de ficción en desarrollo que cruza comedia negra, absurdo cotidiano y thriller político desde Ciudad Vieja, Montevideo.
+          Nadie te dijo que iba a ser así es una serie uruguaya de ficción en desarrollo que cruza comedia negra, absurdo cotidiano y thriller político desde Ciudad Vieja, Montevideo. Creada y escrita por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez, y dirigida por Maite Piñeyrúa Segura.
         </p>
 
         <nav aria-label="Secciones de la página">
@@ -140,33 +153,17 @@
         <section class="dossier-section" aria-labelledby="formato">
           <h2 id="formato">Formato y género</h2>
           <div class="fact-grid">
-            <div class="fact">
-              <span>Formato</span>
-              <strong>Serie de ficción · 6 episodios</strong>
-            </div>
-            <div class="fact">
-              <span>Duración</span>
-              <strong>20–25 minutos por episodio</strong>
-            </div>
-            <div class="fact">
-              <span>Género</span>
-              <strong>Comedia negra / thriller político</strong>
-            </div>
-            <div class="fact">
-              <span>Universo</span>
-              <strong>Ciudad Vieja, Montevideo</strong>
-            </div>
+            <div class="fact"><span>Formato</span><strong>Serie de ficción · 6 episodios</strong></div>
+            <div class="fact"><span>Duración</span><strong>20–25 minutos por episodio</strong></div>
+            <div class="fact"><span>Género</span><strong>Comedia negra / thriller político</strong></div>
+            <div class="fact"><span>Universo</span><strong>Ciudad Vieja, Montevideo</strong></div>
           </div>
         </section>
 
         <section class="dossier-section" aria-labelledby="publico">
           <h2 id="publico">Público y posicionamiento</h2>
-          <p>
-            Dirigida a un público joven adulto y adulto interesado en ficción serial de autor, comedia negra y thriller político.
-          </p>
-          <p>
-            La serie se posiciona como una propuesta rioplatense de identidad local y conflicto universal: amistad, precariedad y herencias políticas, con potencial de circulación regional e internacional.
-          </p>
+          <p>Dirigida a un público joven adulto y adulto interesado en ficción serial de autor, comedia negra y thriller político.</p>
+          <p>La serie se posiciona como una propuesta rioplatense de identidad local y conflicto universal: amistad, precariedad y herencias políticas, con potencial de circulación regional e internacional.</p>
         </section>
 
         <section class="dossier-section" aria-labelledby="estado">
@@ -182,9 +179,7 @@
 
         <section class="dossier-section" aria-labelledby="materiales">
           <h2 id="materiales">Materiales disponibles</h2>
-          <p>
-            Los materiales de desarrollo no se publican de forma abierta. Se comparten con profesionales, instituciones y posibles socios bajo solicitud.
-          </p>
+          <p>Los materiales de desarrollo no se publican de forma abierta. Se comparten con profesionales, instituciones y posibles socios bajo solicitud.</p>
           <div class="materials-grid">
             <div class="material"><span>Escritura</span><strong>Guion piloto</strong><p>Versión disponible para lectura profesional.</p></div>
             <div class="material"><span>Proyecto</span><strong>Dossier</strong><p>Universo, propuesta narrativa y equipo.</p></div>
@@ -198,34 +193,16 @@
         <section class="dossier-section" aria-labelledby="recorrido">
           <h2 id="recorrido">Reconocimientos y apoyos</h2>
           <div class="recognition-grid">
-            <div class="recognition">
-              <span>Apoyo</span>
-              <strong>Fondo de Incentivo Cultural</strong>
-              <p>Apoyo al desarrollo y recorrido profesional del proyecto.</p>
-            </div>
-            <div class="recognition">
-              <span>Laboratorio</span>
-              <strong>DETOUR Series Lab</strong>
-              <p>Instancia de desarrollo para proyectos seriados.</p>
-            </div>
-            <div class="recognition">
-              <span>Premio</span>
-              <strong>Premio Teaser DETOUR</strong>
-              <p>Reconocimiento destinado a la realización de la pieza audiovisual.</p>
-            </div>
-            <div class="recognition">
-              <span>Selección</span>
-              <strong>Campus Málaga Talent 2025</strong>
-              <p>Participación de Maite Piñeyrúa Segura a través de una selección de ACAU.</p>
-            </div>
+            <div class="recognition"><span>Apoyo</span><strong>Fondo de Incentivo Cultural</strong><p>Apoyo al desarrollo y recorrido profesional del proyecto.</p></div>
+            <div class="recognition"><span>Laboratorio</span><strong>DETOUR Series Lab</strong><p>Instancia de desarrollo para proyectos seriados.</p></div>
+            <div class="recognition"><span>Premio</span><strong>Premio Teaser DETOUR</strong><p>Reconocimiento destinado a la realización de la pieza audiovisual.</p></div>
+            <div class="recognition"><span>Selección</span><strong>Campus Málaga Talent 2025</strong><p>Participación de Maite Piñeyrúa Segura a través de una selección de ACAU.</p></div>
           </div>
         </section>
 
         <section class="dossier-section" aria-labelledby="busqueda">
           <h2 id="busqueda">Qué estamos buscando</h2>
-          <p>
-            El proyecto está abierto a conversaciones con socios que puedan fortalecer su desarrollo, financiación, producción y circulación.
-          </p>
+          <p>El proyecto está abierto a conversaciones con socios que puedan fortalecer su desarrollo, financiación, producción y circulación.</p>
           <ul class="search-list">
             <li>Coproductores nacionales e internacionales.</li>
             <li>Socios de desarrollo y producción.</li>
@@ -241,63 +218,39 @@
             <section class="team-card" aria-labelledby="maite-pineyrua-segura">
               <h3 id="maite-pineyrua-segura">Maite Piñeyrúa Segura</h3>
               <p class="section-role">Cocreadora / coguionista / directora</p>
-              <p>
-                Cocreadora y coguionista de la serie. Trabaja en la construcción del tono, los personajes y la relación entre intimidad, absurdo y conflicto político.
-              </p>
-              <p>
-                Dirigió el documental <a href="https://www.instagram.com/tumbero.doc/" target="_blank" rel="noopener noreferrer">Tumbero</a>, reconocido y seleccionado en festivales nacionales, y fue seleccionada por ACAU para participar del Campus Málaga Talent 2025 con este proyecto.
-              </p>
+              <p>Cocreadora, coguionista y directora de la serie. Trabaja en la construcción del tono, los personajes y la relación entre intimidad, absurdo y conflicto político.</p>
+              <p>Dirigió el documental <a href="https://www.instagram.com/tumbero.doc/" target="_blank" rel="noopener noreferrer">Tumbero</a>, reconocido y seleccionado en festivales nacionales, y fue seleccionada por ACAU para participar del Campus Málaga Talent 2025 con este proyecto.</p>
             </section>
 
             <section class="team-card" aria-labelledby="guillermo-barbeito-rodriguez">
               <h3 id="guillermo-barbeito-rodriguez">Guillermo Barbeito Rodríguez</h3>
               <p class="section-role">Cocreador / coguionista</p>
-              <p>
-                Cocreador y coguionista. Participa en la arquitectura narrativa, el desarrollo del universo y la articulación entre comedia negra y thriller político.
-              </p>
-              <p>
-                Su trabajo en la serie se concentra en una ficción seca, incómoda y rioplatense, donde el humor surge de la precariedad cotidiana y de las consecuencias crecientes de cada decisión.
-              </p>
+              <p>Cocreador y coguionista. Participa en la arquitectura narrativa, el desarrollo del universo y la articulación entre comedia negra y thriller político.</p>
+              <p>Su trabajo en la serie se concentra en una ficción seca, incómoda y rioplatense, donde el humor surge de la precariedad cotidiana y de las consecuencias crecientes de cada decisión.</p>
             </section>
 
             <section class="team-card" aria-labelledby="nacho-jaunsolo-ska-films">
               <h3 id="nacho-jaunsolo-ska-films">Ignacio “Nacho” Jaunsolo / SKA Films</h3>
               <p class="section-role">Coproducción ejecutiva</p>
-              <p>
-                Coproductor ejecutivo, fundador y director ejecutivo de <a href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">SKA Films</a>, con experiencia en producción, dirección, fotografía y desarrollo de contenidos audiovisuales.
-              </p>
-              <p>
-                Su participación aporta estructura de producción, experiencia industrial y una estrategia orientada al desarrollo y la circulación.
-              </p>
+              <p>Coproductor ejecutivo, fundador y director ejecutivo de <a href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">SKA Films</a>, con experiencia en producción, dirección, fotografía y desarrollo de contenidos audiovisuales.</p>
+              <p>Su participación aporta estructura de producción, experiencia industrial y una estrategia orientada al desarrollo y la circulación.</p>
             </section>
 
             <section class="team-card" aria-labelledby="malena-benavides">
               <h3 id="malena-benavides">Malena Benavides</h3>
               <p class="section-role">Producción ejecutiva</p>
-              <p>
-                Productora ejecutiva. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.
-              </p>
-              <p>
-                También produjo el documental Tumbero. En este proyecto ordena prioridades y sostiene las condiciones concretas necesarias para avanzar hacia la producción.
-              </p>
+              <p>Productora ejecutiva. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.</p>
+              <p>También produjo el documental Tumbero. En este proyecto ordena prioridades y sostiene las condiciones concretas necesarias para avanzar hacia la producción.</p>
             </section>
           </div>
         </section>
 
         <section class="links-panel" aria-labelledby="contacto">
           <h2 id="contacto">Contacto profesional</h2>
-          <p>
-            Para solicitar materiales o iniciar una conversación de coproducción, escribí al contacto de producción indicando nombre, empresa o institución y país.
-          </p>
+          <p>Para solicitar materiales o iniciar una conversación de coproducción, escribí al contacto de producción indicando nombre, empresa o institución y país.</p>
           <div class="cta-row">
-            <a
-              class="cta"
-              href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&body=Hola%2C%0A%0AQuisiera%20solicitar%20el%20dossier%20y%20los%20materiales%20disponibles%20del%20proyecto.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
-            >Solicitar dossier y materiales</a>
-            <a
-              class="cta cta--secondary"
-              href="mailto:malenabh1@gmail.com?subject=Conversaci%C3%B3n%20sobre%20coproducci%C3%B3n%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&body=Hola%2C%0A%0AMe%20interesa%20conversar%20sobre%20una%20posible%20coproducci%C3%B3n%20o%20alianza%20para%20el%20desarrollo.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
-            >Conversar sobre coproducción</a>
+            <a class="cta" href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&amp;body=Hola%2C%0A%0AQuisiera%20solicitar%20el%20dossier%20y%20los%20materiales%20disponibles%20del%20proyecto.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C">Solicitar dossier y materiales</a>
+            <a class="cta cta--secondary" href="mailto:malenabh1@gmail.com?subject=Conversaci%C3%B3n%20sobre%20coproducci%C3%B3n%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&amp;body=Hola%2C%0A%0AMe%20interesa%20conversar%20sobre%20una%20posible%20coproducci%C3%B3n%20o%20alianza%20para%20el%20desarrollo.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C">Conversar sobre coproducción</a>
           </div>
           <ul class="link-list">
             <li><a href="./">Volver a la portada</a></li>
