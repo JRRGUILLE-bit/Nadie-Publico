@@ -1,257 +1,210 @@
-.about-contact-card {
-  margin-top: 1.15rem;
+/* Contenido profesional compacto dentro del expediente de portada. */
+.project-logline {
+  margin: 0 0 0.85rem;
+  color: #f0e4c8;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(1rem, 1.85vw, 1.22rem);
+  font-weight: 400;
+  line-height: 1.42;
 }
 
-.about-contact-card a {
-  display: inline-block;
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  opacity: 0.86;
+.project-summary {
+  margin: 0 0 1rem;
+  color: rgba(238, 228, 207, 0.88);
+  font-size: clamp(0.84rem, 1.45vw, 0.96rem);
+  line-height: 1.43;
 }
 
-.about-contact-card a:hover,
-.about-contact-card a:focus-visible {
-  opacity: 1;
+.project-status,
+.project-partner-search {
+  margin: 0 0 0.8rem;
+  padding: 0.82rem 0.9rem 0.78rem;
+  background: rgba(7, 10, 9, 0.54);
+  box-shadow: inset 0 1px 0 rgba(238, 224, 194, 0.07);
+}
+
+.project-status {
+  border: 1px solid rgba(238, 224, 194, 0.28);
+  background:
+    linear-gradient(135deg, rgba(226, 210, 168, 0.1), transparent 48%),
+    rgba(7, 10, 9, 0.52);
+}
+
+.project-partner-search {
+  border: 1px solid rgba(212, 178, 113, 0.32);
+  background:
+    linear-gradient(145deg, rgba(105, 77, 35, 0.14), transparent 54%),
+    rgba(8, 11, 10, 0.58);
+  box-shadow:
+    inset 3px 0 0 rgba(212, 178, 113, 0.42),
+    inset 0 1px 0 rgba(238, 224, 194, 0.05);
+}
+
+.project-status__eyebrow,
+.project-partner-search__eyebrow {
+  margin: 0 0 0.22rem;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.59rem, 1vw, 0.7rem);
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.project-status__eyebrow {
+  color: #dcc99d;
+}
+
+.project-partner-search__eyebrow {
+  color: #d8b879;
+}
+
+.project-status h3,
+.project-partner-search h3 {
+  margin: 0 0 0.5rem;
+  color: #eee0c2;
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.88rem, 1.65vw, 1.08rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.project-status__list,
+.project-partner-search__list {
+  display: grid;
+  gap: 0.27rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-status__list li,
+.project-partner-search__list li {
+  position: relative;
+  margin: 0;
+  padding-left: 0.95rem;
+  color: rgba(238, 228, 207, 0.9);
+  font-size: clamp(0.76rem, 1.3vw, 0.88rem);
+  line-height: 1.36;
+}
+
+.project-status__list li::before,
+.project-partner-search__list li::before {
+  position: absolute;
+  left: 0;
+}
+
+.project-status__list li::before {
+  content: '—';
+  color: #dcc99d;
+  opacity: 0.72;
+}
+
+.project-partner-search__list li::before {
+  content: '›';
+  left: 0.08rem;
+  color: #d8b879;
+  font-weight: 700;
+}
+
+.project-materials-note {
+  margin: 0.9rem 0 0;
+  padding-top: 0.72rem;
+  border-top: 1px solid rgba(226, 190, 116, 0.28);
+  color: rgba(238, 228, 207, 0.82);
+  font-size: clamp(0.75rem, 1.25vw, 0.86rem);
+  line-height: 1.4;
+}
+
+.project-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.project-card-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.52rem 0.7rem 0.44rem;
+  border: 1px solid rgba(238, 224, 194, 0.3);
+  color: #eadbb9;
+  background: rgba(8, 8, 7, 0.42);
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.61rem, 1vw, 0.72rem);
+  letter-spacing: 0.055em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.project-card-actions a:first-child {
+  border-color: rgba(226, 190, 116, 0.48);
+  background:
+    linear-gradient(145deg, rgba(180, 126, 46, 0.18), transparent 62%),
+    rgba(10, 8, 6, 0.56);
+}
+
+.project-card-actions a:hover,
+.project-card-actions a:focus-visible {
+  border-color: rgba(255, 230, 176, 0.76);
+  color: #f4e7c9;
   outline: none;
 }
 
-/* Resumen narrativo concreto dentro de la primera placa del proyecto. */
-.about-card--project > p:nth-of-type(2)::after {
-  content: 'LA HISTORIA\A\A Gonzalo (26), Luis (24) y María (24) comparten una casa frente a la escollera de Ciudad Vieja. Un robo de oro vinculado a un episodio político ocurrido en 1980, durante la dictadura, arrastra su convivencia hacia una trama que conecta el presente con ese pasado. Lo que comienza como un problema cercano y absurdo los expone a intereses que los superan y convierte cada decisión en una nueva consecuencia.';
-  display: block;
-  margin: 1.15rem 0 0;
-  padding: 1rem 1.05rem 0.95rem;
-  border: 1px solid rgba(187, 78, 53, 0.42);
-  color: rgba(238, 228, 207, 0.94);
-  background:
-    linear-gradient(145deg, rgba(128, 39, 26, 0.18), transparent 56%),
-    rgba(8, 10, 9, 0.58);
-  box-shadow:
-    inset 3px 0 0 rgba(187, 78, 53, 0.58),
-    inset 0 1px 0 rgba(238, 224, 194, 0.06);
-  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-  font-size: clamp(0.84rem, 1.52vw, 0.98rem);
-  line-height: 1.46;
-  white-space: pre-line;
-}
-
-/* Materiales profesionales visibles sin publicar archivos. */
-.project-status::after {
-  content: 'MATERIALES DISPONIBLES BAJO SOLICITUD\A\A— Guion del episodio piloto\A— Dossier del proyecto\A— Biblia de serie y arco de temporada\A— Teaser\A— Presupuesto\A— Plan de desarrollo\A\AEstos materiales no se publican de forma abierta. Se comparten con profesionales, instituciones y posibles socios mediante el contacto de producción.';
-  display: block;
-  margin-top: 0.95rem;
-  padding: 0.9rem 0 0.05rem;
-  border-top: 1px solid rgba(226, 190, 116, 0.3);
-  color: rgba(238, 228, 207, 0.92);
-  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-  font-size: clamp(0.8rem, 1.42vw, 0.92rem);
-  line-height: 1.43;
-  white-space: pre-line;
-}
-
-/* Navegación profesional de la portada. */
-.contact-links {
-  width: min(97vw, 1040px);
-  gap: clamp(0.42rem, 1.25vw, 1.05rem);
-}
-
-.contact-link--materials {
-  flex: 0 1 13.5rem;
-  min-width: 10.5rem;
-  max-width: 13.5rem;
-  padding: 0.62rem 0.82rem 0.55rem;
-  border: 1px solid rgba(226, 190, 116, 0.72);
-  border-radius: 2px;
-  background:
-    linear-gradient(145deg, rgba(180, 126, 46, 0.28), transparent 62%),
-    rgba(12, 10, 7, 0.72);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 239, 198, 0.14);
-  opacity: 1;
-}
-
-.contact-link--materials img {
-  width: clamp(2rem, 4.2vw, 3rem);
-  height: clamp(2rem, 4.2vw, 3rem);
-}
-
-.contact-link--materials span {
-  max-width: 11rem;
-  color: #f0dfb8;
-  font-size: clamp(0.61rem, 1.18vw, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.055em;
-  line-height: 1.18;
+/* Selector de idioma visible desde la portada. */
+.cover-language-switch {
+  position: absolute;
+  top: clamp(0.85rem, 2.7vw, 1.8rem);
+  right: clamp(0.85rem, 2.7vw, 1.8rem);
+  z-index: 7;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.46rem 0.72rem 0.38rem;
+  border: 1px solid rgba(226, 190, 116, 0.46);
+  border-radius: 999px;
+  color: rgba(240, 228, 200, 0.9);
+  background: rgba(7, 6, 5, 0.5);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(4px);
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.61rem, 0.95vw, 0.72rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
   text-transform: uppercase;
+  opacity: 0.78;
+  transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease;
 }
 
-.contact-link--materials span::after {
-  content: 'Contacto de producción';
-  display: block;
-  margin-top: 0.24rem;
-  color: rgba(238, 224, 194, 0.72);
-  font-size: 0.72em;
-  font-weight: 400;
-  letter-spacing: 0.07em;
-  line-height: 1.1;
+.cover-language-switch::before {
+  content: '↔';
+  color: #e2be74;
 }
 
-.contact-link--materials:hover,
-.contact-link--materials:focus-visible {
-  border-color: rgba(255, 220, 145, 0.96);
-  background:
-    linear-gradient(145deg, rgba(203, 146, 55, 0.38), transparent 64%),
-    rgba(18, 13, 8, 0.86);
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(255, 225, 157, 0.12),
-    inset 0 1px 0 rgba(255, 241, 204, 0.18);
-}
-
-.contact-link--production {
-  flex: 0 1 8.8rem;
-  min-width: 7.1rem;
-  max-width: 8.8rem;
-  padding: 0.42rem 0.55rem 0.38rem;
-  border: 1px solid rgba(238, 224, 194, 0.28);
-  border-radius: 2px;
-  background: rgba(8, 8, 7, 0.48);
-  box-shadow: inset 0 1px 0 rgba(255, 242, 210, 0.06);
-  opacity: 0.82;
-}
-
-.contact-link--production img {
-  width: clamp(1.7rem, 3.4vw, 2.45rem);
-  height: clamp(1.7rem, 3.4vw, 2.45rem);
-}
-
-.contact-link--production span {
-  max-width: 7.6rem;
-  color: #e4d7bb;
-  font-size: clamp(0.56rem, 0.98vw, 0.72rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.18;
-  text-transform: uppercase;
-}
-
-.contact-link--production:hover,
-.contact-link--production:focus-visible {
-  border-color: rgba(238, 224, 194, 0.62);
-  background: rgba(14, 11, 8, 0.7);
+.cover-language-switch:hover,
+.cover-language-switch:focus-visible {
+  border-color: rgba(255, 230, 176, 0.82);
   opacity: 1;
+  outline: none;
+  transform: translateY(-1px);
 }
 
-.contact-link--coproduction {
-  flex: 0 1 10.8rem;
-  min-width: 8.6rem;
-  max-width: 10.8rem;
-  padding: 0.48rem 0.66rem 0.44rem;
-  border: 1px solid rgba(238, 224, 194, 0.38);
-  border-radius: 2px;
-  background:
-    linear-gradient(145deg, rgba(226, 210, 168, 0.13), transparent 60%),
-    rgba(9, 8, 6, 0.58);
-  box-shadow: inset 0 1px 0 rgba(255, 242, 210, 0.08);
-  opacity: 0.9;
+body.about-open .cover-language-switch {
+  pointer-events: none;
+  opacity: 0;
 }
 
-.contact-link--coproduction img {
-  width: clamp(1.85rem, 3.8vw, 2.75rem);
-  height: clamp(1.85rem, 3.8vw, 2.75rem);
-}
-
-.contact-link--coproduction span {
-  max-width: 9rem;
-  color: #e8d9b8;
-  font-size: clamp(0.58rem, 1.05vw, 0.76rem);
-  font-weight: 700;
-  letter-spacing: 0.045em;
-  line-height: 1.18;
-  text-transform: uppercase;
-}
-
-.contact-link--coproduction:hover,
-.contact-link--coproduction:focus-visible {
-  border-color: rgba(238, 224, 194, 0.72);
-  background:
-    linear-gradient(145deg, rgba(226, 210, 168, 0.2), transparent 62%),
-    rgba(13, 10, 7, 0.76);
-  opacity: 1;
-}
-
-@media (max-width: 620px) {
-  .about-card--project > p:nth-of-type(2)::after {
-    padding: 0.82rem 0.86rem 0.78rem;
-    font-size: 0.82rem;
-    line-height: 1.42;
-  }
-
-  .project-status::after {
-    font-size: 0.78rem;
-    line-height: 1.4;
-  }
-
-  .contact-links {
-    width: calc(100vw - 0.55rem);
-    gap: 0.16rem;
-  }
-
-  .contact-link {
-    min-width: 2.65rem;
-    padding-inline: 0.08rem;
-  }
-
-  .contact-link--materials {
-    flex-basis: 6.85rem;
-    min-width: 6.85rem;
-    max-width: 6.85rem;
-    padding: 0.4rem 0.26rem 0.36rem;
-  }
-
-  .contact-link--materials span {
-    font-size: 0.5rem;
-    letter-spacing: 0.02em;
-  }
-
-  .contact-link--materials span::after {
-    margin-top: 0.16rem;
-    font-size: 0.7em;
-    letter-spacing: 0.04em;
-  }
-
-  .contact-link--production {
-    flex-basis: 5.1rem;
-    min-width: 5.1rem;
-    max-width: 5.1rem;
-    padding: 0.32rem 0.18rem 0.28rem;
-  }
-
-  .contact-link--production span {
-    font-size: 0.46rem;
-    letter-spacing: 0.015em;
-  }
-
-  .contact-link--coproduction {
-    flex-basis: 5.8rem;
-    min-width: 5.8rem;
-    max-width: 5.8rem;
-    padding: 0.34rem 0.2rem 0.3rem;
-  }
-
-  .contact-link--coproduction span {
-    font-size: 0.47rem;
-    letter-spacing: 0.018em;
-  }
-}
-
-/* Los contactos están disponibles desde el inicio; al terminar las placas alcanzan su opacidad final. */
-.contact-links {
+/* Accesos inferiores disponibles desde el primer render y sin cajas rectangulares. */
+body .contact-links {
+  align-items: flex-end;
+  gap: clamp(0.55rem, 1.55vw, 1.35rem);
+  width: min(96vw, 980px);
   pointer-events: auto;
-  opacity: 0.68;
+  opacity: 0.7;
   transform: translate(-50%, 0);
 }
 
@@ -262,30 +215,23 @@ body.contacts-visible .contact-links {
 body.about-open .contact-links {
   pointer-events: none;
   opacity: 0;
-  transform: translate(-50%, 0);
   filter: blur(2px);
-}
-
-/* Corrección visual: accesos inferiores sin cajas ni fondos rectangulares. */
-body .contact-links {
-  align-items: flex-end;
-  gap: clamp(0.78rem, 1.75vw, 1.55rem);
-  width: min(96vw, 940px);
+  transform: translate(-50%, 0);
 }
 
 body .contact-link,
 body .contact-link--materials,
-body .contact-link--production,
 body .contact-link--coproduction {
-  flex: 0 1 auto;
+  flex: 1 1 0;
   min-width: 0;
   max-width: 11.5rem;
-  padding: 0.16rem 0.3rem;
+  padding: 0.14rem 0.24rem;
   border: 0 !important;
   border-radius: 0;
+  color: rgba(235, 222, 193, 0.92);
   background: transparent !important;
   box-shadow: none !important;
-  filter: drop-shadow(0 6px 13px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 6px 13px rgba(0, 0, 0, 0.52));
   opacity: 0.84;
 }
 
@@ -293,8 +239,6 @@ body .contact-link:hover,
 body .contact-link:focus-visible,
 body .contact-link--materials:hover,
 body .contact-link--materials:focus-visible,
-body .contact-link--production:hover,
-body .contact-link--production:focus-visible,
 body .contact-link--coproduction:hover,
 body .contact-link--coproduction:focus-visible {
   border: 0 !important;
@@ -302,26 +246,25 @@ body .contact-link--coproduction:focus-visible {
   box-shadow: none !important;
   filter:
     brightness(1.12)
-    drop-shadow(0 9px 17px rgba(0, 0, 0, 0.58));
+    drop-shadow(0 9px 17px rgba(0, 0, 0, 0.6));
   opacity: 1;
+  outline: none;
   transform: translateY(-0.14rem);
 }
 
 body .contact-link img,
 body .contact-link--materials img,
-body .contact-link--production img,
 body .contact-link--coproduction img {
-  width: clamp(1.9rem, 3.4vw, 2.7rem);
-  height: clamp(1.9rem, 3.4vw, 2.7rem);
+  width: clamp(1.9rem, 3.35vw, 2.65rem);
+  height: clamp(1.9rem, 3.35vw, 2.65rem);
 }
 
 body .contact-link span,
 body .contact-link--materials span,
-body .contact-link--production span,
 body .contact-link--coproduction span {
   max-width: 10.8rem;
-  color: rgba(235, 222, 193, 0.92);
-  font-size: clamp(0.56rem, 0.92vw, 0.7rem);
+  color: inherit;
+  font-size: clamp(0.55rem, 0.88vw, 0.68rem);
   line-height: 1.14;
   letter-spacing: 0.035em;
   text-align: center;
@@ -330,142 +273,107 @@ body .contact-link--coproduction span {
 
 body .contact-link--materials span {
   color: #f0dfb8;
-  font-size: clamp(0.6rem, 1vw, 0.76rem);
+  font-size: clamp(0.59rem, 0.98vw, 0.74rem);
   font-weight: 700;
 }
 
 body .contact-link--materials span::after {
-  margin-top: 0.2rem;
+  content: 'Contacto de producción';
+  display: block;
+  margin-top: 0.18rem;
+  color: rgba(238, 224, 194, 0.7);
   font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0.055em;
   line-height: 1.06;
 }
 
-/* Corrección visual: botón de salto redondeado con luz en movimiento. */
-body .skip-intro-button {
-  min-height: 2.82rem !important;
-  padding: 0.72rem 1.08rem 0.64rem !important;
-  border: 0 !important;
-  border-radius: 999px !important;
-  color: #f2e6ca !important;
-  background: rgba(7, 6, 5, 0.76) !important;
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.46),
-    0 0 20px rgba(226, 190, 116, 0.08) !important;
-  overflow: hidden;
-  isolation: isolate;
+body .contact-link--coproduction span {
+  color: #e8d9b8;
+  font-weight: 700;
 }
 
-body .skip-intro-button::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  z-index: -2;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 278deg,
-    rgba(255, 232, 174, 0.04) 296deg,
-    rgba(255, 222, 135, 0.96) 321deg,
-    rgba(255, 241, 204, 0.58) 339deg,
-    transparent 354deg,
-    transparent 360deg
-  );
-  animation: skip-intro-border-light 2.65s linear infinite;
+/* Tercera línea de créditos: dirección de Maite. */
+.plate--credits {
+  top: 42%;
 }
 
-body .skip-intro-button::after {
-  content: '';
-  position: absolute;
-  inset: 1.5px;
-  z-index: -1;
-  border-radius: inherit;
-  background:
-    linear-gradient(180deg, rgba(15, 12, 9, 0.96), rgba(9, 8, 6, 0.88));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 244, 216, 0.09),
-    inset 0 0 0 1px rgba(255, 224, 149, 0.08);
+.plate--credits .plate__line--3 {
+  margin-top: 0.58em;
+  font-size: 0.53em;
+  letter-spacing: 0.075em;
+  line-height: 1.25;
 }
 
-body .skip-intro-button:hover,
-body .skip-intro-button:focus-visible {
-  border: 0 !important;
-  background: rgba(10, 8, 6, 0.88) !important;
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.54),
-    0 0 28px rgba(226, 190, 116, 0.18) !important;
+.plate--recognition {
+  top: 60%;
+  font-size: clamp(0.72rem, 1.34vw, 1.18rem);
+  line-height: 1.16;
 }
 
-@keyframes skip-intro-border-light {
-  to { transform: rotate(1turn); }
+.plate--recognition .plate__line {
+  letter-spacing: 0.045em;
 }
 
-@media (max-width: 620px) {
-  body .contact-links {
-    width: calc(100vw - 0.8rem);
-    gap: 0.3rem;
-  }
-
-  body .contact-link,
-  body .contact-link--materials,
-  body .contact-link--production,
-  body .contact-link--coproduction {
-    max-width: 6.5rem;
-    padding: 0.1rem 0.08rem;
-  }
-
-  body .contact-link img,
-  body .contact-link--materials img,
-  body .contact-link--production img,
-  body .contact-link--coproduction img {
-    width: 1.82rem;
-    height: 1.82rem;
-  }
-
-  body .contact-link span,
-  body .contact-link--materials span,
-  body .contact-link--production span,
-  body .contact-link--coproduction span {
-    max-width: 6.2rem;
-    font-size: 0.44rem;
-  }
-
-  body .contact-link--materials span {
-    font-size: 0.48rem;
-  }
-
-  body .skip-intro-button {
-    min-height: 2.4rem !important;
-    padding: 0.58rem 0.84rem 0.52rem !important;
-  }
+.plate--recognition .plate__line + .plate__line {
+  margin-top: 0.32em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body .skip-intro-button::before {
-    animation: none;
-    background: rgba(255, 224, 150, 0.58);
-  }
-}
-
-/* La luz recorre un anillo enmascarado con la forma exacta del botón. */
+/* Único sistema visual para Saltar presentación. */
 @property --skip-border-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
 
-body .skip-intro-button {
+.skip-intro-button {
   position: absolute;
-  background: transparent !important;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(7.2rem, 13vh, 9.2rem);
+  z-index: 7;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+  min-height: 2.82rem;
+  padding: 0.72rem 1.08rem 0.64rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  color: #f2e6ca;
+  background: transparent;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.46),
+    0 0 20px rgba(226, 190, 116, 0.08);
+  backdrop-filter: blur(5px);
+  font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.68rem, 1.05vw, 0.82rem);
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.35rem);
+  animation: skip-intro-reveal 360ms ease 620ms forwards;
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
 }
 
-body .skip-intro-button > span {
+.skip-intro-button > span {
   position: relative;
   z-index: 3;
 }
 
-body .skip-intro-button::before {
+.skip-intro-button span:last-child {
+  color: #e2be74;
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: 1.18em;
+  letter-spacing: -0.16em;
+}
+
+.skip-intro-button::before {
   --skip-border-angle: 0deg;
+  content: '';
+  position: absolute;
   inset: 0;
   z-index: 2;
   padding: 1.6px;
@@ -487,11 +395,12 @@ body .skip-intro-button::before {
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  animation: skip-intro-border-lap 2.35s linear infinite !important;
-  transform: none !important;
+  animation: skip-intro-border-lap 2.35s linear infinite;
 }
 
-body .skip-intro-button::after {
+.skip-intro-button::after {
+  content: '';
+  position: absolute;
   inset: 1.6px;
   z-index: 1;
   border-radius: inherit;
@@ -502,13 +411,140 @@ body .skip-intro-button::after {
     inset 0 0 0 1px rgba(255, 224, 149, 0.07);
 }
 
+.skip-intro-button:hover,
+.skip-intro-button:focus-visible {
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.54),
+    0 0 28px rgba(226, 190, 116, 0.18);
+  outline: none;
+  transform: translateY(-0.08rem);
+}
+
+body.about-open .skip-intro-button {
+  pointer-events: none;
+  opacity: 0 !important;
+}
+
+@keyframes skip-intro-reveal {
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
 @keyframes skip-intro-border-lap {
-  to { --skip-border-angle: 360deg; }
+  to {
+    --skip-border-angle: 360deg;
+  }
+}
+
+@media (max-width: 720px) {
+  .cover-language-switch {
+    top: 0.7rem;
+    right: 0.7rem;
+    padding: 0.4rem 0.58rem 0.34rem;
+    font-size: 0.57rem;
+  }
+
+  .plate--credits {
+    top: 34svh;
+    max-width: 92vw;
+  }
+
+  .plate--credits .plate__line--2 {
+    white-space: normal;
+  }
+
+  .plate--credits .plate__line--3 {
+    margin-top: 0.46em;
+    font-size: 0.56em;
+  }
+
+  .plate--recognition {
+    top: 51.5svh;
+    max-width: 92vw;
+    font-size: clamp(0.58rem, 2.65vw, 0.78rem);
+  }
+
+  .plate--recognition .plate__line + .plate__line {
+    margin-top: 0.26em;
+  }
+
+  .skip-intro-button {
+    right: 0.72rem;
+    bottom: max(10.4rem, calc(env(safe-area-inset-bottom) + 9.4rem));
+    min-height: 2.4rem;
+    padding: 0.58rem 0.84rem 0.52rem;
+    font-size: 0.61rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .project-status,
+  .project-partner-search {
+    padding: 0.72rem 0.76rem 0.68rem;
+  }
+
+  .project-card-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body .contact-links {
+    width: calc(100vw - 0.65rem);
+    gap: 0.2rem;
+  }
+
+  body .contact-link,
+  body .contact-link--materials,
+  body .contact-link--coproduction {
+    max-width: 6.4rem;
+    padding: 0.08rem 0.04rem;
+  }
+
+  body .contact-link img,
+  body .contact-link--materials img,
+  body .contact-link--coproduction img {
+    width: 1.78rem;
+    height: 1.78rem;
+  }
+
+  body .contact-link span,
+  body .contact-link--materials span,
+  body .contact-link--coproduction span {
+    max-width: 6rem;
+    font-size: 0.43rem;
+    letter-spacing: 0.015em;
+  }
+
+  body .contact-link--materials span {
+    font-size: 0.47rem;
+  }
+
+  body .contact-link--materials span::after {
+    margin-top: 0.13rem;
+    font-size: 0.66em;
+  }
+}
+
+@media (max-height: 640px) and (max-width: 720px) {
+  .skip-intro-button {
+    bottom: max(8.2rem, calc(env(safe-area-inset-bottom) + 7.4rem));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body .skip-intro-button::before {
+  .skip-intro-button,
+  .skip-intro-button::before {
+    animation: none;
+  }
+
+  .skip-intro-button {
+    opacity: 0.9;
+    transform: none;
+  }
+
+  .skip-intro-button::before {
     --skip-border-angle: 326deg;
-    animation: none !important;
   }
 }
