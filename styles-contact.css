@@ -74,6 +74,17 @@
   text-transform: uppercase;
 }
 
+.contact-link--materials span::after {
+  content: 'Contacto de producción';
+  display: block;
+  margin-top: 0.24rem;
+  color: rgba(238, 224, 194, 0.72);
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+}
+
 .contact-link--materials:hover,
 .contact-link--materials:focus-visible {
   border-color: rgba(255, 220, 145, 0.96);
@@ -185,6 +196,12 @@
   .contact-link--materials span {
     font-size: 0.5rem;
     letter-spacing: 0.02em;
+  }
+
+  .contact-link--materials span::after {
+    margin-top: 0.16rem;
+    font-size: 0.7em;
+    letter-spacing: 0.04em;
   }
 
   .contact-link--production {
