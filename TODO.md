@@ -4,12 +4,13 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 
 ## Cambios aprobados
 
-- [ ] 1. Agregar un bloque visible de **Estado del proyecto**.
+- [x] 1. Agregar un bloque visible de **Estado del proyecto**.
   - Serie de ficción de 6 × 20–25 minutos.
   - Proyecto en desarrollo.
   - Guion piloto disponible.
   - Dossier, biblia y arco de temporada disponibles.
   - Teaser realizado.
+  - Implementado en la primera placa de “Sobre nosotros”.
 
 - [ ] 2. Agregar un bloque de **Qué estamos buscando**.
   - Coproductores.
