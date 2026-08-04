@@ -81,7 +81,11 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - El botón desaparece después de usarlo o cuando la presentación termina normalmente.
   - Tiene posición y tamaño adaptados para escritorio, celular y pantallas bajas.
 
-- [ ] 12. Diferenciar apoyos, premios, laboratorios, mercados y selecciones.
+- [x] 12. Diferenciar apoyos, premios, laboratorios, mercados y selecciones.
+  - La página completa presenta cada antecedente con una categoría independiente.
+  - La placa animada ahora separa: apoyo, laboratorio, premio y selección.
+  - No se utiliza la categoría “mercado” para instancias que no estén confirmadas como tales.
+  - Las nuevas cuatro líneas fueron ajustadas para escritorio y celular.
 
 - [ ] 13. Agregar una línea clara sobre público objetivo y posicionamiento.
 
@@ -105,4 +109,4 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 
 ## Método de implementación
 
-Cada cambio se realizará y verificará por separado, con un commit específico. Al terminar cada punto se marcará como completado en este archivo.
+Cada cambio se realizará y verificará por separado, con un commit específico. Al terminar cada punto se marcarará como completado en este archivo.
