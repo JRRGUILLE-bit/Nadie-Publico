@@ -11,21 +11,26 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#050504" />
     <link rel="canonical" href="https://jrrguille-bit.github.io/Nadie-Publico/sobre.html" />
+    <link rel="alternate" hreflang="es-UY" href="https://jrrguille-bit.github.io/Nadie-Publico/sobre.html" />
+    <link rel="alternate" hreflang="en" href="https://jrrguille-bit.github.io/Nadie-Publico/about.html" />
+    <link rel="alternate" hreflang="x-default" href="https://jrrguille-bit.github.io/Nadie-Publico/" />
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/favicon.ico" sizes="any" />
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/ntdqiasa-flame-favicon-32.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/ntdqiasa-flame-favicon-assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="project-page.css" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nadie te dijo que iba a ser así" />
     <meta property="og:title" content="Proyecto y equipo | Nadie te dijo que iba a ser así" />
     <meta
       property="og:description"
-      content="Una serie uruguaya de comedia negra y thriller político en desarrollo. Conocé la historia, el estado del proyecto, sus materiales, recorrido y equipo."
+      content="Una serie uruguaya de comedia negra y thriller político en desarrollo. Historia, formato, materiales, recorrido, equipo y contacto profesional."
     />
     <meta property="og:url" content="https://jrrguille-bit.github.io/Nadie-Publico/sobre.html" />
     <meta property="og:image" content="https://jrrguille-bit.github.io/Nadie-Publico/assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg" />
     <meta property="og:image:alt" content="Nadie te dijo que iba a ser así" />
     <meta property="og:locale" content="es_UY" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Proyecto y equipo | Nadie te dijo que iba a ser así" />
@@ -34,13 +39,6 @@
       content="Historia, formato, estado de desarrollo, materiales, recorrido y equipo de la serie uruguaya Nadie te dijo que iba a ser así."
     />
     <meta name="twitter:image" content="https://jrrguille-bit.github.io/Nadie-Publico/assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
 
     <script type="application/ld+json">
       {
@@ -68,500 +66,24 @@
             "timeRequired": "PT25M",
             "genre": ["Comedia negra", "Thriller político", "Ficción audiovisual"],
             "creator": [
-              { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#maite-pineyrua-segura" },
-              { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#guillermo-barbeito-rodriguez" }
+              { "@type": "Person", "name": "Maite Piñeyrúa Segura" },
+              { "@type": "Person", "name": "Guillermo Barbeito Rodríguez" }
             ],
-            "producer": { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#malena-benavides" },
-            "productionCompany": { "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#ska-films" }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#maite-pineyrua-segura",
-            "name": "Maite Piñeyrúa Segura",
-            "jobTitle": "Cocreadora y coguionista"
-          },
-          {
-            "@type": "Person",
-            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#guillermo-barbeito-rodriguez",
-            "name": "Guillermo Barbeito Rodríguez",
-            "jobTitle": "Cocreador y coguionista"
-          },
-          {
-            "@type": "Person",
-            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#malena-benavides",
-            "name": "Malena Benavides",
-            "jobTitle": "Productora ejecutiva"
-          },
-          {
-            "@type": "Organization",
-            "@id": "https://jrrguille-bit.github.io/Nadie-Publico/#ska-films",
-            "name": "SKA Films",
-            "url": "https://www.skafilms.com.uy/es/inicio"
+            "producer": { "@type": "Person", "name": "Malena Benavides" },
+            "productionCompany": { "@type": "Organization", "name": "SKA Films" }
           }
         ]
       }
     </script>
-
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #101b18;
-        --text: #e9e3d3;
-        --title: #f0ead9;
-        --muted: rgba(233, 227, 211, 0.72);
-        --line: rgba(220, 218, 197, 0.24);
-        --accent: #e2d2a8;
-        --red: #bb4e35;
-        --typewriter: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
-        --body-copy: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-      }
-
-      * { box-sizing: border-box; }
-
-      html {
-        scroll-behavior: smooth;
-        background: var(--bg);
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--text);
-        background:
-          linear-gradient(180deg, rgba(7, 12, 11, 0.82), rgba(9, 15, 14, 0.92)),
-          radial-gradient(circle at 18% 7%, rgba(234, 228, 203, 0.12), transparent 28%),
-          url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') center / cover fixed no-repeat,
-          var(--bg);
-        font-family: var(--body-copy);
-        line-height: 1.58;
-      }
-
-      body::before,
-      body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-      }
-
-      body::before {
-        background-image:
-          linear-gradient(180deg, rgba(255, 250, 230, 0.07), transparent 30%, rgba(0, 0, 0, 0.24)),
-          radial-gradient(circle, rgba(232, 226, 203, 0.14) 0 0.45px, transparent 0.85px);
-        background-size: 100% 100%, 10px 10px;
-        mix-blend-mode: screen;
-        opacity: 0.26;
-      }
-
-      body::after {
-        border: clamp(0.7rem, 1.8vw, 1.25rem) solid rgba(5, 8, 7, 0.3);
-        box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.46);
-      }
-
-      main {
-        position: relative;
-        z-index: 1;
-        width: min(1080px, calc(100% - 40px));
-        margin: 0 auto;
-        padding: clamp(28px, 6vw, 78px) 0;
-      }
-
-      article {
-        position: relative;
-        overflow: hidden;
-        padding: clamp(24px, 5vw, 58px);
-        border: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(24, 35, 31, 0.42), rgba(8, 13, 12, 0.62)),
-          radial-gradient(circle at 9% 2%, rgba(234, 228, 203, 0.1), transparent 24%),
-          rgba(10, 16, 15, 0.76);
-        box-shadow:
-          0 24px 70px rgba(0, 0, 0, 0.68),
-          inset 0 0 0 1px rgba(233, 227, 211, 0.08),
-          inset 0 0 58px rgba(0, 0, 0, 0.24);
-        isolation: isolate;
-      }
-
-      article::before {
-        content: 'ARCHIVO / NTDQIASA';
-        position: absolute;
-        top: clamp(16px, 3vw, 30px);
-        right: clamp(16px, 3vw, 34px);
-        z-index: -1;
-        color: rgba(233, 227, 211, 0.08);
-        font-family: var(--typewriter);
-        font-size: clamp(1.9rem, 7vw, 5.6rem);
-        line-height: 0.86;
-        letter-spacing: 0.05em;
-        text-align: right;
-        transform: rotate(-2deg);
-      }
-
-      article::after {
-        content: '';
-        position: absolute;
-        inset: 12px;
-        z-index: -1;
-        border: 1px solid rgba(233, 227, 211, 0.08);
-        pointer-events: none;
-      }
-
-      .eyebrow,
-      h1,
-      h2,
-      h3,
-      .section-role,
-      .jump-nav,
-      footer {
-        font-family: var(--typewriter);
-      }
-
-      .eyebrow {
-        display: inline-block;
-        margin: 0 0 18px;
-        padding: 0.36rem 0.58rem 0.28rem;
-        border: 1px solid rgba(238, 224, 194, 0.24);
-        color: var(--accent);
-        background: rgba(9, 7, 5, 0.38);
-        font-size: clamp(0.68rem, 1.25vw, 0.82rem);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      h1,
-      h2,
-      h3 {
-        color: var(--title);
-        font-weight: 400;
-        text-transform: uppercase;
-        scroll-margin-top: 24px;
-      }
-
-      h1 {
-        max-width: 840px;
-        margin: 0;
-        font-size: clamp(2.05rem, 6.6vw, 5rem);
-        line-height: 0.96;
-        letter-spacing: 0.05em;
-      }
-
-      h2 {
-        display: inline;
-        margin: 0;
-        padding: 0.1em 0.28em 0.16em;
-        background: rgba(9, 7, 5, 0.28);
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-        font-size: clamp(1.25rem, 3vw, 2rem);
-        line-height: 1.18;
-        letter-spacing: 0.075em;
-      }
-
-      h3 {
-        margin: 0;
-        font-size: clamp(1rem, 2vw, 1.35rem);
-        letter-spacing: 0.055em;
-      }
-
-      .subtitle {
-        max-width: 810px;
-        margin: 22px 0 0;
-        color: var(--muted);
-        font-size: clamp(1.04rem, 2.2vw, 1.32rem);
-        line-height: 1.42;
-      }
-
-      p {
-        margin: 0 0 18px;
-        color: rgba(233, 227, 211, 0.94);
-        font-size: clamp(1rem, 1.8vw, 1.1rem);
-      }
-
-      strong { color: var(--title); }
-
-      a {
-        color: #f2ead2;
-        text-decoration-color: rgba(226, 210, 168, 0.72);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.18em;
-        transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
-      }
-
-      a:hover,
-      a:focus-visible { color: var(--accent); }
-
-      a:focus-visible {
-        outline: 1px solid rgba(238, 224, 194, 0.82);
-        outline-offset: 0.22rem;
-      }
-
-      .jump-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-        margin: 28px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .jump-nav a {
-        display: block;
-        padding: 0.45rem 0.62rem 0.38rem;
-        border: 1px solid rgba(238, 224, 194, 0.2);
-        background: rgba(9, 7, 5, 0.32);
-        font-size: 0.7rem;
-        letter-spacing: 0.07em;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .dossier-section,
-      .links-panel {
-        position: relative;
-        margin-top: clamp(28px, 5vw, 48px);
-        padding: clamp(20px, 3.4vw, 34px);
-        border: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(24, 35, 31, 0.34), rgba(10, 15, 14, 0.5)),
-          rgba(7, 11, 10, 0.36);
-        box-shadow:
-          inset 0 1px 0 rgba(233, 227, 211, 0.08),
-          0 16px 40px rgba(0, 0, 0, 0.22);
-      }
-
-      .dossier-section::before,
-      .links-panel::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background:
-          linear-gradient(90deg, rgba(226, 210, 168, 0.18), transparent 22%),
-          repeating-linear-gradient(0deg, rgba(233, 227, 211, 0.035) 0 1px, transparent 1px 8px);
-        opacity: 0.34;
-      }
-
-      .dossier-section > *,
-      .links-panel > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .dossier-section p:first-of-type { margin-top: 1.15rem; }
-      .dossier-section p:last-child { margin-bottom: 0; }
-
-      .logline {
-        border-color: rgba(226, 190, 116, 0.48);
-        box-shadow:
-          inset 4px 0 0 rgba(226, 190, 116, 0.62),
-          0 16px 40px rgba(0, 0, 0, 0.22);
-      }
-
-      .logline p {
-        max-width: 860px;
-        color: #f0e4c8;
-        font-size: clamp(1.13rem, 2.25vw, 1.48rem);
-        font-weight: 700;
-        line-height: 1.45;
-      }
-
-      .synopsis {
-        border-color: rgba(187, 78, 53, 0.38);
-        box-shadow:
-          inset 4px 0 0 rgba(187, 78, 53, 0.52),
-          0 16px 40px rgba(0, 0, 0, 0.22);
-      }
-
-      .fact-grid,
-      .materials-grid,
-      .recognition-grid,
-      .team-grid {
-        display: grid;
-        gap: 14px;
-        margin-top: 1.25rem;
-      }
-
-      .fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .materials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .recognition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-      .fact,
-      .material,
-      .recognition,
-      .team-card {
-        padding: 1rem 1.05rem;
-        border: 1px solid rgba(238, 224, 194, 0.2);
-        background: rgba(8, 11, 10, 0.5);
-      }
-
-      .fact span,
-      .material span,
-      .recognition span {
-        display: block;
-        margin-bottom: 0.35rem;
-        color: var(--accent);
-        font-family: var(--typewriter);
-        font-size: 0.68rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .fact strong,
-      .material strong,
-      .recognition strong {
-        display: block;
-        font-size: 1rem;
-        line-height: 1.4;
-      }
-
-      .material p,
-      .recognition p {
-        margin: 0.45rem 0 0;
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .status-list,
-      .search-list {
-        display: grid;
-        gap: 0.6rem;
-        margin: 1.2rem 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .status-list li,
-      .search-list li {
-        position: relative;
-        padding-left: 1.25rem;
-        font-size: 1rem;
-      }
-
-      .status-list li::before,
-      .search-list li::before {
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-      }
-
-      .status-list li::before { content: '—'; }
-      .search-list li::before { content: '›'; }
-
-      .section-role {
-        margin: 0.7rem 0 1rem;
-        color: var(--accent);
-        font-size: clamp(0.72rem, 1.4vw, 0.86rem);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        opacity: 0.82;
-      }
-
-      .team-card h3 { margin-bottom: 0.2rem; }
-      .team-card p { font-size: 0.98rem; }
-      .team-card p:last-child { margin-bottom: 0; }
-
-      .cta-row {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 1.25rem;
-      }
-
-      .cta {
-        display: flex;
-        min-height: 100%;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        border: 1px solid rgba(226, 190, 116, 0.62);
-        background:
-          linear-gradient(145deg, rgba(180, 126, 46, 0.24), transparent 62%),
-          rgba(12, 10, 7, 0.68);
-        font-family: var(--typewriter);
-        font-size: 0.78rem;
-        letter-spacing: 0.065em;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .cta--secondary {
-        border-color: rgba(238, 224, 194, 0.34);
-        background: rgba(9, 8, 6, 0.54);
-      }
-
-      .link-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 12px;
-        list-style: none;
-        margin: 1.2rem 0 0;
-        padding: 0;
-      }
-
-      .link-list a {
-        display: flex;
-        min-height: 100%;
-        align-items: center;
-        padding: 0.78rem 0.9rem 0.68rem;
-        border: 1px solid rgba(238, 224, 194, 0.26);
-        background: rgba(9, 7, 5, 0.34);
-        font-family: var(--typewriter);
-        font-size: 0.74rem;
-        line-height: 1.32;
-        letter-spacing: 0.055em;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .link-list a::before {
-        content: '↗';
-        margin-right: 0.62rem;
-        color: var(--accent);
-      }
-
-      .link-list a[href='./']::before { content: '←'; }
-
-      footer {
-        margin-top: 42px;
-        padding-top: 18px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.68rem;
-        line-height: 1.45;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      @media (max-width: 760px) {
-        main {
-          width: min(100% - 28px, 960px);
-          padding: 18px 0;
-        }
-
-        article { padding: 22px; }
-        article::after { inset: 8px; }
-
-        .dossier-section,
-        .links-panel { padding: 18px; }
-
-        .fact-grid,
-        .materials-grid,
-        .recognition-grid,
-        .team-grid,
-        .cta-row {
-          grid-template-columns: 1fr;
-        }
-
-        .link-list { grid-template-columns: 1fr; }
-      }
-    </style>
   </head>
   <body>
     <main>
-      <article>
-        <p class="eyebrow">Expediente / desarrollo</p>
+      <article class="project-file">
+        <div class="topbar">
+          <p class="eyebrow">Expediente / desarrollo</p>
+          <a class="language-switch" href="about.html" hreflang="en">English</a>
+        </div>
+
         <h1 id="proyecto">Proyecto y equipo</h1>
         <p class="subtitle">
           Nadie te dijo que iba a ser así es una serie uruguaya de ficción en desarrollo que cruza comedia negra, absurdo cotidiano y thriller político desde Ciudad Vieja, Montevideo.
@@ -636,7 +158,7 @@
           <ul class="status-list">
             <li>Proyecto en desarrollo activo.</li>
             <li>Guion del episodio piloto disponible.</li>
-            <li>Dossier, biblia y arco de temporada desarrollados.</li>
+            <li>Dossier, biblia de serie y arco de temporada desarrollados.</li>
             <li>Teaser realizado.</li>
             <li>Producción ejecutiva y coproducción ejecutiva vinculadas al proyecto.</li>
           </ul>
@@ -653,7 +175,7 @@
             <div class="material"><span>Temporada</span><strong>Biblia y arco</strong><p>Desarrollo del recorrido de los seis episodios.</p></div>
             <div class="material"><span>Audiovisual</span><strong>Teaser</strong><p>Pieza realizada para presentar tono y universo.</p></div>
             <div class="material"><span>Producción</span><strong>Presupuesto</strong><p>Disponible según la instancia de conversación.</p></div>
-            <div class="material"><span>Desarrollo</span><strong>Plan de trabajo</strong><p>Próximos pasos y necesidades del proyecto.</p></div>
+            <div class="material"><span>Desarrollo</span><strong>Plan de desarrollo</strong><p>Próximos pasos y necesidades del proyecto.</p></div>
           </div>
         </section>
 
@@ -663,7 +185,7 @@
             <div class="recognition">
               <span>Apoyo</span>
               <strong>Fondo de Incentivo Cultural</strong>
-              <p>Apoyo al desarrollo y recorrido del proyecto.</p>
+              <p>Apoyo al desarrollo y recorrido profesional del proyecto.</p>
             </div>
             <div class="recognition">
               <span>Laboratorio</span>
@@ -678,7 +200,7 @@
             <div class="recognition">
               <span>Selección</span>
               <strong>Campus Málaga Talent 2025</strong>
-              <p>Participación de Maite Piñeyrúa Segura a través de ACAU.</p>
+              <p>Participación de Maite Piñeyrúa Segura a través de una selección de ACAU.</p>
             </div>
           </div>
         </section>
@@ -702,12 +224,12 @@
           <div class="team-grid">
             <section class="team-card" aria-labelledby="maite-pineyrua-segura">
               <h3 id="maite-pineyrua-segura">Maite Piñeyrúa Segura</h3>
-              <p class="section-role">Cocreadora / coguionista</p>
+              <p class="section-role">Cocreadora / coguionista / directora</p>
               <p>
-                Maite Piñeyrúa Segura es cocreadora y coguionista de Nadie te dijo que iba a ser así. Su trabajo en la serie forma parte de la construcción del tono, el universo narrativo y la mirada sobre una convivencia atravesada por el absurdo, la precariedad y el humor negro.
+                Cocreadora y coguionista de la serie. Trabaja en la construcción del tono, los personajes y la relación entre intimidad, absurdo y conflicto político.
               </p>
               <p>
-                Su recorrido audiovisual incluye el documental <a href="https://www.instagram.com/tumbero.doc/" target="_blank" rel="noopener noreferrer">Tumbero</a>, con reconocimientos y selecciones en espacios como el Festival de Cine Corto de La Floresta, FENACIES, Dodecá, DETOUR, REC y Tenemos Que Ver. Fue seleccionada por ACAU para participar del Campus Málaga Talent 2025.
+                Dirigió el documental <a href="https://www.instagram.com/tumbero.doc/" target="_blank" rel="noopener noreferrer">Tumbero</a>, reconocido y seleccionado en festivales nacionales, y fue seleccionada por ACAU para participar del Campus Málaga Talent 2025 con este proyecto.
               </p>
             </section>
 
@@ -715,10 +237,10 @@
               <h3 id="guillermo-barbeito-rodriguez">Guillermo Barbeito Rodríguez</h3>
               <p class="section-role">Cocreador / coguionista</p>
               <p>
-                Guillermo Barbeito Rodríguez es cocreador y coguionista de Nadie te dijo que iba a ser así. Su trabajo forma parte de la arquitectura narrativa, el desarrollo del universo del proyecto y la tensión entre comedia negra, thriller y absurdo político.
+                Cocreador y coguionista. Participa en la arquitectura narrativa, el desarrollo del universo y la articulación entre comedia negra y thriller político.
               </p>
               <p>
-                En la serie participa en la escritura de una ficción seca, incómoda y rioplatense, donde el humor nace del deterioro de lo cotidiano y de la dificultad de los personajes para comprender el alcance de aquello en lo que se involucraron.
+                Su trabajo en la serie se concentra en una ficción seca, incómoda y rioplatense, donde el humor surge de la precariedad cotidiana y de las consecuencias crecientes de cada decisión.
               </p>
             </section>
 
@@ -726,10 +248,10 @@
               <h3 id="nacho-jaunsolo-ska-films">Ignacio “Nacho” Jaunsolo / SKA Films</h3>
               <p class="section-role">Coproducción ejecutiva</p>
               <p>
-                Ignacio “Nacho” Jaunsolo / <a href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">SKA Films</a> participa como coproductor ejecutivo. Es fundador y director ejecutivo de SKA Films, con trabajo en producción, dirección, dirección de fotografía y desarrollo de contenidos audiovisuales.
+                Coproductor ejecutivo, fundador y director ejecutivo de <a href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">SKA Films</a>, con experiencia en producción, dirección, fotografía y desarrollo de contenidos audiovisuales.
               </p>
               <p>
-                Su recorrido incluye proyectos como Togo, Guatemala: Corazón del Mundo Maya, NTVG: Lejos de los focos, Para Siempre Chape y Terxs. Su participación aporta estructura, experiencia industrial y una mirada orientada a producción y circulación.
+                Su participación aporta estructura de producción, experiencia industrial y una estrategia orientada al desarrollo y la circulación.
               </p>
             </section>
 
@@ -737,32 +259,33 @@
               <h3 id="malena-benavides">Malena Benavides</h3>
               <p class="section-role">Producción ejecutiva</p>
               <p>
-                Malena Benavides es la productora ejecutiva de Nadie te dijo que iba a ser así. Su rol articula el desarrollo del proyecto, la organización de producción y el vínculo entre la obra, sus creadores, posibles aliados y espacios de circulación.
+                Productora ejecutiva. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.
               </p>
               <p>
-                Su recorrido incluye la producción del documental Tumbero. En la serie ocupa un lugar clave para ordenar prioridades, sostener decisiones de producción y construir condiciones concretas para que el proyecto avance.
+                También produjo el documental Tumbero. En este proyecto ordena prioridades y sostiene las condiciones concretas necesarias para avanzar hacia la producción.
               </p>
             </section>
           </div>
         </section>
 
         <section class="links-panel" aria-labelledby="contacto">
-          <h2 id="contacto">Contacto</h2>
+          <h2 id="contacto">Contacto profesional</h2>
           <p>
             Para solicitar materiales o iniciar una conversación de coproducción, escribí al contacto de producción indicando nombre, empresa o institución y país.
           </p>
           <div class="cta-row">
             <a
               class="cta"
-              href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD"
+              href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&body=Hola%2C%0A%0AQuisiera%20solicitar%20el%20dossier%20y%20los%20materiales%20disponibles%20del%20proyecto.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
             >Solicitar dossier y materiales</a>
             <a
               class="cta cta--secondary"
-              href="mailto:malenabh1@gmail.com?subject=Conversaci%C3%B3n%20sobre%20coproducci%C3%B3n%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD"
+              href="mailto:malenabh1@gmail.com?subject=Conversaci%C3%B3n%20sobre%20coproducci%C3%B3n%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&body=Hola%2C%0A%0AMe%20interesa%20conversar%20sobre%20una%20posible%20coproducci%C3%B3n%20o%20alianza%20para%20el%20desarrollo.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
             >Conversar sobre coproducción</a>
           </div>
           <ul class="link-list">
             <li><a href="./">Volver a la portada</a></li>
+            <li><a href="about.html" hreflang="en">Versión en inglés</a></li>
             <li><a href="https://www.instagram.com/nadietedijoqueibaaserasi/" target="_blank" rel="noopener noreferrer">Instagram oficial</a></li>
             <li><a href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">Sitio oficial de SKA Films</a></li>
             <li><a href="https://www.fondosdeincentivocultural.gub.uy/innovaportal/v/6546/2/web/nadie-te-dijo-que-iba-a-ser-asi.html" target="_blank" rel="noopener noreferrer">Ficha en el Fondo de Incentivo Cultural</a></li>
