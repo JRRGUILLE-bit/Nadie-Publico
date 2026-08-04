@@ -441,7 +441,115 @@ const addProjectStatusBlock = () => {
   }
 };
 
+const addProjectPartnerSearchBlock = () => {
+  const projectCard = document.querySelector('.about-card--project');
+
+  if (!projectCard || projectCard.querySelector('.project-partner-search')) {
+    return;
+  }
+
+  const searchBlock = document.createElement('section');
+  searchBlock.className = 'project-partner-search';
+  searchBlock.setAttribute('aria-labelledby', 'project-partner-search-title');
+  searchBlock.innerHTML = `
+    <p class="project-partner-search__eyebrow">Qué estamos buscando</p>
+    <h3 id="project-partner-search-title">Nuevas alianzas para la próxima etapa</h3>
+    <p class="project-partner-search__intro">
+      El proyecto está abierto a conversaciones con socios que puedan fortalecer su desarrollo, financiación, producción y circulación.
+    </p>
+    <ul class="project-partner-search__list">
+      <li>Coproductores nacionales e internacionales.</li>
+      <li>Socios de desarrollo y producción.</li>
+      <li>Financiamiento, fondos y alianzas estratégicas.</li>
+      <li>Vínculos internacionales para ampliar el recorrido del proyecto.</li>
+      <li>Distribución y ventas, cuando corresponda a la etapa.</li>
+    </ul>
+  `;
+
+  const statusBlock = projectCard.querySelector('.project-status');
+  const finalLink = projectCard.lastElementChild;
+
+  if (statusBlock) {
+    statusBlock.insertAdjacentElement('afterend', searchBlock);
+  } else {
+    projectCard.insertBefore(searchBlock, finalLink);
+  }
+
+  if (!document.querySelector('#project-partner-search-styles')) {
+    const styles = document.createElement('style');
+    styles.id = 'project-partner-search-styles';
+    styles.textContent = `
+      .project-partner-search {
+        margin: 0 0 1.15rem;
+        padding: 1rem 1.05rem 0.95rem;
+        border: 1px solid rgba(212, 178, 113, 0.34);
+        background:
+          linear-gradient(145deg, rgba(105, 77, 35, 0.16), transparent 54%),
+          rgba(8, 11, 10, 0.58);
+        box-shadow:
+          inset 3px 0 0 rgba(212, 178, 113, 0.46),
+          inset 0 1px 0 rgba(238, 224, 194, 0.06);
+      }
+
+      .project-partner-search__eyebrow {
+        margin: 0 0 0.35rem;
+        color: #d8b879;
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: clamp(0.64rem, 1.15vw, 0.76rem);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      .project-partner-search h3 {
+        margin: 0 0 0.58rem;
+        color: #eee0c2;
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        font-weight: 400;
+        letter-spacing: 0.045em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .project-partner-search__intro {
+        margin: 0 0 0.7rem;
+        color: rgba(238, 228, 207, 0.9);
+        font-size: clamp(0.82rem, 1.5vw, 0.96rem);
+        line-height: 1.42;
+      }
+
+      .project-partner-search__list {
+        display: grid;
+        gap: 0.34rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .project-partner-search__list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1rem;
+        color: rgba(238, 228, 207, 0.88);
+        font-size: clamp(0.82rem, 1.5vw, 0.96rem);
+        line-height: 1.4;
+      }
+
+      .project-partner-search__list li::before {
+        content: '›';
+        position: absolute;
+        left: 0.08rem;
+        color: #d8b879;
+        font-weight: 700;
+      }
+    `;
+    document.head.appendChild(styles);
+  }
+};
+
 addProjectStatusBlock();
+addProjectPartnerSearchBlock();
 setAboutSlide(0);
 updateAboutPauseButton();
 runPlates();
