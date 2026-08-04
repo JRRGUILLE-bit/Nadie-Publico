@@ -265,3 +265,184 @@ body.about-open .contact-links {
   transform: translate(-50%, 0);
   filter: blur(2px);
 }
+
+/* Corrección visual: accesos inferiores sin cajas ni fondos rectangulares. */
+body .contact-links {
+  align-items: flex-end;
+  gap: clamp(0.78rem, 1.75vw, 1.55rem);
+  width: min(96vw, 940px);
+}
+
+body .contact-link,
+body .contact-link--materials,
+body .contact-link--production,
+body .contact-link--coproduction {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 11.5rem;
+  padding: 0.16rem 0.3rem;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 6px 13px rgba(0, 0, 0, 0.5));
+  opacity: 0.84;
+}
+
+body .contact-link:hover,
+body .contact-link:focus-visible,
+body .contact-link--materials:hover,
+body .contact-link--materials:focus-visible,
+body .contact-link--production:hover,
+body .contact-link--production:focus-visible,
+body .contact-link--coproduction:hover,
+body .contact-link--coproduction:focus-visible {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter:
+    brightness(1.12)
+    drop-shadow(0 9px 17px rgba(0, 0, 0, 0.58));
+  opacity: 1;
+  transform: translateY(-0.14rem);
+}
+
+body .contact-link img,
+body .contact-link--materials img,
+body .contact-link--production img,
+body .contact-link--coproduction img {
+  width: clamp(1.9rem, 3.4vw, 2.7rem);
+  height: clamp(1.9rem, 3.4vw, 2.7rem);
+}
+
+body .contact-link span,
+body .contact-link--materials span,
+body .contact-link--production span,
+body .contact-link--coproduction span {
+  max-width: 10.8rem;
+  color: rgba(235, 222, 193, 0.92);
+  font-size: clamp(0.56rem, 0.92vw, 0.7rem);
+  line-height: 1.14;
+  letter-spacing: 0.035em;
+  text-align: center;
+  white-space: normal;
+}
+
+body .contact-link--materials span {
+  color: #f0dfb8;
+  font-size: clamp(0.6rem, 1vw, 0.76rem);
+  font-weight: 700;
+}
+
+body .contact-link--materials span::after {
+  margin-top: 0.2rem;
+  font-size: 0.68em;
+  line-height: 1.06;
+}
+
+/* Corrección visual: botón de salto redondeado con luz en movimiento. */
+body .skip-intro-button {
+  min-height: 2.82rem !important;
+  padding: 0.72rem 1.08rem 0.64rem !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #f2e6ca !important;
+  background: rgba(7, 6, 5, 0.76) !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.46),
+    0 0 20px rgba(226, 190, 116, 0.08) !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body .skip-intro-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -2;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 278deg,
+    rgba(255, 232, 174, 0.04) 296deg,
+    rgba(255, 222, 135, 0.96) 321deg,
+    rgba(255, 241, 204, 0.58) 339deg,
+    transparent 354deg,
+    transparent 360deg
+  );
+  animation: skip-intro-border-light 2.65s linear infinite;
+}
+
+body .skip-intro-button::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(15, 12, 9, 0.96), rgba(9, 8, 6, 0.88));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 244, 216, 0.09),
+    inset 0 0 0 1px rgba(255, 224, 149, 0.08);
+}
+
+body .skip-intro-button:hover,
+body .skip-intro-button:focus-visible {
+  border: 0 !important;
+  background: rgba(10, 8, 6, 0.88) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.54),
+    0 0 28px rgba(226, 190, 116, 0.18) !important;
+}
+
+@keyframes skip-intro-border-light {
+  to { transform: rotate(1turn); }
+}
+
+@media (max-width: 620px) {
+  body .contact-links {
+    width: calc(100vw - 0.8rem);
+    gap: 0.3rem;
+  }
+
+  body .contact-link,
+  body .contact-link--materials,
+  body .contact-link--production,
+  body .contact-link--coproduction {
+    max-width: 6.5rem;
+    padding: 0.1rem 0.08rem;
+  }
+
+  body .contact-link img,
+  body .contact-link--materials img,
+  body .contact-link--production img,
+  body .contact-link--coproduction img {
+    width: 1.82rem;
+    height: 1.82rem;
+  }
+
+  body .contact-link span,
+  body .contact-link--materials span,
+  body .contact-link--production span,
+  body .contact-link--coproduction span {
+    max-width: 6.2rem;
+    font-size: 0.44rem;
+  }
+
+  body .contact-link--materials span {
+    font-size: 0.48rem;
+  }
+
+  body .skip-intro-button {
+    min-height: 2.4rem !important;
+    padding: 0.58rem 0.84rem 0.52rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .skip-intro-button::before {
+    animation: none;
+    background: rgba(255, 224, 150, 0.58);
+  }
+}
