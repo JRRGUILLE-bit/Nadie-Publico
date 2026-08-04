@@ -12,12 +12,13 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Teaser realizado.
   - Implementado en la primera placa de “Sobre nosotros”.
 
-- [ ] 2. Agregar un bloque de **Qué estamos buscando**.
+- [x] 2. Agregar un bloque de **Qué estamos buscando**.
   - Coproductores.
   - Socios de desarrollo.
   - Financiamiento y fondos.
   - Alianzas internacionales.
   - Distribución o ventas, cuando corresponda.
+  - Implementado debajo del estado del proyecto, dentro de la primera placa.
 
 - [ ] 3. Incorporar una llamada a la acción principal: **Solicitar dossier y materiales**.
 
