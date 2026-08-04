@@ -59,13 +59,15 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Las cuatro placas biográficas del carrusel fueron reducidas a función, trayectoria y aporte concreto al proyecto.
   - Se eliminaron repeticiones del género, la sinopsis y la identidad general de la serie.
 
-- [ ] 9. Mostrar los materiales disponibles sin publicarlos directamente.
+- [x] 9. Mostrar los materiales disponibles sin publicarlos directamente.
   - Guion piloto.
   - Dossier.
-  - Biblia de serie.
+  - Biblia de serie y arco de temporada.
   - Teaser.
-  - Presupuesto y plan de desarrollo.
-  - Disponibles bajo solicitud.
+  - Presupuesto.
+  - Plan de desarrollo.
+  - La lista aparece en la página completa y en la primera placa de la portada.
+  - Se aclara que los materiales no son públicos y se comparten bajo solicitud profesional.
 
 - [ ] 10. Permitir acceder al contacto desde el inicio, sin esperar a que termine la secuencia animada.
 
