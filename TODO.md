@@ -100,15 +100,12 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Ambas páginas comparten `project-page.css` para mantener la misma identidad visual y evitar divergencias futuras.
   - Los correos de la versión inglesa abren con asunto y cuerpo prearmados en inglés.
 
-- [ ] 15. Agregar una ficha industrial resumida.
-  - País.
-  - Idioma.
-  - Género.
-  - Formato.
-  - Duración.
-  - Estado.
-  - Productora.
-  - Creadores.
+- [x] 15. Agregar una ficha industrial resumida.
+  - Incluye país, idioma, género, formato, duración, estado, productora y creadores.
+  - Se muestra cerca del inicio de las páginas española e inglesa, antes de la logline.
+  - Tiene navegación interna propia: “Ficha” en español y “Overview” en inglés.
+  - Usa una grilla compacta de cuatro columnas en escritorio, dos en tablet y una en celular.
+  - La ficha comparte estilos mediante `industrial-sheet.css` para mantener ambas versiones sincronizadas.
 
 - [ ] 16. Mantener la identidad visual de la portada.
   - No eliminar la cafetera.
