@@ -54,7 +54,10 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se agregó navegación interna para acceder directamente a cada sección.
   - La página completa conserva la estética de expediente y prioriza la lectura de industria.
 
-- [ ] 8. Reducir repeticiones en las biografías y concentrarlas en trayectoria y función.
+- [x] 8. Reducir repeticiones en las biografías y concentrarlas en trayectoria y función.
+  - Las fichas de la página completa ya quedaron concentradas durante la reorganización.
+  - Las cuatro placas biográficas del carrusel fueron reducidas a función, trayectoria y aporte concreto al proyecto.
+  - Se eliminaron repeticiones del género, la sinopsis y la identidad general de la serie.
 
 - [ ] 9. Mostrar los materiales disponibles sin publicarlos directamente.
   - Guion piloto.
