@@ -25,7 +25,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Destacada visualmente como acción principal sin alterar la identidad de la portada.
 
 - [x] 4. Mejorar los nombres de los accesos profesionales.
-  - El acceso de correo quedó identificado como “Solicitar dossier y materiales”.
+  - El acceso principal muestra “Solicitar dossier y materiales” y lo identifica como “Contacto de producción”.
   - “Sobre nosotros” pasó a “Proyecto y equipo”.
   - Se agregó “Conversar sobre coproducción” como acceso independiente.
   - Ambos correos abren con asunto y cuerpo prearmados según la intención del visitante.
