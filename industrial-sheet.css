@@ -1,0 +1,92 @@
+/* Ficha industrial compacta compartida por las páginas en español e inglés. */
+.industrial-sheet {
+  position: relative;
+  margin-top: clamp(24px, 4vw, 36px);
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 1px solid rgba(226, 190, 116, 0.38);
+  background:
+    linear-gradient(135deg, rgba(172, 117, 39, 0.12), transparent 42%),
+    rgba(7, 10, 9, 0.58);
+  box-shadow:
+    inset 3px 0 0 rgba(217, 184, 113, 0.56),
+    inset 0 1px 0 rgba(255, 241, 207, 0.06),
+    0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.industrial-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(233, 227, 211, 0.026) 0 1px,
+    transparent 1px 7px
+  );
+}
+
+.industrial-sheet > * {
+  position: relative;
+  z-index: 1;
+}
+
+.industrial-sheet h2 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #e2c98f;
+  background: none;
+  font-size: clamp(0.82rem, 1.35vw, 1rem);
+  letter-spacing: 0.14em;
+}
+
+.industrial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 0.95rem;
+  border: 1px solid rgba(238, 224, 194, 0.15);
+  background: rgba(238, 224, 194, 0.13);
+}
+
+.industrial-item {
+  min-width: 0;
+  padding: 0.78rem 0.82rem 0.74rem;
+  background: rgba(7, 10, 9, 0.88);
+}
+
+.industrial-item span {
+  display: block;
+  margin-bottom: 0.28rem;
+  color: rgba(226, 210, 168, 0.76);
+  font-family: var(--typewriter);
+  font-size: 0.61rem;
+  letter-spacing: 0.105em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.industrial-item strong {
+  display: block;
+  color: #eee3ca;
+  font-size: clamp(0.82rem, 1.25vw, 0.94rem);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 840px) {
+  .industrial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .industrial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industrial-item {
+    padding: 0.68rem 0.72rem 0.64rem;
+  }
+}
