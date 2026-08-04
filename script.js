@@ -11,6 +11,8 @@ const aboutSlides = Array.from(document.querySelectorAll('[data-about-slide]'));
 const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const plateNameClass = 'plate__name';
+let introSkipped = false;
+let skipIntroButton;
 
 if (video) {
   video.playbackRate = 1;
@@ -75,11 +77,183 @@ const createLine = (lineContent, index) => {
   return line;
 };
 
+const appendCompleteLineContent = (line, lineContent) => {
+  const target = lineContent.href ? document.createElement('a') : line;
+
+  if (lineContent.href) {
+    target.href = lineContent.href;
+    target.target = '_blank';
+    target.rel = 'noopener noreferrer';
+    line.appendChild(target);
+  }
+
+  if (lineContent.parts?.length) {
+    lineContent.parts.forEach((part) => {
+      if (part.className) {
+        const partTarget = document.createElement('span');
+        partTarget.className = part.className;
+        partTarget.textContent = part.text;
+        target.appendChild(partTarget);
+      } else {
+        target.appendChild(document.createTextNode(part.text));
+      }
+    });
+    return;
+  }
+
+  target.textContent = getLineText(lineContent);
+};
+
+const renderCompletedPlates = () => {
+  if (!plates) {
+    return;
+  }
+
+  plates.replaceChildren();
+
+  plateSequence.forEach((plate) => {
+    const plateElement = document.createElement('div');
+    plateElement.className = `plate ${plate.className} plate--visible plate--complete`;
+    plateElement.setAttribute('aria-hidden', 'false');
+
+    plate.lines.forEach((lineContent, index) => {
+      const line = createLine(lineContent, index);
+      line.classList.add('plate__line--typed');
+      appendCompleteLineContent(line, lineContent);
+      plateElement.appendChild(line);
+    });
+
+    plates.appendChild(plateElement);
+  });
+};
+
+const finishIntro = ({ skipped = false } = {}) => {
+  document.body.classList.add('contacts-visible', 'intro-complete');
+  document.body.classList.toggle('intro-skipped', skipped);
+  skipIntroButton?.remove();
+  skipIntroButton = undefined;
+};
+
+const skipPresentation = () => {
+  if (introSkipped || document.body.classList.contains('intro-complete')) {
+    return;
+  }
+
+  introSkipped = true;
+  renderCompletedPlates();
+  finishIntro({ skipped: true });
+  document.querySelector('.contact-link--materials')?.focus({ preventScroll: true });
+};
+
+const addSkipIntroControl = () => {
+  const splash = document.querySelector('.splash');
+  if (!splash || document.querySelector('#skip-intro')) {
+    return;
+  }
+
+  skipIntroButton = document.createElement('button');
+  skipIntroButton.id = 'skip-intro';
+  skipIntroButton.className = 'skip-intro-button';
+  skipIntroButton.type = 'button';
+  skipIntroButton.setAttribute('aria-label', 'Saltar presentación y mostrar la portada completa');
+  skipIntroButton.innerHTML = '<span>Saltar presentación</span><span aria-hidden="true">››</span>';
+  skipIntroButton.addEventListener('click', skipPresentation);
+  splash.appendChild(skipIntroButton);
+
+  if (!document.querySelector('#skip-intro-styles')) {
+    const styles = document.createElement('style');
+    styles.id = 'skip-intro-styles';
+    styles.textContent = `
+      .skip-intro-button {
+        position: absolute;
+        right: clamp(1rem, 3vw, 2.5rem);
+        bottom: clamp(7.1rem, 13vh, 9.2rem);
+        z-index: 6;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.58rem;
+        min-height: 2.7rem;
+        padding: 0.68rem 0.92rem 0.58rem;
+        border: 1px solid rgba(238, 224, 194, 0.62);
+        border-radius: 2px;
+        color: #f0e4c8;
+        background: rgba(5, 5, 4, 0.7);
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.38),
+          inset 0 1px 0 rgba(255, 243, 213, 0.08);
+        backdrop-filter: blur(4px);
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: clamp(0.68rem, 1.05vw, 0.82rem);
+        letter-spacing: 0.055em;
+        line-height: 1;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(0.35rem);
+        animation: skip-intro-reveal 360ms ease 620ms forwards;
+        transition:
+          border-color 180ms ease,
+          background 180ms ease,
+          transform 180ms ease,
+          opacity 180ms ease;
+      }
+
+      .skip-intro-button:hover,
+      .skip-intro-button:focus-visible {
+        border-color: rgba(255, 235, 190, 0.94);
+        background: rgba(14, 12, 9, 0.9);
+        transform: translateY(-0.08rem);
+        outline: none;
+      }
+
+      .skip-intro-button span:last-child {
+        color: #e2be74;
+        font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: 1.18em;
+        letter-spacing: -0.16em;
+      }
+
+      body.about-open .skip-intro-button {
+        pointer-events: none;
+        opacity: 0 !important;
+      }
+
+      @keyframes skip-intro-reveal {
+        to {
+          opacity: 0.86;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .skip-intro-button {
+          right: 0.72rem;
+          bottom: max(10.6rem, calc(env(safe-area-inset-bottom) + 9.6rem));
+          min-height: 2.35rem;
+          padding: 0.58rem 0.7rem 0.5rem;
+          font-size: 0.61rem;
+        }
+      }
+
+      @media (max-height: 640px) and (max-width: 720px) {
+        .skip-intro-button {
+          bottom: max(8.3rem, calc(env(safe-area-inset-bottom) + 7.5rem));
+        }
+      }
+    `;
+    document.head.appendChild(styles);
+  }
+};
+
 const typeCharacters = async (target, text) => {
   for (const character of text) {
+    if (introSkipped) {
+      return false;
+    }
     target.textContent += character;
     await wait(timing.typingDelay);
   }
+  return true;
 };
 
 const typeLine = async (line, lineContent) => {
@@ -94,6 +268,10 @@ const typeLine = async (line, lineContent) => {
 
   if (lineContent.parts?.length) {
     for (const part of lineContent.parts) {
+      if (introSkipped) {
+        return false;
+      }
+
       const partTarget = part.className
         ? document.createElement('span')
         : document.createTextNode('');
@@ -103,15 +281,22 @@ const typeLine = async (line, lineContent) => {
       }
 
       target.appendChild(partTarget);
-      await typeCharacters(partTarget, part.text);
+      const completed = await typeCharacters(partTarget, part.text);
+      if (!completed) {
+        return false;
+      }
     }
-    return;
+    return true;
   }
 
-  await typeCharacters(target, getLineText(lineContent));
+  return typeCharacters(target, getLineText(lineContent));
 };
 
 const showPersistentPlate = async (plate) => {
+  if (introSkipped) {
+    return false;
+  }
+
   const plateElement = document.createElement('div');
   plateElement.className = `plate ${plate.className}`;
   plateElement.setAttribute('aria-hidden', 'false');
@@ -121,11 +306,21 @@ const showPersistentPlate = async (plate) => {
   plates.appendChild(plateElement);
 
   await wait(timing.plateRevealPause);
+  if (introSkipped) {
+    return false;
+  }
   plateElement.classList.add('plate--visible');
 
   for (const [index, line] of lines.entries()) {
+    if (introSkipped) {
+      return false;
+    }
+
     line.classList.add('plate__line--typing');
-    await typeLine(line, plate.lines[index]);
+    const completed = await typeLine(line, plate.lines[index]);
+    if (!completed || introSkipped) {
+      return false;
+    }
     line.classList.remove('plate__line--typing');
     line.classList.add('plate__line--typed');
 
@@ -136,6 +331,7 @@ const showPersistentPlate = async (plate) => {
 
   plateElement.classList.add('plate--complete');
   await wait(timing.holdAfterTyping);
+  return !introSkipped;
 };
 
 const runPlates = async () => {
@@ -144,16 +340,24 @@ const runPlates = async () => {
   }
 
   await wait(timing.initialPause);
+  if (introSkipped) {
+    return;
+  }
 
   for (const [index, plate] of plateSequence.entries()) {
-    await showPersistentPlate(plate);
+    const completed = await showPersistentPlate(plate);
+    if (!completed || introSkipped) {
+      return;
+    }
     if (index < plateSequence.length - 1) {
       await wait(timing.betweenPlatesPause);
     }
   }
 
   await wait(timing.contactRevealPause);
-  document.body.classList.add('contacts-visible');
+  if (!introSkipped) {
+    finishIntro();
+  }
 };
 
 let activeAboutSlide = 0;
@@ -595,6 +799,7 @@ addProjectStatusBlock();
 addProjectPartnerSearchBlock();
 condenseTeamBios();
 upgradeProfessionalNavigation();
+addSkipIntroControl();
 setAboutSlide(0);
 updateAboutPauseButton();
 runPlates();
