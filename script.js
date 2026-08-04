@@ -348,6 +348,100 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+const addProjectStatusBlock = () => {
+  const projectCard = document.querySelector('.about-card--project');
+
+  if (!projectCard || projectCard.querySelector('.project-status')) {
+    return;
+  }
+
+  const statusBlock = document.createElement('section');
+  statusBlock.className = 'project-status';
+  statusBlock.setAttribute('aria-labelledby', 'project-status-title');
+  statusBlock.innerHTML = `
+    <p class="project-status__eyebrow">Estado del proyecto</p>
+    <h3 id="project-status-title">Desarrollo activo</h3>
+    <ul class="project-status__list">
+      <li><strong>Formato:</strong> serie de ficción de 6 × 20–25 minutos.</li>
+      <li><strong>Escritura:</strong> guion del episodio piloto disponible.</li>
+      <li><strong>Desarrollo:</strong> dossier, biblia y arco de temporada disponibles.</li>
+      <li><strong>Material audiovisual:</strong> teaser realizado.</li>
+      <li><strong>Etapa:</strong> proyecto en desarrollo.</li>
+    </ul>
+  `;
+
+  const finalLink = projectCard.lastElementChild;
+  projectCard.insertBefore(statusBlock, finalLink);
+
+  if (!document.querySelector('#project-status-styles')) {
+    const styles = document.createElement('style');
+    styles.id = 'project-status-styles';
+    styles.textContent = `
+      .project-status {
+        margin: 1.3rem 0 1.15rem;
+        padding: 1rem 1.05rem 0.95rem;
+        border: 1px solid rgba(238, 224, 194, 0.3);
+        background:
+          linear-gradient(135deg, rgba(226, 210, 168, 0.12), transparent 48%),
+          rgba(7, 10, 9, 0.5);
+        box-shadow: inset 0 1px 0 rgba(238, 224, 194, 0.08);
+      }
+
+      .project-status__eyebrow {
+        margin: 0 0 0.35rem;
+        color: #dcc99d;
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: clamp(0.64rem, 1.15vw, 0.76rem);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.84;
+      }
+
+      .project-status h3 {
+        margin: 0 0 0.72rem;
+        color: #eee0c2;
+        font-family: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        font-weight: 400;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+      }
+
+      .project-status__list {
+        display: grid;
+        gap: 0.36rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .project-status__list li {
+        position: relative;
+        margin: 0;
+        padding-left: 1rem;
+        color: rgba(238, 228, 207, 0.9);
+        font-size: clamp(0.82rem, 1.5vw, 0.96rem);
+        line-height: 1.4;
+      }
+
+      .project-status__list li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: #dcc99d;
+        opacity: 0.72;
+      }
+
+      .project-status__list strong {
+        color: #eee0c2;
+        font-weight: 700;
+      }
+    `;
+    document.head.appendChild(styles);
+  }
+};
+
+addProjectStatusBlock();
 setAboutSlide(0);
 updateAboutPauseButton();
 runPlates();
