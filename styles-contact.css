@@ -17,6 +17,26 @@
   outline: none;
 }
 
+/* Resumen narrativo concreto dentro de la primera placa del proyecto. */
+.about-card--project > p:nth-of-type(2)::after {
+  content: 'LA HISTORIA\A\A Gonzalo (26), Luis (24) y María (24) comparten una casa frente a la escollera de Ciudad Vieja. Un robo de oro vinculado a un episodio político ocurrido en 1980, durante la dictadura, arrastra su convivencia hacia una trama que conecta el presente con ese pasado. Lo que comienza como un problema cercano y absurdo los expone a intereses que los superan y convierte cada decisión en una nueva consecuencia.';
+  display: block;
+  margin: 1.15rem 0 0;
+  padding: 1rem 1.05rem 0.95rem;
+  border: 1px solid rgba(187, 78, 53, 0.42);
+  color: rgba(238, 228, 207, 0.94);
+  background:
+    linear-gradient(145deg, rgba(128, 39, 26, 0.18), transparent 56%),
+    rgba(8, 10, 9, 0.58);
+  box-shadow:
+    inset 3px 0 0 rgba(187, 78, 53, 0.58),
+    inset 0 1px 0 rgba(238, 224, 194, 0.06);
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+  font-size: clamp(0.84rem, 1.52vw, 0.98rem);
+  line-height: 1.46;
+  white-space: pre-line;
+}
+
 /* Navegación profesional de la portada. */
 .contact-links {
   width: min(97vw, 1040px);
@@ -139,6 +159,12 @@
 }
 
 @media (max-width: 620px) {
+  .about-card--project > p:nth-of-type(2)::after {
+    padding: 0.82rem 0.86rem 0.78rem;
+    font-size: 0.82rem;
+    line-height: 1.42;
+  }
+
   .contact-links {
     width: calc(100vw - 0.55rem);
     gap: 0.16rem;
