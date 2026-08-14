@@ -37,7 +37,7 @@ try {
 
   if (skipIntroButton) {
     skipIntroButton.setAttribute('aria-label', 'Skip presentation and show the full cover');
-    skipIntroButton.innerHTML = '<span>Skip presentation</span><span aria-hidden="true">››</span>';
+    skipIntroButton.innerHTML = '<span>Skip presentation</span><span aria-hidden="true">→</span>';
   }
 } catch (error) {
   console.warn('English landing: optional translation override failed.', error);
