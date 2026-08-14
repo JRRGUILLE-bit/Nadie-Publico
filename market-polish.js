@@ -3,8 +3,9 @@
 
 try {
   // La introducción mantiene su gesto de máquina de escribir. El tipeo queda
-  // deliberadamente más pausado; quien quiera avanzar puede usar Saltar presentación.
-  timing.typingDelay = 10.8;
+  // aproximadamente 20% más lento que la versión de 9 ms por carácter;
+  // quien quiera avanzar puede usar Saltar presentación.
+  timing.typingDelay = 11;
   timing.linePause = 42;
   timing.holdAfterTyping = 70;
   timing.betweenPlatesPause = 70;
