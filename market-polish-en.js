@@ -1,4 +1,5 @@
 // English landing overrides. Runs after script.js and market-polish.js.
+// Deploy sync: keeps the polished skip control aligned with the Spanish landing.
 try {
   if (plateSequence?.[1]) {
     plateSequence[1].lines = [
