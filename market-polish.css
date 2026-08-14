@@ -89,6 +89,17 @@ body .contact-link--materials::after { content: none; }
   height: clamp(2.15rem, 3.7vw, 2.9rem) !important;
 }
 
+/* Controles de portada: 20% más grandes sin alterar su anclaje. */
+.cover-language-switch {
+  scale: 1.2;
+  transform-origin: top right;
+}
+
+.skip-intro-button {
+  scale: 1.2;
+  transform-origin: center bottom;
+}
+
 /* La ficha de portada debe poder respirar y scrollear en pantallas bajas. */
 .about-card--project {
   overflow-x: hidden;
