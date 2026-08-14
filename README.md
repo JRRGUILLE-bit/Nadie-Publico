@@ -4,7 +4,8 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 
 **Creada y escrita por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez.**  
 **Dirección:** Maite Piñeyrúa Segura.  
-**Coproducción:** SKA Films.
+**Producción ejecutiva:** Malena Benavides.  
+**Coproducción uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.
 
 [Ver sitio público](https://jrrguille-bit.github.io/Nadie-Publico/) · [Proyecto y equipo](https://jrrguille-bit.github.io/Nadie-Publico/sobre.html) · [English project page](https://jrrguille-bit.github.io/Nadie-Publico/about.html)
 
@@ -12,7 +13,7 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 
 Cuando un robo de oro ligado a la dictadura irrumpe en su vida cotidiana, tres jóvenes de Ciudad Vieja quedan atrapados en una trama política donde cada salida los compromete un poco más.
 
-El sitio fue diseñado para continuar conversaciones con coproductores, fondos, mercados y socios de desarrollo sin publicar materiales sensibles. Presenta la logline, la sinopsis, el estado de desarrollo, los antecedentes, el equipo y vías de contacto profesional.
+El sitio está planteado como herramienta de mercado para continuar conversaciones profesionales sin publicar materiales sensibles. Con la coproducción uruguaya ya vinculada, la prioridad es encontrar un socio internacional —plataforma, broadcaster, comprador, distribuidor, sales agent o coproductor— que fortalezca la financiación y, especialmente, construya una vía concreta de distribución y circulación internacional.
 
 ## Recorrido
 
@@ -20,7 +21,7 @@ El sitio fue diseñado para continuar conversaciones con coproductores, fondos, 
 - DETOUR Series Lab.
 - Premio Teaser DETOUR.
 - Campus Málaga Talent 2025.
-- Coproducción con SKA Films.
+- Coproducción uruguaya con SKA Films.
 
 ## Qué demuestra este repositorio
 
@@ -31,6 +32,7 @@ El sitio fue diseñado para continuar conversaciones con coproductores, fondos, 
 - Experiencia alternativa para `prefers-reduced-motion`.
 - Metadatos SEO, Open Graph, `hreflang` y datos estructurados.
 - Separación entre la portada audiovisual y el expediente de industria.
+- Contacto diferenciado para solicitud de materiales y conversaciones de mercado.
 
 ## Estructura
 
