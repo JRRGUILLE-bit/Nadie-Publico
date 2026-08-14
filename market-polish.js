@@ -2,15 +2,15 @@
 // Este archivo corre después de script.js y preserva la lógica base.
 
 try {
-  // Ritmo deliberadamente cinematográfico. Ya no buscamos una intro "rápida":
-  // el texto tiene que tener peso visual y tiempo de lectura. Quien quiera avanzar
+  // Ritmo cinematográfico un poco más ágil que la versión de 90 ms,
+  // sin volver a una sensación de tipeo web acelerado. Quien quiera avanzar
   // tiene siempre disponible el botón Saltar presentación.
-  timing.typingDelay = 90;
-  timing.linePause = 320;
-  timing.holdAfterTyping = 420;
-  timing.betweenPlatesPause = 280;
-  timing.plateRevealPause = 180;
-  timing.contactRevealPause = 450;
+  timing.typingDelay = 75;
+  timing.linePause = 300;
+  timing.holdAfterTyping = 390;
+  timing.betweenPlatesPause = 250;
+  timing.plateRevealPause = 170;
+  timing.contactRevealPause = 420;
 
   // Créditos más compactos. Los reconocimientos originales de script.js
   // se preservan completos, incluido el apoyo del Fondo de Incentivo Cultural.
