@@ -5,10 +5,10 @@ try {
     plateSequence[1].lines = [
       'Created by',
       {
-        text: 'Maite Piñeyrúa Segura and Guillermo Barbeito',
+        text: 'Maite Piñeyrúa Segura & Guillermo Barbeito',
         parts: [
           { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
-          { text: ' and ' },
+          { text: ' & ' },
           { text: 'Guillermo Barbeito', className: plateNameClass },
         ],
       },
