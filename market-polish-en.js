@@ -11,13 +11,6 @@ try {
           { text: 'Guillermo Barbeito', className: plateNameClass },
         ],
       },
-      {
-        text: 'Directed by · Maite Piñeyrúa Segura',
-        parts: [
-          { text: 'Directed by · ' },
-          { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
-        ],
-      },
     ];
   }
 
@@ -33,9 +26,9 @@ try {
   if (plateSequence?.[3]) {
     plateSequence[3].lines = [
       {
-        text: 'A Uruguayan coproduction with SKA Films',
+        text: 'Coproduction with SKA Films',
         parts: [
-          { text: 'A Uruguayan coproduction with ' },
+          { text: 'Coproduction with ' },
           { text: 'SKA Films', className: plateNameClass },
         ],
       },
