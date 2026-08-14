@@ -55,6 +55,12 @@ body.about-open .format-line {
   pointer-events: none;
 }
 
+/* Todos los reconocimientos tienen la misma jerarquía visual. */
+.plate--recognition .plate__line--1 {
+  font-size: 1em;
+  letter-spacing: 0.018em;
+}
+
 /* La navegación de portada pasa a tres decisiones, no cinco distracciones. */
 body .contact-links {
   width: min(92vw, 660px);
