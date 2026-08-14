@@ -24,6 +24,13 @@ try {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
 
+// La ficha de formato queda en el aire entre el título y los créditos,
+// nunca superpuesta sobre la segunda línea del título.
+const formatLine = document.querySelector('.format-line');
+if (formatLine) {
+  formatLine.style.top = '36vh';
+}
+
 // En mobile privilegiamos el póster y evitamos reproducir el video pesado.
 if (window.matchMedia('(max-width: 720px)').matches && video) {
   video.pause();
