@@ -27,9 +27,9 @@ try {
   if (plateSequence?.[3]) {
     plateSequence[3].lines = [
       {
-        text: 'Coproduction with SKA Films',
+        text: 'A coproduction with SKA Films',
         parts: [
-          { text: 'Coproduction with ' },
+          { text: 'A coproduction with ' },
           { text: 'SKA Films', className: plateNameClass },
         ],
       },
