@@ -89,15 +89,10 @@ body .contact-link--materials::after { content: none; }
   height: clamp(2.15rem, 3.7vw, 2.9rem) !important;
 }
 
-/* Controles de portada: 20% más grandes sin alterar su anclaje. */
+/* Selector de idioma: 20% mayor, sin alterar el diseño base. */
 .cover-language-switch {
   scale: 1.2;
   transform-origin: top right;
-}
-
-.skip-intro-button {
-  scale: 1.2;
-  transform-origin: center bottom;
 }
 
 /* La ficha de portada debe poder respirar y scrollear en pantallas bajas. */
@@ -333,10 +328,6 @@ body:not(:has(.splash))::before { opacity: 0.13; }
     letter-spacing: 0.02em;
   }
 
-  .skip-intro-button {
-    bottom: max(8.9rem, calc(env(safe-area-inset-bottom) + 8rem));
-  }
-
   .about-carousel__viewport { min-height: min(68svh, 34rem); }
   .about-card--project { overflow-y: auto; }
 
@@ -361,4 +352,111 @@ body:not(:has(.splash))::before { opacity: 0.13; }
 
 @media (prefers-reduced-motion: reduce) {
   .format-line { animation: none; opacity: 0.92; }
+}
+
+/* --------------------------------------------------------------------------
+   Control de salto — corrección final.
+   Sobrio, cinematográfico y legible. Neutraliza el borde animado del CSS base.
+   -------------------------------------------------------------------------- */
+.skip-intro-button {
+  left: 50% !important;
+  right: auto !important;
+  bottom: clamp(6.85rem, 11.7vh, 8.35rem) !important;
+  min-height: 0 !important;
+  padding: 0.62rem 0.92rem 0.56rem !important;
+  gap: 0.52rem !important;
+  overflow: visible !important;
+  border: 1px solid rgba(234, 220, 188, 0.30) !important;
+  border-radius: 4px !important;
+  color: rgba(246, 235, 211, 0.94) !important;
+  background: rgba(7, 7, 6, 0.42) !important;
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.28) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace !important;
+  font-size: clamp(0.76rem, 0.96vw, 0.9rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.075em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+  scale: 1 !important;
+  opacity: 0;
+  transform: translate(-50%, 0.22rem) !important;
+  animation: market-skip-reveal 320ms ease 620ms forwards !important;
+  transition:
+    color 170ms ease,
+    background-color 170ms ease,
+    border-color 170ms ease,
+    box-shadow 170ms ease,
+    transform 170ms ease !important;
+}
+
+.skip-intro-button::before,
+.skip-intro-button::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+.skip-intro-button > span {
+  position: static !important;
+  z-index: auto !important;
+}
+
+.skip-intro-button span:last-child {
+  display: inline-block !important;
+  color: rgba(226, 190, 116, 0.92) !important;
+  font: inherit !important;
+  font-size: 1.05em !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  transform: translateX(0) !important;
+  transition: transform 170ms ease, color 170ms ease !important;
+}
+
+.skip-intro-button:hover,
+.skip-intro-button:focus-visible {
+  color: #fff1d2 !important;
+  background: rgba(10, 9, 7, 0.57) !important;
+  border-color: rgba(226, 190, 116, 0.58) !important;
+  box-shadow: 0 9px 26px rgba(0, 0, 0, 0.34) !important;
+  outline: none !important;
+  transform: translate(-50%, -1px) !important;
+}
+
+.skip-intro-button:hover span:last-child,
+.skip-intro-button:focus-visible span:last-child {
+  color: #f0cf8b !important;
+  transform: translateX(2px) !important;
+}
+
+.skip-intro-button:active {
+  transform: translate(-50%, 0) !important;
+}
+
+@keyframes market-skip-reveal {
+  to {
+    opacity: 0.88;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 720px) {
+  .skip-intro-button {
+    left: 50% !important;
+    right: auto !important;
+    bottom: max(9.7rem, calc(env(safe-area-inset-bottom) + 8.9rem)) !important;
+    padding: 0.58rem 0.82rem 0.52rem !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.065em !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-intro-button {
+    opacity: 0.88 !important;
+    transform: translate(-50%, 0) !important;
+    animation: none !important;
+  }
 }
