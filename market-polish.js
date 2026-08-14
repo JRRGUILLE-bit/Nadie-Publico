@@ -26,11 +26,28 @@ try {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
 
-// La ficha de formato queda en el aire entre el título y los créditos,
-// nunca superpuesta sobre la segunda línea del título.
+// La ficha de formato aparece recién al terminar toda la presentación.
+// Durante el tipeo permanece invisible; al completar la intro entra con un fade suave.
 const formatLine = document.querySelector('.format-line');
 if (formatLine) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   formatLine.style.top = '36vh';
+  formatLine.style.animation = 'none';
+  formatLine.style.opacity = '0';
+  formatLine.style.transition = reducedMotion ? 'none' : 'opacity 900ms ease';
+
+  const updateFormatLineVisibility = () => {
+    const introComplete = document.body.classList.contains('intro-complete');
+    const aboutOpen = document.body.classList.contains('about-open');
+    formatLine.style.opacity = introComplete && !aboutOpen ? '0.92' : '0';
+  };
+
+  updateFormatLineVisibility();
+  new MutationObserver(updateFormatLineVisibility).observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
 }
 
 // En mobile privilegiamos el póster y evitamos reproducir el video pesado.
