@@ -2,9 +2,10 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Nadie te dijo que iba a ser así
 ORG:Nadie te dijo que iba a ser así
-TITLE:Serie de ficción en desarrollo
-EMAIL;TYPE=INTERNET:malenabh1@gmail.com
+TITLE:Serie uruguaya de ficción en desarrollo · 6x20–25 min
+EMAIL;TYPE=INTERNET,WORK:malenabh1@gmail.com
+EMAIL;TYPE=INTERNET,WORK:nacho@skafilms.com.uy
 URL:https://jrrguille-bit.github.io/Nadie-Publico/
 X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/nadietedijoqueibaaserasi/
-NOTE:Comedia negra con pulso de thriller político. Creada por Maite Piñeyrúa Segura y Guillermo Barbeito.
+NOTE:Comedia negra / thriller político. Creada y escrita por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez. Dirección: Maite Piñeyrúa Segura. Coproducción uruguaya: SKA Films. En búsqueda de socio internacional con capacidad de financiación y distribución.
 END:VCARD
