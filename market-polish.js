@@ -29,20 +29,16 @@ try {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
 
-// En mobile privilegiamos el póster y evitamos reproducir/descargar el video pesado.
+// En mobile privilegiamos el póster y evitamos reproducir el video pesado.
 if (window.matchMedia('(max-width: 720px)').matches && video) {
   video.pause();
   video.removeAttribute('autoplay');
 }
 
-// El handler original ofrece Gmail mediante confirm() y omite cc. Interceptamos en captura:
-// dejamos que mailto: haga su trabajo nativo, preservando destinatarios, cc, asunto y cuerpo.
-document.addEventListener(
-  'click',
-  (event) => {
-    const link = event.target.closest?.('a[href^="mailto:"]');
-    if (!link) return;
-    event.stopPropagation();
-  },
-  true
-);
+// script.js agregaba un confirm() nativo y su URL de Gmail perdía el parámetro cc.
+// Reemplazar los enlaces por clones elimina esos listeners y devuelve el comportamiento
+// mailto: nativo, que conserva destinatario, cc, asunto y cuerpo en cualquier cliente.
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  const cleanLink = link.cloneNode(true);
+  link.replaceWith(cleanLink);
+});
