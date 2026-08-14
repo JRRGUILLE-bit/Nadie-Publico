@@ -57,13 +57,6 @@ const plateSequence = [
           { text: 'Guillermo Barbeito', className: plateNameClass },
         ],
       },
-      {
-        text: 'Dirección · Maite Piñeyrúa Segura',
-        parts: [
-          { text: 'Dirección · ' },
-          { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
-        ],
-      },
     ],
   },
   {
