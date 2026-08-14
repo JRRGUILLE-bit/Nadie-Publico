@@ -178,6 +178,7 @@
     <link rel="stylesheet" href="styles-film-boost.css?v=3" />
     <link rel="stylesheet" href="styles-legal.css?v=2" />
     <link rel="stylesheet" href="styles-contact.css?v=5" />
+    <link rel="stylesheet" href="market-polish.css?v=1" />
   </head>
   <body>
     <main class="splash" aria-label="Portada">
@@ -189,9 +190,10 @@
         muted
         loop
         playsinline
+        preload="metadata"
         poster="assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg"
       >
-        <source src="assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_web.mp4" type="video/mp4" />
+        <source media="(min-width: 721px)" src="assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_web.mp4" type="video/mp4" />
       </video>
 
       <div class="image-fallback" aria-hidden="true"></div>
@@ -204,34 +206,27 @@
       <a class="cover-language-switch" href="about.html" hreflang="en" lang="en">English</a>
 
       <section class="plates" id="plates" aria-label="Placas de portada" aria-live="polite"></section>
+      <p class="format-line">Serie · 6×20–25' · Comedia negra / thriller político · Uruguay</p>
 
       <nav class="contact-links" aria-label="Accesos profesionales del proyecto">
-        <a class="contact-link" href="https://www.instagram.com/nadietedijoqueibaaserasi/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/logos/instagram-icon.png" alt="Instagram del proyecto Nadie te dijo que iba a ser así" />
-          <span>Instagram</span>
-        </a>
+        <button class="contact-link contact-link--button contact-link--project" type="button" id="about-trigger">
+          <img src="assets/logos/about-us-expediente.png" alt="Ver proyecto y equipo" />
+          <span>Ver proyecto</span>
+        </button>
         <a
           class="contact-link contact-link--materials"
           href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&amp;body=Hola%2C%0A%0AQuisiera%20solicitar%20el%20dossier%20y%20los%20materiales%20disponibles%20del%20proyecto.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
         >
           <img src="assets/logos/email-icon.png" alt="Solicitar dossier y materiales del proyecto" />
-          <span>Solicitar dossier y materiales</span>
+          <span>Solicitar materiales</span>
         </a>
         <a
           class="contact-link contact-link--coproduction"
-          href="mailto:malenabh1@gmail.com?cc=nacho@skafilms.com.uy&amp;subject=Conversaci%C3%B3n%20de%20mercado%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&amp;body=Hola%2C%0A%0AMe%20interesa%20conversar%20sobre%20el%20proyecto%20en%20relaci%C3%B3n%20con%20financiaci%C3%B3n%2C%20distribuci%C3%B3n%2C%20ventas%20o%20coproducci%C3%B3n%20internacional.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
+          href="mailto:malenabh1@gmail.com?cc=nacho@skafilms.com.uy&amp;subject=Reuni%C3%B3n%20de%20industria%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD&amp;body=Hola%2C%0A%0AQuisiera%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20el%20proyecto%20en%20relaci%C3%B3n%20con%20financiaci%C3%B3n%2C%20distribuci%C3%B3n%2C%20ventas%20o%20coproducci%C3%B3n%20internacional.%0A%0ANombre%3A%0AEmpresa%20%2F%20instituci%C3%B3n%3A%0APa%C3%ADs%3A%0A%0ASaludos%2C"
         >
-          <img src="assets/logos/email-icon.png" alt="Abrir una conversación de mercado" />
-          <span>Conversar sobre mercado</span>
+          <img src="assets/logos/email-icon.png" alt="Coordinar una reunión de industria" />
+          <span>Coordinar reunión</span>
         </a>
-        <a class="contact-link" href="https://www.skafilms.com.uy/es/inicio" target="_blank" rel="noopener noreferrer">
-          <img src="assets/logos/ska-films-icon.png" alt="SKA Films" />
-          <span>SKA Films</span>
-        </a>
-        <button class="contact-link contact-link--button" type="button" id="about-trigger">
-          <img src="assets/logos/about-us-expediente.png" alt="Proyecto y equipo" />
-          <span>Proyecto y equipo</span>
-        </button>
       </nav>
 
       <p class="legal-line">
@@ -277,6 +272,7 @@
               <div class="project-card-actions">
                 <a href="sobre.html">Ver expediente completo</a>
                 <a href="mailto:malenabh1@gmail.com?subject=Solicitud%20de%20dossier%20y%20materiales%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Solicitar materiales</a>
+                <a href="mailto:malenabh1@gmail.com?cc=nacho@skafilms.com.uy&amp;subject=Reuni%C3%B3n%20de%20industria%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Coordinar reunión</a>
               </div>
             </article>
 
@@ -322,5 +318,6 @@
     </main>
 
     <script src="script.js?v=14"></script>
+    <script src="market-polish.js?v=1"></script>
   </body>
 </html>
