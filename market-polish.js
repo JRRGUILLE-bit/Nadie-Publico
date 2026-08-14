@@ -12,10 +12,13 @@ try {
   timing.plateRevealPause = 160;
   timing.contactRevealPause = 400;
 
-  // Créditos más compactos. Los reconocimientos originales de script.js
-  // se preservan completos, incluido el apoyo del Fondo de Incentivo Cultural.
+  // La portada acredita autoría, no una dirección que todavía no ocurrió.
+  // Los reconocimientos originales de script.js se preservan completos, incluido FIC.
   if (plateSequence?.[1]) {
-    plateSequence[1].lines[0] = 'Creada por';
+    plateSequence[1].lines = [
+      'Creada por',
+      plateSequence[1].lines[1],
+    ];
   }
 
   // Carrusel manual: en un expediente profesional el usuario controla el ritmo.
@@ -24,6 +27,49 @@ try {
   aboutPause?.remove();
 } catch (error) {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
+}
+
+// English abre una landing audiovisual independiente, no el viejo expediente about.html.
+const languageSwitch = document.querySelector('.cover-language-switch');
+if (languageSwitch?.textContent.trim().toLowerCase() === 'english') {
+  languageSwitch.href = 'english.html';
+}
+
+// Limpieza de créditos visibles en la landing española.
+const projectSummary = document.querySelector('.project-summary');
+if (projectSummary) {
+  projectSummary.textContent = projectSummary.textContent
+    .replace(/, y dirigida por Maite Piñeyrúa Segura\.?/i, '.')
+    .replace(/, dirigida por Maite Piñeyrúa Segura\.?/i, '.');
+}
+
+document.querySelectorAll('.project-status__list li').forEach((item) => {
+  const text = item.textContent.trim();
+  if (/direcci[oó]n confirmada|director attached/i.test(text)) {
+    item.remove();
+    return;
+  }
+  item.textContent = text
+    .replace(/coproducci[oó]n uruguaya con/gi, 'coproducción con')
+    .replace(/Uruguayan coproduction with/gi, 'Coproduction with');
+});
+
+const aboutCards = Array.from(document.querySelectorAll('.about-card'));
+const maiteCard = aboutCards.find((card) => /Maite Piñeyrúa Segura/.test(card.querySelector('h2')?.textContent ?? ''));
+if (maiteCard) {
+  const paragraphs = maiteCard.querySelectorAll('p');
+  if (paragraphs[0]) {
+    paragraphs[0].textContent = 'Cocreadora y coguionista de Nadie te dijo que iba a ser así. Trabaja en la construcción del tono, los personajes y la tensión entre intimidad, absurdo cotidiano y conflicto político.';
+  }
+}
+
+const skaCard = aboutCards.find((card) => /SKA Films/.test(card.querySelector('h2')?.textContent ?? ''));
+if (skaCard) {
+  skaCard.querySelectorAll('p').forEach((paragraph) => {
+    paragraph.textContent = paragraph.textContent
+      .replace(/coproducci[oó]n uruguaya/gi, 'coproducción')
+      .replace(/Uruguayan coproduction/gi, 'coproduction');
+  });
 }
 
 // La ficha de formato aparece recién al terminar toda la presentación.
