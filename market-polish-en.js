@@ -1,0 +1,51 @@
+// English landing overrides. Runs after script.js and market-polish.js.
+try {
+  if (plateSequence?.[1]) {
+    plateSequence[1].lines = [
+      'Created by',
+      {
+        text: 'Maite Piñeyrúa Segura and Guillermo Barbeito',
+        parts: [
+          { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
+          { text: ' and ' },
+          { text: 'Guillermo Barbeito', className: plateNameClass },
+        ],
+      },
+      {
+        text: 'Directed by · Maite Piñeyrúa Segura',
+        parts: [
+          { text: 'Directed by · ' },
+          { text: 'Maite Piñeyrúa Segura', className: plateNameClass },
+        ],
+      },
+    ];
+  }
+
+  if (plateSequence?.[2]) {
+    plateSequence[2].lines = [
+      'SUPPORT · Cultural Incentive Fund (FIC)',
+      'LAB · DETOUR Series Lab',
+      'AWARD · DETOUR Teaser Award',
+      'SELECTION · Campus Málaga Talent 2025',
+    ];
+  }
+
+  if (plateSequence?.[3]) {
+    plateSequence[3].lines = [
+      {
+        text: 'A Uruguayan coproduction with SKA Films',
+        parts: [
+          { text: 'A Uruguayan coproduction with ' },
+          { text: 'SKA Films', className: plateNameClass },
+        ],
+      },
+    ];
+  }
+
+  if (skipIntroButton) {
+    skipIntroButton.setAttribute('aria-label', 'Skip presentation and show the full cover');
+    skipIntroButton.innerHTML = '<span>Skip presentation</span><span aria-hidden="true">››</span>';
+  }
+} catch (error) {
+  console.warn('English landing: optional translation override failed.', error);
+}
