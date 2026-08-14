@@ -2,16 +2,15 @@
 // Este archivo corre después de script.js y preserva la lógica base.
 
 try {
-  // Ritmo de máquina de escribir pensado como apertura audiovisual, no como carga rápida.
-  // La referencia es la intro original (39 ms): 47 ms es aproximadamente 20% más lento.
-  // Se restauran también las respiraciones entre líneas y placas. Quien quiera avanzar
+  // Ritmo deliberadamente cinematográfico. Ya no buscamos una intro "rápida":
+  // el texto tiene que tener peso visual y tiempo de lectura. Quien quiera avanzar
   // tiene siempre disponible el botón Saltar presentación.
-  timing.typingDelay = 47;
-  timing.linePause = 165;
-  timing.holdAfterTyping = 185;
-  timing.betweenPlatesPause = 125;
-  timing.plateRevealPause = 120;
-  timing.contactRevealPause = 300;
+  timing.typingDelay = 90;
+  timing.linePause = 320;
+  timing.holdAfterTyping = 420;
+  timing.betweenPlatesPause = 280;
+  timing.plateRevealPause = 180;
+  timing.contactRevealPause = 450;
 
   // Créditos más compactos. Los reconocimientos originales de script.js
   // se preservan completos, incluido el apoyo del Fondo de Incentivo Cultural.
