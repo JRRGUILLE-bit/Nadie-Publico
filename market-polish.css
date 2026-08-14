@@ -355,41 +355,45 @@ body:not(:has(.splash))::before { opacity: 0.13; }
 }
 
 /* --------------------------------------------------------------------------
-   Control de salto — corrección final.
-   Sobrio, cinematográfico y legible. Neutraliza el borde animado del CSS base.
+   Control de salto — mismo componente y misma posición original.
+   El refinamiento es de material, contraste y microinteracción; no de geometría.
    -------------------------------------------------------------------------- */
 .skip-intro-button {
-  left: 50% !important;
-  right: auto !important;
-  bottom: clamp(6.85rem, 11.7vh, 8.35rem) !important;
-  min-height: 0 !important;
-  padding: 0.62rem 0.92rem 0.56rem !important;
-  gap: 0.52rem !important;
-  overflow: visible !important;
-  border: 1px solid rgba(234, 220, 188, 0.30) !important;
-  border-radius: 4px !important;
-  color: rgba(246, 235, 211, 0.94) !important;
-  background: rgba(7, 7, 6, 0.42) !important;
-  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.28) !important;
-  backdrop-filter: blur(3px) !important;
-  -webkit-backdrop-filter: blur(3px) !important;
+  left: auto !important;
+  right: clamp(1rem, 3vw, 2.5rem) !important;
+  bottom: clamp(7.2rem, 13vh, 9.2rem) !important;
+  min-height: 3.05rem !important;
+  padding: 0.78rem 1.22rem 0.70rem !important;
+  gap: 0.62rem !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(226, 190, 116, 0.42) !important;
+  border-radius: 999px !important;
+  color: rgba(246, 235, 211, 0.95) !important;
+  background:
+    linear-gradient(180deg, rgba(19, 15, 10, 0.76), rgba(7, 6, 5, 0.68)) !important;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 243, 213, 0.07),
+    inset 0 0 0 1px rgba(255, 226, 160, 0.025) !important;
+  backdrop-filter: blur(4px) saturate(0.92) !important;
+  -webkit-backdrop-filter: blur(4px) saturate(0.92) !important;
   font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace !important;
-  font-size: clamp(0.76rem, 0.96vw, 0.9rem) !important;
+  font-size: clamp(0.78rem, 1.08vw, 0.94rem) !important;
   font-weight: 700 !important;
-  letter-spacing: 0.075em !important;
+  letter-spacing: 0.07em !important;
   line-height: 1 !important;
   text-transform: uppercase !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.82) !important;
   scale: 1 !important;
   opacity: 0;
-  transform: translate(-50%, 0.22rem) !important;
-  animation: market-skip-reveal 320ms ease 620ms forwards !important;
+  transform: translateY(0.24rem) !important;
+  animation: market-skip-reveal 360ms ease 620ms forwards !important;
   transition:
-    color 170ms ease,
-    background-color 170ms ease,
-    border-color 170ms ease,
-    box-shadow 170ms ease,
-    transform 170ms ease !important;
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease !important;
 }
 
 .skip-intro-button::before,
@@ -400,63 +404,67 @@ body:not(:has(.splash))::before { opacity: 0.13; }
 }
 
 .skip-intro-button > span {
-  position: static !important;
-  z-index: auto !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 .skip-intro-button span:last-child {
   display: inline-block !important;
-  color: rgba(226, 190, 116, 0.92) !important;
+  color: rgba(226, 190, 116, 0.9) !important;
   font: inherit !important;
-  font-size: 1.05em !important;
+  font-size: 1.06em !important;
   font-weight: 400 !important;
   letter-spacing: 0 !important;
   transform: translateX(0) !important;
-  transition: transform 170ms ease, color 170ms ease !important;
+  transition: transform 180ms ease, color 180ms ease !important;
 }
 
 .skip-intro-button:hover,
 .skip-intro-button:focus-visible {
   color: #fff1d2 !important;
-  background: rgba(10, 9, 7, 0.57) !important;
-  border-color: rgba(226, 190, 116, 0.58) !important;
-  box-shadow: 0 9px 26px rgba(0, 0, 0, 0.34) !important;
+  background:
+    linear-gradient(180deg, rgba(24, 19, 12, 0.84), rgba(9, 7, 5, 0.76)) !important;
+  border-color: rgba(239, 205, 137, 0.68) !important;
+  box-shadow:
+    0 13px 30px rgba(0, 0, 0, 0.44),
+    inset 0 1px 0 rgba(255, 243, 213, 0.10) !important;
   outline: none !important;
-  transform: translate(-50%, -1px) !important;
+  transform: translateY(-1px) !important;
 }
 
 .skip-intro-button:hover span:last-child,
 .skip-intro-button:focus-visible span:last-child {
-  color: #f0cf8b !important;
+  color: #f2cf87 !important;
   transform: translateX(2px) !important;
 }
 
 .skip-intro-button:active {
-  transform: translate(-50%, 0) !important;
+  transform: translateY(0) !important;
 }
 
 @keyframes market-skip-reveal {
   to {
-    opacity: 0.88;
-    transform: translate(-50%, 0);
+    opacity: 0.94;
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 720px) {
   .skip-intro-button {
-    left: 50% !important;
-    right: auto !important;
-    bottom: max(9.7rem, calc(env(safe-area-inset-bottom) + 8.9rem)) !important;
-    padding: 0.58rem 0.82rem 0.52rem !important;
-    font-size: 0.72rem !important;
+    left: auto !important;
+    right: 0.72rem !important;
+    bottom: max(10.4rem, calc(env(safe-area-inset-bottom) + 9.4rem)) !important;
+    min-height: 2.65rem !important;
+    padding: 0.64rem 0.94rem 0.58rem !important;
+    font-size: 0.70rem !important;
     letter-spacing: 0.065em !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .skip-intro-button {
-    opacity: 0.88 !important;
-    transform: translate(-50%, 0) !important;
+    opacity: 0.94 !important;
+    transform: translateY(0) !important;
     animation: none !important;
   }
 }
