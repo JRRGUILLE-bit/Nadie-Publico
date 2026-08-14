@@ -96,6 +96,154 @@ if (formatLine) {
   });
 }
 
+// El control de salto se trata como parte de los opening titles: oscuro, táctil y discreto.
+// Conserva el +20% de escala pedido, pero con una terminación más cinematográfica.
+const skipPolishStyle = document.createElement('style');
+skipPolishStyle.textContent = `
+  .skip-intro-button {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    scale: 1.2;
+    transform-origin: center bottom;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.68rem;
+    min-height: 2.75rem;
+    padding: 0.66rem 1.08rem 0.62rem;
+    overflow: hidden;
+    border: 1px solid rgba(226, 190, 116, 0.48);
+    border-radius: 999px;
+    background:
+      linear-gradient(180deg, rgba(24, 29, 27, 0.82), rgba(8, 11, 10, 0.92)),
+      rgba(8, 10, 9, 0.82);
+    -webkit-backdrop-filter: blur(9px) saturate(1.08);
+    backdrop-filter: blur(9px) saturate(1.08);
+    color: rgba(246, 235, 210, 0.94);
+    font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
+    font-size: clamp(0.72rem, 0.95vw, 0.84rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.085em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.58);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.055),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease,
+      color 180ms ease;
+  }
+
+  .skip-intro-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(105deg, transparent 22%, rgba(255, 242, 210, 0.075) 48%, transparent 72%);
+    transform: translateX(-115%);
+    transition: transform 520ms ease;
+  }
+
+  .skip-intro-button > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .skip-intro-button > span:last-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.42rem;
+    height: 1.42rem;
+    margin-right: -0.2rem;
+    border: 1px solid rgba(226, 190, 116, 0.32);
+    border-radius: 999px;
+    background: rgba(226, 190, 116, 0.075);
+    color: rgba(247, 230, 192, 0.96);
+    font-size: 0.92rem;
+    line-height: 1;
+    letter-spacing: 0;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .skip-intro-button:hover {
+    transform: translateX(-50%) translateY(-2px);
+    border-color: rgba(226, 190, 116, 0.75);
+    color: rgba(255, 244, 219, 0.99);
+    background:
+      linear-gradient(180deg, rgba(29, 34, 31, 0.9), rgba(10, 13, 12, 0.96)),
+      rgba(8, 10, 9, 0.88);
+    box-shadow:
+      0 15px 36px rgba(0, 0, 0, 0.44),
+      0 0 20px rgba(226, 190, 116, 0.105),
+      inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  }
+
+  .skip-intro-button:hover::before {
+    transform: translateX(115%);
+  }
+
+  .skip-intro-button:hover > span:last-child {
+    transform: translateX(2px);
+    border-color: rgba(226, 190, 116, 0.58);
+    background: rgba(226, 190, 116, 0.14);
+  }
+
+  .skip-intro-button:active {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .skip-intro-button:focus-visible {
+    outline: none;
+    border-color: rgba(236, 202, 128, 0.92);
+    box-shadow:
+      0 0 0 3px rgba(226, 190, 116, 0.17),
+      0 15px 36px rgba(0, 0, 0, 0.42);
+  }
+
+  @media (max-width: 720px) {
+    .skip-intro-button {
+      gap: 0.56rem;
+      min-height: 2.55rem;
+      padding: 0.61rem 0.94rem 0.58rem;
+      font-size: clamp(0.67rem, 2.75vw, 0.77rem);
+      letter-spacing: 0.07em;
+    }
+
+    .skip-intro-button > span:last-child {
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 0.82rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skip-intro-button,
+    .skip-intro-button::before,
+    .skip-intro-button > span:last-child {
+      transition: none;
+    }
+  }
+`;
+document.head.appendChild(skipPolishStyle);
+
+if (skipIntroButton) {
+  const skipArrow = skipIntroButton.querySelector('span[aria-hidden="true"]');
+  if (skipArrow) {
+    skipArrow.textContent = '→';
+  }
+}
+
 // En mobile privilegiamos el póster y evitamos reproducir el video pesado.
 if (window.matchMedia('(max-width: 720px)').matches && video) {
   video.pause();
