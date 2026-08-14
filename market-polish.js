@@ -10,15 +10,10 @@ try {
   timing.plateRevealPause = 55;
   timing.contactRevealPause = 100;
 
-  // Créditos más compactos; la ficha industrial permanente ya comunica formato y país.
+  // Créditos más compactos. Los reconocimientos originales de script.js
+  // se preservan completos, incluido el apoyo del Fondo de Incentivo Cultural.
   if (plateSequence?.[1]) {
     plateSequence[1].lines[0] = 'Creada por';
-  }
-  if (plateSequence?.[2]) {
-    plateSequence[2].lines = [
-      'DETOUR SERIES LAB · PREMIO TEASER DETOUR',
-      'CAMPUS MÁLAGA TALENT 2025',
-    ];
   }
 
   // Carrusel manual: en un expediente profesional el usuario controla el ritmo.
