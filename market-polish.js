@@ -2,8 +2,9 @@
 // Este archivo corre después de script.js y preserva la lógica base.
 
 try {
-  // La introducción mantiene su gesto de máquina de escribir, pero deja de pedir ~14 s.
-  timing.typingDelay = 9;
+  // La introducción mantiene su gesto de máquina de escribir. El tipeo queda
+  // deliberadamente más pausado; quien quiera avanzar puede usar Saltar presentación.
+  timing.typingDelay = 10.8;
   timing.linePause = 42;
   timing.holdAfterTyping = 70;
   timing.betweenPlatesPause = 70;
