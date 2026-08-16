@@ -212,7 +212,7 @@ main {
   .industrial-item:nth-child(3), .industrial-item:last-child { grid-column: auto; }
   .industrial-item:nth-child(even) { border-right: 0; }
   .materials-grid { grid-template-columns: repeat(2, 1fr); }
-  .material:last-child { grid-column: auto; }
+  .material:last-child { grid-column: span 2; }
   .market-target { grid-template-columns: 1fr; }
   .market-target p:last-child { margin-top: 1.4rem; }
 }
@@ -242,6 +242,7 @@ main {
   .dossier-section[aria-labelledby="publico"] { grid-template-columns: 1fr; }
   .dossier-section[aria-labelledby="publico"] p { border-top: 1px solid var(--sobre-line); border-left: 0; }
   .materials-grid, .team-grid { grid-template-columns: 1fr; }
+  .material:last-child { grid-column: auto; }
   .recognition-grid { grid-template-columns: 1fr; border-top: 0; }
   .recognition { padding: 1.1rem 0 1.1rem 1.5rem; border-top: 1px solid var(--sobre-line); border-right: 0; }
   .recognition::before { top: 1.45rem; left: -4px; }
