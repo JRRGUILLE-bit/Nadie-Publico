@@ -7,17 +7,16 @@ const aboutFrame = aboutCarousel?.querySelector('.about-carousel__frame');
 const aboutClose = document.querySelector('#about-close');
 const aboutPrev = document.querySelector('#about-prev');
 const aboutNext = document.querySelector('#about-next');
-let aboutPause = document.querySelector('#about-pause');
 const aboutSlides = Array.from(document.querySelectorAll('[data-about-slide]'));
 const aboutDots = Array.from(document.querySelectorAll('[data-about-dot]'));
+const aboutCount = document.querySelector('[data-about-count]');
+const aboutLabel = document.querySelector('[data-about-label]');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const plateNameClass = 'plate__name';
 
 let introSkipped = false;
 let skipIntroButton;
 let activeAboutSlide = 0;
-let aboutAutoplay;
-let aboutIsPaused = false;
 
 const timing = {
   initialPause: 650,
@@ -28,9 +27,6 @@ const timing = {
   holdAfterTyping: 153,
   contactRevealPause: 300,
 };
-
-const aboutReadingMsPer100Words = 30000;
-const aboutMinimumReadingDelay = 70000;
 
 if (video) {
   video.playbackRate = 1;
@@ -297,28 +293,6 @@ const runPlates = async () => {
   }
 };
 
-const getAboutSlideWordCount = (slide) =>
-  slide?.textContent.trim().split(/\s+/).filter(Boolean).length ?? 0;
-
-const getAboutAutoplayDelay = () =>
-  Math.max(
-    Math.ceil((getAboutSlideWordCount(aboutSlides[activeAboutSlide]) / 100) * aboutReadingMsPer100Words),
-    aboutMinimumReadingDelay
-  );
-
-const updateAboutPauseButton = () => {
-  if (!aboutPause) {
-    return;
-  }
-
-  aboutPause.textContent = aboutIsPaused ? 'Reanudar' : 'Pausar';
-  aboutPause.setAttribute('aria-pressed', String(aboutIsPaused));
-  aboutPause.setAttribute(
-    'aria-label',
-    aboutIsPaused ? 'Reanudar avance automático' : 'Pausar avance automático'
-  );
-};
-
 const setAboutSlide = (index) => {
   if (!aboutSlides.length) {
     return;
@@ -330,6 +304,7 @@ const setAboutSlide = (index) => {
     const isActive = slideIndex === activeAboutSlide;
     slide.classList.toggle('is-active', isActive);
     slide.setAttribute('aria-hidden', String(!isActive));
+    slide.inert = !isActive;
   });
 
   aboutDots.forEach((dot, dotIndex) => {
@@ -337,33 +312,13 @@ const setAboutSlide = (index) => {
     dot.classList.toggle('is-active', isActive);
     dot.setAttribute('aria-current', isActive ? 'true' : 'false');
   });
-};
 
-const stopAboutAutoplay = () => {
-  window.clearTimeout(aboutAutoplay);
-  aboutAutoplay = undefined;
-};
-
-const startAboutAutoplay = () => {
-  stopAboutAutoplay();
-
-  if (
-    aboutIsPaused ||
-    prefersReducedMotion.matches ||
-    !document.body.classList.contains('about-open')
-  ) {
-    return;
+  if (aboutCount) {
+    aboutCount.textContent = `${String(activeAboutSlide + 1).padStart(2, '0')} / ${String(aboutSlides.length).padStart(2, '0')}`;
   }
-
-  aboutAutoplay = window.setTimeout(() => {
-    setAboutSlide(activeAboutSlide + 1);
-    startAboutAutoplay();
-  }, getAboutAutoplayDelay());
-};
-
-const restartAboutAutoplay = () => {
-  stopAboutAutoplay();
-  startAboutAutoplay();
+  if (aboutLabel) {
+    aboutLabel.textContent = aboutDots[activeAboutSlide]?.textContent.trim() ?? '';
+  }
 };
 
 const openAbout = () => {
@@ -374,9 +329,7 @@ const openAbout = () => {
   document.body.classList.add('about-open');
   aboutCarousel.setAttribute('aria-hidden', 'false');
   setAboutSlide(activeAboutSlide);
-  updateAboutPauseButton();
-  startAboutAutoplay();
-  aboutClose?.focus({ preventScroll: true });
+  aboutSlides[activeAboutSlide]?.focus({ preventScroll: true });
 };
 
 const closeAbout = () => {
@@ -386,40 +339,17 @@ const closeAbout = () => {
 
   document.body.classList.remove('about-open');
   aboutCarousel.setAttribute('aria-hidden', 'true');
-  stopAboutAutoplay();
   aboutTrigger?.focus({ preventScroll: true });
 };
 
 const moveAboutSlide = (direction) => {
   setAboutSlide(activeAboutSlide + direction);
-  restartAboutAutoplay();
 };
-
-const toggleAboutPause = () => {
-  aboutIsPaused = !aboutIsPaused;
-  updateAboutPauseButton();
-
-  if (aboutIsPaused) {
-    stopAboutAutoplay();
-  } else {
-    startAboutAutoplay();
-  }
-};
-
-if (!aboutPause && aboutClose) {
-  aboutPause = document.createElement('button');
-  aboutPause.className = 'about-carousel__back';
-  aboutPause.id = 'about-pause';
-  aboutPause.type = 'button';
-  aboutPause.setAttribute('aria-pressed', 'false');
-  aboutClose.insertAdjacentElement('beforebegin', aboutPause);
-}
 
 aboutTrigger?.addEventListener('click', openAbout);
 aboutClose?.addEventListener('click', closeAbout);
 aboutPrev?.addEventListener('click', () => moveAboutSlide(-1));
 aboutNext?.addEventListener('click', () => moveAboutSlide(1));
-aboutPause?.addEventListener('click', toggleAboutPause);
 
 aboutCarousel?.addEventListener('click', (event) => {
   if (document.body.classList.contains('about-open') && !aboutFrame?.contains(event.target)) {
@@ -430,19 +360,8 @@ aboutCarousel?.addEventListener('click', (event) => {
 aboutDots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     setAboutSlide(index);
-    restartAboutAutoplay();
   });
 });
-
-const handleMotionPreferenceChange = () => {
-  restartAboutAutoplay();
-};
-
-if (typeof prefersReducedMotion.addEventListener === 'function') {
-  prefersReducedMotion.addEventListener('change', handleMotionPreferenceChange);
-} else if (typeof prefersReducedMotion.addListener === 'function') {
-  prefersReducedMotion.addListener(handleMotionPreferenceChange);
-}
 
 document.addEventListener('keydown', (event) => {
   if (!document.body.classList.contains('about-open')) {
@@ -459,7 +378,6 @@ document.addEventListener('keydown', (event) => {
 });
 
 setAboutSlide(0);
-updateAboutPauseButton();
 
 if (prefersReducedMotion.matches) {
   renderCompletedPlates();

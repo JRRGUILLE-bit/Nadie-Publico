@@ -1059,9 +1059,7 @@ body.about-open .about-carousel__frame {
   inset: 0;
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(226, 210, 168, 0.62) rgba(16, 29, 25, 0.34);
+  overflow: hidden;
   padding: clamp(1.25rem, 3.2vw, 2.45rem);
   border: 1px solid rgba(220, 218, 197, 0.26);
   color: #e9e3d3;
@@ -1192,14 +1190,6 @@ body.about-open .about-carousel__frame {
   filter: sepia(0.28) saturate(0.82) contrast(0.95);
 }
 
-@media (max-height: 760px) {
-  .about-card {
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-gutter: stable;
-  }
-}
-
 .about-carousel__controls {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -1209,7 +1199,7 @@ body.about-open .about-carousel__frame {
 
 .about-carousel__arrow,
 .about-carousel__back,
-.about-carousel__dot {
+.about-carousel__section {
   appearance: none;
   font-family: inherit;
   cursor: pointer;
@@ -1237,35 +1227,59 @@ body.about-open .about-carousel__frame {
   text-transform: uppercase;
 }
 
-.about-carousel__dots {
+.about-carousel__navigation {
   display: flex;
   justify-content: center;
-  gap: 0.45rem;
+  gap: clamp(0.3rem, 1vw, 0.75rem);
 }
 
-.about-carousel__dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  padding: 0;
-  border: 1px solid rgba(238, 224, 194, 0.48);
-  border-radius: 999px;
-  background: rgba(238, 224, 194, 0.13);
+.about-carousel__section {
+  padding: 0.28rem 0.12rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: rgba(234, 219, 185, 0.62);
+  background: transparent;
+  font-size: clamp(0.55rem, 1vw, 0.72rem);
+  letter-spacing: 0.04em;
 }
 
-.about-carousel__dot.is-active {
-  background: rgba(238, 224, 194, 0.78);
+.about-carousel__section.is-active {
+  border-bottom-color: currentColor;
+  color: #eadbb9;
 }
+
+.about-carousel__indicator { display: none; }
 
 .about-carousel__arrow:hover,
 .about-carousel__arrow:focus-visible,
 .about-carousel__back:hover,
 .about-carousel__back:focus-visible,
-.about-carousel__dot:focus-visible {
+.about-carousel__section:focus-visible {
   opacity: 1;
   transform: translateY(-0.08rem);
   border-color: rgba(238, 224, 194, 0.66);
   outline: none;
 }
+
+.universe-characters,
+.tone-resources,
+.ska-credits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.creators-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); }
+.creator h3 { margin: 0; }
+.creator-media { display: none; }
+.creator-role { font-weight: 700; }
+.ska-logo { width: min(11rem, 35%); height: auto; margin-bottom: 1rem; }
+.journey-timeline { margin: 0; padding-left: 1.5rem; }
+.journey-timeline li { margin-bottom: 0.65rem; }
+.journey-timeline span { display: block; }
 
 @media (max-width: 720px) {
   .about-carousel {
@@ -1313,6 +1327,10 @@ body.about-open .about-carousel__frame {
     width: 2.45rem;
     height: 2.1rem;
   }
+
+  .about-carousel__section { display: none; }
+  .about-carousel__indicator { display: block; margin: 0; text-align: center; }
+  .creators-list { grid-template-columns: 1fr; gap: 0.7rem; }
 
   .about-carousel__back {
     padding: 0.58rem 1rem 0.48rem;
