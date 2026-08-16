@@ -120,7 +120,7 @@ main {
 .industrial-item:nth-child(3),
 .industrial-item:last-child { border-right: 0; }
 .industrial-item:nth-child(3) { grid-column: span 2; }
-.industrial-item:last-child { grid-column: span 3; }
+.industrial-item:last-child { grid-column: span 2; }
 .industrial-item span { font-family: var(--body-copy); }
 
 .market-target {
