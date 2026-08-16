@@ -95,13 +95,6 @@ body .contact-link--materials::after { content: none; }
   transform-origin: top right;
 }
 
-/* La ficha de portada debe poder respirar y scrollear en pantallas bajas. */
-.about-card--project {
-  overflow-x: hidden;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-}
-
 /* Elimina la vieja logline generada por CSS: ahora existe como contenido real. */
 .about-card--project > p:nth-of-type(2)::before {
   content: none !important;
@@ -329,7 +322,6 @@ body:not(:has(.splash))::before { opacity: 0.13; }
   }
 
   .about-carousel__viewport { min-height: min(68svh, 34rem); }
-  .about-card--project { overflow-y: auto; }
 
   .project-file h1 { font-size: clamp(2.25rem, 12vw, 3.9rem); }
   .project-still img { aspect-ratio: 16 / 9; }
