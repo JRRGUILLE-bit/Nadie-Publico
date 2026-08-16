@@ -1620,3 +1620,244 @@ body.about-open .about-carousel__frame {
   .about-carousel__arrow:focus-visible { background: rgba(166, 65, 50, 0.28); }
   .about-carousel__back { position: absolute; top: 0; right: 0; padding: 0.48rem 0.8rem 0.38rem; background: rgba(9, 7, 5, 0.82); box-shadow: none; font-size: clamp(0.72rem, 0.78vw, 0.82rem); }
 }
+
+/* --------------------------------------------------------------------------
+   Micro pitch — mobile portrait V1
+   Siete composiciones verticales propias; el expediente nunca hace scroll.
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .about-carousel {
+    box-sizing: border-box;
+    height: 100svh;
+    padding: max(0.45rem, env(safe-area-inset-top)) 0.55rem max(0.45rem, env(safe-area-inset-bottom));
+    background: radial-gradient(circle at 50% 35%, rgba(91, 56, 25, 0.18), transparent 48%), rgba(3, 3, 3, 0.78);
+  }
+
+  .about-carousel__frame {
+    width: min(100%, 430px);
+    height: calc(100svh - max(0.9rem, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    max-height: none;
+    grid-template-rows: 1.55rem minmax(0, 1fr) 2.85rem;
+    gap: 0.42rem;
+  }
+
+  .about-carousel__eyebrow {
+    align-self: center;
+    margin-left: 0.18rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 0.56rem;
+    letter-spacing: 0.13em;
+    opacity: 0.58;
+  }
+
+  .about-carousel .about-carousel__viewport {
+    min-height: 0;
+    border: 1px solid rgba(230, 213, 177, 0.3);
+    background: #0c0e0c;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.76);
+  }
+
+  .about-card {
+    --file-red: #a64132;
+    --file-gold: #d0a857;
+    --file-ink: #171713;
+    padding: clamp(0.8rem, 3.2vw, 1.15rem);
+    line-height: 1.34;
+    transform: translateX(0.4rem);
+  }
+
+  .about-card.is-active { transform: none; }
+  .about-card h2 {
+    margin: 0 0 0.42rem;
+    padding: 0;
+    color: var(--file-gold);
+    font-size: clamp(0.7rem, 2.8vw, 0.82rem);
+    letter-spacing: 0.18em;
+  }
+  .about-card p { font-size: clamp(0.72rem, 2.75vw, 0.84rem); }
+  .about-card p + p { margin-top: 0.45rem; }
+
+  .about-carousel__controls {
+    grid-template-columns: 2.8rem minmax(0, 1fr) 2.8rem;
+    gap: 0.55rem;
+  }
+  .about-carousel__arrow {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-color: rgba(226, 210, 174, 0.38);
+    font-size: 1.3rem;
+  }
+  .about-carousel__dots { min-width: 0; }
+  .about-carousel__current {
+    overflow: hidden;
+    font: 700 clamp(0.66rem, 2.8vw, 0.78rem)/1.2 'Lekton', monospace;
+    letter-spacing: 0.045em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .about-carousel__back {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    min-width: 4.15rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.72rem 0.45rem;
+    background: rgba(9, 7, 5, 0.86);
+    font-size: 0.7rem;
+  }
+
+  /* 01 — tapa: imagen, corte físico mínimo y copy editorial. */
+  .about-card--project {
+    display: grid;
+    grid-template-rows: 37% minmax(0, 63%);
+    padding: 0;
+    background: #0e100d;
+  }
+  .about-card--project::after { display: none; }
+  .project-visual {
+    background: linear-gradient(0deg, rgba(14, 16, 13, 0.9), transparent 32%), url('assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg') 47% 52% / cover no-repeat;
+    filter: saturate(0.8) contrast(1.12);
+  }
+  .project-copy {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    padding: clamp(0.72rem, 3vw, 1rem) clamp(0.85rem, 4vw, 1.2rem) clamp(0.7rem, 3vw, 1rem);
+    flex-direction: column;
+    background: #0e100d;
+  }
+  .project-copy::before {
+    content: '';
+    position: absolute;
+    top: -0.35rem;
+    right: 0;
+    left: 0;
+    height: 0.55rem;
+    background: url('assets/images/rippedpapper.png') center / 110% auto no-repeat;
+    filter: brightness(0.34) sepia(0.2);
+  }
+  .project-tagline {
+    max-width: 22ch;
+    color: #f0e3c4 !important;
+    font: clamp(1.18rem, 6.1vw, 1.65rem)/1.02 'Special Elite', monospace !important;
+    text-wrap: balance;
+  }
+  .project-logline { margin-top: clamp(0.45rem, 1.5vh, 0.7rem) !important; font-size: clamp(0.68rem, 2.65vw, 0.79rem) !important; line-height: 1.32; }
+  .project-format {
+    margin-top: auto !important;
+    padding-top: 0.48rem;
+    border-top: 1px solid rgba(208, 168, 87, 0.55);
+    color: #ead7ad !important;
+    font-size: clamp(0.61rem, 2.4vw, 0.72rem) !important;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  /* 02 — presente arriba; memoria e imagen ocupan el plano inferior. */
+  .about-card--universe {
+    display: grid;
+    grid-template-rows: auto minmax(0, 57%) minmax(0, 43%);
+    padding: clamp(0.85rem, 3.6vw, 1.2rem);
+    background: #101a16;
+  }
+  .about-card--universe h2::after {
+    content: 'PRESENTE / MONTEVIDEO';
+    display: block;
+    margin-top: 0.45rem;
+    color: rgba(237, 215, 171, 0.72);
+    font: 700 0.61rem/1 'Lekton', monospace;
+    letter-spacing: 0.12em;
+  }
+  .universe-contrast { align-self: center; }
+  .universe-contrast > p:first-child { font-size: clamp(0.74rem, 2.9vw, 0.88rem); line-height: 1.4; }
+  .universe-concepts { max-width: 18ch; color: #efdba7 !important; font: clamp(1.12rem, 5.6vw, 1.5rem)/1.08 'Special Elite', monospace !important; }
+  .universe-characters {
+    position: relative;
+    display: grid;
+    margin: 0 -1.2rem -1.2rem;
+    padding: 2.1rem 1rem 0.65rem;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    gap: 0.25rem;
+    list-style: none;
+    background: linear-gradient(180deg, #101a16 0, transparent 30%, rgba(4, 3, 3, 0.5)), url('assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg') 48% 55% / cover no-repeat;
+  }
+  .universe-characters::before { content: 'MEMORIA / LO ENTERRADO'; position: absolute; top: 0.65rem; left: 1rem; color: #d9bd82; font: 700 0.61rem/1 'Lekton', monospace; letter-spacing: 0.1em; }
+  .universe-characters li { color: #f1e4c8; font: clamp(0.8rem, 3.8vw, 1.02rem)/1 'Special Elite', monospace; text-align: center; text-shadow: 0 2px 8px #000; }
+  .universe-characters li:nth-child(2) { padding-bottom: 1.4rem; }
+
+  /* 03 — choque tipográfico y recursos en matriz 2 × 3. */
+  .about-card--tone { display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; background: linear-gradient(155deg, #09100d 0 68%, #461d18); }
+  .about-card--tone blockquote { align-self: center; margin: 0; color: #ded1b5; font: clamp(0.74rem, 3vw, 0.9rem)/1.24 'Special Elite', monospace; text-transform: uppercase; }
+  .about-card--tone blockquote span { display: block; max-width: 28ch; }
+  .about-card--tone blockquote strong { display: block; color: #f3e5c6; font-size: clamp(2rem, 10.8vw, 3rem); font-weight: 400; line-height: 0.96; }
+  .about-card--tone blockquote strong:last-child { margin-left: 9%; color: #c75c49; }
+  .about-card--tone > p { padding: 0.5rem 0; border-top: 2px solid var(--file-red); color: #dfb35c; }
+  .tone-resources { display: grid; margin: 0; padding: 0.6rem 0 0; grid-template-columns: 1fr 1fr; gap: 0.42rem 0.7rem; border-top: 1px dashed rgba(230, 213, 177, 0.4); list-style: none; }
+  .tone-resources li { color: #eadfc8; font: 700 clamp(0.62rem, 2.55vw, 0.74rem)/1.2 'Lekton', monospace; letter-spacing: 0.04em; }
+  .tone-resources li::before { content: '— '; color: var(--file-red); }
+
+  /* 04 — hoja industrial: claim, estado y ask en una lectura continua. */
+  .about-card--market { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; color: var(--file-ink); background: linear-gradient(rgba(224, 213, 183, 0.95), rgba(202, 191, 161, 0.97)), url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') center / cover; }
+  .about-card--market header { padding-bottom: 0.55rem; border-bottom: 3px solid #8f392d; }
+  .about-card--market header p { color: #6d281f; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; }
+  .about-card--market h2 { margin-top: 0.25rem; color: #28251f; font-size: 1rem; }
+  .market-claim { order: 1; max-width: 16ch; margin: clamp(0.75rem, 3vh, 1.35rem) 0; padding-left: 0.55rem; border-left: 0.17em solid #963b2e; color: #29261f; font: clamp(1.65rem, 8.8vw, 2.45rem)/0.98 'Special Elite', monospace; }
+  .market-status { order: 2; align-self: center; padding: 0.65rem 0; border-top: 1px solid rgba(67, 53, 35, 0.35); border-bottom: 1px solid rgba(67, 53, 35, 0.35); color: #211f1a !important; font-size: clamp(0.7rem, 2.8vw, 0.82rem) !important; font-weight: 700; }
+  .about-card--market > p:last-child { order: 3; align-self: end; color: #302e27; font-size: clamp(0.72rem, 2.85vw, 0.84rem); }
+
+  /* 05 — dupla autoral en dos columnas, con cierre común. */
+  .about-card--creators { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: #101512; }
+  .creators-list { display: grid; min-height: 0; grid-template-columns: 1fr 1fr; }
+  .creator { min-width: 0; padding: 0.3rem clamp(0.45rem, 2.3vw, 0.72rem) 0 0; }
+  .creator + .creator { padding-right: 0; padding-left: clamp(0.45rem, 2.3vw, 0.72rem); border-left: 1px solid rgba(208, 168, 87, 0.42); }
+  .creator h3 { margin: 0; color: #f0dfbb; font: clamp(1rem, 4.65vw, 1.3rem)/1 'Special Elite', monospace; overflow-wrap: anywhere; }
+  .creator__role { margin-top: 0.45rem !important; color: var(--file-gold) !important; font-size: clamp(0.56rem, 2.25vw, 0.66rem) !important; line-height: 1.2; text-transform: uppercase; }
+  .creator > p:last-child { margin-top: 0.48rem !important; font-size: clamp(0.61rem, 2.35vw, 0.72rem); line-height: 1.3; }
+  .creators-authorship { margin-top: 0.5rem !important; padding: 0.48rem 0.25rem 0.38rem; border-top: 1px solid var(--file-red); color: #f1dfb6 !important; font: clamp(0.69rem, 2.8vw, 0.82rem)/1.25 'Special Elite', monospace; text-align: center; }
+
+  /* 06 — marca, institución, responsable y filmografía. */
+  .about-card--ska { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: #121814; }
+  .ska-brand { display: grid; grid-template-columns: 1fr auto; align-items: start; }
+  .about-card--ska header p { color: var(--file-gold); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; }
+  .about-card--ska header h2 { margin-top: 0.25rem; font-size: 1rem; }
+  .ska-brand > img { width: clamp(68px, 21vw, 88px); max-height: 3.6rem; object-fit: contain; object-position: right top; }
+  .ska-profile { display: grid; min-height: 0; align-content: center; }
+  .ska-overview { padding-bottom: clamp(0.55rem, 2vh, 0.9rem); font-size: clamp(0.7rem, 2.7vw, 0.82rem) !important; }
+  .ska-producer { padding-top: clamp(0.55rem, 2vh, 0.9rem); border-top: 1px solid rgba(208, 168, 87, 0.48); }
+  .ska-producer h3 { margin: 0; color: #f0dfbb; font: clamp(1.18rem, 5.7vw, 1.6rem)/1 'Special Elite', monospace; }
+  .ska-producer__role { margin-top: 0.42rem !important; color: var(--file-gold) !important; font-size: clamp(0.58rem, 2.3vw, 0.68rem) !important; font-weight: 700; }
+  .ska-producer > p:last-child { margin-top: 0.5rem !important; font-size: clamp(0.69rem, 2.7vw, 0.81rem); }
+  .ska-credits { display: grid; margin: 0; padding: 0.58rem 0 0; grid-template-columns: 1fr 1fr; gap: 0.35rem 0; border-top: 1px solid rgba(208, 168, 87, 0.48); list-style: none; }
+  .ska-credits li { color: #e8d6af; font: clamp(0.7rem, 2.8vw, 0.82rem)/1.2 'Special Elite', monospace; text-align: center; }
+  .ska-credits li:nth-child(even) { border-left: 1px solid rgba(208, 168, 87, 0.35); }
+
+  /* 07 — línea vertical única y tres acciones táctiles. */
+  .about-card--journey { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: #121612; }
+  .journey-timeline { position: relative; display: grid; min-height: 0; margin: 0; padding: 0.25rem 0 0.25rem 1.25rem; grid-template-rows: repeat(4, 1fr); list-style: none; }
+  .journey-timeline::before { content: ''; position: absolute; top: 0.55rem; bottom: 0.55rem; left: 0.38rem; width: 2px; background: linear-gradient(#884034, var(--file-gold) 72%, #c86350); }
+  .journey-timeline li { position: relative; display: flex; min-height: 0; flex-direction: column; justify-content: center; }
+  .journey-timeline li::before { content: ''; position: absolute; left: -1.13rem; width: 0.63rem; height: 0.63rem; border: 2px solid #151713; background: var(--file-gold); box-shadow: 0 0 0 1px rgba(234, 218, 183, 0.65); transform: rotate(45deg); }
+  .journey-timeline strong { color: #f0e2c4; font: clamp(0.72rem, 2.9vw, 0.86rem)/1.1 'Special Elite', monospace; }
+  .journey-timeline span { margin-top: 0.15rem; color: rgba(239, 227, 201, 0.86); font-size: clamp(0.62rem, 2.4vw, 0.72rem); line-height: 1.18; }
+  .project-card-actions { display: grid; padding-top: 0.45rem; gap: 0.3rem; border-top: 1px dashed rgba(221, 202, 162, 0.4); }
+  .project-card-actions a { display: flex; min-height: 2.5rem; align-items: center; justify-content: center; padding: 0.35rem 0.5rem 0.28rem; border: 1px solid rgba(208, 168, 87, 0.62); border-bottom: 2px solid var(--file-red); background: rgba(55, 36, 26, 0.55); font: 700 clamp(0.65rem, 2.7vw, 0.76rem)/1 'Lekton', monospace; letter-spacing: 0.055em; text-decoration: none; text-transform: uppercase; }
+}
+
+@media (max-width: 720px) and (max-height: 720px) {
+  .about-carousel__frame { grid-template-rows: 1.3rem minmax(0, 1fr) 2.65rem; gap: 0.3rem; }
+  .about-carousel__arrow { width: 2.65rem; height: 2.65rem; }
+  .about-card { padding: 0.68rem 0.75rem; }
+  .about-card h2 { margin-bottom: 0.28rem; }
+  .project-copy { padding: 0.55rem 0.75rem 0.58rem; }
+  .project-logline { font-size: 0.65rem !important; line-height: 1.23; }
+  .project-format { font-size: 0.57rem !important; }
+  .universe-contrast > p:first-child { font-size: 0.7rem; line-height: 1.3; }
+  .creator > p:last-child { font-size: 0.57rem; line-height: 1.2; }
+  .ska-overview, .ska-producer > p:last-child { font-size: 0.65rem !important; line-height: 1.22; }
+  .project-card-actions { gap: 0.2rem; }
+  .project-card-actions a { min-height: 2.15rem; }
+}
