@@ -1788,5 +1788,14 @@ body.about-open .about-carousel__frame {
   .about-carousel__dot::before { content: ''; position: absolute; top: -0.24rem; left: 50%; width: 0.42rem; height: 0.42rem; border: 1px solid rgba(226, 210, 174, 0.5); background: #090a08; transform: translateX(-50%) rotate(45deg); }
   .about-carousel__dot.is-active { color: #f0dfb8; text-decoration: none; }
   .about-carousel__dot.is-active::before { border-color: var(--market-gold, #e2be74); background: #a64132; box-shadow: 0 0 0 3px rgba(166, 65, 50, 0.2); }
+  .about-carousel__dot:focus-visible,
+  .about-carousel__arrow:focus-visible {
+    outline: 2px solid #f0dfb8;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px rgba(9, 10, 8, 0.92), 0 0 0 5px rgba(166, 65, 50, 0.72);
+  }
+
+  .about-carousel__dot:focus-visible { background: rgba(240, 223, 184, 0.1); }
+  .about-carousel__arrow:focus-visible { background: rgba(166, 65, 50, 0.24); }
   .about-carousel__back { position: absolute; top: 0; right: 0; padding: 0.38rem 0.65rem 0.3rem; background: rgba(9, 7, 5, 0.7); box-shadow: none; font-size: 0.65rem; }
 }
