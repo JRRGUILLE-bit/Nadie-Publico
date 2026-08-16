@@ -1444,9 +1444,9 @@ body.about-open .about-carousel__frame {
   .project-format {
     margin-top: auto !important;
     padding-top: 0.85rem;
-    border-top: 1px solid rgba(208, 168, 87, 0.5);
-    color: rgba(232, 210, 164, 0.9) !important;
-    font-size: clamp(0.76rem, 0.84vw, 0.88rem) !important;
+    border-top: 1px solid rgba(208, 168, 87, 0.58);
+    color: rgba(239, 218, 174, 0.96) !important;
+    font-size: clamp(0.82rem, 0.92vw, 0.96rem) !important;
     letter-spacing: 0.035em;
     text-transform: uppercase;
   }
@@ -1457,7 +1457,11 @@ body.about-open .about-carousel__frame {
     grid-template-columns: minmax(0, 58%) minmax(0, 42%);
     grid-template-rows: auto 1fr auto;
     column-gap: clamp(2.4rem, 5vw, 5.5rem);
-    background: linear-gradient(106deg, rgba(16, 27, 22, 0.98) 0 57.5%, rgba(13, 9, 8, 0.72) 57.7%), url('assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg') 91% center / 48% auto no-repeat;
+    background:
+      linear-gradient(106deg, rgba(16, 27, 22, 0.99) 0 57.5%, rgba(10, 7, 6, 0.34) 57.7%),
+      linear-gradient(90deg, transparent 57%, rgba(4, 3, 3, 0.12) 70%, rgba(4, 3, 3, 0.5)),
+      url('assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg') right center / auto 100% no-repeat,
+      #0d0908;
   }
   .about-card--universe::after {
     content: 'MEMORIA / LO ENTERRADO';
@@ -1489,17 +1493,18 @@ body.about-open .about-carousel__frame {
   .universe-characters {
     grid-column: 2;
     grid-row: 2 / 4;
-    align-self: end;
+    align-self: stretch;
+    align-content: center;
     display: grid;
-    margin: 0 0 1rem;
-    padding: 1.5rem 0 1.5rem clamp(1.4rem, 3vw, 3rem);
+    margin: 0;
+    padding: clamp(3.2rem, 7vh, 5.5rem) 0 1.5rem clamp(1.4rem, 3vw, 3rem);
     gap: clamp(1.3rem, 3vh, 2.4rem);
     list-style: none;
-    border-left: 2px solid rgba(166, 65, 50, 0.72);
+    text-shadow: 0 3px 16px rgba(0, 0, 0, 0.96), 0 1px 2px #000;
   }
   .universe-characters li { color: #ede0c5; font: clamp(1.45rem, 2.3vw, 2.5rem)/1 'Special Elite', monospace; letter-spacing: 0.12em; }
-  .universe-characters li:nth-child(2) { transform: translateX(9%) rotate(-1deg); }
-  .universe-characters li:nth-child(3) { transform: translateX(-3%) rotate(0.7deg); }
+  .universe-characters li:nth-child(2) { transform: translateX(15%) rotate(-1deg); }
+  .universe-characters li:nth-child(3) { transform: translateX(3%) rotate(0.7deg); }
 
   /* 03 — oposición tipográfica, no pared de texto */
   .about-card--tone {
@@ -1553,9 +1558,9 @@ body.about-open .about-carousel__frame {
   .about-card--market header { grid-column: 1; padding-bottom: 1.2rem; border-bottom: 4px solid #8f392d; }
   .about-card--market header p { color: #6d281f; font-size: clamp(0.78rem, 0.84vw, 0.9rem); font-weight: 700; letter-spacing: 0.18em; }
   .about-card--market h2 { color: #28251f; margin-top: 0.45rem; font-size: clamp(1.3rem, 1.8vw, 1.9rem); }
-  .market-status { grid-column: 1; align-self: start; padding: 1.2rem 0; color: #29271f !important; font-size: clamp(0.92rem, 1.05vw, 1.08rem) !important; line-height: 1.55; }
+  .market-status { grid-column: 1; align-self: start; padding: 1.2rem 0; color: #211f1a !important; font-size: clamp(0.98rem, 1.12vw, 1.15rem) !important; font-weight: 700; line-height: 1.52; }
   .market-claim { grid-column: 2; grid-row: 1; align-self: end; max-width: 16ch; padding-left: clamp(1rem, 2vw, 2rem); border-left: 0.18em solid #9b3d30; color: #29261f; font: clamp(2.2rem, 4.4vw, 4.8rem)/1 'Special Elite', monospace; }
-  .about-card--market > p:last-child { grid-column: 2; grid-row: 2; align-self: start; max-width: 61ch; padding: clamp(1rem, 2vh, 1.6rem) 0 0 clamp(1rem, 2vw, 2rem); color: #302e27; font-size: clamp(1rem, 1.2vw, 1.2rem); }
+  .about-card--market > p:last-child { grid-column: 2; grid-row: 2; align-self: start; max-width: 61ch; padding: clamp(0.55rem, 1.1vh, 0.9rem) 0 0 clamp(1rem, 2vw, 2rem); color: #302e27; font-size: clamp(1rem, 1.2vw, 1.2rem); }
 
   /* 05 — dupla autoral deliberadamente tipográfica */
   .about-card--creators { display: grid; grid-template-rows: auto 1fr auto; padding-bottom: clamp(1.7rem, 2.5vw, 2.5rem); background: #101512; }
@@ -1568,32 +1573,33 @@ body.about-open .about-carousel__frame {
   .creators-authorship { z-index: 2; width: min(76%, 820px); margin: 0 auto !important; padding: 0.75rem 1.5rem; border-top: 1px solid var(--file-red); border-bottom: 1px solid var(--file-red); color: #f1dfb6 !important; background: #101512; font: clamp(0.92rem, 1.15vw, 1.15rem)/1.3 'Special Elite', monospace; text-align: center; }
 
   /* 06 — membrete de productora */
-  .about-card--ska { display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 64%); grid-template-rows: auto 1fr auto auto; gap: 1.5rem clamp(2.5rem, 5vw, 5rem); background: #121814; }
+  .about-card--ska { display: grid; grid-template-columns: minmax(0, 32%) minmax(0, 68%); grid-template-rows: auto 1fr auto auto; gap: 0.8rem clamp(2.5rem, 5vw, 5rem); background: #121814; }
   .about-card--ska header { grid-column: 1; align-self: start; }
   .about-card--ska header p { color: var(--file-gold); font-size: clamp(0.76rem, 0.84vw, 0.9rem); font-weight: 700; letter-spacing: 0.18em; }
   .about-card--ska header h2 { margin-top: 0.45rem; font-size: clamp(1.2rem, 1.6vw, 1.7rem); }
-  .about-card--ska > img { grid-column: 1; grid-row: 2; align-self: start; width: min(100%, 310px); max-height: 24vh; object-fit: contain; object-position: left top; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.38)); }
-  .about-card--ska > p:not(.ska-contact) { grid-column: 2; grid-row: 1 / 3; align-self: center; max-width: 48ch; padding-left: clamp(1rem, 3vw, 3rem); border-left: 3px solid var(--file-red); font-size: clamp(1.15rem, 1.55vw, 1.5rem); line-height: 1.55; }
+  .about-card--ska > img { grid-column: 1; grid-row: 2; align-self: start; width: clamp(190px, 16vw, 215px); max-width: 100%; max-height: 18vh; object-fit: contain; object-position: left top; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.34)); }
+  .about-card--ska > p:not(.ska-contact) { grid-column: 2; grid-row: 2; align-self: end; max-width: 48ch; padding-left: clamp(1rem, 3vw, 3rem); border-left: 3px solid var(--file-red); font-size: clamp(1.15rem, 1.55vw, 1.5rem); line-height: 1.55; }
   .ska-credits { grid-column: 1 / 3; grid-row: 4; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 1rem 0; border-top: 1px solid rgba(208, 168, 87, 0.5); border-bottom: 1px solid rgba(208, 168, 87, 0.5); list-style: none; }
   .ska-credits li { text-align: center; color: #e8d6af; font: clamp(0.9rem, 1.15vw, 1.15rem)/1 'Special Elite', monospace; }
   .ska-credits li + li { border-left: 1px solid rgba(208, 168, 87, 0.36); }
-  .ska-contact { grid-column: 2; grid-row: 3; align-self: end; padding-left: clamp(1rem, 3vw, 3rem); color: rgba(232, 218, 186, 0.8) !important; font-size: clamp(0.74rem, 0.82vw, 0.88rem) !important; }
+  .ska-contact { grid-column: 2; grid-row: 3; align-self: start; margin-top: 0 !important; padding-left: clamp(1rem, 3vw, 3rem); color: rgba(232, 218, 186, 0.88) !important; font-size: clamp(0.78rem, 0.86vw, 0.92rem) !important; }
 
   /* 07 — avance narrativo y cierre */
   .about-card--journey { display: grid; grid-template-rows: auto 1fr auto; background: #121612; }
   .about-card--journey h2 { font-size: clamp(1.2rem, 1.6vw, 1.7rem); }
-  .journey-timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; min-height: 0; margin: 0; padding: clamp(1rem, 3vh, 2rem) 0; list-style: none; }
-  .journey-timeline::before { content: ''; position: absolute; top: 50%; right: 1%; left: 1%; height: 3px; background: linear-gradient(90deg, #884034, var(--file-gold) 75%, #c86350); }
+  .journey-timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; min-height: 0; margin: 0; padding: clamp(0.5rem, 1.5vh, 1rem) 0; list-style: none; }
+  .journey-timeline::before { content: ''; position: absolute; top: 50%; right: 1%; left: 1%; height: 4px; background: linear-gradient(90deg, #884034, var(--file-gold) 75%, #c86350); }
   .journey-timeline::after { content: '→'; position: absolute; top: calc(50% - 1.12rem); right: 0; color: #d9b665; font: 2rem/1 'Lekton', monospace; }
-  .journey-timeline li { position: relative; align-self: stretch; min-height: 15rem; padding: 0 clamp(0.7rem, 1.4vw, 1.4rem); }
-  .journey-timeline li::after { content: ''; position: absolute; top: calc(50% - 0.55rem); left: calc(50% - 0.55rem); width: 1.1rem; height: 1.1rem; border: 4px solid #151713; transform: rotate(45deg); background: var(--file-gold); box-shadow: 0 0 0 1px rgba(234, 218, 183, 0.58); }
+  .journey-timeline li { position: relative; align-self: stretch; min-height: 18rem; padding: 0 clamp(0.7rem, 1.4vw, 1.4rem); }
+  .journey-timeline li::after { content: ''; position: absolute; top: calc(50% - 0.66rem); left: calc(50% - 0.66rem); width: 1.32rem; height: 1.32rem; border: 4px solid #151713; transform: rotate(45deg); background: var(--file-gold); box-shadow: 0 0 0 1px rgba(234, 218, 183, 0.7); }
   .journey-timeline strong, .journey-timeline span { position: absolute; right: clamp(0.7rem, 1.4vw, 1.4rem); left: clamp(0.7rem, 1.4vw, 1.4rem); display: block; }
-  .journey-timeline strong { bottom: calc(50% + 1.6rem); color: #eddfc0; font: clamp(1rem, 1.35vw, 1.35rem)/1.16 'Special Elite', monospace; }
-  .journey-timeline span { top: calc(50% + 1.65rem); color: rgba(232, 220, 194, 0.82); font-size: clamp(0.82rem, 0.92vw, 0.96rem); line-height: 1.35; }
-  .journey-timeline li:nth-child(even) strong { top: calc(50% + 1.65rem); bottom: auto; }
-  .journey-timeline li:nth-child(even) span { top: auto; bottom: calc(50% + 1.6rem); }
-  .project-card-actions { display: flex; justify-content: flex-end; gap: clamp(1.3rem, 3vw, 3rem); padding-top: 1.1rem; border-top: 1px dashed rgba(221, 202, 162, 0.4); }
-  .project-card-actions a { padding: 0.55rem 0.25rem 0.42rem; border-bottom: 3px solid var(--file-red); color: #ead8b3; font-size: clamp(0.78rem, 0.9vw, 0.94rem); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+  .journey-timeline strong { bottom: calc(50% + 1.9rem); color: #f0e2c4; font: clamp(1.12rem, 1.55vw, 1.55rem)/1.14 'Special Elite', monospace; }
+  .journey-timeline span { top: calc(50% + 1.95rem); color: rgba(239, 227, 201, 0.9); font-size: clamp(0.92rem, 1.06vw, 1.08rem); line-height: 1.38; }
+  .journey-timeline li:nth-child(even) strong { top: calc(50% + 1.95rem); bottom: auto; }
+  .journey-timeline li:nth-child(even) span { top: auto; bottom: calc(50% + 1.9rem); }
+  .project-card-actions { display: flex; justify-content: flex-end; gap: clamp(0.8rem, 1.5vw, 1.35rem); padding-top: 1.1rem; border-top: 1px dashed rgba(221, 202, 162, 0.4); }
+  .project-card-actions a { min-height: 2.9rem; display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem clamp(0.9rem, 1.5vw, 1.35rem) 0.62rem; border: 1px solid rgba(208, 168, 87, 0.62); border-bottom: 3px solid var(--file-red); color: #f0dfba; background: rgba(32, 27, 20, 0.62); font: 700 clamp(0.88rem, 1vw, 1.02rem)/1.15 'Lekton', monospace; letter-spacing: 0.075em; text-decoration: none; text-transform: uppercase; }
+  .project-card-actions a:nth-child(-n + 2) { border-color: rgba(224, 190, 119, 0.78); background: rgba(72, 43, 30, 0.58); }
 
   /* Marco e índice: secundarios, pero ya no microscópicos */
   .about-carousel__controls { gap: 1.15rem; padding: 0 0.55rem; }
