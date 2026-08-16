@@ -1572,17 +1572,24 @@ body.about-open .about-carousel__frame {
   .creator > p:last-child { max-width: 58ch; margin-top: 1.1rem !important; font-size: clamp(0.8rem, 0.92vw, 0.96rem); line-height: 1.45; }
   .creators-authorship { z-index: 2; width: min(76%, 820px); margin: 0 auto !important; padding: 0.75rem 1.5rem; border-top: 1px solid var(--file-red); border-bottom: 1px solid var(--file-red); color: #f1dfb6 !important; background: #101512; font: clamp(0.92rem, 1.15vw, 1.15rem)/1.3 'Special Elite', monospace; text-align: center; }
 
-  /* 06 — membrete de productora */
-  .about-card--ska { display: grid; grid-template-columns: minmax(0, 32%) minmax(0, 68%); grid-template-rows: auto 1fr auto auto; gap: 0.8rem clamp(2.5rem, 5vw, 5rem); background: #121814; }
-  .about-card--ska header { grid-column: 1; align-self: start; }
+  /* 06 — coproductora y respaldo industrial */
+  .about-card--ska { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 70%); grid-template-rows: minmax(0, 1fr) auto; gap: clamp(1.2rem, 2.5vh, 2rem) clamp(2.5rem, 5vw, 5rem); background: #121814; }
+  .ska-brand { grid-column: 1; grid-row: 1; display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
+  .about-card--ska header { align-self: start; }
   .about-card--ska header p { color: var(--file-gold); font-size: clamp(0.76rem, 0.84vw, 0.9rem); font-weight: 700; letter-spacing: 0.18em; }
-  .about-card--ska header h2 { margin-top: 0.45rem; font-size: clamp(1.2rem, 1.6vw, 1.7rem); }
-  .about-card--ska > img { grid-column: 1; grid-row: 2; align-self: start; width: clamp(190px, 16vw, 215px); max-width: 100%; max-height: 18vh; object-fit: contain; object-position: left top; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.34)); }
-  .about-card--ska > p:not(.ska-contact) { grid-column: 2; grid-row: 2; align-self: end; max-width: 48ch; padding-left: clamp(1rem, 3vw, 3rem); border-left: 3px solid var(--file-red); font-size: clamp(1.15rem, 1.55vw, 1.5rem); line-height: 1.55; }
-  .ska-credits { grid-column: 1 / 3; grid-row: 4; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 1rem 0; border-top: 1px solid rgba(208, 168, 87, 0.5); border-bottom: 1px solid rgba(208, 168, 87, 0.5); list-style: none; }
+  .about-card--ska header h2 { margin-top: 0.45rem; font-size: clamp(1.45rem, 2vw, 2.1rem); }
+  .ska-brand > img { width: clamp(190px, 16vw, 215px); max-width: 100%; max-height: 18vh; margin-top: clamp(1.5rem, 4vh, 3.5rem); object-fit: contain; object-position: left top; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.34)); }
+  .ska-profile { grid-column: 2; grid-row: 1; display: grid; min-width: 0; grid-template-rows: auto 1fr; align-content: center; padding-left: clamp(1rem, 3vw, 3rem); border-left: 3px solid var(--file-red); }
+  .ska-overview { max-width: 62ch; margin: 0 !important; padding-bottom: clamp(1.2rem, 2.8vh, 2.2rem); font-size: clamp(1rem, 1.28vw, 1.28rem) !important; line-height: 1.5; }
+  .ska-producer { position: relative; max-width: 66ch; padding-top: clamp(1.2rem, 2.8vh, 2.2rem); border-top: 1px solid rgba(208, 168, 87, 0.5); }
+  .ska-producer::before { content: '01'; position: absolute; top: -0.62em; right: 0; padding-left: 0.65rem; color: var(--file-red); background: #121814; font: 700 0.75rem/1 'Lekton', monospace; letter-spacing: 0.12em; }
+  .ska-producer h3 { max-width: 22ch; margin: 0; color: #f0dfbb; font: clamp(1.6rem, 2.6vw, 2.8rem)/1.02 'Special Elite', monospace; }
+  .ska-producer__role { margin-top: 0.65rem !important; color: var(--file-gold) !important; font-size: clamp(0.72rem, 0.86vw, 0.9rem) !important; font-weight: 700; letter-spacing: 0.09em; }
+  .ska-producer > p:last-child { max-width: 58ch; margin-top: clamp(0.85rem, 1.7vh, 1.25rem) !important; font-size: clamp(0.9rem, 1.06vw, 1.08rem); line-height: 1.46; }
+  .ska-producer > p:last-child strong { color: #f1dfb6; font-weight: 700; }
+  .ska-credits { grid-column: 1 / 3; grid-row: 2; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 1rem 0; border-top: 1px solid rgba(208, 168, 87, 0.5); border-bottom: 1px solid rgba(208, 168, 87, 0.5); list-style: none; }
   .ska-credits li { text-align: center; color: #e8d6af; font: clamp(0.9rem, 1.15vw, 1.15rem)/1 'Special Elite', monospace; }
   .ska-credits li + li { border-left: 1px solid rgba(208, 168, 87, 0.36); }
-  .ska-contact { grid-column: 2; grid-row: 3; align-self: start; margin-top: 0 !important; padding-left: clamp(1rem, 3vw, 3rem); color: rgba(232, 218, 186, 0.88) !important; font-size: clamp(0.78rem, 0.86vw, 0.92rem) !important; }
 
   /* 07 — avance narrativo y cierre */
   .about-card--journey { display: grid; grid-template-rows: auto 1fr auto; background: #121612; }
