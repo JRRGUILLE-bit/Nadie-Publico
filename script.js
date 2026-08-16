@@ -480,9 +480,11 @@ professionalMailLinks.forEach((link) => {
 
     event.preventDefault();
 
-    const useGmail = window.confirm(
-      '¿Cómo querés enviar el correo?\n\nAceptar: abrir Gmail en el navegador.\nCancelar: usar tu aplicación de correo predeterminada.'
-    );
+    const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+    const mailAppPrompt = isEnglish
+      ? 'How would you like to send the email?\n\nOK: open Gmail in your browser.\nCancel: use your default mail app.'
+      : '¿Cómo querés enviar el correo?\n\nAceptar: abrir Gmail en el navegador.\nCancelar: usar tu aplicación de correo predeterminada.';
+    const useGmail = window.confirm(mailAppPrompt);
 
     if (useGmail) {
       window.open(gmailUrl, '_blank', 'noopener,noreferrer');

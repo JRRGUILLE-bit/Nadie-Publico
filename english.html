@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=16" />
+    <link rel="stylesheet" href="styles.css?v=20" />
     <link rel="stylesheet" href="styles-film-boost.css?v=3" />
     <link rel="stylesheet" href="styles-legal.css?v=2" />
     <link rel="stylesheet" href="styles-contact.css?v=5" />
@@ -94,84 +94,91 @@
         © 2026 Maite Piñeyrúa Segura and Guillermo Barbeito Rodríguez. Nadie te dijo que iba a ser así. Copyright registration — Law No. 9,739, National Library of Uruguay, 2025.
       </p>
 
-      <section class="about-carousel" id="about-carousel" aria-hidden="true" aria-labelledby="about-carousel-title">
+      <section class="about-carousel" id="about-carousel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="about-carousel-title">
         <div class="about-carousel__frame">
           <p class="about-carousel__eyebrow">Project file / Project & team</p>
           <div class="about-carousel__viewport" aria-live="polite">
-            <article class="about-card about-card--project is-active" data-about-slide>
-              <h2 id="about-carousel-title">The project</h2>
-              <p class="project-logline">
-                When a gold robbery tied to Uruguay's dictatorship crashes into their everyday lives, three young people in Montevideo's Old City are pulled into a political plot where every possible way out compromises them further.
-              </p>
-              <p class="project-summary">
-                Uruguayan fiction series, 6 episodes of 20–25 minutes. Black comedy and political thriller, created and written by Maite Piñeyrúa Segura and Guillermo Barbeito Rodríguez.
-              </p>
-
-              <section class="project-status" aria-labelledby="project-status-title-en">
-                <p class="project-status__eyebrow">Project status</p>
-                <h3 id="project-status-title-en">Active development</h3>
-                <ul class="project-status__list">
-                  <li>Pilot script, dossier, series bible and season arc developed.</li>
-                  <li>Teaser completed.</li>
-                  <li>Executive production by Malena Benavides and coproduction with SKA Films / Ignacio “Nacho” Jaunsolo.</li>
-                </ul>
-              </section>
-
-              <section class="project-partner-search" aria-labelledby="project-partner-search-title-en">
-                <p class="project-partner-search__eyebrow">What we are looking for</p>
-                <h3 id="project-partner-search-title-en">An international partner for the next stage</h3>
-                <ul class="project-partner-search__list">
-                  <li>Priority: platform, broadcaster or buyer with financing and meaningful distribution capacity.</li>
-                  <li>Distributor or sales agent with a concrete route to international circulation.</li>
-                  <li>International coproducer bringing financing, market access and a sales/distribution strategy.</li>
-                </ul>
-              </section>
-
-              <p class="project-materials-note">
-                Professional materials available on request: pilot script, dossier, series bible and season arc, teaser, budget and development plan.
-              </p>
-              <div class="project-card-actions">
-                <a href="dossier-en.html">View full project file</a>
-                <a href="mailto:malenabh1@gmail.com?subject=Project%20materials%20request%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Request materials</a>
-                <a href="mailto:malenabh1@gmail.com?cc=nacho@skafilms.com.uy&amp;subject=Industry%20meeting%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Schedule meeting</a>
+            <article class="about-card about-card--project is-active" id="about-project" data-about-slide data-slide-key="proyecto">
+              <div class="project-visual" aria-hidden="true"></div>
+              <div class="project-copy">
+                <h2 id="about-carousel-title" tabindex="-1">PROJECT</h2>
+                <p class="project-tagline">A SERIES ABOUT FRIENDS. UNTIL EVERYTHING CATCHES FIRE.</p>
+                <p class="project-logline">Over mate, milanesas and arguments, three young people with one foot in adulthood share an apartment in Montevideo. But everything changes after an office fire sends them, almost by accident, to investigate a forgotten crime, a treasure lost during the dictatorship and the secrets their own families tried to bury.</p>
+                <p class="project-format">6 × 20–25 min · Black comedy / political thriller · Montevideo, Uruguay</p>
               </div>
             </article>
 
-            <article class="about-card" data-about-slide>
-              <h2>Maite Piñeyrúa Segura</h2>
-              <p>Cocreator and cowriter of Nadie te dijo que iba a ser así. She works on the series' tonal balance between intimacy, everyday absurdity and political tension.</p>
-              <p>She directed the documentary Tumbero, recognized and selected at national festivals, and was selected by ACAU for Campus Málaga Talent 2025 with this project.</p>
+            <article class="about-card about-card--universe" id="about-universe" data-about-slide data-slide-key="universo">
+              <h2 tabindex="-1">UNIVERSE</h2>
+              <div class="universe-contrast">
+                <p>A contemporary, everyday, recognizable Montevideo shaped by young adulthood, family ties and a memory that still carries weight. In this world, mystery slips into shared apartments, jobs, bars and neighbors, while the absurd coexists with the intimate and the dark.</p>
+                <p class="universe-concepts">FRIENDSHIP · PRECARITY · GOLD · MEMORY</p>
+              </div>
+              <ul class="universe-characters" aria-label="Main characters"><li>GONZALO</li><li>MARÍA</li><li>LUIS</li></ul>
             </article>
 
-            <article class="about-card" data-about-slide>
-              <h2>Guillermo Barbeito Rodríguez</h2>
-              <p>Cocreator and cowriter. He works on narrative architecture, world building and the articulation between black comedy, shared domestic life and political thriller.</p>
-              <p>As part of the creative team, he developed the project through DETOUR Series Lab and the subsequent writing, dossier, series bible, season arc and teaser stages.</p>
+            <article class="about-card about-card--tone" id="about-tone" data-about-slide data-slide-key="tono">
+              <h2 tabindex="-1">TONE</h2>
+              <blockquote><span>The direction of Nadie te dijo que iba a ser así is built on a constant tension between</span> <strong>the everyday</strong> <span>and</span> <strong>the strange.</strong></blockquote>
+              <p>The tone comes from the collision between normality and absurdity.</p>
+              <ul class="tone-resources"><li>VOICE-OVER</li><li>FOURTH WALL</li><li>FREEZE FRAME</li><li>REWIND</li><li>SPLIT SCREEN</li><li>FLASHBACK</li></ul>
             </article>
 
-            <article class="about-card" data-about-slide>
-              <h2>Ignacio “Nacho” Jaunsolo / SKA Films</h2>
-              <p>Executive coproducer, founder and CEO of SKA Films. His work spans production, directing, cinematography and audiovisual content development.</p>
-              <p>SKA Films is the project's coproduction partner, bringing industrial experience to development, financing and circulation.</p>
+            <article class="about-card about-card--market" id="about-market" data-about-slide data-slide-key="mercado">
+              <header><p>THE PROJECT TODAY</p><h2 tabindex="-1">MARKET</h2></header>
+              <p class="market-status">Pilot complete · season structured · Málaga Talent · DETOUR Montevideo Cine LAB · Teaser Award · FIC · teaser in production · SKA Films, Uruguayan coproduction</p>
+              <strong class="market-claim">FINANCING + INTERNATIONAL DISTRIBUTION</strong>
+              <p>An international partner who can come on board before shooting and make financing and distribution part of the same plan: commission/pre-buy, strategic coproduction, or a studio/distributor with genuine distribution reach.</p>
             </article>
 
-            <article class="about-card" data-about-slide>
-              <h2>Malena Benavides</h2>
-              <p>Executive producer. She coordinates development, production organization and relationships with partners, institutions and industry spaces.</p>
-              <p>She also produced the documentary Tumbero. On this project, she structures priorities and the concrete conditions required to move toward production.</p>
+            <article class="about-card about-card--creators" id="about-creators" data-about-slide data-slide-key="creadores">
+              <h2 tabindex="-1">CREATORS</h2>
+              <div class="creators-list">
+                <section class="creator" aria-labelledby="creator-maite"><h3 id="creator-maite">Maite Piñeyrúa Segura</h3><p class="creator__role">Co-creator · co-writer · director</p><p>Maite Piñeyrúa Segura is a Uruguayan director, screenwriter and photographer, with a degree in Audiovisual Communication from UCU. She directed Tumbero, awarded at FIEC, Dodecá and La Floresta, and wrote and directed Una vez casi hice un gol. She is co-creator, co-writer and director of Nadie te dijo que iba a ser así. She was selected for Málaga Talent 2025.</p></section>
+                <section class="creator" aria-labelledby="creator-guillermo"><h3 id="creator-guillermo">Guillermo Barbeito Rodríguez</h3><p class="creator__role">Co-creator · co-writer · creative development</p><p>Guillermo Barbeito Rodríguez is co-creator and co-writer of Nadie te dijo que iba a ser así. His work on the series includes building the narrative world, shaping the season structure and developing the tone that brings together black comedy, political thriller and everyday absurdity.</p></section>
+              </div>
+              <p class="creators-authorship">Guillermo and Maite write the series together and share its authorship.</p>
+            </article>
+
+            <article class="about-card about-card--ska" id="about-ska" data-about-slide data-slide-key="ska-films">
+              <div class="ska-brand">
+                <header><p>URUGUAYAN COPRODUCTION</p><h2 tabindex="-1">SKA FILMS</h2></header>
+                <img src="assets/logos/ska-films.png" alt="SKA Films" />
+              </div>
+              <div class="ska-profile">
+                <p class="ska-overview">SKA Films has more than 20 years of experience and has developed documentaries, fiction, animated films and series, producing from Uruguay for Latin America and other markets.</p>
+                <section class="ska-producer" aria-labelledby="ska-producer-name">
+                  <h3 id="ska-producer-name">IGNACIO “NACHO” JAUNSOLO</h3>
+                  <p class="ska-producer__role">FOUNDER · EXECUTIVE DIRECTOR · PRODUCER</p>
+                  <p>Founder and executive director of SKA Films. <strong>Executive producer of Togo, Netflix’s first Uruguayan film.</strong></p>
+                </section>
+              </div>
+              <ul class="ska-credits"><li>Togo</li><li>Rada</li><li>Sin Aviso</li><li>Afilo Mi Gillette</li></ul>
+            </article>
+
+            <article class="about-card about-card--journey" id="about-journey" data-about-slide data-slide-key="recorrido">
+              <h2 tabindex="-1">TRACK RECORD</h2>
+              <ol class="journey-timeline">
+                <li><strong>FONDO DE INCENTIVO CULTURAL</strong><span>Project support</span></li>
+                <li><strong>MÁLAGA TALENT 2025</strong><span>Project selected</span></li>
+                <li><strong>DETOUR MONTEVIDEO CINE LAB 2025</strong><span>Development of structure, characters, tone and audiovisual identity</span></li>
+                <li><strong>TEASER AWARD / SECOND PRIZE</strong><span>DETOUR Series Lab 2025</span></li>
+              </ol>
+              <div class="project-card-actions">
+                <a href="mailto:malenabh1@gmail.com?subject=Project%20materials%20request%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Request materials</a>
+                <a href="mailto:malenabh1@gmail.com?cc=nacho@skafilms.com.uy&amp;subject=Industry%20meeting%20%E2%80%94%20Nadie%20te%20dijo%20que%20iba%20a%20ser%20as%C3%AD">Schedule a meeting</a>
+                <a href="dossier-en.html">View full project file</a>
+              </div>
             </article>
           </div>
 
           <div class="about-carousel__controls" aria-label="Project and team carousel controls">
-            <button class="about-carousel__arrow" type="button" id="about-prev" aria-label="Previous card">←</button>
-            <div class="about-carousel__dots" aria-label="Current card">
-              <button class="about-carousel__dot is-active" type="button" aria-label="Go to card 1" data-about-dot></button>
-              <button class="about-carousel__dot" type="button" aria-label="Go to card 2" data-about-dot></button>
-              <button class="about-carousel__dot" type="button" aria-label="Go to card 3" data-about-dot></button>
-              <button class="about-carousel__dot" type="button" aria-label="Go to card 4" data-about-dot></button>
-              <button class="about-carousel__dot" type="button" aria-label="Go to card 5" data-about-dot></button>
-            </div>
-            <button class="about-carousel__arrow" type="button" id="about-next" aria-label="Next card">→</button>
+            <button class="about-carousel__arrow" type="button" id="about-prev" aria-label="Previous slide">←</button>
+            <nav class="about-carousel__dots" aria-label="Go to a slide">
+              <button class="about-carousel__dot is-active" type="button" data-about-dot>PROJECT</button><button class="about-carousel__dot" type="button" data-about-dot>UNIVERSE</button><button class="about-carousel__dot" type="button" data-about-dot>TONE</button><button class="about-carousel__dot" type="button" data-about-dot>MARKET</button><button class="about-carousel__dot" type="button" data-about-dot>CREATORS</button><button class="about-carousel__dot" type="button" data-about-dot>SKA FILMS</button><button class="about-carousel__dot" type="button" data-about-dot>TRACK RECORD</button>
+              <output class="about-carousel__current" aria-live="off">01 / 07 — PROJECT</output>
+            </nav>
+            <button class="about-carousel__arrow" type="button" id="about-next" aria-label="Next slide">→</button>
           </div>
           <button class="about-carousel__back" type="button" id="about-close">Back</button>
         </div>
