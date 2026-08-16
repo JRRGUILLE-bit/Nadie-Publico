@@ -353,6 +353,7 @@ const openAbout = () => {
   }
 
   document.body.classList.add('about-open');
+  aboutCarousel.removeAttribute('inert');
   aboutCarousel.setAttribute('aria-hidden', 'false');
   setAboutSlide(activeAboutSlide);
   focusActiveAboutHeading();
@@ -365,6 +366,7 @@ const closeAbout = () => {
 
   document.body.classList.remove('about-open');
   aboutCarousel.setAttribute('aria-hidden', 'true');
+  aboutCarousel.setAttribute('inert', '');
   aboutTrigger?.focus({ preventScroll: true });
 };
 
@@ -444,6 +446,11 @@ const buildGmailComposeUrl = (mailtoHref) => {
       su: mailtoUrl.searchParams.get('subject') ?? '',
       body: mailtoUrl.searchParams.get('body') ?? '',
     });
+    const cc = mailtoUrl.searchParams.get('cc');
+
+    if (cc) {
+      parameters.set('cc', cc);
+    }
 
     return `https://mail.google.com/mail/?${parameters.toString()}`;
   } catch {
