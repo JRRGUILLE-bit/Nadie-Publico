@@ -17,6 +17,15 @@ let introSkipped = false;
 let skipIntroButton;
 let activeAboutSlide = 0;
 
+const aboutFocusableSelector = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',');
+
 const timing = {
   initialPause: 650,
   betweenPlatesPause: 102,
@@ -292,17 +301,34 @@ const runPlates = async () => {
   }
 };
 
-const setAboutSlide = (index) => {
+const getAboutFocusableElements = () =>
+  Array.from(aboutCarousel?.querySelectorAll(aboutFocusableSelector) ?? []).filter((element) => {
+    if (element.closest('[inert]') || element.getAttribute('aria-hidden') === 'true') {
+      return false;
+    }
+
+    const styles = window.getComputedStyle(element);
+    return styles.display !== 'none' && styles.visibility !== 'hidden';
+  });
+
+const focusActiveAboutHeading = () => {
+  aboutSlides[activeAboutSlide]?.querySelector('h2')?.focus({ preventScroll: true });
+};
+
+const setAboutSlide = (index, { focusHeading = false } = {}) => {
   if (!aboutSlides.length) {
     return;
   }
 
+  const previousSlide = aboutSlides[activeAboutSlide];
+  const focusWasInPreviousSlide = previousSlide?.contains(document.activeElement) ?? false;
   activeAboutSlide = (index + aboutSlides.length) % aboutSlides.length;
 
   aboutSlides.forEach((slide, slideIndex) => {
     const isActive = slideIndex === activeAboutSlide;
     slide.classList.toggle('is-active', isActive);
     slide.setAttribute('aria-hidden', String(!isActive));
+    slide.toggleAttribute('inert', !isActive);
   });
 
   aboutDots.forEach((dot, dotIndex) => {
@@ -315,6 +341,10 @@ const setAboutSlide = (index) => {
     const label = aboutDots[activeAboutSlide]?.textContent.trim() ?? '';
     aboutCurrent.value = `${String(activeAboutSlide + 1).padStart(2, '0')} / ${String(aboutSlides.length).padStart(2, '0')} — ${label}`;
   }
+
+  if (focusHeading || (focusWasInPreviousSlide && previousSlide !== aboutSlides[activeAboutSlide])) {
+    focusActiveAboutHeading();
+  }
 };
 
 const openAbout = () => {
@@ -325,7 +355,7 @@ const openAbout = () => {
   document.body.classList.add('about-open');
   aboutCarousel.setAttribute('aria-hidden', 'false');
   setAboutSlide(activeAboutSlide);
-  aboutSlides[activeAboutSlide]?.querySelector('h2')?.focus({ preventScroll: true });
+  focusActiveAboutHeading();
 };
 
 const closeAbout = () => {
@@ -338,9 +368,8 @@ const closeAbout = () => {
   aboutTrigger?.focus({ preventScroll: true });
 };
 
-const moveAboutSlide = (direction) => {
-  setAboutSlide(activeAboutSlide + direction);
-  aboutSlides[activeAboutSlide]?.querySelector('h2')?.focus({ preventScroll: true });
+const moveAboutSlide = (direction, options) => {
+  setAboutSlide(activeAboutSlide + direction, options);
 };
 
 aboutTrigger?.addEventListener('click', openAbout);
@@ -357,7 +386,6 @@ aboutCarousel?.addEventListener('click', (event) => {
 aboutDots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     setAboutSlide(index);
-    aboutSlides[activeAboutSlide]?.querySelector('h2')?.focus({ preventScroll: true });
   });
 });
 
@@ -369,9 +397,30 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeAbout();
   } else if (event.key === 'ArrowLeft') {
-    moveAboutSlide(-1);
+    event.preventDefault();
+    moveAboutSlide(-1, { focusHeading: true });
   } else if (event.key === 'ArrowRight') {
-    moveAboutSlide(1);
+    event.preventDefault();
+    moveAboutSlide(1, { focusHeading: true });
+  } else if (event.key === 'Tab') {
+    const focusableElements = getAboutFocusableElements();
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements.at(-1);
+    const focusIsOnTabStop = focusableElements.includes(document.activeElement);
+
+    if (!firstFocusable) {
+      event.preventDefault();
+      focusActiveAboutHeading();
+    } else if (!focusIsOnTabStop) {
+      event.preventDefault();
+      (event.shiftKey ? lastFocusable : firstFocusable).focus();
+    } else if (event.shiftKey && (document.activeElement === firstFocusable || !aboutCarousel.contains(document.activeElement))) {
+      event.preventDefault();
+      lastFocusable.focus();
+    } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+      event.preventDefault();
+      firstFocusable.focus();
+    }
   }
 });
 
