@@ -1,0 +1,306 @@
+/* Pitch-deck art direction for the seven-card public carousel.
+   Approved raster artwork is atmospheric only; HTML remains the source of truth. */
+
+.about-card--project::before,
+.about-card--universe::before,
+.about-card--market::before,
+.about-card--ska::before,
+.about-card--journey::before {
+  z-index: 0;
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+}
+
+/* 01 — Retain the coffee-maker still and let the deck artwork frame its edges. */
+.about-card--project::before {
+  z-index: 3;
+  background-image:
+    linear-gradient(90deg, transparent 20%, rgba(7, 10, 9, 0.1) 48%, rgba(7, 10, 9, 0.5) 82%),
+    url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.54;
+}
+
+.about-card--project .project-copy {
+  z-index: 4;
+  background: linear-gradient(90deg, rgba(13, 16, 14, 0.94), #0c0f0d 20% 100%);
+}
+
+/* 02 — The illustrated apartment is the world; the cream field holds the copy. */
+.about-card--universe {
+  color: #211c1b;
+  background: #d7c59e;
+}
+
+.about-card--universe::before {
+  background-image:
+    linear-gradient(90deg, rgba(225, 209, 169, 0.12) 0 52%, rgba(22, 12, 17, 0.08) 69% 100%),
+    url('98567b0c-25bc-412e-b2eb-7afb8dc4d2e5.png');
+  background-position: center;
+}
+
+.about-card--universe h2,
+.about-card--universe .universe-contrast {
+  z-index: 2;
+  color: #261d20;
+  text-shadow: 0 1px rgba(255, 247, 218, 0.5);
+}
+
+.about-card--universe h2,
+.about-card--universe .universe-concepts {
+  color: #6e164d !important;
+}
+
+.about-card--universe h2::after {
+  color: #17635f;
+}
+
+.about-card--universe .universe-contrast > p:first-child {
+  color: #261d20;
+}
+
+.about-card--universe .universe-characters {
+  z-index: 2;
+}
+
+/* 03 — Restrained paper slips rather than another image-heavy collage. */
+.about-card--tone {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(109, 19, 78, 0.24), transparent 28%),
+    linear-gradient(105deg, #071411 0 66%, #35152f);
+}
+
+.about-card--tone .tone-resources li {
+  padding: 0.46rem 0.62rem 0.36rem;
+  color: #29211c;
+  background: rgba(225, 207, 167, 0.92);
+  box-shadow: 4px 5px 0 rgba(158, 31, 104, 0.2);
+  transform: rotate(-0.35deg);
+}
+
+.about-card--tone .tone-resources li:nth-child(even) {
+  transform: rotate(0.45deg);
+}
+
+/* 04 — Wash the generated board text so only approved HTML reads as evidence. */
+.about-card--market {
+  background: #d9caa5;
+}
+
+.about-card--market::before {
+  background-image:
+    linear-gradient(90deg, rgba(226, 214, 181, 0.83) 0 37%, rgba(226, 214, 181, 0.93) 37% 76%, rgba(226, 214, 181, 0.67)),
+    url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+  background-position: center;
+  filter: saturate(0.78) contrast(0.78);
+  mix-blend-mode: normal;
+}
+
+.about-card--market > * {
+  z-index: 2;
+}
+
+.about-card--market .market-claim,
+.about-card--market .market-status,
+.about-card--market > p:last-child {
+  text-shadow: 0 1px rgba(255, 248, 221, 0.56);
+}
+
+/* 05 — Equal editorial sheets, held together by the shared-authorship strip. */
+.about-card--creators {
+  background:
+    radial-gradient(circle at 50% 105%, rgba(19, 108, 103, 0.22), transparent 34%),
+    linear-gradient(115deg, #081310, #171013);
+}
+
+.about-card--creators .creator {
+  margin: clamp(0.35rem, 1vw, 0.8rem) clamp(0.4rem, 1vw, 0.8rem);
+  padding-right: clamp(1.4rem, 3vw, 3rem);
+  padding-left: clamp(1.4rem, 3vw, 3rem);
+  border: 1px solid rgba(214, 193, 150, 0.24);
+  background: linear-gradient(135deg, rgba(231, 215, 180, 0.1), rgba(231, 215, 180, 0.035));
+  box-shadow: 7px 7px 0 rgba(113, 19, 79, 0.18);
+}
+
+.about-card--creators .creator + .creator {
+  border-left: 1px solid rgba(214, 193, 150, 0.24);
+  box-shadow: 7px 7px 0 rgba(18, 109, 104, 0.18);
+}
+
+/* 06 — Generated lettering is veiled; the real logo and profile sit above it. */
+.about-card--ska {
+  background: #09110f;
+}
+
+.about-card--ska::before {
+  background-image:
+    linear-gradient(90deg, rgba(4, 12, 10, 0.66), rgba(4, 12, 10, 0.9) 32% 78%, rgba(4, 12, 10, 0.7)),
+    linear-gradient(rgba(7, 14, 12, 0.4), rgba(7, 14, 12, 0.72)),
+    url('efba8b06-0da4-4000-af6d-52489eb810e9.png');
+  background-position: center;
+  filter: saturate(0.72) contrast(0.9);
+}
+
+.about-card--ska .ska-brand,
+.about-card--ska .ska-profile,
+.about-card--ska .ska-credits {
+  z-index: 2;
+}
+
+.about-card--ska .ska-brand > img {
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.72)) drop-shadow(0 0 12px rgba(238, 221, 181, 0.18));
+}
+
+.about-card--ska .ska-profile {
+  border-left-color: #a91c70;
+  background: linear-gradient(90deg, rgba(5, 15, 13, 0.88), rgba(5, 15, 13, 0.58));
+}
+
+@media (min-width: 721px) {
+  .about-card--market::before {
+    background-image:
+      linear-gradient(rgba(226, 214, 181, 0.94), rgba(226, 214, 181, 0.94)),
+      url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+    filter: saturate(0.55) contrast(0.72) blur(1px);
+    transform: scale(1.004);
+  }
+
+  .about-card--ska::before {
+    opacity: 0.54;
+    filter: saturate(0.62) contrast(0.82) blur(0.5px);
+    transform: scale(1.002);
+  }
+
+  .about-card--ska .ska-brand {
+    background: rgba(5, 14, 12, 0.88);
+  }
+
+  .about-card--ska .ska-profile {
+    background: linear-gradient(90deg, rgba(5, 15, 13, 0.96), rgba(5, 15, 13, 0.9));
+  }
+
+  .about-card--ska .ska-credits {
+    background: rgba(5, 14, 12, 0.91);
+  }
+}
+
+/* 07 — The HTML timeline stays dominant over the investigative case-file. */
+.about-card--journey {
+  background: #07110f;
+}
+
+.about-card--journey::before {
+  background-image:
+    linear-gradient(rgba(4, 12, 11, 0.69), rgba(4, 10, 9, 0.79)),
+    url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png');
+  background-position: center;
+  filter: saturate(0.82) contrast(1.08);
+}
+
+.about-card--journey > * {
+  z-index: 2;
+}
+
+.about-card--journey .journey-timeline strong,
+.about-card--journey .journey-timeline span {
+  padding: 0.28rem 0.4rem;
+  background: rgba(4, 12, 10, 0.68);
+  box-decoration-break: clone;
+}
+
+.about-card--journey .project-card-actions a {
+  backdrop-filter: blur(3px);
+}
+
+@media (max-width: 720px) {
+  .about-card--project::before {
+    background-image:
+      linear-gradient(180deg, transparent 0 28%, rgba(7, 10, 9, 0.5) 52% 100%),
+      url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+    background-size: auto 43%, cover;
+    background-position: center top, center;
+    opacity: 0.4;
+  }
+
+  .about-card--project .project-copy {
+    background: rgba(12, 15, 13, 0.97);
+  }
+
+  .about-card--universe {
+    background: #d8c7a2;
+  }
+
+  .about-card--universe::before {
+    background-image:
+      linear-gradient(180deg, rgba(224, 210, 175, 0.78) 0 56%, rgba(26, 14, 20, 0.08) 72%),
+      url('98567b0c-25bc-412e-b2eb-7afb8dc4d2e5.png');
+    background-size: cover, auto 100%;
+    background-position: center, 57% center;
+  }
+
+  .about-card--universe .universe-characters {
+    margin: 0 -1.2rem -1.2rem;
+    background: linear-gradient(180deg, transparent, rgba(7, 12, 11, 0.7));
+  }
+
+  .about-card--universe .universe-characters::before {
+    color: #562044;
+    text-shadow: 0 1px rgba(255, 240, 204, 0.7);
+  }
+
+  .about-card--tone .tone-resources li {
+    padding: 0.28rem 0.34rem 0.22rem;
+    letter-spacing: 0.02em;
+  }
+
+  .about-card--market::before {
+    background-image:
+      linear-gradient(rgba(226, 214, 181, 0.86), rgba(226, 214, 181, 0.9)),
+      url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+    background-size: cover, auto 100%;
+    background-position: center, center;
+  }
+
+  .about-card--creators .creator {
+    margin: 0.2rem 0.18rem 0.35rem;
+    padding: 0.4rem clamp(0.38rem, 2vw, 0.6rem);
+    box-shadow: 3px 3px 0 rgba(113, 19, 79, 0.2);
+  }
+
+  .about-card--creators .creator + .creator {
+    padding-left: clamp(0.38rem, 2vw, 0.6rem);
+    box-shadow: 3px 3px 0 rgba(18, 109, 104, 0.2);
+  }
+
+  .about-card--ska::before {
+    background-image:
+      linear-gradient(rgba(4, 12, 10, 0.8), rgba(4, 12, 10, 0.9)),
+      url('efba8b06-0da4-4000-af6d-52489eb810e9.png');
+    background-size: cover, auto 100%;
+    background-position: center;
+  }
+
+  .about-card--ska .ska-profile {
+    padding: 0.35rem 0.45rem;
+    border-left: 0;
+    background: rgba(5, 15, 13, 0.68);
+  }
+
+  .about-card--journey::before {
+    background-image:
+      linear-gradient(rgba(4, 12, 11, 0.72), rgba(4, 10, 9, 0.82)),
+      url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png');
+    background-size: cover, auto 100%;
+    background-position: center;
+  }
+
+  .about-card--journey .journey-timeline strong,
+  .about-card--journey .journey-timeline span {
+    padding: 0.12rem 0.25rem;
+  }
+}
