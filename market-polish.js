@@ -53,16 +53,6 @@ if (formatLine) {
   });
 }
 
-// El botón de salto tiene una única capa visual propia.
-// Nada de estilos inyectados acá: así no compite JS contra CSS.
-if (!document.querySelector('link[data-skip-intro-polish]')) {
-  const skipStylesheet = document.createElement('link');
-  skipStylesheet.rel = 'stylesheet';
-  skipStylesheet.href = 'skip-intro-polish.css?v=1';
-  skipStylesheet.dataset.skipIntroPolish = 'true';
-  document.head.appendChild(skipStylesheet);
-}
-
 // En mobile privilegiamos el póster y evitamos reproducir el video pesado.
 if (window.matchMedia('(max-width: 720px)').matches && video) {
   video.pause();
@@ -76,3 +66,46 @@ document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
   const cleanLink = link.cloneNode(true);
   link.replaceWith(cleanLink);
 });
+
+// QA: los iconos de los accesos inferiores son decorativos; el texto visible ya nombra la acción.
+document.querySelectorAll('.contact-link img').forEach((image) => {
+  image.setAttribute('alt', '');
+});
+
+// QA: la frase de autoría compartida fue retirada visualmente; también se elimina del DOM
+// para evitar contenido muerto y lecturas redundantes por tecnologías de asistencia.
+document.querySelectorAll('.creators-authorship').forEach((node) => node.remove());
+
+// QA: el diálogo debe anunciar la placa activa, no quedar etiquetado siempre como PROYECTO/PROJECT.
+if (aboutCarousel && aboutSlides.length) {
+  aboutCarousel.removeAttribute('aria-labelledby');
+
+  const syncAboutDialogLabel = () => {
+    const activeSlide = aboutSlides.find((slide) => slide.classList.contains('is-active')) ?? aboutSlides[0];
+    const heading = activeSlide?.querySelector('h2')?.textContent.trim();
+    if (heading) {
+      aboutCarousel.setAttribute('aria-label', heading);
+    }
+  };
+
+  syncAboutDialogLabel();
+  aboutSlides.forEach((slide) => {
+    new MutationObserver(syncAboutDialogLabel).observe(slide, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  });
+}
+
+// QA: algunos rótulos editoriales del carrusel viven en pseudo-elementos CSS compartidos.
+// Se traducen aquí para que la landing inglesa no mezcle idiomas.
+if (document.documentElement.lang.toLowerCase().startsWith('en')) {
+  const englishCarouselLabels = document.createElement('style');
+  englishCarouselLabels.dataset.qaEnglishLabels = 'true';
+  englishCarouselLabels.textContent = `
+    html[lang^='en'] .about-card--universe::after { content: 'MEMORY / WHAT WAS BURIED'; }
+    html[lang^='en'] .about-card--universe h2::after { content: 'PRESENT / MONTEVIDEO'; }
+    html[lang^='en'] .about-card--ska .ska-producer::before { content: 'INDUSTRY BACKING / 01'; }
+  `;
+  document.head.appendChild(englishCarouselLabels);
+}
