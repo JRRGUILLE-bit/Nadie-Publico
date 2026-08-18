@@ -234,3 +234,39 @@
     animation: none !important;
   }
 }
+
+/* MERCADO desktop — keep the approved dossier art visible and move HTML copy onto the quiet paper field. */
+@media (min-width: 900px) {
+  .about-card--market header {
+    width: min(82%, 22rem);
+    margin-left: clamp(0.8rem, 1.6vw, 1.6rem);
+    transform: translateY(0.55rem);
+  }
+
+  .about-card--market .market-status {
+    width: min(30ch, 100%);
+    max-width: 30ch;
+    margin-left: clamp(1.2rem, 2.6vw, 2.6rem);
+    transform: translateY(0.45rem);
+  }
+
+  .about-card--market .market-claim {
+    max-width: 12ch;
+    align-self: start;
+    justify-self: start;
+    padding-left: clamp(0.8rem, 1.4vw, 1.25rem);
+    font-size: clamp(2.05rem, 3.55vw, 4.1rem);
+    line-height: 0.98;
+    text-wrap: balance;
+    transform: translate(-5.5rem, 0.1rem);
+  }
+
+  .about-card--market > p:last-child {
+    width: min(42ch, 100%);
+    max-width: 42ch;
+    justify-self: start;
+    padding-left: clamp(0.8rem, 1.4vw, 1.25rem);
+    line-height: 1.46;
+    transform: translate(-5.5rem, -0.15rem);
+  }
+}
