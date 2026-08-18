@@ -65,7 +65,7 @@
   z-index: 2;
 }
 
-/* 03 — Restrained paper slips rather than another image-heavy collage. */
+/* 03 — Restrained paper slips over a tactile editorial field. */
 .about-card--tone {
   background:
     radial-gradient(circle at 80% 18%, rgba(109, 19, 78, 0.24), transparent 28%),
@@ -82,6 +82,91 @@
 
 .about-card--tone .tone-resources li:nth-child(even) {
   transform: rotate(0.45deg);
+}
+
+@media (min-width: 721px) {
+  .about-card--tone {
+    background:
+      radial-gradient(circle at 78% 16%, rgba(178, 35, 119, 0.2), transparent 30%),
+      radial-gradient(ellipse at 18% 86%, rgba(28, 119, 111, 0.14), transparent 42%),
+      linear-gradient(105deg, #061714 0 58%, #151423 72%, #401535 100%);
+  }
+
+  /* Registration lines, halftone and worn ink stay behind the approved copy. */
+  .about-card--tone::before {
+    z-index: 0;
+    opacity: 0.42;
+    background-image:
+      linear-gradient(90deg, transparent 0 8%, rgba(221, 199, 166, 0.13) 8% 8.08%, transparent 8.08% 100%),
+      linear-gradient(0deg, transparent 0 17%, rgba(221, 199, 166, 0.1) 17% 17.12%, transparent 17.12% 100%),
+      radial-gradient(circle, rgba(231, 213, 181, 0.22) 0 0.45px, transparent 0.8px),
+      repeating-linear-gradient(112deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 5px);
+    background-size: 100% 100%, 100% 100%, 9px 9px, 100% 100%;
+    mix-blend-mode: screen;
+  }
+
+  .about-card--tone::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background:
+      linear-gradient(90deg, rgba(216, 190, 151, 0.42), rgba(216, 190, 151, 0.42)) 8% 8% / 2.6rem 1px no-repeat,
+      linear-gradient(rgba(216, 190, 151, 0.42), rgba(216, 190, 151, 0.42)) 8% 8% / 1px 2.6rem no-repeat,
+      linear-gradient(90deg, rgba(216, 190, 151, 0.3), rgba(216, 190, 151, 0.3)) 92% 84% / 2rem 1px no-repeat,
+      linear-gradient(rgba(216, 190, 151, 0.3), rgba(216, 190, 151, 0.3)) 92% 84% / 1px 2rem no-repeat,
+      radial-gradient(ellipse at 54% 24%, rgba(197, 57, 132, 0.1), transparent 20%),
+      radial-gradient(ellipse at 34% 74%, rgba(0, 0, 0, 0.2), transparent 24%);
+    box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.22);
+  }
+
+  .about-card--tone .tone-resources li {
+    --tone-slip-angle: -0.35deg;
+    opacity: 0;
+    transform: translate3d(0.75rem, 0.18rem, 0) rotate(var(--tone-slip-angle));
+  }
+
+  .about-card--tone .tone-resources li:nth-child(even) {
+    --tone-slip-angle: 0.45deg;
+  }
+
+  .about-card--tone.is-active .tone-resources li {
+    animation: tone-resource-arrival 380ms cubic-bezier(0.22, 0.72, 0.24, 1) both;
+    animation-delay: calc(90ms + (var(--tone-resource-index) * 120ms));
+  }
+
+  .about-card--tone .tone-resources li:nth-child(1) { --tone-resource-index: 0; }
+  .about-card--tone .tone-resources li:nth-child(2) { --tone-resource-index: 1; }
+  .about-card--tone .tone-resources li:nth-child(3) { --tone-resource-index: 2; }
+  .about-card--tone .tone-resources li:nth-child(4) { --tone-resource-index: 3; }
+  .about-card--tone .tone-resources li:nth-child(5) { --tone-resource-index: 4; }
+  .about-card--tone .tone-resources li:nth-child(6) { --tone-resource-index: 5; }
+}
+
+@keyframes tone-resource-arrival {
+  0% {
+    opacity: 0;
+    transform: translate3d(0.75rem, 0.18rem, 0) rotate(var(--tone-slip-angle)) scale(0.985);
+  }
+  68% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--tone-slip-angle)) scale(1.018);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--tone-slip-angle)) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card--tone .tone-resources li,
+  .about-card--tone.is-active .tone-resources li {
+    opacity: 1;
+    transform: rotate(var(--tone-slip-angle, -0.35deg));
+    animation: none;
+  }
 }
 
 /* 04 — Wash the generated board text so only approved HTML reads as evidence. */
