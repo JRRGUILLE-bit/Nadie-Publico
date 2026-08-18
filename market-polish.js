@@ -108,4 +108,12 @@ if (document.documentElement.lang.toLowerCase().startsWith('en')) {
     html[lang^='en'] .about-card--ska .ska-producer::before { content: 'INDUSTRY BACKING / 01'; }
   `;
   document.head.appendChild(englishCarouselLabels);
+
+  // Corrige una preposición residual del mailto de la landing inglesa sin tocar su estructura.
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href?.includes('in%20relation%20with%20financing')) {
+      link.setAttribute('href', href.replace('in%20relation%20with%20financing', 'in%20relation%20to%20financing'));
+    }
+  });
 }
