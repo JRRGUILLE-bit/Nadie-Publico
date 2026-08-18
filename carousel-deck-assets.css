@@ -495,7 +495,7 @@
 }
 
 /* SKA Films — an industrial-partner dossier, with the approved collage left in full view. */
-@media (min-width: 721px) {
+@media (min-width: 900px) {
   .about-card--ska {
     isolation: isolate;
     display: grid;
@@ -520,18 +520,7 @@
   }
 
   .about-card--ska::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 13%;
-    right: clamp(2.2rem, 5vw, 5.5rem);
-    bottom: 18%;
-    left: 39%;
-    border-top: 1px solid rgba(78, 49, 42, 0.28);
-    border-bottom: 1px solid rgba(78, 49, 42, 0.22);
-    transform: rotate(-0.35deg);
-    background: linear-gradient(105deg, rgba(238, 222, 183, 0.9), rgba(229, 209, 168, 0.76));
-    box-shadow: 9px 10px 0 rgba(7, 75, 72, 0.15);
+    content: none;
   }
 
   .about-card--ska .ska-brand {
@@ -585,7 +574,8 @@
     padding: clamp(1rem, 2.4vw, 2.2rem) clamp(1rem, 2.7vw, 2.6rem);
     border: 0;
     color: #201d18;
-    background: none;
+    background:
+      radial-gradient(ellipse at 38% 50%, rgba(239, 225, 191, 0.78) 0 30%, rgba(232, 214, 176, 0.5) 56%, transparent 82%);
   }
 
   .about-card--ska .ska-overview {
