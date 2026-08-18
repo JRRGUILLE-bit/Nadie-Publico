@@ -314,6 +314,7 @@
       line-height: 1.2 !important;
       letter-spacing: 0.015em;
       text-wrap: balance;
+      transform: translateX(125px);
     }
 
     .about-card--universe .universe-characters {
@@ -402,7 +403,7 @@
   .about-card--project::before {
     background-image:
       linear-gradient(180deg, transparent 0 28%, rgba(7, 10, 9, 0.5) 52% 100%),
-      url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+      url('8bcb8f86-c15e-4389-9630-592dba67af4d2e5.png');
     background-size: auto 43%, cover;
     background-position: center top, center;
     opacity: 0.4;
