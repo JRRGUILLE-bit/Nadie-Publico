@@ -169,17 +169,20 @@
   }
 }
 
-/* 04 — Wash the generated board text so only approved HTML reads as evidence. */
+/* 04 — Keep the board visible as an editorial financing dossier, without letting raster text read as factual copy. */
 .about-card--market {
-  background: #d9caa5;
+  background:
+    radial-gradient(circle at 80% 22%, rgba(117, 35, 72, 0.09), transparent 34%),
+    linear-gradient(135deg, #d2c29d 0%, #c3ad84 52%, #b59572 100%);
 }
 
 .about-card--market::before {
   background-image:
-    linear-gradient(90deg, rgba(226, 214, 181, 0.83) 0 37%, rgba(226, 214, 181, 0.93) 37% 76%, rgba(226, 214, 181, 0.67)),
+    linear-gradient(90deg, rgba(226, 214, 181, 0.42) 0 34%, rgba(226, 214, 181, 0.24) 34% 72%, rgba(115, 77, 68, 0.10) 100%),
+    linear-gradient(180deg, rgba(255, 248, 221, 0.08), rgba(74, 47, 43, 0.10)),
     url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
   background-position: center;
-  filter: saturate(0.78) contrast(0.78);
+  filter: saturate(0.98) contrast(1.04);
   mix-blend-mode: normal;
 }
 
@@ -349,10 +352,11 @@
 
   .about-card--market::before {
     background-image:
-      linear-gradient(rgba(226, 214, 181, 0.94), rgba(226, 214, 181, 0.94)),
+      linear-gradient(90deg, rgba(226, 214, 181, 0.44) 0 34%, rgba(226, 214, 181, 0.22) 34% 72%, rgba(103, 68, 62, 0.08) 100%),
+      linear-gradient(180deg, rgba(255, 248, 221, 0.06), rgba(72, 46, 42, 0.12)),
       url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
-    filter: saturate(0.55) contrast(0.72) blur(1px);
-    transform: scale(1.004);
+    filter: saturate(0.96) contrast(1.06);
+    transform: scale(1.002);
   }
 
   .about-card--ska::before {
