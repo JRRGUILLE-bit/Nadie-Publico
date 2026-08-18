@@ -27,27 +27,6 @@ body.about-open .legal-line {
   filter: blur(1px);
 }
 
-/* Logline profesional, visible antes del resumen de la historia. */
-.about-card--project > p:nth-of-type(2)::before {
-  content: 'LOGLINE\A\A Cuando un robo de oro ligado a la dictadura irrumpe en su vida cotidiana, tres jóvenes de Ciudad Vieja quedan atrapados en una trama política donde cada salida los compromete un poco más.';
-  display: block;
-  margin: 1.15rem 0 0;
-  padding: 0.92rem 1.05rem 0.88rem;
-  border: 1px solid rgba(226, 190, 116, 0.48);
-  color: #f0e4c8;
-  background:
-    linear-gradient(145deg, rgba(151, 104, 35, 0.16), transparent 58%),
-    rgba(8, 10, 9, 0.56);
-  box-shadow:
-    inset 3px 0 0 rgba(226, 190, 116, 0.62),
-    inset 0 1px 0 rgba(255, 241, 204, 0.07);
-  font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
-  font-size: clamp(0.9rem, 1.65vw, 1.03rem);
-  font-weight: 700;
-  line-height: 1.46;
-  white-space: pre-line;
-}
-
 @media (max-width: 720px) {
   .legal-line {
     bottom: max(0.22rem, env(safe-area-inset-bottom));
@@ -58,12 +37,6 @@ body.about-open .legal-line {
 
   body.contacts-visible .legal-line {
     opacity: 0.38;
-  }
-
-  .about-card--project > p:nth-of-type(2)::before {
-    padding: 0.8rem 0.86rem 0.76rem;
-    font-size: 0.84rem;
-    line-height: 1.42;
   }
 }
 
