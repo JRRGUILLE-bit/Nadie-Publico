@@ -162,6 +162,24 @@
 }
 
 @media (min-width: 721px) {
+  .about-card--project::before {
+    background-image: url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+    background-position: center;
+    transform: scaleX(-1);
+    transform-origin: center;
+    opacity: 0.58;
+  }
+
+  .about-card--project .project-copy {
+    background: linear-gradient(
+      90deg,
+      rgba(12, 15, 13, 0.98) 0%,
+      rgba(12, 15, 13, 0.95) 54%,
+      rgba(12, 15, 13, 0.86) 76%,
+      rgba(12, 15, 13, 0.68) 100%
+    );
+  }
+
   .about-card--market::before {
     background-image:
       linear-gradient(rgba(226, 214, 181, 0.94), rgba(226, 214, 181, 0.94)),
