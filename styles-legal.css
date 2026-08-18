@@ -80,10 +80,6 @@ body.about-open .legal-line {
   box-shadow: none !important;
 }
 
-.about-card--creators .creators-authorship {
-  display: none !important;
-}
-
 /* SKA — kill the pale raster field without hiding the approved collage. */
 @media (min-width: 900px) {
   .about-card--ska {
