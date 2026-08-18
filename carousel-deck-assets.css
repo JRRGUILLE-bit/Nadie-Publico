@@ -180,6 +180,16 @@
     );
   }
 
+  .about-card--universe {
+    background: #211813;
+  }
+
+  .about-card--universe::before {
+    background-color: #87644e;
+    background-blend-mode: multiply;
+    filter: saturate(1.18) contrast(1.12);
+  }
+
   .about-card--market::before {
     background-image:
       linear-gradient(rgba(226, 214, 181, 0.94), rgba(226, 214, 181, 0.94)),
