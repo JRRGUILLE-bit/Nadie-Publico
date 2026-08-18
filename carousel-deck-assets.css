@@ -167,7 +167,7 @@
     background-position: center;
     transform: scaleX(-1);
     transform-origin: center;
-    clip-path: polygon(0 0, 44% 0, 44% 55%, 100% 55%, 100% 100%, 0 100%);
+    clip-path: inset(0 56% 0 0);
     opacity: 0.58;
   }
 
