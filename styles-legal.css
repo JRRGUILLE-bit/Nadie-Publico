@@ -134,19 +134,74 @@ body.about-open .legal-line {
   }
 }
 
-/* RECORRIDO — draw the timeline from left to right when the slide becomes active. */
+/* TONO — remove the redundant footer sentence and its red rule. */
+.about-card--tone > p {
+  display: none !important;
+}
+
+/* RECORRIDO — the raster asset contains a static timeline, so mask that strip and redraw it for real. */
 @media (min-width: 900px) {
+  .about-card--journey .journey-timeline {
+    isolation: isolate;
+  }
+
   .about-card--journey .journey-timeline::after {
-    content: none !important;
+    content: '' !important;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    right: -0.4rem;
+    left: -0.4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(3, 21, 18, 0.88) 22%,
+      rgba(3, 21, 18, 0.98) 40%,
+      rgba(3, 21, 18, 0.98) 60%,
+      rgba(3, 21, 18, 0.88) 78%,
+      transparent 100%
+    );
   }
 
   .about-card--journey .journey-timeline::before {
+    z-index: 1;
     transform: scaleX(0);
     transform-origin: left center;
   }
 
+  .about-card--journey .journey-timeline li {
+    z-index: 2;
+  }
+
+  .about-card--journey .journey-timeline li::after {
+    z-index: 3;
+    opacity: 0;
+    transform: rotate(45deg) scale(0.42);
+    filter: saturate(0.3) brightness(0.58);
+    transition: none;
+  }
+
   .about-card--journey.is-active .journey-timeline::before {
-    animation: journey-line-draw 1.55s cubic-bezier(0.22, 0.72, 0.24, 1) 180ms forwards;
+    animation: journey-line-draw 1.8s cubic-bezier(0.22, 0.72, 0.24, 1) 180ms forwards;
+  }
+
+  .about-card--journey.is-active .journey-timeline li:nth-child(1)::after {
+    animation: journey-milestone-arrival 360ms cubic-bezier(0.22, 0.72, 0.24, 1) 390ms forwards;
+  }
+
+  .about-card--journey.is-active .journey-timeline li:nth-child(2)::after {
+    animation: journey-milestone-arrival 360ms cubic-bezier(0.22, 0.72, 0.24, 1) 820ms forwards;
+  }
+
+  .about-card--journey.is-active .journey-timeline li:nth-child(3)::after {
+    animation: journey-milestone-arrival 360ms cubic-bezier(0.22, 0.72, 0.24, 1) 1250ms forwards;
+  }
+
+  .about-card--journey.is-active .journey-timeline li:nth-child(4)::after {
+    animation: journey-milestone-arrival 360ms cubic-bezier(0.22, 0.72, 0.24, 1) 1680ms forwards;
   }
 }
 
@@ -155,51 +210,12 @@ body.about-open .legal-line {
   to { transform: scaleX(1); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .about-card--journey .journey-timeline::before,
-  .about-card--journey.is-active .journey-timeline::before {
-    transform: scaleX(1) !important;
-    animation: none !important;
-  }
-}
-
-/* TONO — remove the redundant footer sentence and its red rule. */
-.about-card--tone > p {
-  display: none !important;
-}
-
-/* RECORRIDO — milestones wake up as the drawing line reaches each point. */
-@media (min-width: 900px) {
-  .about-card--journey .journey-timeline li::after {
-    opacity: 0.24;
-    transform: rotate(45deg) scale(0.58);
-    filter: saturate(0.35) brightness(0.68);
-    transition: none;
-  }
-
-  .about-card--journey.is-active .journey-timeline li:nth-child(1)::after {
-    animation: journey-milestone-arrival 380ms cubic-bezier(0.22, 0.72, 0.24, 1) 370ms forwards;
-  }
-
-  .about-card--journey.is-active .journey-timeline li:nth-child(2)::after {
-    animation: journey-milestone-arrival 380ms cubic-bezier(0.22, 0.72, 0.24, 1) 760ms forwards;
-  }
-
-  .about-card--journey.is-active .journey-timeline li:nth-child(3)::after {
-    animation: journey-milestone-arrival 380ms cubic-bezier(0.22, 0.72, 0.24, 1) 1145ms forwards;
-  }
-
-  .about-card--journey.is-active .journey-timeline li:nth-child(4)::after {
-    animation: journey-milestone-arrival 380ms cubic-bezier(0.22, 0.72, 0.24, 1) 1535ms forwards;
-  }
-}
-
 @keyframes journey-milestone-arrival {
   0% {
-    opacity: 0.24;
-    transform: rotate(45deg) scale(0.58);
-    filter: saturate(0.35) brightness(0.68);
-    box-shadow: 0 0 0 1px rgba(234, 218, 183, 0.18);
+    opacity: 0;
+    transform: rotate(45deg) scale(0.42);
+    filter: saturate(0.3) brightness(0.58);
+    box-shadow: 0 0 0 1px rgba(234, 218, 183, 0.12);
   }
   68% {
     opacity: 1;
@@ -218,6 +234,12 @@ body.about-open .legal-line {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .about-card--journey .journey-timeline::before,
+  .about-card--journey.is-active .journey-timeline::before {
+    transform: scaleX(1) !important;
+    animation: none !important;
+  }
+
   .about-card--journey .journey-timeline li::after,
   .about-card--journey.is-active .journey-timeline li::after {
     opacity: 1 !important;
