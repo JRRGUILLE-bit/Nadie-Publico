@@ -161,6 +161,34 @@
   background: linear-gradient(90deg, rgba(5, 15, 13, 0.88), rgba(5, 15, 13, 0.58));
 }
 
+@media (min-width: 721px) {
+  .about-card--market::before {
+    background-image:
+      linear-gradient(rgba(226, 214, 181, 0.94), rgba(226, 214, 181, 0.94)),
+      url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+    filter: saturate(0.55) contrast(0.72) blur(1px);
+    transform: scale(1.004);
+  }
+
+  .about-card--ska::before {
+    opacity: 0.54;
+    filter: saturate(0.62) contrast(0.82) blur(0.5px);
+    transform: scale(1.002);
+  }
+
+  .about-card--ska .ska-brand {
+    background: rgba(5, 14, 12, 0.88);
+  }
+
+  .about-card--ska .ska-profile {
+    background: linear-gradient(90deg, rgba(5, 15, 13, 0.96), rgba(5, 15, 13, 0.9));
+  }
+
+  .about-card--ska .ska-credits {
+    background: rgba(5, 14, 12, 0.91);
+  }
+}
+
 /* 07 — The HTML timeline stays dominant over the investigative case-file. */
 .about-card--journey {
   background: #07110f;
