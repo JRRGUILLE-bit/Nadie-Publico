@@ -73,21 +73,20 @@ body.about-open .legal-line {
   }
 }
 
-/* CREADORES — fondo audiovisual y paneles planos. */
+/* CREADORES — asset aprobado del pitch deck detrás de paneles planos. */
 .about-card--creators {
   grid-template-rows: auto minmax(0, 1fr) !important;
   background:
-    linear-gradient(90deg, rgba(4, 18, 15, 0.58) 0%, rgba(8, 14, 12, 0.54) 47%, rgba(22, 8, 16, 0.64) 100%),
-    url('assets/images/ntdqiasa_video_v4_contact_sheet.jpg') center 44% / cover no-repeat,
+    linear-gradient(90deg, rgba(3, 13, 11, 0.54) 0%, rgba(7, 11, 10, 0.48) 48%, rgba(18, 7, 14, 0.58) 100%),
+    url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center / cover no-repeat,
     #0b100e !important;
 }
 
 .about-card--creators::before {
-  opacity: 0.16 !important;
+  opacity: 0.12 !important;
   background-image:
-    linear-gradient(135deg, rgba(236, 218, 179, 0.08), transparent 34%, rgba(169, 28, 112, 0.09) 78%, transparent),
-    url('assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png') !important;
-  background-size: 100% 100%, cover !important;
+    linear-gradient(135deg, rgba(236, 218, 179, 0.08), transparent 34%, rgba(169, 28, 112, 0.09) 78%, transparent) !important;
+  background-size: 100% 100% !important;
   background-position: center !important;
   mix-blend-mode: screen !important;
 }
@@ -98,10 +97,10 @@ body.about-open .legal-line {
 
 .about-card--creators .creator {
   border-color: rgba(214, 193, 150, 0.22) !important;
-  background: linear-gradient(135deg, rgba(7, 15, 12, 0.70), rgba(17, 11, 14, 0.62)) !important;
+  background: linear-gradient(135deg, rgba(7, 15, 12, 0.76), rgba(17, 11, 14, 0.68)) !important;
   box-shadow: none !important;
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
 .about-card--creators .creator + .creator {
