@@ -133,3 +133,32 @@ body.about-open .legal-line {
     ) !important;
   }
 }
+
+/* RECORRIDO — draw the timeline from left to right when the slide becomes active. */
+@media (min-width: 900px) {
+  .about-card--journey .journey-timeline::after {
+    content: none !important;
+  }
+
+  .about-card--journey .journey-timeline::before {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .about-card--journey.is-active .journey-timeline::before {
+    animation: journey-line-draw 1.55s cubic-bezier(0.22, 0.72, 0.24, 1) 180ms forwards;
+  }
+}
+
+@keyframes journey-line-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card--journey .journey-timeline::before,
+  .about-card--journey.is-active .journey-timeline::before {
+    transform: scaleX(1) !important;
+    animation: none !important;
+  }
+}
