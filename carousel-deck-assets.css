@@ -212,7 +212,7 @@
       max-width: 62ch;
       margin-left: clamp(2.75rem, 6vw, 5.75rem);
       padding: 0 clamp(1.5rem, 2.5vw, 2.5rem) 0 0;
-      transform: translate(105px, -15px);
+      transform: translate(170px, -55px);
     }
 
     .about-card--universe .universe-contrast > p:first-child {
