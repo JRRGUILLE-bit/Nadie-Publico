@@ -217,3 +217,19 @@ body.about-open .legal-line {
     animation: none !important;
   }
 }
+
+/* UNIVERSO — soften the localized copy support so it reads without becoming a card. */
+@media (min-width: 900px) {
+  .about-card--universe .universe-contrast > p:first-child {
+    background: radial-gradient(
+      ellipse at 46% 50%,
+      rgba(232, 207, 165, 0.42) 0%,
+      rgba(222, 194, 151, 0.28) 56%,
+      rgba(210, 178, 138, 0.10) 74%,
+      transparent 92%
+    ) !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(0.55px) !important;
+    -webkit-backdrop-filter: blur(0.55px) !important;
+  }
+}
