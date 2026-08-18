@@ -493,3 +493,184 @@
     padding: 0.12rem 0.25rem;
   }
 }
+
+/* SKA Films — an industrial-partner dossier, with the approved collage left in full view. */
+@media (min-width: 900px) {
+  .about-card--ska {
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(220px, 36%) minmax(0, 64%);
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: clamp(2rem, 4vw, 4.75rem);
+    row-gap: clamp(1.2rem, 2.6vh, 2rem);
+    overflow: hidden;
+    color: #171713;
+    background: #d7c6a0;
+  }
+
+  .about-card--ska::before {
+    opacity: 1;
+    background-image:
+      linear-gradient(90deg, rgba(7, 13, 12, 0.1) 0 23%, transparent 39% 72%, rgba(7, 13, 12, 0.08) 100%),
+      url('efba8b06-0da4-4000-af6d-52489eb810e9.png');
+    background-position: center;
+    background-size: cover;
+    filter: saturate(1.06) contrast(1.04);
+    transform: none;
+  }
+
+  .about-card--ska::after {
+    content: none;
+  }
+
+  .about-card--ska .ska-brand {
+    z-index: 3;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    display: flex;
+    padding: 0 0 1rem;
+    background: none;
+    transform: rotate(-1deg);
+  }
+
+  .about-card--ska header {
+    position: relative;
+    align-self: flex-start;
+    padding: 0.58rem 0.8rem 0.48rem;
+    border-left: 4px solid #b7136b;
+    background: rgba(8, 15, 14, 0.88);
+    box-shadow: 5px 5px 0 rgba(180, 19, 107, 0.22);
+  }
+
+  .about-card--ska header p {
+    color: #e0b85e;
+    font-size: clamp(0.68rem, 0.76vw, 0.82rem);
+    letter-spacing: 0.16em;
+  }
+
+  .about-card--ska header h2 {
+    margin-top: 0.28rem;
+    color: #f0e2c3;
+    font-size: clamp(1.05rem, 1.45vw, 1.5rem);
+  }
+
+  .about-card--ska .ska-brand > img {
+    width: clamp(210px, 20vw, 292px);
+    max-height: 30vh;
+    margin-top: clamp(1rem, 2.4vh, 1.8rem);
+    margin-left: clamp(0.35rem, 1vw, 1rem);
+    filter: contrast(1.13) drop-shadow(2px 3px 0 rgba(183, 19, 107, 0.2));
+    mix-blend-mode: multiply;
+  }
+
+  .about-card--ska .ska-profile {
+    z-index: 3;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    display: grid;
+    max-width: 64rem;
+    padding: clamp(1rem, 2.4vw, 2.2rem) clamp(1rem, 2.7vw, 2.6rem);
+    border: 0;
+    color: #201d18;
+    background:
+      radial-gradient(ellipse at 38% 50%, rgba(239, 225, 191, 0.78) 0 30%, rgba(232, 214, 176, 0.5) 56%, transparent 82%);
+  }
+
+  .about-card--ska .ska-overview {
+    max-width: 59ch;
+    padding: 0 0 clamp(1rem, 2vh, 1.55rem);
+    border-bottom: 1px dashed rgba(80, 57, 45, 0.52);
+    color: #29251e;
+    font-size: clamp(0.92rem, 1.12vw, 1.13rem) !important;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .about-card--ska .ska-producer {
+    max-width: 62ch;
+    padding-top: clamp(1rem, 2.1vh, 1.6rem);
+    border: 0;
+  }
+
+  .about-card--ska .ska-producer::before {
+    content: 'RESPALDO INDUSTRIAL / 01';
+    display: block;
+    width: max-content;
+    margin-bottom: 0.62rem;
+    padding: 0.25rem 0.48rem 0.2rem;
+    color: #f2e5c8;
+    background: #08706d;
+    font: 700 clamp(0.58rem, 0.66vw, 0.7rem)/1 'Lekton', monospace;
+    letter-spacing: 0.12em;
+  }
+
+  .about-card--ska .ska-producer h3 {
+    max-width: 21ch;
+    color: #191713;
+    font-size: clamp(1.65rem, 2.55vw, 2.75rem);
+    text-shadow: none;
+  }
+
+  .about-card--ska .ska-producer__role {
+    margin-top: 0.55rem !important;
+    color: #82204f !important;
+    font-size: clamp(0.68rem, 0.78vw, 0.82rem) !important;
+  }
+
+  .about-card--ska .ska-producer > p:last-child {
+    max-width: 57ch;
+    margin-top: clamp(0.72rem, 1.3vh, 1rem) !important;
+    color: #27231d;
+    font-size: clamp(0.84rem, 0.98vw, 1rem);
+  }
+
+  .about-card--ska .ska-producer > p:last-child strong {
+    display: inline;
+    padding: 0.08em 0.16em;
+    color: #161410;
+    background: linear-gradient(transparent 54%, rgba(218, 167, 51, 0.7) 54% 92%, transparent 92%);
+    font-weight: 800;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .about-card--ska .ska-credits {
+    z-index: 3;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.65rem, 1.5vw, 1.45rem);
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .about-card--ska .ska-credits li {
+    position: relative;
+    min-width: clamp(7.5rem, 12vw, 11rem);
+    padding: 0.58rem 0.78rem 0.5rem;
+    border: 1px solid rgba(230, 209, 164, 0.58);
+    color: #f0dfbb;
+    background: rgba(8, 15, 14, 0.84);
+    font-size: clamp(0.76rem, 0.92vw, 0.98rem);
+    text-align: center;
+    box-shadow: 4px 4px 0 rgba(183, 19, 107, 0.26);
+  }
+
+  .about-card--ska .ska-credits li:nth-child(even) {
+    transform: translateY(0.24rem) rotate(0.6deg);
+    box-shadow: 4px 4px 0 rgba(8, 112, 109, 0.32);
+  }
+
+  .about-card--ska .ska-credits li:nth-child(odd) {
+    transform: rotate(-0.5deg);
+  }
+
+  .about-card--ska .ska-credits li + li {
+    border-left: 1px solid rgba(230, 209, 164, 0.58);
+  }
+}
