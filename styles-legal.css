@@ -110,3 +110,26 @@ body.about-open .legal-line {
 .about-card--creators .creators-authorship {
   display: none !important;
 }
+
+/* SKA — kill the pale raster field without hiding the approved collage. */
+@media (min-width: 900px) {
+  .about-card--ska {
+    background: #69483a !important;
+  }
+
+  .about-card--ska::before {
+    background-color: #815b45 !important;
+    background-blend-mode: multiply, multiply !important;
+    filter: saturate(1.18) contrast(1.12) brightness(0.86) !important;
+  }
+
+  .about-card--ska .ska-profile {
+    background: radial-gradient(
+      ellipse at 38% 50%,
+      rgba(188, 141, 99, 0.86) 0 30%,
+      rgba(153, 105, 77, 0.62) 56%,
+      rgba(105, 72, 57, 0.14) 78%,
+      transparent 88%
+    ) !important;
+  }
+}
