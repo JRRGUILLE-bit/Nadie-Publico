@@ -110,3 +110,26 @@ body.about-open .legal-line {
 .about-card--creators .creators-authorship {
   display: none !important;
 }
+
+/* SKA FILMS — bajar el campo crema/blanco sin esconder el asset aprobado. */
+@media (min-width: 900px) {
+  .about-card--ska {
+    background: #76583f !important;
+  }
+
+  .about-card--ska::before {
+    background-color: #7a5b43 !important;
+    background-blend-mode: multiply !important;
+    filter: saturate(1.12) contrast(1.08) brightness(0.94) !important;
+  }
+
+  .about-card--ska .ska-profile {
+    background:
+      radial-gradient(
+        ellipse at 38% 50%,
+        rgba(196, 164, 114, 0.82) 0 30%,
+        rgba(164, 126, 88, 0.54) 56%,
+        transparent 82%
+      ) !important;
+  }
+}
