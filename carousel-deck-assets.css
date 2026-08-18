@@ -220,12 +220,14 @@
     }
 
     .about-card--universe .universe-concepts {
-      width: 21ch;
-      max-width: 21ch;
+      width: 28ch;
+      max-width: 28ch;
       margin-top: clamp(1.1rem, 2.2vh, 1.65rem) !important;
+      margin-left: clamp(0.4rem, 1.1vw, 1rem);
       font-size: clamp(1.05rem, 1.45vw, 1.45rem) !important;
       line-height: 1.2 !important;
       letter-spacing: 0.015em;
+      text-wrap: balance;
     }
 
     .about-card--universe .universe-characters {
