@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - qa-repo-audit-20260822
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
