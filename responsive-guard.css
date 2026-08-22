@@ -2,7 +2,7 @@
   RESPONSIVE GUARD
   Autoridad final de geometría para la portada audiovisual y su carrusel.
   Este archivo debe cargarse último. No define identidad visual: sólo evita
-  colisiones, clipping y cargas de video inadecuadas en viewports atípicos.
+  colisiones, clipping y cargas innecesarias en viewports atípicos.
 */
 
 /* El splash nunca debe imponer una altura mínima mayor que el viewport real. */
@@ -13,10 +13,31 @@
   min-height: 100svh;
 }
 
+/* Los cinco artes raster pesados del deck no se resuelven hasta abrir el carrusel.
+   Al agregarse body.about-open vuelven a aplicar las reglas de carousel-deck-assets.css. */
+body:not(.about-open) .about-card--project::before,
+body:not(.about-open) .about-card--universe::before,
+body:not(.about-open) .about-card--market::before,
+body:not(.about-open) .about-card--ska::before,
+body:not(.about-open) .about-card--journey::before {
+  background-image: none !important;
+}
+
 /* Desktop normal conserva el encuadre aprobado de la ficha de formato. */
 @media (min-width: 721px) {
   .format-line {
     top: 36vh;
+  }
+}
+
+/* Alturas intermedias: separar un poco más título y ficha sin alterar el arte. */
+@media (min-width: 721px) and (min-height: 761px) and (max-height: 900px) {
+  .plate--title .plate__line + .plate__line {
+    margin-top: 0.1em;
+  }
+
+  .format-line {
+    top: 38vh;
   }
 }
 
@@ -37,7 +58,7 @@
   }
 
   .plate--title .plate__line + .plate__line {
-    margin-top: 0.17em;
+    margin-top: 0.12em;
   }
 
   .format-line {
@@ -114,6 +135,45 @@
 }
 
 /* --------------------------------------------------------------------------
+   Mobile portrait
+   Mantiene los tres accesos por encima del bloque legal y separa formato/título.
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) and (orientation: portrait) {
+  .format-line {
+    top: 27svh;
+  }
+
+  body .contact-links {
+    bottom: max(3.4rem, calc(env(safe-area-inset-bottom) + 3rem));
+  }
+
+  .legal-line {
+    bottom: max(0.24rem, env(safe-area-inset-bottom));
+    width: min(96vw, 34rem);
+    font-size: clamp(0.38rem, 1.45vw, 0.5rem);
+    line-height: 1.08;
+  }
+}
+
+@media (max-width: 360px) and (orientation: portrait) {
+  body .contact-links {
+    bottom: max(4rem, calc(env(safe-area-inset-bottom) + 3.6rem));
+    gap: 0.3rem;
+  }
+
+  body .contact-link span,
+  body .contact-link--materials span,
+  body .contact-link--coproduction span {
+    font-size: clamp(0.54rem, 2.6vw, 0.62rem);
+  }
+
+  .legal-line {
+    width: 97vw;
+    font-size: clamp(0.34rem, 1.65vw, 0.44rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Zona intermedia: tablet / ventana angosta de desktop (721–899 CSS px).
    El diseño ya no es mobile, pero todavía no llega al deck desktop completo.
    -------------------------------------------------------------------------- */
@@ -139,6 +199,8 @@
   }
 
   .about-card {
+    box-sizing: border-box;
+    max-width: 100%;
     overflow: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
@@ -168,11 +230,19 @@
   }
 
   .about-card {
+    box-sizing: border-box;
+    max-width: 100%;
     overflow: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
     padding: clamp(1rem, 2.1vw, 1.75rem);
   }
+}
+
+/* El botón Volver/Cerrar debe conservar un target táctil real. */
+.about-carousel__back {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -301,14 +371,32 @@
   }
 
   .about-carousel__viewport {
+    position: relative;
     min-height: 0 !important;
+    overflow-x: hidden;
   }
 
   .about-card {
-    overflow: auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
     padding: 0.58rem 0.68rem;
+  }
+
+  /* WebKit conserva a veces el desplazamiento de transición de la placa previa.
+     En landscape bajo se prioriza una placa estable y completamente dentro del frame. */
+  .about-card.is-active {
+    inset-inline: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    translate: none !important;
+    transform: none !important;
   }
 
   .about-carousel__eyebrow {
@@ -319,6 +407,57 @@
   .about-carousel__arrow {
     width: 2.25rem;
     height: 2.25rem;
+  }
+
+  /* TONO pasa de seis tiras apiladas a dos columnas en pantallas muy bajas. */
+  .about-card--tone .tone-resources {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.26rem 0.38rem;
+  }
+
+  .about-card--tone .tone-resources li {
+    min-width: 0;
+    padding: 0.28rem 0.42rem 0.23rem;
+    font-size: clamp(0.66rem, 2.7svh, 0.82rem);
+  }
+
+  /* La marca de SKA no debe consumir casi todo el alto útil del teléfono girado. */
+  .about-card--ska .ska-brand > img {
+    width: auto !important;
+    max-width: min(24vw, 9rem) !important;
+    max-height: 21svh !important;
+    object-fit: contain;
+  }
+
+  .about-card--ska .ska-brand header,
+  .about-card--ska .ska-profile,
+  .about-card--ska .ska-producer,
+  .about-card--ska .ska-credits {
+    margin-block: 0.2rem;
+  }
+
+  .about-card--ska .ska-overview,
+  .about-card--ska .ska-producer p,
+  .about-card--ska .ska-credits {
+    font-size: clamp(0.58rem, 2.15svh, 0.72rem);
+    line-height: 1.12;
+  }
+
+  .about-card--ska .ska-credits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.22rem 0.55rem;
+  }
+
+  .about-card--creators .creator {
+    margin: 0.16rem 0.22rem;
+    padding: 0.42rem 0.7rem;
+  }
+
+  .about-card--creators .creator p {
+    font-size: clamp(0.58rem, 2.1svh, 0.72rem);
+    line-height: 1.15;
   }
 }
 
