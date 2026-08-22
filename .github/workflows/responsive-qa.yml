@@ -1,0 +1,69 @@
+name: Focused responsive QA
+
+on:
+  push:
+    branches:
+      - qa-responsive-20260822
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  focused-responsive-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium firefox webkit
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/focused-responsive-qa-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/focused-responsive-qa-http.log
+          exit 1
+
+      - name: Run focused responsive QA
+        id: qa
+        continue-on-error: true
+        env:
+          QA_BASE_URL: http://127.0.0.1:4173
+          QA_OUT_DIR: qa-focused-results
+        run: node qa/focused-responsive-qa.mjs
+
+      - name: Copy server log
+        if: always()
+        run: cp /tmp/focused-responsive-qa-http.log qa-focused-results/http-server.log || true
+
+      - name: Upload focused QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: focused-responsive-qa-evidence
+          path: qa-focused-results/
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Enforce QA result
+        if: steps.qa.outcome == 'failure'
+        run: exit 1
