@@ -52,7 +52,7 @@ const plateSequence = [
   {
     className: 'plate--credits plate--secondary',
     lines: [
-      'Creado por',
+      'Creada por',
       {
         text: 'Maite Piñeyrúa Segura y Guillermo Barbeito',
         parts: [
@@ -76,9 +76,9 @@ const plateSequence = [
     className: 'plate--coproduction plate--secondary',
     lines: [
       {
-        text: 'Una coproducción con SKA Films',
+        text: 'Una producción de SKA Films',
         parts: [
-          { text: 'Una coproducción con ' },
+          { text: 'Una producción de ' },
           { text: 'SKA Films', className: plateNameClass },
         ],
       },
