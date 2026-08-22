@@ -7,7 +7,7 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 **Producción ejecutiva:** Malena Benavides.  
 **Coproducción uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.
 
-[Ver sitio público](https://jrrguille-bit.github.io/Nadie-Publico/) · [Proyecto y equipo](https://jrrguille-bit.github.io/Nadie-Publico/sobre.html) · [English project page](https://jrrguille-bit.github.io/Nadie-Publico/about.html)
+[Ver sitio público](https://jrrguille-bit.github.io/Nadie-Publico/) · [Proyecto y equipo](https://jrrguille-bit.github.io/Nadie-Publico/sobre.html) · [English project page](https://jrrguille-bit.github.io/Nadie-Publico/dossier-en.html)
 
 ## El proyecto
 
@@ -36,12 +36,14 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 
 ## Estructura
 
-- `index.html`: portada audiovisual.
+- `index.html`: portada audiovisual en español.
+- `english.html`: portada audiovisual en inglés.
 - `sobre.html`: expediente profesional en español.
-- `about.html`: versión profesional en inglés.
+- `dossier-en.html`: expediente profesional en inglés.
+- `about.html`: redirección de compatibilidad hacia `english.html`.
 - `styles.css` y hojas complementarias: identidad, responsive y componentes.
 - `script.js`: secuencia narrativa, controles y comportamiento de la portada.
-- `assets/`: video, póster, retratos y recursos gráficos.
+- `assets/`: video activo, póster, retratos y recursos gráficos.
 - `VISUAL_IDENTITY.md`: reglas visuales del proyecto.
 - `TODO.md`: historial de la implementación ya completada.
 
