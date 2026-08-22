@@ -94,10 +94,11 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
   - Se incorporó un acceso directo “Público” en la navegación interna.
 
 - [x] 14. Crear una versión en inglés.
-  - Se creó `about.html` con logline, sinopsis, formato, público, estado, materiales, recorrido, búsqueda de socios, equipo y contacto profesional en inglés.
+  - Se creó una portada audiovisual inglesa en `english.html` y un expediente profesional inglés en `dossier-en.html`.
+  - `about.html` quedó como redirección de compatibilidad hacia `english.html` para no romper enlaces antiguos.
   - Las versiones española e inglesa incluyen selectores visibles para cambiar de idioma.
   - Se agregaron metadatos, URL canónica, `hreflang`, Open Graph y datos estructurados propios para cada idioma.
-  - Ambas páginas comparten `project-page.css` para mantener la misma identidad visual y evitar divergencias futuras.
+  - Los expedientes `sobre.html` y `dossier-en.html` comparten `project-page.css` para mantener la misma identidad visual y evitar divergencias futuras.
   - Los correos de la versión inglesa abren con asunto y cuerpo prearmados en inglés.
 
 - [x] 15. Agregar una ficha industrial resumida.
