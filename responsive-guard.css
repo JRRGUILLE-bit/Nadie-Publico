@@ -30,14 +30,14 @@ body:not(.about-open) .about-card--journey::before {
   }
 }
 
-/* Alturas intermedias: separar un poco más título y ficha sin alterar el arte. */
+/* Alturas intermedias: mantener aire entre título, ficha y créditos. */
 @media (min-width: 721px) and (min-height: 761px) and (max-height: 900px) {
   .plate--title .plate__line + .plate__line {
     margin-top: 0.1em;
   }
 
   .format-line {
-    top: 38vh;
+    top: 36vh;
   }
 }
 
@@ -377,24 +377,29 @@ body:not(.about-open) .about-card--journey::before {
   }
 
   .about-card {
+    inset: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
     box-sizing: border-box;
-    max-width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
     padding: 0.58rem 0.68rem;
+    translate: none !important;
+    transform: none !important;
+    transition: opacity 160ms ease, visibility 160ms ease !important;
   }
 
-  /* WebKit conserva a veces el desplazamiento de transición de la placa previa.
-     En landscape bajo se prioriza una placa estable y completamente dentro del frame. */
+  /* En landscape bajo no hay transición geométrica: evita el offset residual de WebKit. */
   .about-card.is-active {
-    inset-inline: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-inline: 0 !important;
+    inset: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
     translate: none !important;
     transform: none !important;
   }
