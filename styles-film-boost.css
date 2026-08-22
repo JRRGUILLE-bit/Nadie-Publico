@@ -78,3 +78,77 @@ body.about-open .dark-overlay {
 .contact-link {
   font-family: 'Lekton', 'Courier Prime', 'Courier New', Courier, monospace;
 }
+
+/*
+  Laptop / desktop de poca altura.
+  Evita que la portada desktop colapse verticalmente cuando el viewport útil
+  queda reducido por resolución, zoom del navegador o barras del sistema.
+*/
+@media (min-width: 721px) and (max-height: 760px) {
+  .splash {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .plate--secondary {
+    --secondary-plate-offset: -1.5svh;
+  }
+
+  .plate--title {
+    top: 3.5svh;
+    max-width: min(90vw, 980px);
+    font-size: clamp(2.2rem, 7.7svh, 4.4rem);
+    line-height: 1.02;
+  }
+
+  .plate--title .plate__line + .plate__line {
+    margin-top: 0.18em;
+  }
+
+  .format-line {
+    top: 24svh !important;
+    font-size: clamp(0.66rem, 1.8svh, 0.88rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .plate--credits {
+    top: 38svh;
+    font-size: clamp(0.92rem, 3.2svh, 1.55rem);
+  }
+
+  .plate--credits .plate__line--2 {
+    max-width: min(88vw, 52rem);
+    margin-inline: auto;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .plate--recognition {
+    top: 53svh;
+    font-size: clamp(0.74rem, 2.35svh, 1.12rem);
+    line-height: 1.12;
+  }
+
+  .plate--recognition .plate__line {
+    white-space: normal;
+  }
+
+  .plate--coproduction {
+    bottom: 15svh;
+    font-size: clamp(0.86rem, 2.65svh, 1.26rem);
+  }
+
+  body .contact-links {
+    bottom: max(0.45rem, 1.2svh);
+  }
+
+  body .contact-link img {
+    width: clamp(1.9rem, 4.9svh, 2.5rem);
+    height: clamp(1.9rem, 4.9svh, 2.5rem);
+  }
+
+  body .contact-link span {
+    font-size: clamp(0.58rem, 1.65svh, 0.72rem);
+  }
+}
