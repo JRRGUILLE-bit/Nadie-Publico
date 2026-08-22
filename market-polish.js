@@ -20,6 +20,19 @@ try {
     ];
   }
 
+  // Crédito de producción aprobado para la portada.
+  if (plateSequence?.[3]) {
+    plateSequence[3].lines = [
+      {
+        text: 'Una producción de SKA Films',
+        parts: [
+          { text: 'Una producción de ' },
+          { text: 'SKA Films', className: plateNameClass },
+        ],
+      },
+    ];
+  }
+
 } catch (error) {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
