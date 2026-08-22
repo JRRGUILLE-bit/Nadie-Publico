@@ -31,11 +31,11 @@ if (languageSwitch?.textContent.trim().toLowerCase() === 'english') {
 }
 
 // La ficha de formato aparece recién al terminar toda la presentación.
+// Su geometría vive exclusivamente en CSS; responsive-guard.css es la autoridad final.
 const formatLine = document.querySelector('.format-line');
 if (formatLine) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  formatLine.style.top = '36vh';
   formatLine.style.animation = 'none';
   formatLine.style.opacity = '0';
   formatLine.style.transition = reducedMotion ? 'none' : 'opacity 900ms ease';
@@ -53,10 +53,32 @@ if (formatLine) {
   });
 }
 
-// En mobile privilegiamos el póster y evitamos reproducir el video pesado.
-if (window.matchMedia('(max-width: 720px)').matches && video) {
-  video.pause();
-  video.removeAttribute('autoplay');
+// El video de portada sólo corre cuando el viewport tiene espacio útil suficiente.
+// También se reevalúa al rotar o redimensionar: un teléfono en landscape no debe
+// quedar decodificando el MP4 de escritorio después de cambiar de orientación.
+const compactVideoViewport = window.matchMedia(
+  '(max-width: 720px), (max-height: 500px) and (orientation: landscape), (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 600px)'
+);
+
+const syncCoverVideoPolicy = () => {
+  if (!video) return;
+
+  if (compactVideoViewport.matches) {
+    video.pause();
+    video.removeAttribute('autoplay');
+    return;
+  }
+
+  video.setAttribute('autoplay', '');
+  const playback = video.play();
+  if (playback?.catch) playback.catch(() => {});
+};
+
+syncCoverVideoPolicy();
+if (compactVideoViewport.addEventListener) {
+  compactVideoViewport.addEventListener('change', syncCoverVideoPolicy);
+} else if (compactVideoViewport.addListener) {
+  compactVideoViewport.addListener(syncCoverVideoPolicy);
 }
 
 // script.js agregaba un confirm() nativo y su URL de Gmail perdía el parámetro cc.
