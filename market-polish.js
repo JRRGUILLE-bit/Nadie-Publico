@@ -33,6 +33,17 @@ try {
     ];
   }
 
+  // Con prefers-reduced-motion, script.js ya pudo haber pintado la portada completa
+  // antes de que esta capa actualizara plateSequence. En español se vuelve a renderizar
+  // inmediatamente con la copia definitiva. La landing inglesa hace su propio rerender
+  // después de aplicar sus traducciones en market-polish-en.js.
+  if (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+    !document.documentElement.lang.toLowerCase().startsWith('en')
+  ) {
+    renderCompletedPlates();
+  }
+
 } catch (error) {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
