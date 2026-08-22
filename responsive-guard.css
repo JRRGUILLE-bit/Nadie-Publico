@@ -1,0 +1,345 @@
+/*
+  RESPONSIVE GUARD
+  Autoridad final de geometría para la portada audiovisual y su carrusel.
+  Este archivo debe cargarse último. No define identidad visual: sólo evita
+  colisiones, clipping y cargas de video inadecuadas en viewports atípicos.
+*/
+
+/* El splash nunca debe imponer una altura mínima mayor que el viewport real. */
+.splash {
+  height: 100vh;
+  min-height: 100vh;
+  height: 100svh;
+  min-height: 100svh;
+}
+
+/* Desktop normal conserva el encuadre aprobado de la ficha de formato. */
+@media (min-width: 721px) {
+  .format-line {
+    top: 36vh;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Laptop / desktop de poca altura
+   Casos típicos: 1366×768 con escalado, 1280×720, ventanas no maximizadas.
+   -------------------------------------------------------------------------- */
+@media (min-width: 721px) and (max-height: 760px) {
+  .plate--secondary {
+    --secondary-plate-offset: -1.4svh;
+  }
+
+  .plate--title {
+    top: 3.5svh;
+    max-width: min(90vw, 980px);
+    font-size: clamp(2.05rem, 7svh, 4.15rem);
+    line-height: 1.02;
+  }
+
+  .plate--title .plate__line + .plate__line {
+    margin-top: 0.17em;
+  }
+
+  .format-line {
+    top: 26svh;
+    width: min(90vw, 900px);
+    font-size: clamp(0.64rem, 1.7svh, 0.86rem);
+    line-height: 1.18;
+    letter-spacing: 0.065em;
+  }
+
+  .plate--credits {
+    top: 38svh;
+    max-width: min(90vw, 920px);
+    font-size: clamp(0.88rem, 2.85svh, 1.48rem);
+  }
+
+  .plate--credits .plate__line--2 {
+    max-width: min(88vw, 54rem);
+    margin-inline: auto;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .plate--credits .plate__line--3 {
+    margin-top: 0.38em;
+  }
+
+  .plate--recognition {
+    top: 53svh;
+    max-width: min(88vw, 860px);
+    font-size: clamp(0.68rem, 2.05svh, 1.02rem);
+    line-height: 1.1;
+  }
+
+  .plate--recognition .plate__line,
+  .plate--recognition .plate__line--2 {
+    white-space: normal;
+  }
+
+  .plate--coproduction {
+    bottom: 17svh;
+    font-size: clamp(0.8rem, 2.35svh, 1.16rem);
+  }
+
+  body .contact-links {
+    bottom: max(1.45rem, 2.6svh);
+  }
+
+  body .contact-link img,
+  body .contact-link--materials img,
+  body .contact-link--coproduction img {
+    width: clamp(1.8rem, 4.4svh, 2.35rem);
+    height: clamp(1.8rem, 4.4svh, 2.35rem);
+  }
+
+  body .contact-link span,
+  body .contact-link--materials span,
+  body .contact-link--coproduction span {
+    font-size: clamp(0.56rem, 1.48svh, 0.7rem);
+  }
+
+  .legal-line {
+    bottom: max(0.18rem, env(safe-area-inset-bottom));
+    width: min(94vw, 980px);
+    font-size: clamp(0.4rem, 0.95svh, 0.54rem);
+  }
+
+  .skip-intro-button {
+    bottom: max(4.8rem, 11.5svh) !important;
+    min-height: 2.7rem !important;
+    padding: 0.66rem 1rem 0.6rem !important;
+    font-size: clamp(0.68rem, 1.55svh, 0.84rem) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Zona intermedia: tablet / ventana angosta de desktop (721–899 CSS px).
+   El diseño ya no es mobile, pero todavía no llega al deck desktop completo.
+   -------------------------------------------------------------------------- */
+@media (min-width: 721px) and (max-width: 899px) {
+  .about-carousel {
+    box-sizing: border-box;
+    height: 100svh;
+    padding: 0.6rem;
+    align-items: stretch;
+  }
+
+  .about-carousel__frame {
+    width: min(100%, 860px);
+    height: calc(100svh - 1.2rem);
+    max-height: none;
+    margin: auto;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 0.4rem;
+  }
+
+  .about-carousel__viewport {
+    min-height: 0 !important;
+  }
+
+  .about-card {
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding: clamp(0.9rem, 2.4vw, 1.35rem);
+  }
+
+  .about-carousel__eyebrow {
+    margin: 0;
+  }
+}
+
+/* Desktop ancho pero bajo: el deck debe priorizar no cortar contenido. */
+@media (min-width: 900px) and (max-height: 700px) {
+  .about-carousel {
+    padding: 0.55rem;
+  }
+
+  .about-carousel__frame {
+    width: min(97vw, 1320px);
+    height: calc(100svh - 1.1rem);
+    max-height: none;
+    gap: 0.35rem;
+  }
+
+  .about-carousel__viewport {
+    min-height: 0 !important;
+  }
+
+  .about-card {
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding: clamp(1rem, 2.1vw, 1.75rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Landscape extremadamente bajo, incluido teléfono girado.
+   Se usa póster, se compacta la portada y se garantiza acceso al carrusel.
+   -------------------------------------------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .background-video {
+    display: none !important;
+  }
+
+  .image-fallback {
+    z-index: 0 !important;
+  }
+
+  .plate--secondary {
+    --secondary-plate-offset: -0.9svh;
+  }
+
+  .plate--title {
+    top: 2.5svh;
+    max-width: 88vw;
+    font-size: clamp(1.45rem, 6.4svh, 2.25rem);
+    line-height: 1;
+  }
+
+  .plate--title .plate__line + .plate__line {
+    margin-top: 0.12em;
+  }
+
+  .format-line {
+    top: 24svh;
+    width: min(88vw, 760px);
+    font-size: clamp(0.52rem, 1.9svh, 0.68rem);
+    line-height: 1.12;
+    letter-spacing: 0.045em;
+  }
+
+  .plate--credits {
+    top: 35svh;
+    max-width: 90vw;
+    font-size: clamp(0.68rem, 2.7svh, 0.92rem);
+  }
+
+  .plate--credits .plate__line--2 {
+    max-width: 88vw;
+    margin-inline: auto;
+    white-space: normal;
+  }
+
+  .plate--credits .plate__line--3 {
+    margin-top: 0.24em;
+  }
+
+  .plate--recognition {
+    top: 51svh;
+    max-width: 88vw;
+    font-size: clamp(0.54rem, 1.9svh, 0.7rem);
+    line-height: 1.04;
+  }
+
+  .plate--recognition .plate__line,
+  .plate--recognition .plate__line--2 {
+    white-space: normal;
+  }
+
+  .plate--coproduction {
+    bottom: 20svh;
+    max-width: 78vw;
+    font-size: clamp(0.62rem, 2.25svh, 0.82rem);
+  }
+
+  body .contact-links {
+    bottom: max(1.15rem, calc(env(safe-area-inset-bottom) + 0.9rem));
+  }
+
+  body .contact-link img,
+  body .contact-link--materials img,
+  body .contact-link--coproduction img {
+    width: clamp(1.45rem, 5.5svh, 1.8rem);
+    height: clamp(1.45rem, 5.5svh, 1.8rem);
+  }
+
+  body .contact-link span,
+  body .contact-link--materials span,
+  body .contact-link--coproduction span {
+    font-size: clamp(0.46rem, 1.8svh, 0.58rem);
+    line-height: 1.02;
+  }
+
+  .legal-line {
+    bottom: max(0.12rem, env(safe-area-inset-bottom));
+    width: 96vw;
+    font-size: clamp(0.34rem, 1.25svh, 0.42rem);
+    line-height: 1.05;
+  }
+
+  .skip-intro-button {
+    bottom: max(3.9rem, calc(env(safe-area-inset-bottom) + 3.5rem)) !important;
+    right: max(0.55rem, env(safe-area-inset-right)) !important;
+    min-height: 2.2rem !important;
+    padding: 0.48rem 0.78rem 0.43rem !important;
+    font-size: 0.62rem !important;
+  }
+
+  .cover-language-switch {
+    top: max(0.42rem, env(safe-area-inset-top));
+    right: max(0.5rem, env(safe-area-inset-right));
+    scale: 1;
+  }
+
+  .about-carousel {
+    box-sizing: border-box;
+    height: 100svh;
+    padding: 0.35rem max(0.45rem, env(safe-area-inset-right)) 0.35rem max(0.45rem, env(safe-area-inset-left));
+    align-items: stretch;
+  }
+
+  .about-carousel__frame {
+    width: min(100%, 900px);
+    height: calc(100svh - 0.7rem);
+    max-height: none;
+    margin: auto;
+    grid-template-rows: 1.15rem minmax(0, 1fr) 2.35rem;
+    gap: 0.24rem;
+  }
+
+  .about-carousel__viewport {
+    min-height: 0 !important;
+  }
+
+  .about-card {
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding: 0.58rem 0.68rem;
+  }
+
+  .about-carousel__eyebrow {
+    font-size: 0.5rem;
+    margin: 0;
+  }
+
+  .about-carousel__arrow {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+/* Coarse pointer + landscape bajo: no gastar batería/decodificación en video. */
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
+  .background-video {
+    display: none !important;
+  }
+
+  .image-fallback {
+    z-index: 0 !important;
+  }
+}
+
+/* El zoom alto reduce el viewport CSS y activa los breakpoints anteriores.
+   Estas reglas evitan que cadenas largas fuercen overflow horizontal. */
+.plate__line,
+.format-line,
+.about-card,
+.about-card p,
+.about-card strong,
+.about-card li {
+  overflow-wrap: anywhere;
+}
