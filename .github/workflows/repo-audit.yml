@@ -51,6 +51,14 @@ jobs:
           QA_OUT_DIR: qa-repo-audit-results
         run: node qa/repo-audit.mjs
 
+      - name: Run reduced-motion regression audit
+        id: reduced_motion
+        continue-on-error: true
+        env:
+          QA_BASE_URL: http://127.0.0.1:4173
+          QA_OUT_DIR: qa-repo-audit-results
+        run: node qa/reduced-motion-audit.mjs
+
       - name: Copy server log
         if: always()
         run: cp /tmp/repo-audit-http.log qa-repo-audit-results/http-server.log || true
@@ -65,5 +73,5 @@ jobs:
           retention-days: 7
 
       - name: Enforce audit result
-        if: steps.audit.outcome == 'failure'
+        if: steps.audit.outcome == 'failure' || steps.reduced_motion.outcome == 'failure'
         run: exit 1
