@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es-UY">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nadie te dijo que iba a ser así | Teaser</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#101b18" />
+    <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/ntdqiasa-flame-favicon-32.png" type="image/png" />
+    <link rel="stylesheet" href="project-page.css?v=2" />
+    <link rel="stylesheet" href="video.css?v=1" />
+  </head>
+  <body>
+    <main>
+      <article class="video-page">
+        <header class="video-header">
+          <p class="eyebrow">Nadie te dijo que iba a ser así</p>
+          <h1>Teaser</h1>
+        </header>
+
+        <section class="video-frame" aria-label="Video de YouTube">
+          <div id="youtube-container" class="youtube-container">
+            <div class="video-placeholder">
+              <span>TEASER</span>
+              <strong>Próximamente</strong>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script>
+      // Cuando exista el video, solo hay que reemplazar este valor por el ID
+      // del video de YouTube. Ejemplo: https://www.youtube.com/watch?v=ABC123 → ABC123
+      const YOUTUBE_VIDEO_ID = '';
+
+      if (YOUTUBE_VIDEO_ID) {
+        const container = document.getElementById('youtube-container');
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(YOUTUBE_VIDEO_ID)}`;
+        iframe.title = 'Nadie te dijo que iba a ser así — Teaser';
+        iframe.loading = 'lazy';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        container.replaceChildren(iframe);
+      }
+    </script>
+  </body>
+</html>
