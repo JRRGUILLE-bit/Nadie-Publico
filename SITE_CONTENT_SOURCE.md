@@ -120,13 +120,13 @@ Montevideo, Uruguay · Español
 # AUDIENCE
 
 - **CORE:** 18–34
-- **SECUNDARIA:** 35–44 + públicos hispanohablantes culturalmente próximos.
+- **SECUNDARIA:** 35–55 + públicos hispanohablantes culturalmente próximos.
 
 ---
 
 # PROJECT STATUS
 
-> Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser en producción · SKA Films, coproducción uruguaya
+> Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, coproducción uruguaya
 
 **Available development materials**
 
