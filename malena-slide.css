@@ -6,7 +6,7 @@
   gap: clamp(28px, 5vw, 72px);
   align-items: stretch;
   height: 100%;
-  min-height: 0;
+  min-height: 100%;
   padding: clamp(34px, 5vw, 72px) !important;
   overflow: hidden;
   isolation: isolate;
