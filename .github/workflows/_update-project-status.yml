@@ -1,5 +1,5 @@
 name: Update project status
-run-name: Update project status now
+run-name: Update project status retry
 
 on:
   push:
@@ -18,29 +18,27 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
 
-          replacements = {
-              "sobre.html": [
-                  ("SECUNDARIA: 35–44 + públicos hispanohablantes culturalmente próximos.", "SECUNDARIA: 35–55 + públicos hispanohablantes culturalmente próximos."),
-                  ("Piloto completo · temporada estructurada · teaser en producción</strong>", "Piloto completo · temporada estructurada · teaser realizado</strong>"),
-                  ("Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser en producción · SKA Films, coproducción uruguaya", "Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, coproducción uruguaya"),
-                  ("<div class=\"material\"><strong>Teaser en producción</strong></div>", "<div class=\"material\"><strong>Teaser realizado</strong></div>"),
-              ],
-              "SITE_CONTENT_SOURCE.md": [
-                  ("**SECUNDARIA:** 35–44 + públicos hispanohablantes culturalmente próximos.", "**SECUNDARIA:** 35–55 + públicos hispanohablantes culturalmente próximos."),
-                  ("teaser en producción", "teaser realizado"),
-              ],
-          }
+          sobre = Path("sobre.html")
+          text = sobre.read_text(encoding="utf-8")
+          text, n1 = re.subn(r"SECUNDARIA:\s*35\D+44", "SECUNDARIA: 35–55", text, count=1)
+          text, n2 = re.subn(r"teaser en producción", "teaser realizado", text)
+          if n1 == 0:
+              raise SystemExit("No se encontró el rango de público secundario en sobre.html")
+          if n2 == 0:
+              raise SystemExit("No se encontró 'teaser en producción' en sobre.html")
+          sobre.write_text(text, encoding="utf-8")
 
-          for filename, pairs in replacements.items():
-              path = Path(filename)
-              text = path.read_text(encoding="utf-8")
-              original = text
-              for old, new in pairs:
-                  text = text.replace(old, new)
-              if text == original:
-                  raise SystemExit(f"No changes made to {filename}; expected text not found")
-              path.write_text(text, encoding="utf-8")
+          source = Path("SITE_CONTENT_SOURCE.md")
+          text = source.read_text(encoding="utf-8")
+          text, n3 = re.subn(r"\*\*SECUNDARIA:\*\*\s*35\D+44", "**SECUNDARIA:** 35–55", text, count=1)
+          text, n4 = re.subn(r"teaser en producción", "teaser realizado", text)
+          if n3 == 0:
+              raise SystemExit("No se encontró el rango de público secundario en SITE_CONTENT_SOURCE.md")
+          if n4 == 0:
+              raise SystemExit("No se encontró 'teaser en producción' en SITE_CONTENT_SOURCE.md")
+          source.write_text(text, encoding="utf-8")
           PY
       - name: Commit changes
         run: |
