@@ -12,7 +12,7 @@
 Nadie te dijo que iba a ser así
 
 **Format**  
-Serie de ficción · 6 episodios de 20 a 25 minutos
+Serie de ficción · 6 episodios de 35 minutos
 
 **Genre**  
 Comedia negra / thriller político

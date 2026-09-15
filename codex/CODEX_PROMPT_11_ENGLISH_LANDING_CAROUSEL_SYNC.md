@@ -124,7 +124,7 @@ Logline — use the approved dossier wording exactly:
 
 Format:
 
-`6 × 20–25 min · Black comedy / political thriller · Montevideo, Uruguay`
+`6 × 35 min · Black comedy / political thriller · Montevideo, Uruguay`
 
 This slide must NOT contain the old embedded status list, partner-search list, materials note, budget, development plan or CTA block.
 

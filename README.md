@@ -1,6 +1,6 @@
 # Nadie te dijo que iba a ser así
 
-Sitio público y expediente profesional de una serie uruguaya de ficción de **6 episodios de 20–25 minutos** que cruza comedia negra y thriller político.
+Sitio público y expediente profesional de una serie uruguaya de ficción de **6 episodios de 35 minutos** que cruza comedia negra y thriller político.
 
 **Creada y escrita por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez.**  
 **Dirección:** Maite Piñeyrúa Segura.  

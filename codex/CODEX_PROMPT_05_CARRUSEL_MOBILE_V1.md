@@ -128,7 +128,7 @@ No convertirla en una tarjeta de texto.
 2. `UNA SERIE DE AMIGOS. HASTA QUE SE PRENDE FUEGO TODO.` grande, idealmente 2–4 líneas bien controladas.
 3. Logline completa, legible.
 4. Ficha industrial al pie con contraste suficiente:
-   `6 × 20–25 min · Comedia negra / thriller político · Montevideo, Uruguay`
+   `6 × 35 min · Comedia negra / thriller político · Montevideo, Uruguay`
 
 No esconder la logline y no meter scroll.
 

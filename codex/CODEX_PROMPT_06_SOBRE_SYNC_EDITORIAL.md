@@ -45,7 +45,7 @@ Mantener título:
 
 Reemplazar la bajada por una formulación estrictamente alineada a la fuente canónica:
 
-`Serie de ficción · 6 episodios de 20 a 25 minutos · Comedia negra / thriller político · Montevideo, Uruguay · Español.`
+`Serie de ficción · 6 episodios de 35 minutos · Comedia negra / thriller político · Montevideo, Uruguay · Español.`
 
 Agregar o mantener cerca de esta apertura, sin inventar información:
 
@@ -68,7 +68,7 @@ Mantener:
 - Idioma original: Español
 - Género: Comedia negra / thriller político
 - Formato: Serie de ficción · 6 episodios
-- Duración: 20–25 minutos por episodio
+- Duración: 35 minutos por episodio
 
 Cambiar `Estado: Desarrollo activo` por una formulación pública más específica y coherente con el estado vigente, sin convertir toda la línea de estado en una celda ilegible. Usar:
 
@@ -251,7 +251,7 @@ Actualizar únicamente los datos de `sobre.html` que hayan quedado factual/edito
 En particular:
 - evitar logline vieja en `description` o JSON-LD;
 - evitar `Ciudad Vieja` como definición general si contradice la fuente pública actual;
-- mantener 6 episodios / 20–25 min / Uruguay / español / comedia negra / thriller político;
+- mantener 6 episodios / 35 min / Uruguay / español / comedia negra / thriller político;
 - mantener SKA como productionCompany;
 - actualizar el rol de Maite para incluir dirección cuando corresponda;
 - actualizar Guillermo para `desarrollo creativo` cuando corresponda;

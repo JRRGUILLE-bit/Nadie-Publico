@@ -83,7 +83,7 @@ Logline, exacta:
 `Entre mates, milanesas y discusiones, tres jóvenes con un pie en la adultez comparten departamento en Montevideo. Pero todo cambia tras un incendio en una oficina que los lanza, casi sin querer, a investigar un crimen olvidado, un tesoro perdido durante la dictadura y los secretos que sus propias familias intentaron enterrar.`
 
 Ficha:
-`6 × 20–25 min · Comedia negra / thriller político · Montevideo, Uruguay`
+`6 × 35 min · Comedia negra / thriller político · Montevideo, Uruguay`
 
 No incluir en esta placa listas de materiales, estado de desarrollo, búsqueda de socios ni CTAs repetidos.
 

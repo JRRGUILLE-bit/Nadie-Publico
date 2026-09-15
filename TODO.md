@@ -5,7 +5,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 ## Cambios aprobados
 
 - [x] 1. Agregar un bloque visible de **Estado del proyecto**.
-  - Serie de ficción de 6 × 20–25 minutos.
+  - Serie de ficción de 6 × 35 minutos.
   - Proyecto en desarrollo.
   - Guion piloto disponible.
   - Dossier, biblia y arco de temporada disponibles.
@@ -122,7 +122,7 @@ Objetivo: convertir la página pública de **Nadie te dijo que iba a ser así** 
 - [x] Los accesos profesionales principales quedaron escritos directamente en `index.html`; ya no dependen de JavaScript para tener nombres, enlaces y mensajes correctos.
 - [x] Se agregó un selector **English** visible desde el primer render de la portada.
 - [x] Maite Piñeyrúa Segura quedó acreditada como **cocreadora, coguionista y directora** en la portada, las placas, el carrusel, las páginas española e inglesa, los metadatos y los datos estructurados.
-- [x] La duración se unificó como **6 episodios de 20–25 minutos**.
+- [x] La duración se unificó como **6 episodios de 35 minutos**.
 - [x] Los datos estructurados separan apoyo, laboratorio, premio y selección; solo Premio Teaser DETOUR figura como premio.
 - [x] La primera placa de Proyecto y equipo fue reducida a logline, estado, búsqueda, materiales y llamadas a la acción.
 - [x] El CSS de “Saltar presentación” quedó consolidado en `styles-contact.css`; JavaScript solo controla su creación y funcionamiento.

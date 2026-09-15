@@ -73,7 +73,7 @@ Use the following text as the target wording unless a tiny grammatical adjustmen
 
 ### Header / project definition
 
-`Fiction series · 6 episodes of 20–25 minutes · Black comedy / political thriller · Montevideo, Uruguay · Spanish.`
+`Fiction series · 6 episodes of 35 minutes · Black comedy / political thriller · Montevideo, Uruguay · Spanish.`
 
 `Created and written by Maite Piñeyrúa Segura and Guillermo Barbeito Rodríguez.`
 
@@ -89,7 +89,7 @@ Keep `mate` and `milanesas` untranslated.
 - Original language — `Spanish`
 - Genre — `Black comedy / political thriller`
 - Format — `Fiction series · 6 episodes`
-- Running time — `20–25 minutes per episode`
+- Running time — `35 minutes per episode`
 - Status — `Pilot complete · season structured · teaser in production`
 
 ### Main market block

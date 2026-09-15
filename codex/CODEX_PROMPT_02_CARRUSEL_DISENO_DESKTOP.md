@@ -143,7 +143,7 @@ Desktop:
 - `PROYECTO` pequeño, casi etiqueta de dossier;
 - tagline `UNA SERIE DE AMIGOS. HASTA QUE SE PRENDE FUEGO TODO.` como frase de mayor impacto tipográfico;
 - logline debajo con lectura cómoda;
-- ficha `6 × 20–25 min · Comedia negra / thriller político · Montevideo, Uruguay` como línea técnica de cierre.
+- ficha `6 × 35 min · Comedia negra / thriller político · Montevideo, Uruguay` como línea técnica de cierre.
 
 No añadir CTA en esta placa.
 

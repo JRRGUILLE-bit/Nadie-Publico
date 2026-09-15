@@ -99,17 +99,17 @@ Cambiar exclusivamente:
 
 Reemplazar:
 
-`Comedia negra y thriller político desde Ciudad Vieja, Montevideo. Serie 6×20–25 min en desarrollo. Coproducción con SKA Films; búsqueda activa de financiación y distribución internacional.`
+`Comedia negra y thriller político desde Ciudad Vieja, Montevideo. Serie 6×35 min en desarrollo. Coproducción con SKA Films; búsqueda activa de financiación y distribución internacional.`
 
 por:
 
-`Comedia negra y thriller político desde Montevideo. Serie 6×20–25 min en desarrollo. Coproducción con SKA Films; búsqueda activa de financiación y distribución internacional.`
+`Comedia negra y thriller político desde Montevideo. Serie 6×35 min en desarrollo. Coproducción con SKA Films; búsqueda activa de financiación y distribución internacional.`
 
 ### JSON-LD TVSeries description
 
 Reemplazar la descripción que dice que la serie está situada en `Ciudad Vieja, Montevideo` por:
 
-`Serie uruguaya de ficción en desarrollo, de 6 episodios de 20 a 25 minutos. Comedia negra y thriller político situada en Montevideo, Uruguay.`
+`Serie uruguaya de ficción en desarrollo, de 6 episodios de 35 minutos. Comedia negra y thriller político situada en Montevideo, Uruguay.`
 
 No tocar la ficha externa del Fondo de Incentivo Cultural ni ninguna URL externa.
 
