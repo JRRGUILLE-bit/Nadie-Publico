@@ -1,5 +1,5 @@
 name: Update project status
-run-name: Update project status retry
+run-name: Update project status final retry
 
 on:
   push:
@@ -18,27 +18,39 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
 
-          sobre = Path("sobre.html")
-          text = sobre.read_text(encoding="utf-8")
-          text, n1 = re.subn(r"SECUNDARIA:\s*35\D+44", "SECUNDARIA: 35–55", text, count=1)
-          text, n2 = re.subn(r"teaser en producción", "teaser realizado", text)
-          if n1 == 0:
-              raise SystemExit("No se encontró el rango de público secundario en sobre.html")
-          if n2 == 0:
-              raise SystemExit("No se encontró 'teaser en producción' en sobre.html")
-          sobre.write_text(text, encoding="utf-8")
+          def update_file(path, audience_prefix, audience_line):
+              p = Path(path)
+              lines = p.read_text(encoding="utf-8").splitlines(keepends=True)
+              found_audience = False
+              found_teaser = False
+              out = []
+              for line in lines:
+                  if "SECUNDARIA:" in line:
+                      if audience_prefix in line:
+                          newline = "\n" if line.endswith("\n") else ""
+                          line = audience_line + newline
+                          found_audience = True
+                  if "teaser en producción" in line:
+                      line = line.replace("teaser en producción", "teaser realizado")
+                      found_teaser = True
+                  out.append(line)
+              if not found_audience:
+                  raise SystemExit(f"No se encontró la línea de público secundario en {path}")
+              if not found_teaser:
+                  raise SystemExit(f"No se encontró 'teaser en producción' en {path}")
+              p.write_text("".join(out), encoding="utf-8")
 
-          source = Path("SITE_CONTENT_SOURCE.md")
-          text = source.read_text(encoding="utf-8")
-          text, n3 = re.subn(r"\*\*SECUNDARIA:\*\*\s*35\D+44", "**SECUNDARIA:** 35–55", text, count=1)
-          text, n4 = re.subn(r"teaser en producción", "teaser realizado", text)
-          if n3 == 0:
-              raise SystemExit("No se encontró el rango de público secundario en SITE_CONTENT_SOURCE.md")
-          if n4 == 0:
-              raise SystemExit("No se encontró 'teaser en producción' en SITE_CONTENT_SOURCE.md")
-          source.write_text(text, encoding="utf-8")
+          update_file(
+              "sobre.html",
+              "SECUNDARIA:",
+              "          <p><strong>SECUNDARIA: 35–55 + públicos hispanohablantes culturalmente próximos.</strong></p>"
+          )
+          update_file(
+              "SITE_CONTENT_SOURCE.md",
+              "SECUNDARIA:",
+              "- **SECUNDARIA:** 35–55 + públicos hispanohablantes culturalmente próximos.\n"
+          )
           PY
       - name: Commit changes
         run: |
