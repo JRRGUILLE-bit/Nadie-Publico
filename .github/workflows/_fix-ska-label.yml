@@ -1,0 +1,36 @@
+name: Fix SKA Films label
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Change SKA label
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<p>COPRODUCCIÓN URUGUAYA</p>'
+          new = '<p>PRODUCTORA URUGUAYA</p>'
+          if old not in s:
+              raise SystemExit('No se encontró la etiqueta COPRODUCCIÓN URUGUAYA')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Change SKA Films label to productora uruguaya"
+          git push
+      - name: Remove temporary workflow
+        if: success()
+        run: |
+          rm .github/workflows/_fix-ska-label.yml
+          git add .github/workflows/_fix-ska-label.yml
+          git commit -m "Remove temporary SKA label workflow"
+          git push
