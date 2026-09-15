@@ -1,0 +1,42 @@
+name: Fix Malena role
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Malena role only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = ['index.html', 'sobre.html', 'english.html', 'dossier-en.html']
+          replacements = {
+              'Malena Benavides is the executive producer of': 'Malena Benavides is the producer of',
+              'Malena Benavides es la productora ejecutiva de': 'Malena Benavides es la productora de',
+              'Malena Benavides es Productora ejecutiva': 'Malena Benavides es Productora',
+              'Malena Benavides — Productora ejecutiva': 'Malena Benavides — Productora',
+              '"name": "Malena Benavides",\n            "jobTitle": "Productora ejecutiva"': '"name": "Malena Benavides",\n            "jobTitle": "Productora"',
+          }
+          for name in files:
+              p = Path(name)
+              text = p.read_text(encoding='utf-8')
+              original = text
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              if text != original:
+                  p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes and remove workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .github/workflows/_fix-malena-role.yml
+          git add index.html sobre.html english.html dossier-en.html .github/workflows/_fix-malena-role.yml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Correct Malena Benavides role to producer'
+          git push
