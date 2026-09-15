@@ -1,0 +1,58 @@
+name: Update project status
+run-name: Update project status now
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update audience and teaser status
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              "sobre.html": [
+                  ("SECUNDARIA: 35–44 + públicos hispanohablantes culturalmente próximos.", "SECUNDARIA: 35–55 + públicos hispanohablantes culturalmente próximos."),
+                  ("Piloto completo · temporada estructurada · teaser en producción</strong>", "Piloto completo · temporada estructurada · teaser realizado</strong>"),
+                  ("Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser en producción · SKA Films, coproducción uruguaya", "Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, coproducción uruguaya"),
+                  ("<div class=\"material\"><strong>Teaser en producción</strong></div>", "<div class=\"material\"><strong>Teaser realizado</strong></div>"),
+              ],
+              "SITE_CONTENT_SOURCE.md": [
+                  ("**SECUNDARIA:** 35–44 + públicos hispanohablantes culturalmente próximos.", "**SECUNDARIA:** 35–55 + públicos hispanohablantes culturalmente próximos."),
+                  ("teaser en producción", "teaser realizado"),
+              ],
+          }
+
+          for filename, pairs in replacements.items():
+              path = Path(filename)
+              text = path.read_text(encoding="utf-8")
+              original = text
+              for old, new in pairs:
+                  text = text.replace(old, new)
+              if text == original:
+                  raise SystemExit(f"No changes made to {filename}; expected text not found")
+              path.write_text(text, encoding="utf-8")
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sobre.html SITE_CONTENT_SOURCE.md
+          git commit -m "Update audience and teaser status"
+          git push
+      - name: Remove temporary workflow
+        if: success()
+        run: |
+          rm .github/workflows/_update-project-status.yml
+          git add .github/workflows/_update-project-status.yml
+          git commit -m "Remove temporary update workflow"
+          git push
