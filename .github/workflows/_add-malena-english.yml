@@ -1,6 +1,7 @@
 name: Add Malena production slide to English page
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   update:
@@ -27,7 +28,6 @@ jobs:
               if dot_old not in s:
                   raise SystemExit('English navigation dots marker not found')
               s = s.replace(dot_old, dot_new, 1)
-          # Update the carousel counter from 08 to 09 if present.
           s = s.replace('01 / 08 — PROJECT', '01 / 09 — PROJECT', 1)
           p.write_text(s, encoding='utf-8')
           PY
@@ -36,7 +36,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add english.html
-          git commit -m "Add Malena production slide to English page"
-          git rm .github/workflows/_add-malena-english.yml
-          git commit -m "Remove temporary Malena English slide workflow"
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+            git rm .github/workflows/_add-malena-english.yml
+            git commit -m "Remove temporary Malena English slide workflow"
+          else
+            git commit -m "Add Malena production slide to English page"
+            git rm .github/workflows/_add-malena-english.yml
+            git commit -m "Remove temporary Malena English slide workflow"
+          fi
           git push
