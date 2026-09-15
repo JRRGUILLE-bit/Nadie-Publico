@@ -1,0 +1,32 @@
+name: Restore English page before Malena visual changes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/_restore-english-before-malena.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore previous English page and remove Malena CSS
+        run: |
+          git checkout 674b51566768bb4a739661efd39f3a5447c9998d -- english.html
+          rm -f malena-production.css
+          rm -f .github/workflows/_restore-english-before-malena.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add english.html malena-production.css .github/workflows/_restore-english-before-malena.yml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Restore English page before Malena visual changes [skip ci]'
+          git push
