@@ -1,0 +1,62 @@
+name: Normalize production slides
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: ${{ !contains(github.event.head_commit.message, '[production-normalized]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Normalize production slides
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          spanish = Path('index.html')
+          english = Path('english.html')
+
+          for path in (spanish, english):
+              text = path.read_text(encoding='utf-8')
+              text = re.sub(r'malena-slide\.css\?v=\d+', 'malena-slide.css?v=3', text)
+              path.write_text(text, encoding='utf-8')
+
+          text = spanish.read_text(encoding='utf-8')
+          pattern = re.compile(r'<article class="about-card about-card--malena about-card--creators" id="about-malena" data-about-slide data-slide-key="malena">.*?</article>', re.S)
+          replacement = '''<article class="about-card about-card--malena" id="about-malena" data-about-slide data-slide-key="malena">
+    <div class="malena-copy">
+      <header class="malena-heading"><p>PRODUCCIÓN</p><h2 tabindex="-1">MALENA BENAVIDES</h2><span>PRODUCTORA</span></header>
+      <div class="malena-profile">
+        <p>Malena Benavides es la productora de <em>Nadie te dijo que iba a ser así</em>. Su trabajo articula el desarrollo del proyecto, la organización de producción y el vínculo con creadorxs, aliados y espacios profesionales.</p>
+        <p>Formada en la Universidad Católica del Uruguay, desarrolla su actividad en el campo audiovisual. Fue productora del documental <em>Tumbero</em> y actualmente trabaja junto a Pardelion Films. En <em>Nadie te dijo que iba a ser así</em>, acompaña el proyecto en su desarrollo y proyección hacia la producción.</p>
+      </div>
+    </div>
+    <aside class="malena-dossier" aria-label="Ficha de producción">
+      <div class="malena-dossier__stamp">FICHA DE PRODUCCIÓN</div>
+      <div class="malena-dossier__line"><span>ROL</span><strong>PRODUCTORA</strong></div>
+      <div class="malena-dossier__line"><span>TRABAJO ANTERIOR</span><strong>TUMBERO</strong></div>
+      <div class="malena-dossier__line"><span>ACTUALMENTE</span><strong>PARDELION FILMS</strong></div>
+      <div class="malena-dossier__mark">MB</div>
+    </aside>
+  </article>'''
+          text, count = pattern.subn(replacement, text, count=1)
+          if count != 1:
+              raise SystemExit('Spanish production slide markup was not found exactly once')
+          spanish.write_text(text, encoding='utf-8')
+
+      - name: Commit normalized production slides
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html english.html
+          git diff --cached --quiet && exit 0
+          git commit -m "[production-normalized] Match Spanish production slide to English"
+          git push
