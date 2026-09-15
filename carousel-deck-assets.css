@@ -1,4 +1,5 @@
-/* Pitch-deck art direction for the public carousel. */
+/* Pitch-deck art direction for the seven-card public carousel.
+   Approved raster artwork is atmospheric only; HTML remains the source of truth. */
 
 .about-card--project::before,
 .about-card--universe::before,
@@ -12,6 +13,7 @@
   pointer-events: none;
 }
 
+/* 01 — Retain the coffee-maker still and let the deck artwork frame its edges. */
 .about-card--project::before {
   z-index: 3;
   background-image:
@@ -27,6 +29,7 @@
   background: linear-gradient(90deg, rgba(13, 16, 14, 0.94), #0c0f0d 20% 100%);
 }
 
+/* 02 — The illustrated apartment is the world; the cream field holds the copy. */
 .about-card--universe {
   color: #211c1b;
   background: #d7c59e;
@@ -62,6 +65,7 @@
   z-index: 2;
 }
 
+/* 03 — Restrained paper slips over a tactile editorial field. */
 .about-card--tone {
   background:
     radial-gradient(circle at 80% 18%, rgba(109, 19, 78, 0.24), transparent 28%),
@@ -80,6 +84,153 @@
   transform: rotate(0.45deg);
 }
 
+@media (min-width: 721px) {
+  .about-card--tone {
+    background:
+      radial-gradient(circle at 78% 16%, rgba(178, 35, 119, 0.12), transparent 34%),
+      radial-gradient(ellipse at 18% 86%, rgba(28, 119, 111, 0.08), transparent 46%),
+      linear-gradient(105deg, #071613 0 58%, #14131f 72%, #32152c 100%);
+  }
+
+  /* Registration lines, halftone and worn ink stay behind the approved copy. */
+  .about-card--tone::before {
+    z-index: 0;
+    opacity: 0.26;
+    background-image:
+      linear-gradient(90deg, transparent 0 8%, rgba(221, 199, 166, 0.1) 8% 8.08%, transparent 8.08% 100%),
+      linear-gradient(0deg, transparent 0 17%, rgba(221, 199, 166, 0.08) 17% 17.12%, transparent 17.12% 100%),
+      radial-gradient(circle, rgba(231, 213, 181, 0.16) 0 0.4px, transparent 0.75px),
+      repeating-linear-gradient(112deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 5px);
+    background-size: 100% 100%, 100% 100%, 9px 9px, 100% 100%;
+    mix-blend-mode: screen;
+  }
+
+  .about-card--tone::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    background:
+      linear-gradient(90deg, rgba(216, 190, 151, 0.42), rgba(216, 190, 151, 0.42)) 8% 8% / 2.6rem 1px no-repeat,
+      linear-gradient(rgba(216, 190, 151, 0.42), rgba(216, 190, 151, 0.42)) 8% 8% / 1px 2.6rem no-repeat,
+      linear-gradient(90deg, rgba(216, 190, 151, 0.3), rgba(216, 190, 151, 0.3)) 92% 84% / 2rem 1px no-repeat,
+      linear-gradient(rgba(216, 190, 151, 0.3), rgba(216, 190, 151, 0.3)) 92% 84% / 1px 2rem no-repeat,
+      radial-gradient(ellipse at 54% 24%, rgba(197, 57, 132, 0.1), transparent 20%),
+      radial-gradient(ellipse at 34% 74%, rgba(0, 0, 0, 0.2), transparent 24%);
+    box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.22);
+  }
+
+  .about-card--tone .tone-resources li {
+    --tone-slip-angle: -0.35deg;
+    opacity: 0;
+    transform: translate3d(0.75rem, 0.18rem, 0) rotate(var(--tone-slip-angle));
+  }
+
+  .about-card--tone .tone-resources li:nth-child(even) {
+    --tone-slip-angle: 0.45deg;
+  }
+
+  .about-card--tone.is-active .tone-resources li {
+    animation: tone-resource-arrival 400ms cubic-bezier(0.22, 0.72, 0.24, 1) both;
+    animation-delay: calc(110ms + (var(--tone-resource-index) * 140ms));
+  }
+
+  .about-card--tone .tone-resources li:nth-child(1) { --tone-resource-index: 0; }
+  .about-card--tone .tone-resources li:nth-child(2) { --tone-resource-index: 1; }
+  .about-card--tone .tone-resources li:nth-child(3) { --tone-resource-index: 2; }
+  .about-card--tone .tone-resources li:nth-child(4) { --tone-resource-index: 3; }
+  .about-card--tone .tone-resources li:nth-child(5) { --tone-resource-index: 4; }
+  .about-card--tone .tone-resources li:nth-child(6) { --tone-resource-index: 5; }
+
+  /* The red "lo extraño / the strange" glitches once, a couple of seconds after the slips finish arriving. */
+  .about-card--tone.is-active blockquote strong:last-child {
+    animation: tone-strange-glitch 680ms steps(1, end) 3.2s 1 both;
+  }
+}
+
+@keyframes tone-resource-arrival {
+  0% {
+    opacity: 0;
+    transform: translate3d(0.75rem, 0.18rem, 0) rotate(var(--tone-slip-angle)) scale(0.985);
+  }
+  68% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--tone-slip-angle)) scale(1.012);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--tone-slip-angle)) scale(1);
+  }
+}
+
+@keyframes tone-strange-glitch {
+  0%,
+  10%,
+  100% {
+    transform: translate(0, 0) skewX(0);
+    filter: none;
+    text-shadow: none;
+  }
+  11% {
+    transform: translate(5px, -1px) skewX(-3deg);
+    filter: contrast(1.2) brightness(1.08);
+    text-shadow: -5px 0 rgba(8, 112, 109, 0.92), 4px 0 rgba(183, 19, 107, 0.9);
+  }
+  18% {
+    transform: translate(-4px, 1px) skewX(2deg);
+    text-shadow: 4px 0 rgba(8, 112, 109, 0.86), -3px 0 rgba(236, 207, 155, 0.72);
+  }
+  26% {
+    transform: translate(2px, 0) skewX(-1deg);
+    filter: saturate(1.4) contrast(1.15);
+    text-shadow: -2px 0 rgba(183, 19, 107, 0.95), 3px 0 rgba(8, 112, 109, 0.82);
+  }
+  34% {
+    transform: translate(0, 0) skewX(0);
+    filter: none;
+    text-shadow: none;
+  }
+  47% {
+    transform: translate(-6px, 1px) skewX(3deg);
+    filter: brightness(1.15);
+    text-shadow: 5px 0 rgba(8, 112, 109, 0.9), -5px 0 rgba(183, 19, 107, 0.86);
+  }
+  55% {
+    transform: translate(4px, -1px) skewX(-2deg);
+    text-shadow: -4px 0 rgba(236, 207, 155, 0.7), 5px 0 rgba(183, 19, 107, 0.9);
+  }
+  64%,
+  82% {
+    transform: translate(0, 0) skewX(0);
+    filter: none;
+    text-shadow: none;
+  }
+  83% {
+    transform: translate(2px, 0) skewX(-1deg);
+    text-shadow: -2px 0 rgba(8, 112, 109, 0.74), 2px 0 rgba(183, 19, 107, 0.78);
+  }
+  91% {
+    transform: translate(-1px, 0) skewX(1deg);
+    text-shadow: 1px 0 rgba(236, 207, 155, 0.62);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card--tone .tone-resources li,
+  .about-card--tone.is-active .tone-resources li {
+    opacity: 1;
+    transform: rotate(var(--tone-slip-angle, -0.35deg));
+    animation: none;
+  }
+
+  .about-card--tone.is-active blockquote strong:last-child {
+    animation: none;
+  }
+}
+
+/* 04 — Keep the board visible as an editorial financing dossier, without letting raster text read as factual copy. */
 .about-card--market {
   background:
     radial-gradient(circle at 80% 22%, rgba(117, 35, 72, 0.09), transparent 34%),
@@ -106,6 +257,7 @@
   text-shadow: 0 1px rgba(255, 248, 221, 0.56);
 }
 
+/* 05 — Equal editorial sheets, held together by the shared-authorship strip. */
 .about-card--creators {
   background:
     radial-gradient(circle at 50% 105%, rgba(19, 108, 103, 0.22), transparent 34%),
@@ -126,6 +278,7 @@
   box-shadow: 7px 7px 0 rgba(18, 109, 104, 0.18);
 }
 
+/* 06 — Generated lettering is veiled; the real logo and profile sit above it. */
 .about-card--ska {
   background: #09110f;
 }
@@ -151,211 +304,440 @@
   filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.72)) drop-shadow(0 0 12px rgba(238, 221, 181, 0.18));
 }
 
-/* 07 — Malena: treat the slide as a production dossier, not a second creator card. */
-.about-card--malena {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: #07100e;
+.about-card--ska .ska-profile {
+  border-left-color: #a91c70;
+  background: linear-gradient(90deg, rgba(5, 15, 13, 0.88), rgba(5, 15, 13, 0.58));
 }
 
-.about-card--malena::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(5, 12, 11, 0.9) 0%, rgba(5, 12, 11, 0.78) 48%, rgba(5, 12, 11, 0.48) 100%),
-    radial-gradient(circle at 83% 22%, rgba(171, 24, 103, 0.18), transparent 32%),
-    linear-gradient(180deg, rgba(5, 8, 7, 0.14), rgba(5, 8, 7, 0.62));
+@media (min-width: 721px) {
+  .about-card--project::before {
+    background-image: url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+    background-position: center;
+    transform: scaleX(-1);
+    transform-origin: center;
+    clip-path: inset(0 56% 0 0);
+    opacity: 0.58;
+  }
+
+  .about-card--project .project-copy {
+    background: linear-gradient(
+      90deg,
+      rgba(12, 15, 13, 0.98) 0%,
+      rgba(12, 15, 13, 0.95) 54%,
+      rgba(12, 15, 13, 0.86) 76%,
+      rgba(12, 15, 13, 0.68) 100%
+    );
+  }
+
+  .about-card--universe {
+    background: #211813;
+  }
+
+  .about-card--universe::before {
+    background-color: #87644e;
+    background-blend-mode: multiply;
+    filter: saturate(1.18) contrast(1.12);
+  }
+
+  /* Keep the approved artwork intact; only redistribute the desktop copy. */
+  @media (min-width: 900px) {
+    .about-card--universe {
+      grid-template-columns: minmax(0, 62%) minmax(13rem, 38%);
+      grid-template-rows: auto minmax(0, 1fr);
+      column-gap: 0;
+    }
+
+    .about-card--universe h2 {
+      grid-column: 1;
+      grid-row: 1;
+      margin-left: clamp(0.35rem, 0.8vw, 0.75rem);
+    }
+
+    .about-card--universe .universe-contrast {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: center;
+      width: min(calc(100% - clamp(2.75rem, 6vw, 5.75rem)), 62ch);
+      max-width: 62ch;
+      margin-left: clamp(2.75rem, 6vw, 5.75rem);
+      padding: 0 clamp(1.5rem, 2.5vw, 2.5rem) 0 0;
+      transform: translate(170px, -55px);
+    }
+
+    .about-card--universe .universe-contrast > p:first-child {
+      padding: clamp(0.48rem, 0.8vw, 0.72rem) clamp(0.62rem, 1vw, 0.92rem) clamp(0.44rem, 0.75vw, 0.66rem);
+      color: #171012;
+      background: linear-gradient(90deg, rgba(236, 218, 178, 0.74) 0%, rgba(222, 197, 155, 0.56) 72%, rgba(222, 197, 155, 0.16) 100%);
+      box-shadow: inset 3px 0 0 rgba(110, 22, 77, 0.72), 0 10px 28px rgba(28, 13, 14, 0.16);
+      font-size: clamp(0.98rem, 1.14vw, 1.14rem);
+      font-weight: 700;
+      line-height: 1.5;
+      text-shadow: 0 1px rgba(255, 247, 218, 0.74);
+      backdrop-filter: blur(1.2px);
+      -webkit-backdrop-filter: blur(1.2px);
+    }
+
+    .about-card--universe .universe-concepts {
+      width: 28ch;
+      max-width: 28ch;
+      margin-top: clamp(1.1rem, 2.2vh, 1.65rem) !important;
+      margin-left: clamp(0.4rem, 1.1vw, 1rem);
+      font-size: clamp(1.05rem, 1.45vw, 1.45rem) !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.015em;
+      text-wrap: balance;
+      transform: translateX(125px);
+      text-shadow: 2px 3px 0 rgba(24, 12, 14, 0.58), 0 0 8px rgba(255, 231, 190, 0.08);
+    }
+
+    .about-card--universe .universe-characters {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: center;
+      align-content: center;
+      justify-items: start;
+      min-height: 44%;
+      padding: clamp(1rem, 2vh, 1.5rem) clamp(0.5rem, 1.2vw, 1.25rem) clamp(1rem, 2vh, 1.5rem) clamp(4rem, 7vw, 7rem);
+      gap: clamp(0.65rem, 1.35vh, 1rem);
+    }
+
+    .about-card--universe .universe-characters li {
+      font-size: clamp(1.15rem, 1.7vw, 1.8rem);
+      letter-spacing: 0.1em;
+    }
+
+    .about-card--universe .universe-characters li:nth-child(2),
+    .about-card--universe .universe-characters li:nth-child(3) {
+      transform: none;
+    }
+
+    .about-card--universe::after {
+      top: clamp(2.15rem, 3.5vw, 2.8rem);
+      right: clamp(2rem, 3.4vw, 3.4rem);
+    }
+  }
+
+  .about-card--market::before {
+    background-image:
+      linear-gradient(90deg, rgba(226, 214, 181, 0.44) 0 34%, rgba(226, 214, 181, 0.22) 34% 72%, rgba(103, 68, 62, 0.08) 100%),
+      linear-gradient(180deg, rgba(255, 248, 221, 0.06), rgba(72, 46, 42, 0.12)),
+      url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+    filter: saturate(0.96) contrast(1.06);
+    transform: scale(1.002);
+  }
+
+  .about-card--ska::before {
+    opacity: 0.54;
+    filter: saturate(0.62) contrast(0.82) blur(0.5px);
+    transform: scale(1.002);
+  }
+
+  .about-card--ska .ska-brand {
+    background: rgba(5, 14, 12, 0.88);
+  }
+
+  .about-card--ska .ska-profile {
+    background: linear-gradient(90deg, rgba(5, 15, 13, 0.96), rgba(5, 15, 13, 0.9));
+  }
+
+  .about-card--ska .ska-credits {
+    background: rgba(5, 14, 12, 0.91);
+  }
 }
 
-.about-card--malena .malena-visual {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+/* 07 — The HTML timeline stays dominant over the investigative case-file. */
+.about-card--journey {
+  background: #07110f;
 }
 
-.about-card--malena .malena-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.27;
-  filter: saturate(0.72) contrast(1.08) brightness(0.74);
-  mix-blend-mode: screen;
-  transform: scale(1.03);
+.about-card--journey::before {
+  background-image:
+    linear-gradient(rgba(4, 12, 11, 0.69), rgba(4, 10, 9, 0.79)),
+    url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png');
+  background-position: center;
+  filter: saturate(0.82) contrast(1.08);
 }
 
-.about-card--malena .malena-copy {
-  position: relative;
+.about-card--journey > * {
   z-index: 2;
-  width: min(61%, 52rem);
-  margin-left: clamp(2rem, 5vw, 5rem);
-  padding-top: clamp(2.4rem, 6vh, 4.5rem);
 }
 
-.about-card--malena .malena-heading {
-  margin: 0 0 clamp(1rem, 2.3vh, 1.55rem);
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(220, 195, 147, 0.28);
+.about-card--journey .journey-timeline strong,
+.about-card--journey .journey-timeline span {
+  padding: 0.28rem 0.4rem;
+  background: rgba(4, 12, 10, 0.68);
+  box-decoration-break: clone;
 }
 
-.about-card--malena .malena-heading p,
-.about-card--malena .malena-heading span {
-  margin: 0;
-  color: #d7bf8b;
-  font-family: 'Special Elite', 'Courier Prime', monospace;
-  font-size: clamp(0.62rem, 1vw, 0.8rem);
-  letter-spacing: 0.18em;
-}
-
-.about-card--malena .malena-heading h2 {
-  margin: 0.25rem 0 0.35rem;
-  color: #eee0c2;
-  font-size: clamp(1.65rem, 3vw, 2.8rem);
-  letter-spacing: 0.045em;
-}
-
-.about-card--malena .malena-heading h2::after {
-  display: none;
-}
-
-.about-card--malena .malena-heading span {
-  color: #a91c70;
-}
-
-.about-card--malena .malena-profile {
-  max-width: 52rem;
-  padding-left: clamp(1rem, 1.8vw, 1.55rem);
-  border-left: 2px solid rgba(169, 28, 112, 0.7);
-}
-
-.about-card--malena .malena-profile p {
-  margin: 0 0 1rem;
-  color: rgba(238, 228, 207, 0.9);
-  font-size: clamp(0.82rem, 1.18vw, 1rem);
-  line-height: 1.52;
-}
-
-.about-card--malena .malena-dossier {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  right: clamp(2rem, 5vw, 5rem);
-  width: min(25%, 19rem);
-  min-height: 57%;
-  padding: clamp(1.1rem, 2vw, 1.65rem);
-  transform: translateY(-43%) rotate(1.1deg);
-  border: 1px solid rgba(225, 205, 164, 0.38);
-  background:
-    linear-gradient(135deg, rgba(225, 205, 164, 0.13), rgba(15, 18, 16, 0.82)),
-    repeating-linear-gradient(0deg, rgba(238, 220, 181, 0.025) 0 1px, transparent 1px 5px);
-  box-shadow: 10px 12px 0 rgba(103, 17, 72, 0.24), inset 0 0 36px rgba(0, 0, 0, 0.24);
-}
-
-.about-card--malena .malena-dossier::before,
-.about-card--malena .malena-dossier::after {
-  content: '';
-  position: absolute;
-  width: 2.2rem;
-  height: 0.4rem;
-  background: rgba(213, 194, 155, 0.24);
-  transform: rotate(-8deg);
-}
-
-.about-card--malena .malena-dossier::before {
-  top: -0.18rem;
-  left: 18%;
-}
-
-.about-card--malena .malena-dossier::after {
-  right: 12%;
-  bottom: -0.18rem;
-  transform: rotate(6deg);
-}
-
-.about-card--malena .malena-dossier__stamp {
-  margin-bottom: clamp(1.6rem, 4vh, 3rem);
-  color: #a91c70;
-  font-family: 'Special Elite', 'Courier Prime', monospace;
-  font-size: clamp(0.65rem, 1vw, 0.82rem);
-  letter-spacing: 0.14em;
-}
-
-.about-card--malena .malena-dossier__line {
-  padding: 0.75rem 0;
-  border-top: 1px solid rgba(220, 195, 147, 0.22);
-}
-
-.about-card--malena .malena-dossier__line span,
-.about-card--malena .malena-dossier__line strong {
-  display: block;
-  font-family: 'Special Elite', 'Courier Prime', monospace;
-}
-
-.about-card--malena .malena-dossier__line span {
-  margin-bottom: 0.25rem;
-  color: rgba(215, 191, 139, 0.72);
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-}
-
-.about-card--malena .malena-dossier__line strong {
-  color: #eee0c2;
-  font-size: clamp(0.72rem, 1.1vw, 0.92rem);
-  letter-spacing: 0.07em;
-  font-weight: 400;
-}
-
-.about-card--malena .malena-dossier__mark {
-  position: absolute;
-  right: 1rem;
-  bottom: 0.7rem;
-  color: rgba(220, 195, 147, 0.17);
-  font-family: 'Special Elite', 'Courier Prime', monospace;
-  font-size: 3.8rem;
-  letter-spacing: -0.08em;
+.about-card--journey .project-card-actions a {
+  backdrop-filter: blur(3px);
 }
 
 @media (max-width: 720px) {
-  .about-card--malena .malena-copy {
-    width: auto;
-    margin: 0 1.2rem;
-    padding-top: 1.7rem;
+  .about-card--project::before {
+    background-image:
+      linear-gradient(180deg, transparent 0 28%, rgba(7, 10, 9, 0.5) 52% 100%),
+      url('8bcb8f86-c15e-4389-9630-592dba67af4d.png');
+    background-size: auto 43%, cover;
+    background-position: center top, center;
+    opacity: 0.4;
   }
 
-  .about-card--malena .malena-dossier {
+  .about-card--project .project-copy {
+    background: rgba(12, 15, 13, 0.97);
+  }
+
+  .about-card--universe {
+    background: #d8c7a2;
+  }
+
+  .about-card--universe::before {
+    background-image:
+      linear-gradient(180deg, rgba(224, 210, 175, 0.78) 0 56%, rgba(26, 14, 20, 0.08) 72%),
+      url('98567b0c-25bc-412e-b2eb-7afb8dc4d2e5.png');
+    background-size: cover, auto 100%;
+    background-position: center, 57% center;
+  }
+
+  .about-card--universe .universe-characters {
+    margin: 0 -1.2rem -1.2rem;
+    background: linear-gradient(180deg, transparent, rgba(7, 12, 11, 0.7));
+  }
+
+  .about-card--universe .universe-characters::before {
+    color: #562044;
+    text-shadow: 0 1px rgba(255, 240, 204, 0.7);
+  }
+
+  .about-card--tone .tone-resources li {
+    padding: 0.28rem 0.34rem 0.22rem;
+    letter-spacing: 0.02em;
+  }
+
+  .about-card--market::before {
+    background-image:
+      linear-gradient(rgba(226, 214, 181, 0.86), rgba(226, 214, 181, 0.9)),
+      url('1bdf704c-0bab-4cef-8f9a-f72624396b23.png');
+    background-size: cover, auto 100%;
+    background-position: center, center;
+  }
+
+  .about-card--creators .creator {
+    margin: 0.2rem 0.18rem 0.35rem;
+    padding: 0.4rem clamp(0.38rem, 2vw, 0.6rem);
+    box-shadow: 3px 3px 0 rgba(113, 19, 79, 0.2);
+  }
+
+  .about-card--creators .creator + .creator {
+    padding-left: clamp(0.38rem, 2vw, 0.6rem);
+    box-shadow: 3px 3px 0 rgba(18, 109, 104, 0.2);
+  }
+
+  .about-card--ska::before {
+    background-image:
+      linear-gradient(rgba(4, 12, 10, 0.8), rgba(4, 12, 10, 0.9)),
+      url('efba8b06-0da4-4000-af6d-52489eb810e9.png');
+    background-size: cover, auto 100%;
+    background-position: center;
+  }
+
+  .about-card--ska .ska-profile {
+    padding: 0.35rem 0.45rem;
+    border-left: 0;
+    background: rgba(5, 15, 13, 0.68);
+  }
+
+  .about-card--journey::before {
+    background-image:
+      linear-gradient(rgba(4, 12, 11, 0.72), rgba(4, 10, 9, 0.82)),
+      url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png');
+    background-size: cover, auto 100%;
+    background-position: center;
+  }
+
+  .about-card--journey .journey-timeline strong,
+  .about-card--journey .journey-timeline span {
+    padding: 0.12rem 0.25rem;
+  }
+}
+
+/* SKA Films — an industrial-partner dossier, with the approved collage left in full view. */
+@media (min-width: 900px) {
+  .about-card--ska {
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(220px, 36%) minmax(0, 64%);
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: clamp(2rem, 4vw, 4.75rem);
+    row-gap: clamp(1.2rem, 2.6vh, 2rem);
+    overflow: hidden;
+    color: #171713;
+    background: #d7c6a0;
+  }
+
+  .about-card--ska::before {
+    opacity: 1;
+    background-image:
+      linear-gradient(90deg, rgba(7, 13, 12, 0.1) 0 23%, transparent 39% 72%, rgba(7, 13, 12, 0.08) 100%),
+      url('efba8b06-0da4-4000-af6d-52489eb810e9.png');
+    background-position: center;
+    background-size: cover;
+    filter: saturate(1.06) contrast(1.04);
+    transform: none;
+  }
+
+  .about-card--ska::after {
+    content: none;
+  }
+
+  .about-card--ska .ska-brand {
+    z-index: 3;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    display: flex;
+    padding: 0 0 1rem;
+    background: none;
+    transform: rotate(-1deg);
+  }
+
+  .about-card--ska header {
     position: relative;
-    top: auto;
-    right: auto;
-    width: auto;
-    min-height: 0;
-    margin: 1.1rem 1.2rem 1.6rem;
-    transform: rotate(0.6deg);
+    align-self: flex-start;
+    padding: 0.58rem 0.8rem 0.48rem;
+    border-left: 4px solid #b7136b;
+    background: rgba(8, 15, 14, 0.88);
+    box-shadow: 5px 5px 0 rgba(180, 19, 107, 0.22);
   }
 
-  .about-card--malena .malena-dossier__stamp {
-    margin-bottom: 0.7rem;
+  .about-card--ska header p {
+    color: #e0b85e;
+    font-size: clamp(0.68rem, 0.76vw, 0.82rem);
+    letter-spacing: 0.16em;
   }
 
-  .about-card--malena .malena-profile p {
-    font-size: 0.82rem;
+  .about-card--ska header h2 {
+    margin-top: 0.28rem;
+    color: #f0e2c3;
+    font-size: clamp(1.05rem, 1.45vw, 1.5rem);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .about-card--malena .malena-dossier {
-    transform: translateY(-43%);
+  .about-card--ska .ska-brand > img {
+    width: clamp(210px, 20vw, 292px);
+    max-height: 30vh;
+    margin-top: clamp(1rem, 2.4vh, 1.8rem);
+    margin-left: clamp(0.35rem, 1vw, 1rem);
+    filter: contrast(1.13) drop-shadow(2px 3px 0 rgba(183, 19, 107, 0.2));
+    mix-blend-mode: multiply;
   }
-}
 
-/* 08 — Keep the timeline legible as the closing project record. */
-.about-card--journey {
-  background:
-    radial-gradient(circle at 84% 18%, rgba(169, 28, 112, 0.13), transparent 26%),
-    linear-gradient(115deg, #081210, #161012);
+  .about-card--ska .ska-profile {
+    z-index: 3;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    display: grid;
+    max-width: 64rem;
+    padding: clamp(1rem, 2.4vw, 2.2rem) clamp(1rem, 2.7vw, 2.6rem);
+    border: 0;
+    color: #201d18;
+    background:
+      radial-gradient(ellipse at 38% 50%, rgba(239, 225, 191, 0.78) 0 30%, rgba(232, 214, 176, 0.5) 56%, transparent 82%);
+  }
+
+  .about-card--ska .ska-overview {
+    max-width: 59ch;
+    padding: 0 0 clamp(1rem, 2vh, 1.55rem);
+    border-bottom: 1px dashed rgba(80, 57, 45, 0.52);
+    color: #29251e;
+    font-size: clamp(0.92rem, 1.12vw, 1.13rem) !important;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .about-card--ska .ska-producer {
+    max-width: 62ch;
+    padding-top: clamp(1rem, 2.1vh, 1.6rem);
+    border: 0;
+  }
+
+  .about-card--ska .ska-producer::before {
+    content: 'RESPALDO INDUSTRIAL / 01';
+    display: block;
+    width: max-content;
+    margin-bottom: 0.62rem;
+    padding: 0.25rem 0.48rem 0.2rem;
+    color: #f2e5c8;
+    background: #08706d;
+    font: 700 clamp(0.58rem, 0.66vw, 0.7rem)/1 'Lekton', monospace;
+    letter-spacing: 0.12em;
+  }
+
+  .about-card--ska .ska-producer h3 {
+    max-width: 21ch;
+    color: #191713;
+    font-size: clamp(1.65rem, 2.55vw, 2.75rem);
+    text-shadow: none;
+  }
+
+  .about-card--ska .ska-producer__role {
+    margin-top: 0.55rem !important;
+    color: #82204f !important;
+    font-size: clamp(0.68rem, 0.78vw, 0.82rem) !important;
+  }
+
+  .about-card--ska .ska-producer > p:last-child {
+    max-width: 57ch;
+    margin-top: clamp(0.72rem, 1.3vh, 1rem) !important;
+    color: #27231d;
+    font-size: clamp(0.84rem, 0.98vw, 1rem);
+  }
+
+  .about-card--ska .ska-producer > p:last-child strong {
+    display: inline;
+    padding: 0.08em 0.16em;
+    color: #161410;
+    background: linear-gradient(transparent 54%, rgba(218, 167, 51, 0.7) 54% 92%, transparent 92%);
+    font-weight: 800;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .about-card--ska .ska-credits {
+    z-index: 3;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.65rem, 1.5vw, 1.45rem);
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .about-card--ska .ska-credits li {
+    position: relative;
+    min-width: clamp(7.5rem, 12vw, 11rem);
+    padding: 0.58rem 0.78rem 0.5rem;
+    border: 1px solid rgba(230, 209, 164, 0.58);
+    color: #f0dfbb;
+    background: rgba(8, 15, 14, 0.84);
+    font-size: clamp(0.76rem, 0.92vw, 0.98rem);
+    text-align: center;
+    box-shadow: 4px 4px 0 rgba(183, 19, 107, 0.26);
+  }
+
+  .about-card--ska .ska-credits li:nth-child(even) {
+    transform: translateY(0.24rem) rotate(0.6deg);
+    box-shadow: 4px 4px 0 rgba(8, 112, 109, 0.32);
+  }
+
+  .about-card--ska .ska-credits li:nth-child(odd) {
+    transform: rotate(-0.5deg);
+  }
+
+  .about-card--ska .ska-credits li + li {
+    border-left: 1px solid rgba(230, 209, 164, 0.58);
+  }
 }
