@@ -1,0 +1,65 @@
+name: One-time current info sync
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/_sync-current-info-audit.yml'
+permissions:
+  contents: write
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync approved current facts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          replacements = {
+            'sobre.html': [
+              ('<p class="section-role">Producción ejecutiva</p>', '<p class="section-role">Producción</p>'),
+              ('<p>Productora ejecutiva. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.</p>', '<p>Productora. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.</p>'),
+              ('<p class="section-role">Coproductora uruguaya</p>', '<p class="section-role">Productora uruguaya</p>'),
+            ],
+            'dossier-en.html': [
+              ('teaser in production', 'teaser completed'),
+              ('35–44 + Spanish-speaking audiences with cultural affinity.', '35–55 + Spanish-speaking audiences with cultural affinity.'),
+              ('<p class="section-role">Executive producer</p>', '<p class="section-role">Producer</p>'),
+              ('<p>Executive producer. She coordinates development, production organization and relationships with partners, institutions and professional forums.</p>', '<p>Producer. She coordinates development, production organization and relationships with partners, institutions and professional forums.</p>'),
+              ('Uruguayan coproducer', 'Uruguayan production company'),
+            ],
+            'english.html': [
+              ('01 / 07 — PROJECT', '01 / 08 — PROJECT'),
+            ],
+            'README.md': [
+              ('**Producción ejecutiva:** Malena Benavides.', '**Productora:** Malena Benavides.'),
+              ('**Coproducción uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.', '**Productora uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.'),
+              ('Con la coproducción uruguaya ya vinculada, la prioridad es encontrar un socio internacional', 'Con SKA Films como productora uruguaya, la prioridad es encontrar un socio internacional'),
+              ('- Coproducción uruguaya con SKA Films.', '- Productora uruguaya: SKA Films.'),
+            ],
+            'SITE_CONTENT_SOURCE.md': [
+              ('Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, coproducción uruguaya', 'Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, productora uruguaya'),
+              ('- Teaser en producción', '- Teaser realizado'),
+              ('Coproductora uruguaya', 'Productora uruguaya'),
+            ],
+          }
+          for filename, pairs in replacements.items():
+              p = Path(filename)
+              text = p.read_text(encoding='utf-8')
+              original = text
+              for old, new in pairs:
+                  text = text.replace(old, new)
+              if text != original:
+                  p.write_text(text, encoding='utf-8')
+                  print(f'updated {filename}')
+              else:
+                  print(f'no changes needed {filename}')
+          PY
+          rm -f .github/workflows/_sync-current-info-audit.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sobre.html dossier-en.html english.html README.md SITE_CONTENT_SOURCE.md .github/workflows/_sync-current-info-audit.yml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Sync current project facts across public materials [skip ci]'
+          git push
