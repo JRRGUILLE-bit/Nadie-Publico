@@ -9,7 +9,23 @@
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/favicon.ico" sizes="any" />
     <link rel="icon" href="assets/ntdqiasa-flame-favicon-assets/ntdqiasa-flame-favicon-32.png" type="image/png" />
     <link rel="stylesheet" href="project-page.css?v=2" />
-    <link rel="stylesheet" href="video.css?v=1" />
+    <link rel="stylesheet" href="video.css?v=2" />
+    <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+        background: #101b18 url('assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg') center center / cover fixed no-repeat;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.58);
+        z-index: 0;
+        pointer-events: none;
+      }
+      main { position: relative; z-index: 1; }
+    </style>
   </head>
   <body>
     <main>
