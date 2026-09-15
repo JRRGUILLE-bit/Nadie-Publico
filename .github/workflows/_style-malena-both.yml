@@ -1,0 +1,100 @@
+name: Style Malena profiles in Spanish and English
+
+on:
+  push:
+    paths:
+      - '.github/workflows/_style-malena-both.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update both Malena profiles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          css_link = '    <link rel="stylesheet" href="malena-slide.css?v=1" />\n'
+
+          en = Path('english.html')
+          text = en.read_text(encoding='utf-8')
+          if 'malena-slide.css?v=1' not in text:
+              marker = '    <link rel="stylesheet" href="responsive-guard.css?v=3" />\n'
+              if marker not in text:
+                  raise SystemExit('English CSS insertion marker not found')
+              text = text.replace(marker, marker + css_link, 1)
+
+          old_en = '''            <article class="about-card about-card--malena about-card--creators" id="about-malena" data-about-slide data-slide-key="malena"><h2 tabindex="-1">PRODUCTION</h2><div class="malena-profile"><p>Malena Benavides is the producer of <em>Nadie te dijo que iba a ser así</em>. Her work connects project development, production organization and relationships with creators, partners and professional spaces.</p><p>She trained at Universidad Católica del Uruguay and works in the audiovisual field. She produced the documentary <em>Tumbero</em> and currently works with Pardelion Films. On <em>Nadie te dijo que iba a ser así</em>, she supports the project through its development and path toward production.</p></div></article>'''
+          new_en = '''            <article class="about-card about-card--malena" id="about-malena" data-about-slide data-slide-key="malena">
+              <div class="malena-copy">
+                <header class="malena-heading"><p>PRODUCTION</p><h2 tabindex="-1">MALENA BENAVIDES</h2><span>PRODUCER</span></header>
+                <div class="malena-profile">
+                  <p>Malena Benavides is the producer of <em>Nadie te dijo que iba a ser así</em>. Her work connects project development, production organization and relationships with creators, partners and professional spaces.</p>
+                  <p>She trained at Universidad Católica del Uruguay and works in the audiovisual field. She produced the documentary <em>Tumbero</em> and currently works with Pardelion Films.</p>
+                </div>
+              </div>
+              <aside class="malena-dossier" aria-label="Production profile">
+                <div class="malena-dossier__stamp">PRODUCTION FILE</div>
+                <div class="malena-dossier__line"><span>ROLE</span><strong>PRODUCER</strong></div>
+                <div class="malena-dossier__line"><span>PREVIOUS WORK</span><strong>TUMBERO</strong></div>
+                <div class="malena-dossier__line"><span>CURRENTLY</span><strong>PARDELION FILMS</strong></div>
+                <div class="malena-dossier__mark">NB</div>
+              </aside>
+            </article>'''
+          if old_en not in text:
+              raise SystemExit('English Malena block not found')
+          text = text.replace(old_en, new_en, 1)
+          en.write_text(text, encoding='utf-8')
+
+          es = Path('sobre.html')
+          text = es.read_text(encoding='utf-8')
+          if 'malena-slide.css?v=1' not in text:
+              marker = '    <link rel="stylesheet" href="sobre-visual.css?v=2" />\n'
+              if marker not in text:
+                  raise SystemExit('Spanish CSS insertion marker not found')
+              text = text.replace(marker, marker + css_link, 1)
+
+          old_es = '''            <section class="team-card team-card--producer" aria-labelledby="malena-benavides">
+              <h3 id="malena-benavides">Malena Benavides</h3>
+              <p class="section-role">Producción</p>
+              <p>Productora. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.</p>
+              <p>También produjo el documental Tumbero. En este proyecto ordena prioridades y sostiene las condiciones concretas necesarias para avanzar hacia la producción.</p>
+            </section>'''
+          new_es = '''            <section class="team-card team-card--malena-feature" aria-labelledby="malena-benavides">
+              <div class="malena-team-copy">
+                <p class="section-role">PRODUCCIÓN</p>
+                <h3 id="malena-benavides">Malena Benavides</h3>
+                <p class="section-role">Productora</p>
+                <p>Productora de <em>Nadie te dijo que iba a ser así</em>. Coordina el desarrollo, la organización de producción y el vínculo con aliados, instituciones y espacios profesionales.</p>
+                <p>También produjo el documental <em>Tumbero</em> y actualmente trabaja con Pardelion Films.</p>
+              </div>
+              <aside class="malena-team-dossier" aria-label="Ficha de producción">
+                <div class="malena-team-dossier__stamp">FICHA DE PRODUCCIÓN</div>
+                <div class="malena-team-dossier__line"><span>ROL</span><strong>PRODUCTORA</strong></div>
+                <div class="malena-team-dossier__line"><span>TRABAJO ANTERIOR</span><strong>TUMBERO</strong></div>
+                <div class="malena-team-dossier__line"><span>ACTUALMENTE</span><strong>PARDELION FILMS</strong></div>
+                <div class="malena-team-dossier__mark">NB</div>
+              </aside>
+            </section>'''
+          if old_es not in text:
+              raise SystemExit('Spanish Malena block not found')
+          text = text.replace(old_es, new_es, 1)
+          es.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Remove one-time workflow
+        run: rm .github/workflows/_style-malena-both.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add english.html sobre.html malena-slide.css .github/workflows/_style-malena-both.yml
+          git commit -m "Style Malena production profile in both languages" || exit 0
+          git push
