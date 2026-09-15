@@ -1,0 +1,33 @@
+name: Fix production slide stylesheet
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-production-css.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Malena stylesheet to Spanish page and bump cache version
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for name in ('index.html', 'english.html'):
+              p = Path(name)
+              s = p.read_text()
+              s = s.replace('href="malena-slide.css?v=1"', 'href="malena-slide.css?v=2"')
+              if name == 'index.html' and 'href="malena-slide.css?v=2"' not in s:
+                  needle = '    <link rel="stylesheet" href="responsive-guard.css?v=3" />'
+                  s = s.replace(needle, needle + '\n    <link rel="stylesheet" href="malena-slide.css?v=2" />')
+              p.write_text(s)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html english.html
+          git diff --cached --quiet || git commit -m 'Load production slide styling on both languages'
+          git push
