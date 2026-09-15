@@ -126,7 +126,7 @@ Montevideo, Uruguay · Español
 
 # PROJECT STATUS
 
-> Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, coproducción uruguaya
+> Piloto completo · temporada estructurada · Málaga Talent · DETOUR Montevideo Cine LAB · Premio Teaser · FIC · teaser realizado · SKA Films, productora uruguaya
 
 **Available development materials**
 
@@ -136,7 +136,7 @@ Montevideo, Uruguay · Español
 - Escaleta completa de temporada
 - Tratamiento visual
 - Materiales de presentación
-- Teaser en producción
+- Teaser realizado
 
 ---
 
@@ -178,7 +178,7 @@ Cocreador · coguionista · desarrollo creativo
 # SKA FILMS
 
 **Role**  
-Coproductora uruguaya
+Productora uruguaya
 
 **Source copy currently available**
 

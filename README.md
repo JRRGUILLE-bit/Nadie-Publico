@@ -4,8 +4,8 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 
 **Creada y escrita por Maite Piñeyrúa Segura y Guillermo Barbeito Rodríguez.**  
 **Dirección:** Maite Piñeyrúa Segura.  
-**Producción ejecutiva:** Malena Benavides.  
-**Coproducción uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.
+**Productora:** Malena Benavides.  
+**Productora uruguaya:** SKA Films / Ignacio “Nacho” Jaunsolo.
 
 [Ver sitio público](https://jrrguille-bit.github.io/Nadie-Publico/) · [Proyecto y equipo](https://jrrguille-bit.github.io/Nadie-Publico/sobre.html) · [English project page](https://jrrguille-bit.github.io/Nadie-Publico/dossier-en.html)
 
@@ -13,7 +13,7 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 
 Cuando un robo de oro ligado a la dictadura irrumpe en su vida cotidiana, tres jóvenes de Ciudad Vieja quedan atrapados en una trama política donde cada salida los compromete un poco más.
 
-El sitio está planteado como herramienta de mercado para continuar conversaciones profesionales sin publicar materiales sensibles. Con la coproducción uruguaya ya vinculada, la prioridad es encontrar un socio internacional —plataforma, broadcaster, comprador, distribuidor, sales agent o coproductor— que fortalezca la financiación y, especialmente, construya una vía concreta de distribución y circulación internacional.
+El sitio está planteado como herramienta de mercado para continuar conversaciones profesionales sin publicar materiales sensibles. Con SKA Films como productora uruguaya, la prioridad es encontrar un socio internacional —plataforma, broadcaster, comprador, distribuidor, sales agent o coproductor— que fortalezca la financiación y, especialmente, construya una vía concreta de distribución y circulación internacional.
 
 ## Recorrido
 
@@ -21,7 +21,7 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 - DETOUR Series Lab.
 - Premio Teaser DETOUR.
 - Campus Málaga Talent 2025.
-- Coproducción uruguaya con SKA Films.
+- Productora uruguaya: SKA Films.
 
 ## Qué demuestra este repositorio
 
