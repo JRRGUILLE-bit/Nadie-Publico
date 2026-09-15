@@ -1,0 +1,62 @@
+name: Sync current project info
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/_sync-current-info.yml'
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync wording
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          replacements = {
+            'index.html': [
+              ('con coproducción de SKA Films y búsqueda de socio internacional', 'con SKA Films como productora uruguaya y búsqueda de socio internacional'),
+              ('Coproducción con SKA Films; búsqueda activa de financiación y distribución internacional.', 'SKA Films como productora uruguaya; búsqueda activa de financiación y distribución internacional.'),
+              ('Coproducción: SKA Films. Buscamos financiación y distribución internacional.', 'Productora uruguaya: SKA Films. Buscamos financiación y distribución internacional.'),
+              ('teaser en producción · SKA Films, coproducción uruguaya', 'teaser realizado · SKA Films, productora uruguaya'),
+            ],
+            'sobre.html': [
+              ('con coproducción de SKA Films.', 'con SKA Films como productora uruguaya.'),
+              ('Coproducción con SKA Films; búsqueda activa de socio internacional para financiación y distribución.', 'SKA Films como productora uruguaya; búsqueda activa de socio internacional para financiación y distribución.'),
+              ('Coproducción: SKA Films.', 'Productora uruguaya: SKA Films.'),
+              ('teaser realizado · SKA Films, coproducción uruguaya', 'teaser realizado · SKA Films, productora uruguaya'),
+            ],
+            'english.html': [
+              ('with SKA Films attached as coproducer and seeking international financing and distribution.', 'with SKA Films as the Uruguayan production company and seeking international financing and distribution.'),
+              ('Coproduction with SKA Films; seeking international financing and distribution.', 'SKA Films as the Uruguayan production company; seeking international financing and distribution.'),
+              ('Coproduction: SKA Films.', 'Uruguayan production company: SKA Films.'),
+              ('teaser in production · SKA Films, Uruguayan coproduction', 'teaser completed · SKA Films, Uruguayan production company'),
+              ('URUGUAYAN COPRODUCTION', 'URUGUAYAN PRODUCTION COMPANY'),
+            ],
+            'dossier-en.html': [
+              ('with SKA Films attached as coproducer.', 'with SKA Films as the Uruguayan production company.'),
+              ('SKA Films attached as coproducer; seeking an international partner for financing and distribution.', 'SKA Films as the Uruguayan production company; seeking an international partner for financing and distribution.'),
+              ('Coproduction: SKA Films.', 'Uruguayan production company: SKA Films.'),
+              ('teaser in production · SKA Films, Uruguayan coproduction', 'teaser completed · SKA Films, Uruguayan production company'),
+              ('URUGUAYAN COPRODUCTION', 'URUGUAYAN PRODUCTION COMPANY'),
+              ('Teaser in production', 'Teaser completed'),
+            ],
+          }
+          for fn, reps in replacements.items():
+              p=Path(fn); s=p.read_text()
+              for a,b in reps:
+                  s=s.replace(a,b)
+              p.write_text(s)
+          PY
+      - name: Commit and remove workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sobre.html english.html dossier-en.html
+          git commit -m 'Sync SEO and project info with current slides' || true
+          rm .github/workflows/_sync-current-info.yml
+          git add .github/workflows/_sync-current-info.yml
+          git commit -m 'Remove temporary sync workflow' || true
+          git push
