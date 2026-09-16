@@ -20,10 +20,11 @@ jobs:
           for name in ('index.html', 'english.html'):
               p = Path(name)
               s = p.read_text()
-              s = s.replace('href="malena-slide.css?v=1"', 'href="malena-slide.css?v=2"')
-              if name == 'index.html' and 'href="malena-slide.css?v=2"' not in s:
+              s = s.replace('href="malena-slide.css?v=1"', 'href="malena-slide.css?v=4"')
+              s = s.replace('href="malena-slide.css?v=2"', 'href="malena-slide.css?v=4"')
+              if name == 'index.html' and 'href="malena-slide.css?v=4"' not in s:
                   needle = '    <link rel="stylesheet" href="responsive-guard.css?v=3" />'
-                  s = s.replace(needle, needle + '\n    <link rel="stylesheet" href="malena-slide.css?v=2" />')
+                  s = s.replace(needle, needle + '\n    <link rel="stylesheet" href="malena-slide.css?v=4" />')
               p.write_text(s)
           PY
           git config user.name 'github-actions[bot]'
