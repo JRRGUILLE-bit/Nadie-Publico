@@ -9,10 +9,10 @@
   padding: clamp(34px, 5vw, 72px) !important;
   overflow: hidden;
   isolation: isolate;
-  background: #090807 !important;
+  background: #101512 !important;
 }
-.about-card--malena::before { content:""; position:absolute; inset:0; z-index:-2; background:linear-gradient(90deg,rgba(5,5,4,.98) 0%,rgba(5,5,4,.88) 42%,rgba(5,5,4,.58) 100%),url("assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png") center/cover no-repeat; transform:scale(1.02); }
-.about-card--malena::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(135deg,rgba(255,255,255,.045),transparent 32%,rgba(255,255,255,.015) 70%,transparent); pointer-events:none; }
+.about-card--malena::before { content:""; position:absolute; inset:0; z-index:-2; background:#101512; }
+.about-card--malena::after { content:none; }
 .malena-copy { align-self:center; max-width:680px; }
 .malena-heading p { margin:0 0 12px; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; opacity:.62; }
 .malena-heading h2 { margin:0; font-size:clamp(2.1rem,5vw,4.8rem); line-height:.94; letter-spacing:-.035em; }
@@ -45,9 +45,7 @@
   box-sizing: border-box;
   align-self: stretch;
   height: 100%;
-  background:
-    linear-gradient(90deg, rgba(5,5,4,.98) 0%, rgba(5,5,4,.88) 42%, rgba(5,5,4,.58) 100%),
-    url("assets/images/a_full_frame_close_up_flat_lay_of_a_textured_backg_1.png") center/cover no-repeat !important;
+  background: #101512 !important;
 }
 
 /* The Spanish production card predates the two-column English markup. Normalize it visually
