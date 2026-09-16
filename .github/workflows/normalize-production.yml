@@ -25,7 +25,7 @@ jobs:
 
           for path in (spanish, english):
               text = path.read_text(encoding='utf-8')
-              text = re.sub(r'malena-slide\\.css\\?v=\\d+', 'malena-slide.css?v=4', text)
+              text = re.sub(r'malena-slide\.css\?v=\d+', 'malena-slide.css?v=4', text)
               path.write_text(text, encoding='utf-8')
 
           text = spanish.read_text(encoding='utf-8')
