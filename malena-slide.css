@@ -11,15 +11,6 @@
   isolation: isolate;
   background: #101512 !important;
 }
-.about-card--malena::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  opacity: 0.17;
-  background-image: linear-gradient(90deg, transparent 0 3%, rgba(245, 230, 195, 0.08) 3.08%, transparent 3.16%), radial-gradient(circle, rgba(239, 225, 193, 0.24) 0 0.45px, transparent 0.8px);
-  background-size: 100% 100%, 8px 8px;
-}
 .malena-copy { align-self:center; max-width:680px; }
 .malena-heading p { margin:0 0 12px; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; opacity:.62; }
 .malena-heading h2 { margin:0; font-size:clamp(2.1rem,5vw,4.8rem); line-height:.94; letter-spacing:-.035em; }
