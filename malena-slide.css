@@ -1,0 +1,8 @@
+/* Production placeholder: exact same background as the CREATORS card, with no text or content. */
+.about-card--malena {
+  background: radial-gradient(circle at 50% 105%, rgba(19, 108, 103, 0.22), transparent 34%), linear-gradient(115deg, #081310, #171013);
+}
+
+.about-card--malena > * {
+  display: none !important;
+}
