@@ -1,23 +1,39 @@
-/* PRODUCCIÓN — solo la misma imagen de fondo usada en CREADORES. */
+/* PRODUCCIÓN — únicamente la imagen 90e10c... a pantalla completa. */
 .about-card--malena {
+  position: relative !important;
   display: block !important;
-  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
   padding: 0 !important;
-  margin: 0;
   border: 0 !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
-  background: url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center / cover no-repeat !important;
+  background: url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center center / cover no-repeat !important;
   color: transparent !important;
-  isolation: isolate;
+  overflow: hidden !important;
+  isolation: isolate !important;
 }
 
-/* La slide queda completamente limpia: solo se ve la imagen. */
-.about-card--malena > * {
-  display: none !important;
-}
-
+/* No hay capas, gradientes, texturas ni contenido sobre la imagen. */
 .about-card--malena::before,
-.about-card--malena::after {
-  content: none !important;
+.about-card--malena::after,
+.about-card--malena > *,
+.about-card--malena * {
   display: none !important;
+  visibility: hidden !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+@media (max-width: 720px) {
+  .about-card--malena {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    background: url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center center / cover no-repeat !important;
+  }
 }
