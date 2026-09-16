@@ -20,16 +20,18 @@
 
 .about-card--malena .malena-copy {
   position: absolute !important;
-  left: 7% !important;
-  bottom: 8% !important;
+  left: 50% !important;
+  bottom: 50% !important;
+  transform: translate(-50%, 50%) !important;
   z-index: 2 !important;
-  width: min(58%, 760px) !important;
+  width: min(68%, 820px) !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
   color: #e9e3d3 !important;
+  text-align: center !important;
 }
 
 .about-card--malena .malena-heading,
@@ -66,7 +68,7 @@
 }
 
 .about-card--malena .malena-profile p {
-  margin: 0 0 .9rem !important;
+  margin: 0 auto .9rem !important;
   max-width: 62ch;
   font-size: clamp(.9rem, 1.2vw, 1.05rem);
   line-height: 1.45;
@@ -78,8 +80,9 @@
 
 @media (max-width: 720px) {
   .about-card--malena .malena-copy {
-    left: 7% !important;
-    bottom: 7% !important;
-    width: 86% !important;
+    left: 50% !important;
+    bottom: 50% !important;
+    transform: translate(-50%, 50%) !important;
+    width: 88% !important;
   }
 }
