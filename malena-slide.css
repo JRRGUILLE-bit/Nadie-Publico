@@ -1,4 +1,4 @@
-/* Malena Benavides — production slide shared by ES/EN */
+/* Malena Benavides — shared production slide, intentionally identical in ES/EN */
 .about-card--malena {
   position: relative;
   display: grid !important;
@@ -12,17 +12,49 @@
   padding: clamp(34px, 5vw, 72px) !important;
   overflow: hidden;
   isolation: isolate;
-  /* Intentionally identical to the CREATORS slide background. */
-  background: radial-gradient(circle at 50% 105%, rgba(19, 108, 103, 0.22), transparent 34%), linear-gradient(115deg, #081310, #171013) !important;
+  /* Same background as CREATORS. */
+  background: radial-gradient(circle at 50% 105%, rgba(19, 108, 103, .22), transparent 34%), linear-gradient(115deg, #081310, #171013) !important;
 }
 
+/* Spanish legacy markup and English enriched markup use one visual system. */
+.about-card--malena.about-card--creators { background: radial-gradient(circle at 50% 105%, rgba(19, 108, 103, .22), transparent 34%), linear-gradient(115deg, #081310, #171013) !important; }
 .malena-copy { align-self: center; max-width: 680px; }
 .malena-heading p { margin: 0 0 12px; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; opacity: .62; }
 .malena-heading h2 { margin: 0; font-size: clamp(2.1rem, 5vw, 4.8rem); line-height: .94; letter-spacing: -.035em; }
 .malena-heading span { display: block; margin-top: 14px; font-size: .82rem; letter-spacing: .2em; text-transform: uppercase; opacity: .72; }
+
+/* Spanish title is normalized to the same hierarchy as English without changing other slides. */
+html[lang="es-UY"] .about-card--malena > h2 {
+  grid-column: 1;
+  align-self: center;
+  margin: 0 0 -5.5rem;
+  font-size: 0;
+  line-height: .94;
+}
+html[lang="es-UY"] .about-card--malena > h2::before {
+  content: "PRODUCCIÓN";
+  display: block;
+  margin-bottom: 12px;
+  font-size: .72rem;
+  line-height: 1.2;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: .62;
+}
+html[lang="es-UY"] .about-card--malena > h2::after {
+  content: "MALENA BENAVIDES\A PRODUCTORA";
+  display: block;
+  white-space: pre;
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+  line-height: .94;
+  letter-spacing: -.035em;
+}
+
 .malena-profile { margin-top: clamp(28px, 4vw, 46px); max-width: 610px; }
 .malena-profile p { margin: 0 0 18px; font-size: clamp(.95rem, 1.35vw, 1.12rem); line-height: 1.65; color: rgba(255,255,255,.82); }
+html[lang="es-UY"] .about-card--malena > .malena-profile { grid-column: 1; grid-row: 1; align-self: center; margin-top: clamp(112px, 11vw, 148px); }
 
+/* The production facts panel uses the same editorial-sheet language as CREATORS. */
 .malena-dossier {
   align-self: center;
   justify-self: end;
@@ -38,7 +70,27 @@
 .malena-dossier__line strong { font-size: .92rem; letter-spacing: .05em; font-weight: 700; }
 .malena-dossier__mark { margin-top: 28px; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: .8; font-weight: 700; letter-spacing: -.08em; opacity: .16; }
 
+/* Spanish gets the same facts panel from the existing Malena data. */
+html[lang="es-UY"] .about-card--malena::after {
+  content: "FICHA DE PRODUCCIÓN\A\A ROL\A PRODUCTORA\A\A TRABAJO PREVIO\A TUMBERO\A\A ACTUALMENTE\A PARDELION FILMS\A\A MB";
+  white-space: pre-line;
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 360px);
+  box-sizing: border-box;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(214, 193, 150, .24);
+  background: linear-gradient(135deg, rgba(231, 215, 180, .10), rgba(231, 215, 180, .035));
+  box-shadow: 7px 7px 0 rgba(18, 109, 104, .18);
+  font-size: .82rem;
+  line-height: 1.45;
+  letter-spacing: .08em;
+}
+
 @media (max-width: 760px) {
   .about-card--malena { grid-template-columns: 1fr; }
-  .malena-dossier { justify-self: stretch; width: auto; }
+  .malena-dossier,
+  html[lang="es-UY"] .about-card--malena::after { justify-self: stretch; width: auto; }
+  html[lang="es-UY"] .about-card--malena > h2 { grid-row: 1; margin: 0; }
+  html[lang="es-UY"] .about-card--malena > .malena-profile { grid-row: 2; margin-top: 28px; }
 }
