@@ -38,7 +38,7 @@
 .malena-team-dossier__mark { margin-top:20px; font-size:3rem; line-height:.8; font-weight:700; letter-spacing:-.08em; opacity:.14; }
 @media (max-width:760px) { .about-card--malena,.team-card--malena-feature { grid-template-columns:1fr; } .malena-dossier,.malena-team-dossier { justify-self:stretch; width:auto; margin:0 clamp(28px,4vw,48px) clamp(28px,4vw,48px); } }
 
-/* Production slide normalization: the artwork belongs to the whole card, not to a content fragment. */
+/* Production slide normalization */
 .about-card--malena {
   box-sizing: border-box;
   align-self: stretch;
@@ -46,8 +46,6 @@
   background: #101512 !important;
 }
 
-/* The Spanish production card predates the two-column English markup. Normalize it visually
-   to the same two-column treatment without changing its Spanish copy. */
 .about-card--malena:not(:has(.malena-dossier)) {
   grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr);
 }
@@ -66,26 +64,6 @@
   margin-top: clamp(92px, 9vw, 126px);
   max-width: 610px;
 }
-.about-card--malena:not(:has(.malena-dossier))::after {
-  content: "PRODUCTION FILE\A\A ROLE\A PRODUCER\A\A PREVIOUS WORK\A TUMBERO\A\A CURRENTLY\A PARDELION FILMS\A\A NB";
-  white-space: pre-line;
-  position: absolute;
-  inset: auto clamp(22px,3vw,34px) auto auto;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  width: min(100%,360px);
-  padding: clamp(22px,3vw,34px);
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(8,8,7,.72);
-  box-shadow: 0 24px 70px rgba(0,0,0,.38);
-  backdrop-filter: blur(8px);
-  font-size: .78rem;
-  line-height: 1.7;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  opacity: .82;
-}
 
 @media (max-width:760px) {
   .about-card--malena:not(:has(.malena-dossier)) {
@@ -102,15 +80,5 @@
   .about-card--malena:not(:has(.malena-dossier)) > .malena-profile {
     grid-row: 2;
     margin-top: 28px;
-  }
-  .about-card--malena:not(:has(.malena-dossier))::after {
-    position: relative;
-    inset: auto;
-    top: auto;
-    transform: none;
-    grid-column: 1;
-    grid-row: 3;
-    width: auto;
-    margin: 0;
   }
 }
