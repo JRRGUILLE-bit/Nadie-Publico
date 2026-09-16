@@ -35,30 +35,12 @@
           <h1>Teaser</h1>
         </header>
 
-        <section class="video-frame" aria-label="Video de YouTube">
-          <div id="youtube-container" class="youtube-container">
-            <div class="video-placeholder">
-              <span>TEASER</span>
-              <strong>Próximamente</strong>
-            </div>
+        <section class="video-frame" aria-label="Video de Vimeo">
+          <div class="youtube-container">
+            <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1227194215?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="nadie_te_dijo_que_iba_a_ser_asi_-_teaser (2160p)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
           </div>
         </section>
       </article>
     </main>
-
-    <script>
-      const YOUTUBE_VIDEO_ID = 'SgO-wqR0vPI';
-
-      if (YOUTUBE_VIDEO_ID) {
-        const container = document.getElementById('youtube-container');
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(YOUTUBE_VIDEO_ID)}`;
-        iframe.title = 'Nadie te dijo que iba a ser así — Teaser';
-        iframe.loading = 'lazy';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.allowFullscreen = true;
-        container.replaceChildren(iframe);
-      }
-    </script>
   </body>
 </html>
