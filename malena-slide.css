@@ -1,39 +1,85 @@
-/* PRODUCCIÓN — únicamente la imagen 90e10c... a pantalla completa. */
 .about-card--malena {
   position: relative !important;
   display: block !important;
   width: 100% !important;
   height: 100% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
-  border-radius: 0 !important;
   box-shadow: none !important;
   background: url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center center / cover no-repeat !important;
-  color: transparent !important;
+  color: #e9e3d3 !important;
   overflow: hidden !important;
-  isolation: isolate !important;
 }
 
-/* No hay capas, gradientes, texturas ni contenido sobre la imagen. */
 .about-card--malena::before,
-.about-card--malena::after,
-.about-card--malena > *,
-.about-card--malena * {
+.about-card--malena::after {
   display: none !important;
-  visibility: hidden !important;
-  background: none !important;
-  box-shadow: none !important;
+  content: none !important;
+}
+
+.about-card--malena .malena-copy {
+  position: absolute !important;
+  left: 7% !important;
+  bottom: 8% !important;
+  z-index: 2 !important;
+  width: min(58%, 760px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
   border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #e9e3d3 !important;
+}
+
+.about-card--malena .malena-heading,
+.about-card--malena .malena-heading > *,
+.about-card--malena .malena-profile,
+.about-card--malena .malena-profile > * {
+  display: block !important;
+  visibility: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.about-card--malena .malena-heading p {
+  margin: 0 0 .4rem !important;
+  font-size: .8rem;
+  letter-spacing: .18em;
+}
+
+.about-card--malena .malena-heading h2 {
+  margin: 0 !important;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: .92;
+}
+
+.about-card--malena .malena-heading span {
+  margin-top: .5rem !important;
+  font-size: .9rem;
+  letter-spacing: .16em;
+}
+
+.about-card--malena .malena-profile {
+  margin-top: 1.5rem !important;
+}
+
+.about-card--malena .malena-profile p {
+  margin: 0 0 .9rem !important;
+  max-width: 62ch;
+  font-size: clamp(.9rem, 1.2vw, 1.05rem);
+  line-height: 1.45;
+}
+
+.about-card--malena .malena-dossier {
+  display: none !important;
 }
 
 @media (max-width: 720px) {
-  .about-card--malena {
-    width: 100% !important;
-    height: 100% !important;
-    padding: 0 !important;
-    background: url('90e10c94-859b-43c2-b4cc-65353aa5f1d1.png') center center / cover no-repeat !important;
+  .about-card--malena .malena-copy {
+    left: 7% !important;
+    bottom: 7% !important;
+    width: 86% !important;
   }
 }
