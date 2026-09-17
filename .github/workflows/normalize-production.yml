@@ -26,12 +26,24 @@ jobs:
               updated = re.sub(r'malena-slide\.css\?v=\d+', 'malena-slide.css?v=4', text)
               path.write_text(updated, encoding='utf-8')
 
+      - name: Add GoatCounter to industry dossier
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('sobre.html')
+          text = path.read_text(encoding='utf-8')
+          snippet = '<script data-goatcounter="https://jrrguille.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+          if 'jrrguille.goatcounter.com/count' not in text:
+              text = text.replace('</head>', f'  {snippet}\n</head>', 1)
+              path.write_text(text, encoding='utf-8')
+
       - name: Commit normalized production stylesheet version
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html english.html
+          git config user.email "41898282+github-actions[bot].g>users.noreply.github.com"
+          git add index.html english.html sobre.html
           git diff --cached --quiet && exit 0
-          git commit -m "[production-normalized] Use production stylesheet v4"
+          git commit -m "[production-normalized] Add GoatCounter to industry dossier"
           git push
