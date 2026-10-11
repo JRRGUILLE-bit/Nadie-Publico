@@ -1,0 +1,7 @@
+# Internal production notes are not part of the public website.
+/TODO.md
+/SITE_CONTENT_SOURCE.md
+/MALENA_BENAVIDES_TEXT_BACKUP.md
+/codex/
+/.github/workflows/fix-production-css.yml
+/.github/workflows/normalize-production.yml
