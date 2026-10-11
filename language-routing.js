@@ -47,6 +47,14 @@
     return;
   }
 
+  // Only the root and index.html are auto-routed. A direct visit to
+  // english.html is respected, even when a different preference was saved.
+  const isEntryPoint =
+    window.location.pathname.endsWith('/') ||
+    /\/index\.html$/i.test(window.location.pathname);
+
+  if (!isEntryPoint) return;
+
   let savedPreference = null;
   try {
     savedPreference = supportedLanguage(window.localStorage.getItem(preferenceKey));
@@ -61,14 +69,6 @@
     }
     return;
   }
-
-  // Auto-detect only on the site entry point. A direct visit to english.html
-  // is respected instead of being bounced away against the visitor's intent.
-  const isEntryPoint =
-    window.location.pathname.endsWith('/') ||
-    /\/index\.html$/i.test(window.location.pathname);
-
-  if (!isEntryPoint) return;
 
   const browserLanguages =
     Array.isArray(window.navigator.languages) && window.navigator.languages.length
