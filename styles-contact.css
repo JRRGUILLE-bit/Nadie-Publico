@@ -615,7 +615,7 @@ body .contact-link--teaser .teaser-play-mark::before {
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  z-index: 1 !important;
+  z-index: -1 !important;
   display: block !important;
   padding: 1.6px !important;
   border-radius: inherit !important;
@@ -643,16 +643,7 @@ body .contact-link--teaser .teaser-play-mark::after {
 }
 
 body .contact-link--teaser .teaser-play-mark {
-  z-index: 0;
-}
-
-body .contact-link--teaser .teaser-play-mark {
   text-shadow: 0 0 8px rgba(226, 190, 116, 0.15);
-}
-
-body .contact-link--teaser .teaser-play-mark {
-  /* Mantiene el glifo por encima del borde orbital. */
-  isolation: isolate;
 }
 
 body .contact-link--teaser span:last-child {
