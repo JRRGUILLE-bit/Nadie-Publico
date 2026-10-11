@@ -180,7 +180,7 @@ const addSkipIntroControl = () => {
   skipIntroButton.setAttribute('aria-label', 'Saltar presentación y mostrar la portada completa');
   skipIntroButton.innerHTML = '<span>Saltar presentación</span><span aria-hidden="true">››</span>';
   skipIntroButton.addEventListener('click', skipPresentation);
-  splash.appendChild(skipIntroButton);
+  splash.insertBefore(skipIntroButton, splash.firstChild);
 };
 
 const typeCharacters = async (target, text) => {
