@@ -45,7 +45,6 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 - `script.js`: secuencia narrativa, controles y comportamiento de la portada.
 - `assets/`: video activo, póster, retratos y recursos gráficos.
 - `VISUAL_IDENTITY.md`: reglas visuales del proyecto.
-- Los materiales editoriales internos y prompts de trabajo no se incluyen en el árbol público actual.
 
 ## Estado
 
