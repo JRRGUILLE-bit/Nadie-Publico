@@ -19,7 +19,7 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 
 - Fondo de Incentivo Cultural.
 - Montevideo Cine LAB · DETOUR: participación en el programa de desarrollo (2025).
-- DETOUR Series Lab 2025: Premio Teaser del Festival de Cine Nuevo DETOUR.
+- DETOUR Series Lab 2025: segundo premio por el teaser.
 - Campus Málaga Talent 2025.
 - Productora uruguaya: SKA Films.
 
