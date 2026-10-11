@@ -76,3 +76,32 @@
     padding: 20px;
   }
 }
+
+
+.video-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.2rem;
+}
+.video-page-nav a {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(226, 190, 116, 0.42);
+  border-radius: 999px;
+  padding: 0.42rem 0.68rem 0.36rem;
+  color: #efe1bf;
+  background: rgba(8, 7, 5, 0.52);
+  font-family: var(--typewriter);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.video-page-nav a:hover,
+.video-page-nav a:focus-visible {
+  border-color: var(--gold);
+  background: rgba(217, 184, 113, 0.12);
+  outline: 2px solid transparent;
+}
