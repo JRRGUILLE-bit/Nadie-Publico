@@ -573,31 +573,73 @@ body.about-open .skip-intro-button {
 }
 
 
-/* Acceso al teaser: una invitación visual, integrada a la portada cinematográfica. */
+/* Acceso al teaser: mismas proporciones que los demás accesos y borde animado dorado. */
+@property --teaser-border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 body .contact-link--teaser {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.22rem;
+  gap: 0.1rem;
   color: #f0dfb8;
   text-decoration: none;
 }
 
 body .contact-link--teaser .teaser-play-mark {
+  position: relative;
+  isolation: isolate;
   display: grid;
   place-items: center;
   width: clamp(1.9rem, 3.35vw, 2.65rem);
   height: clamp(1.9rem, 3.35vw, 2.65rem);
   box-sizing: border-box;
   padding-left: 0.14em;
-  border: 1px solid rgba(226, 190, 116, 0.62);
+  border: 0;
   border-radius: 50%;
   color: #e2be74;
-  background: linear-gradient(145deg, rgba(226, 190, 116, 0.16), rgba(8, 7, 5, 0.58));
-  box-shadow: 0 0 20px rgba(226, 190, 116, 0.1), inset 0 1px 0 rgba(255, 244, 216, 0.12);
+  background: transparent;
+  box-shadow: 0 0 20px rgba(226, 190, 116, 0.1);
   font-size: clamp(0.7rem, 1.15vw, 0.9rem);
-  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+  transition: color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+body .contact-link--teaser .teaser-play-mark::before {
+  --teaser-border-angle: 0deg;
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1.6px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--teaser-border-angle),
+    rgba(226, 190, 116, 0.18) 0deg,
+    rgba(226, 190, 116, 0.18) 286deg,
+    rgba(255, 230, 166, 0.55) 307deg,
+    #fff1c9 326deg,
+    #e2be74 342deg,
+    rgba(226, 190, 116, 0.18) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: teaser-border-lap 2.35s linear infinite;
+}
+
+body .contact-link--teaser .teaser-play-mark::after {
+  content: '';
+  position: absolute;
+  inset: 1.6px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(15, 12, 9, 0.97), rgba(8, 7, 5, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 244, 216, 0.09), inset 0 0 0 1px rgba(255, 224, 149, 0.07);
 }
 
 body .contact-link--teaser span:last-child {
@@ -609,10 +651,13 @@ body .contact-link--teaser span:last-child {
 
 body .contact-link--teaser:hover .teaser-play-mark,
 body .contact-link--teaser:focus-visible .teaser-play-mark {
-  border-color: #fff1c9;
   color: #fff1c9;
-  background: rgba(226, 190, 116, 0.2);
-  transform: scale(1.06);
+  box-shadow: 0 0 28px rgba(226, 190, 116, 0.18);
+  transform: translateY(-0.08rem);
+}
+
+@keyframes teaser-border-lap {
+  to { --teaser-border-angle: 360deg; }
 }
 
 @media (max-width: 620px) {
@@ -631,6 +676,13 @@ body .contact-link--teaser:focus-visible .teaser-play-mark {
     max-width: 6rem;
     font-size: 0.47rem;
     letter-spacing: 0.015em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .contact-link--teaser .teaser-play-mark::before {
+    animation: none;
+    --teaser-border-angle: 326deg;
   }
 }
 
