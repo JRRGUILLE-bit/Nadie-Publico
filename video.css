@@ -105,3 +105,22 @@
   background: rgba(217, 184, 113, 0.12);
   outline: 2px solid transparent;
 }
+
+/* Shared poster background and overlay for all four language-specific video pages. */
+body.video-detail-page {
+  position: relative;
+  min-height: 100vh;
+  background: #101b18 url("assets/ntdqiasa_video_v5_assets/ntdqiasa_video_v5_poster.jpg") center center / cover fixed no-repeat;
+}
+body.video-detail-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: 0;
+  pointer-events: none;
+}
+body.video-detail-page main {
+  position: relative;
+  z-index: 1;
+}
