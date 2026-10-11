@@ -14,11 +14,8 @@ try {
   console.warn('Market polish: no se pudo ajustar una interacción opcional.', error);
 }
 
-// English abre una landing audiovisual independiente.
-const languageSwitch = document.querySelector('.cover-language-switch');
-if (languageSwitch?.textContent.trim().toLowerCase() === 'english') {
-  languageSwitch.href = 'english.html';
-}
+// Los enlaces de idioma conservan sus parámetros ?lang= para que
+// language-routing.js pueda guardar la preferencia manual del visitante.
 
 // La ficha de formato aparece recién al terminar toda la presentación.
 // Su geometría vive exclusivamente en CSS; responsive-guard.css es la autoridad final.
