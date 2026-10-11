@@ -11,7 +11,7 @@ Sitio público y expediente profesional de una serie uruguaya de ficción de **6
 
 ## El proyecto
 
-Cuando un robo de oro ligado a la dictadura irrumpe en su vida cotidiana, tres jóvenes de Ciudad Vieja quedan atrapados en una trama política donde cada salida los compromete un poco más.
+Entre mates, milanesas y discusiones, tres jóvenes con un pie en la adultez comparten departamento en Montevideo. Pero todo cambia tras un incendio en una oficina que los lanza, casi sin querer, a investigar un crimen olvidado, un tesoro perdido durante la dictadura y los secretos que sus propias familias intentaron enterrar.
 
 El sitio está planteado como herramienta de mercado para continuar conversaciones profesionales sin publicar materiales sensibles. Con SKA Films como productora uruguaya, la prioridad es encontrar un socio internacional —plataforma, broadcaster, comprador, distribuidor, sales agent o coproductor— que fortalezca la financiación y, especialmente, construya una vía concreta de distribución y circulación internacional.
 
@@ -45,7 +45,7 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 - `script.js`: secuencia narrativa, controles y comportamiento de la portada.
 - `assets/`: video activo, póster, retratos y recursos gráficos.
 - `VISUAL_IDENTITY.md`: reglas visuales del proyecto.
-- `TODO.md`: historial de la implementación ya completada.
+- Los materiales editoriales internos y prompts de trabajo no se incluyen en el árbol público actual.
 
 ## Estado
 
