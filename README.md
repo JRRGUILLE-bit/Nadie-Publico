@@ -49,7 +49,7 @@ El sitio está planteado como herramienta de mercado para continuar conversacion
 
 ## Estado
 
-El sitio está publicado y operativo. Los materiales de desarrollo —guion, dossier, biblia, teaser, presupuesto y plan— no son públicos y se comparten únicamente mediante solicitud profesional.
+El sitio está publicado y operativo. El guion piloto, el dossier extendido, la biblia, el presupuesto y el plan de desarrollo se comparten únicamente bajo solicitud profesional. El teaser y el video pitch disponibles en el sitio pueden consultarse directamente desde sus páginas públicas.
 
 ## Créditos y derechos
 
