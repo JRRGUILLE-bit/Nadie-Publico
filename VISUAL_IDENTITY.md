@@ -39,7 +39,7 @@ Este documento registra los elementos visuales no negociables de la web pública
 
 ## Auditoría final de la mejora pública
 
-La revisión de agosto de 2026 confirmó que:
+La revisión de octubre de 2026 confirmó que:
 
 - el video y el póster de la cafetera siguen presentes;
 - las cinco capas atmosféricas continúan activas;

@@ -18,8 +18,8 @@ try {
   if (plateSequence?.[2]) {
     plateSequence[2].lines = [
       'SUPPORT · Cultural Incentive Fund (FIC)',
-      'LAB · DETOUR Series Lab',
-      'AWARD · DETOUR Teaser Award',
+      'LAB · Montevideo Cine LAB · DETOUR',
+      'AWARD · Second Prize for the Teaser — DETOUR Series Lab 2025',
       'SELECTION · Campus Málaga Talent 2025',
     ];
   }

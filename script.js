@@ -67,8 +67,8 @@ const plateSequence = [
     className: 'plate--recognition plate--secondary',
     lines: [
       'APOYO · Fondo de Incentivo Cultural',
-      'LABORATORIO · DETOUR Series Lab',
-      'PREMIO · Premio Teaser DETOUR',
+      'LABORATORIO · Montevideo Cine LAB · DETOUR',
+      'PREMIO · Segundo premio por el teaser — DETOUR Series Lab 2025',
       'SELECCIÓN · Campus Málaga Talent 2025',
     ],
   },
