@@ -42,7 +42,14 @@
     <link rel="stylesheet" href="teaser-button-fix.css?v=2" />
     <link rel="stylesheet" href="accessibility-fixes.css?v=1" />
     <link rel="stylesheet" href="language-suggestion.css?v=1" />
-      <script data-goatcounter="https://jrrguille.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+      <script>
+      window.goatcounter = {
+        path: function () {
+          return '/nadie' + (window.location.pathname || '/') + window.location.search;
+        }
+      };
+    </script>
+    <script data-goatcounter="https://jrrguille.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </head>
   <body>
   <h1 class="visually-hidden landing-semantic-title">Nadie te dijo que iba a ser así — Uruguayan fiction series</h1>
